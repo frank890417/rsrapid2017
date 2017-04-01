@@ -16,6 +16,7 @@
                         <li class="list-group-item list-group-hover row">
                           <div class='col-sm-4'>{{$a_news->title}}</div>  
                           <div class='col-sm-2'>{{$a_news->date}}</div>
+                          <div class='col-sm-2'>{{$a_news->tag}}</div>
                           <div class='col-sm-2'>{{$a_news->updated_at}}</div>
                           <div class='col-sm-2'><a class="btn btn-default" href='{{ url('manage/news/'.$a_news->id.'/edit') }}' >編輯</a></div>
                           <div class='col-sm-2'>
