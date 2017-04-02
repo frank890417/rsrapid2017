@@ -1,30 +1,53 @@
-@extends('layouts.app')
+@extends('layouts.app_manage')
 @section('content')
-  .container
+.row
+  .col-lg-12
     .row
-      .col-sm-12
-        .panel.panel-default
-          .panel-heading 新聞管理
-          .panel-body
-            br
-            a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增新聞
-            br
-            ul.list-group
-            @foreach ($news as $a_news)
-              li.list-group-item.list-group-hover.row
-                .col-sm-4 {{$a_news->title}}
-                .col-sm-2 {{$a_news->date}}
-                .col-sm-2 {{$a_news->tag}}
-                .col-sm-2 {{$a_news->updated_at}}
-                .col-sm-1
-                  a.btn.btn-default(href!="{{ url('manage/news/'.($a_news->id).'/edit') }}") 編輯
-                .col-sm-1
-                  button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_news_{{$a_news->id}}').submit();}") 刪除
-                  form(id!='delete_news_{{$a_news->id}}', action!="{{url('manage/news/'.$a_news->id)}}", method='POST')
-                    input(type='hidden', name='_method', value='delete')
-                    input(type='hidden', name='_token', value='{{ csrf_token() }}')
-            @endforeach
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 新聞管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 新聞管理
 
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading 新聞管理
+      .panel-body
+        
+        table.table.table-hover
+          thead
+            thead
+              th 標題
+              th 日期
+              th 標籤
+              th 更新時間
+              th 編輯
+              th 刪除
+          tbody
+          @foreach ($news as $a_news)
+            tr
+              td(style="width: 30%") {{$a_news->title}}
+              td(style="width: 10%") {{$a_news->date}}
+              td(style="width: 10%") {{$a_news->tag}}
+              td {{$a_news->updated_at}}
+              td(style="width: 5%")
+                a.btn.btn-default(href!="{{ url('manage/news/'.($a_news->id).'/edit') }}") 編輯
+              td(style="width: 5%")
+                button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_news_{{$a_news->id}}').submit();}") 刪除
+                form(id!='delete_news_{{$a_news->id}}', action!="{{url('manage/news/'.$a_news->id)}}", method='POST')
+                  input(type='hidden', name='_method', value='delete')
+                  input(type='hidden', name='_token', value='{{ csrf_token() }}')
+          @endforeach
+        br
+        a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增新聞
+        br
 
 script.
   window.posts={!! $news !!};

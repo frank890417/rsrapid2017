@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class News extends Migration
+class Tech extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,15 @@ class News extends Migration
     public function up()
     {
         //
-        Schema::create('news',function($table){
+        Schema::create('teches',function($table){
 
           $table->increments('id');
-          $table->string('tag')->nullable();
-          $table->string('date')->nullable();
           $table->string('title')->nullable();
-          $table->string('cover',500)->nullable();
+          $table->string('cover')->nullable();
+          $table->string('icon')->nullable();
           $table->string('description',1000)->nullable();
+          $table->string('link',1000)->nullable();
+          $table->string('btn_text')->nullable();
           $table->text('content')->nullable();
           $table->timestamps();
 
@@ -36,6 +37,6 @@ class News extends Migration
     public function down()
     {
         //
-        Schema::drop('news');
+        Schema::drop('teches');
     }
 }

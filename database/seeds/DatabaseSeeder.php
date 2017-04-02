@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use database\seeds\NewsSeeder;
-
+use database\seeds\TechSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('NewsSeeder');
+        $this->call('TechSeeder');
         // $this->call(NewsSeeder::class);
     }
 }
