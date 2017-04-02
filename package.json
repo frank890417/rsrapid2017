@@ -14,6 +14,9 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^3.2.3",
     "jquery": "^3.1.1",
+    "laravel-blade-jade": "^2.0.3",
+    "laravel-elixir-jade": "^0.2.4",
+    "laravel-elixir-webpack-official": "^1.0.10",
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"

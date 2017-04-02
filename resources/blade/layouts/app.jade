@@ -1,0 +1,60 @@
+doctype html
+html(lang="{{ config('app.locale') }}")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // CSRF Token
+    meta(name='csrf-token', content='{{ csrf_token() }}')
+    title {{ config('app.name', 'Laravel') }}
+    // Styles
+    link(href="{{ asset('css/app.css') }}", rel='stylesheet')
+    // Scripts
+    script.
+      window.Laravel = {!! json_encode([
+      'csrfToken' => csrf_token(),
+      ]) !!};
+  body
+    #app
+      nav.navbar.navbar-default.navbar-static-top
+        .container
+          .navbar-header
+            // Collapsed Hamburger
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#app-navbar-collapse')
+              span.sr-only Toggle Navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            // Branding Image
+            a.navbar-brand(href="{{ url('/') }}")
+              | {{ config('app.name', 'Laravel') }}
+          #app-navbar-collapse.collapse.navbar-collapse
+            // Left Side Of Navbar
+            ul.nav.navbar-nav
+            // Right Side Of Navbar
+            ul.nav.navbar-nav.navbar-right
+              // Authentication Links
+              li
+                a(href="{{ url('manage/news') }}") 新聞管理
+              @if (Auth::guest())
+              li
+                a(href="{{ route('login') }}") Login
+              li
+                a(href="{{ route('register') }}") Register
+              @else
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                  | {{ Auth::user()->name }} 
+                  span.caret
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href="{{ route('logout') }}", onclick="event.preventDefault();\
+                    document.getElementById('logout-form').submit();")
+                      | Logout
+                    form#logout-form(action="{{ route('logout') }}", method='POST', style='display: none;')
+                      | {{ csrf_field() }}
+              @endif
+      @yield('content')
+    // Scripts
+    script(src="{{ asset('js/app.js') }}")
+

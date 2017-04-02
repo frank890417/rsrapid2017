@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 use App\News;
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     public function index(){
       $news = News::orderBy('id','desc')->get();

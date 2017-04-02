@@ -1,0 +1,30 @@
+@extends('layouts.app')
+@section('content')
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      .panel.panel-primary
+        .panel-heading 編輯新聞
+        .panel-body
+          form(action!="{{ isset($news)?(url('manage/news/'.$news->id)):url('manage/news/') }}", method='post')
+            input(type='hidden', name='_method', value="{{isset($news)?'put':'post'}}")
+            input(type='hidden', name='_token', value!='{{ csrf_token() }}')
+            .form-group
+              label(for='title') title
+              input#title.form-control(name='title', value!='{!! isset($news)?$news->title:"" !!}')
+            .form-group
+              label(for='tag') tag
+              input#tag.form-control(name='tag', value!='{!! isset($news)?$news->tag:"" !!}')
+            .form-group
+              label(for='date') date
+              input#date.form-control(name='date', value!='{!! isset($news)?$news->date:"" !!}')
+            .form-group
+              label(for='description') description
+              textarea#description.form-control(name='description', rows='5') {!! isset($news)?$news->description:'' !!}
+            .form-group
+              label(for='content') content
+              textarea#content.form-control(name='content', rows='15') {!! isset($news)?$news->description:'' !!}
+            .form-group
+              button.btn.btn-default.btn-md(type='submit') 儲存
+@endsection
+

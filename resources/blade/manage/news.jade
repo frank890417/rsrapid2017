@@ -1,0 +1,28 @@
+@extends('layouts.app')
+@section('content')
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        .panel.panel-default
+          .panel-heading 新聞管理
+          .panel-body
+            br
+            a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增新聞
+            br
+            ul.list-group
+            @foreach ($news as $a_news)
+              li.list-group-item.list-group-hover.row
+                .col-sm-4 {{$a_news->title}}
+                .col-sm-2 {{$a_news->date}}
+                .col-sm-2 {{$a_news->tag}}
+                .col-sm-2 {{$a_news->updated_at}}
+                .col-sm-1
+                  a.btn.btn-default(href!="{{ url('manage/news/'.($a_news->id).'/edit') }}") 編輯
+                .col-sm-1
+                  button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_news_{{$a_news->id}}').submit();}") 刪除
+                  form(id!='delete_news_{{$a_news->id}}', action!="{{url('manage/news/'.$a_news->id)}}", method='POST')
+                    input(type='hidden', name='_method', value='delete')
+                    input(type='hidden', name='_token', value='{{ csrf_token() }}')
+            @endforeach
+@endsection
+
