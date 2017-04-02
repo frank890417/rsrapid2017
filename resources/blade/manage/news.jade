@@ -2,7 +2,7 @@
 @section('content')
   .container
     .row
-      .col-md-8.col-md-offset-2
+      .col-sm-12
         .panel.panel-default
           .panel-heading 新聞管理
           .panel-body
@@ -24,5 +24,9 @@
                     input(type='hidden', name='_method', value='delete')
                     input(type='hidden', name='_token', value='{{ csrf_token() }}')
             @endforeach
-@endsection
 
+
+script.
+  window.posts={!! $news !!};
+
+@endsection

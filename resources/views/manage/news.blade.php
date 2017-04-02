@@ -2,7 +2,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-sm-12">
         <div class="panel panel-default">
           <div class="panel-heading">新聞管理</div>
           <div class="panel-body"><br/><a href="{{ url('manage/news/create') }}" class="btn btn-primary">新增新聞</a><br/>
@@ -28,4 +28,8 @@
       </div>
     </div>
   </div>
+<script>
+  window.posts={!! $news !!};
+  
+</script>
 @endsection

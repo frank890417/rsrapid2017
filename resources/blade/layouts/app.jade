@@ -27,7 +27,7 @@ html(lang="{{ config('app.locale') }}")
               span.icon-bar
             // Branding Image
             a.navbar-brand(href="{{ url('/') }}")
-              | {{ config('app.name', 'Laravel') }}
+              | 睿軒網站後台(開發中)
           #app-navbar-collapse.collapse.navbar-collapse
             // Left Side Of Navbar
             ul.nav.navbar-nav
@@ -54,7 +54,18 @@ html(lang="{{ config('app.locale') }}")
                     form#logout-form(action="{{ route('logout') }}", method='POST', style='display: none;')
                       | {{ csrf_field() }}
               @endif
-      @yield('content')
-    // Scripts
-    script(src="{{ asset('js/app.js') }}")
+    @yield('content')
+    
+    @yield('blade_pass_variables')
+    
+
+    {{-- Script BEFORE app.js --}}
+    @yield('require_js')
+    script(src="/js/app.js")
+
+    {{-- Script AFTER app.js --}}
+    @yield('require_js_after')
+
+    
+      
 

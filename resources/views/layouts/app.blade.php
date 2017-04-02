@@ -23,7 +23,7 @@
           <div class="navbar-header">
             <!-- Collapsed Hamburger -->
             <button type="button" data-toggle="collapse" data-target="#app-navbar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <!-- Branding Image --><a href="{{ url('/') }}" class="navbar-brand">{{ config('app.name', 'Laravel') }}</a>
+            <!-- Branding Image --><a href="{{ url('/') }}" class="navbar-brand">睿軒網站後台(開發中)</a>
           </div>
           <div id="app-navbar-collapse" class="collapse navbar-collapse">
             <!-- Left Side Of Navbar -->
@@ -48,9 +48,13 @@
           </div>
         </div>
       </nav>
-      @yield('content')
     </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('content')
+    @yield('blade_pass_variables')
+    {{-- Script BEFORE app.js --}}
+    @yield('require_js')
+    <script src="/js/app.js"></script>
+    {{-- Script AFTER app.js --}}
+    @yield('require_js_after')
   </body>
 </html>
