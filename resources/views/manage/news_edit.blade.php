@@ -58,6 +58,26 @@
           </select>
         </div>
         <div class="form-group">
+          <label for="size">顯示大小</label>
+          <select id="size" name="size" class="form-control">
+            @if(isset($news))
+              @if(($news->size)==1)
+                <option value="1" selected="selected">1格 口</option>
+              @else
+                <option value="1">1格 口</option>
+              @endif
+              @if(($news->size)==2)
+                <option value="2" selected="selected">2格 口口</option>
+              @else
+                <option value="2">2格 口口</option>
+              @endif
+            @else
+              <option value="1">1格 口</option>
+              <option value="2">2格 口口</option>
+            @endif
+          </select>
+        </div>
+        <div class="form-group">
           <label for="cover">封面圖片</label>
           <div class="row">
             <div class="col-sm-12"><img src="{!! isset($news)?$news->cover:"" !!}" width="100%" class="cover_preview"/></div>

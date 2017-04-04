@@ -29,6 +29,7 @@
               <th>日期</th>
               <th>標籤</th>
               <th>更新時間</th>
+              <th>顯示大小</th>
               <th>編輯</th>
               <th>刪除</th>
             </thead>
@@ -38,6 +39,7 @@
             <tr>
               <td style="width: 30%">{{$a_news->title}}</td>
               <td style="width: 10%">{{$a_news->date}}</td>
+              <td style="width: 9%">{{$a_news->size==1?'1格 口':'2格 口口'}}</td>
               <td style="width: 10%">{{$a_news->tag}}</td>
               <td>{{$a_news->updated_at}}</td>
               <td style="width: 5%"><a href="{{ url('manage/news/'.($a_news->id).'/edit') }}" class="btn btn-default">編輯</a></td>

@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('manage/news','NewsController');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('manage/news','NewsController@index');
+Route::resource('manage','NewsController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+
+Route::get('/tech', 'HomeController@index');
+
+Route::get('/about', 'HomeController@index');
+
+Route::get('/news', 'HomeController@index');
+
+Route::get('/solution', 'HomeController@index');
+
+Route::get('/job', 'HomeController@index');

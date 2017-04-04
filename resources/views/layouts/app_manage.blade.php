@@ -13,6 +13,11 @@
       script(src='/js/admin_js/html5shiv.js')
       script(src='/js/admin_js/respond.min.js')
     -->
+    <script>
+      window.Laravel = {!! json_encode([
+      'csrfToken' => csrf_token(),
+      ]) !!};
+    </script>
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
@@ -357,12 +362,12 @@
     @yield('require_js')
     <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
     <script src="/js/admin_js/bootstrap.min.js"></script>
-    <script src="/js/admin_js/chart.min.js"></script>
-    <script src="/js/admin_js/chart-data.js"></script>
-    <script src="/js/admin_js/easypiechart.js"></script>
-    <script src="/js/admin_js/easypiechart-data.js"></script>
-    <script src="/js/admin_js/bootstrap-datepicker.js"></script>
+    {{-- script(src='/js/admin_js/chart.min.js') --}}
     <script src="/js/app.js"></script>
+    {{-- script(src='/js/admin_js/chart-data.js') --}}
+    {{-- script(src='/js/admin_js/easypiechart.js') --}}
+    {{-- script(src='/js/admin_js/easypiechart-data.js') --}}
+    {{-- script(src='/js/admin_js/bootstrap-datepicker.js') --}}
     {{--      
       $('#calendar').datepicker({
       });

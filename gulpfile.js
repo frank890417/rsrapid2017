@@ -15,7 +15,7 @@ require('laravel-elixir-jade');
  */
 
 elixir((mix) => {
-    mix.sass('app.sass')
+    mix.sass('*.sass')
        .webpack([
           'app.js'
         ],'public/js/app.js')

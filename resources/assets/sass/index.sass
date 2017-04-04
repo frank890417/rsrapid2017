@@ -1,0 +1,205 @@
+@import "common";
+.page_index
+  section
+    .section_title
+      font-weight: 500
+      margin-bottom: $gutter_width*2
+      font-size: 24px
+      letter-spacing: 3px
+
+  .percent
+    font-family: 'Lato'
+    // font-style: italic
+    font-weight: 300
+    opacity: 0.5
+    font-size: 200px
+    color: $theme_color
+    letter-spacing: 14px
+    vertical-align: middle
+    margin-top: 2*$gutter_width
+    // margin-bottom: 3*$gutter_width
+    transform: skewX(-10deg)
+    transition: 0.5s
+    &.initial
+      opacity: 0
+    &:after
+      content: "%"
+      display: inline-block
+      font-size: 0.4em
+      // padding-bottom: 50px
+
+  //-----------------------------------------------
+  .page_index_main
+    background-image: url("../img/homepage/Home1.jpg")
+    padding-top: 60px
+    .row
+      position: relative
+
+    h1
+      font-weight: 300
+      font-size: 48px
+      letter-spacing: 15px
+      margin-bottom: 0px
+
+    h3.page_header_eng
+      margin-top: 10px
+      font-size: 26px
+      letter-spacing: 2px
+      font-weight: 300
+
+    .col-sm-12
+      padding: 190px 0px
+
+    .news_container
+      +pos_fixed_bottom
+
+    .news
+      padding: 0
+      background-color: $theme_color
+      height: 200px+$gutter_width*3
+      font-weight: 300
+      opacity: 1
+      +box_shadow
+      .timeline
+        width: 100%
+        height: 4px
+        background-color: #ddd
+        position: absolute
+        bottom: 0px
+        .value
+          width: 50%
+          height: 100%
+          background-color: #777
+          transition: 0.15s
+          // transition: 0.5s
+      .col-sm-8
+        position: relative
+      .btns 
+        // margin-top: 40px
+        width: 66.66%
+
+        padding-left: $gutter_width * 1.5
+        padding-right: $gutter_width * 2
+        position: absolute
+        top: initial
+        bottom: $gutter_width*1
+        .btn_next
+          float: right
+          border: none
+      .col-sm-8
+        padding: $gutter_width $gutter_width*1.5
+        // height: 200px
+      h4,h5,p
+        color: $color_white
+        margin: 0
+        font-weight: 300
+      h5
+        margin-bottom: $gutter_width
+      .cover_img
+        background-image: url("../img/homepage/Home2.jpg")
+        background-position: center center
+        background-size: auto 110%
+        height: 200px+$gutter_width*3
+        margin-right: 0px
+        // transition:  background-image 0.5s
+
+  //-----------------------------------------------
+
+  .page_index_grow
+    background-image: url("../img/homepage/Home3.jpg")
+
+  //-----------------------------------------------
+
+  .page_index_live
+    background-image: url("../img/homepage/Home4b.jpg")
+
+    .btn
+      margin-top: $gutter_width*2
+
+  //----------------------------------------------
+  .page_index_accurate
+    background-image: url("../img/homepage/Home5.jpg")
+    position: relative
+
+    .btn
+      margin-top: $gutter_width*2
+
+    +bg_block('before','right',$theme_color)
+
+    .col-sm-6.bgcolor
+      +bg_theme
+      position: absolute
+      // height: 100%
+    .col-sm-6
+      padding-left: 1.5*$gutter_width
+      padding-right: 1.5*$gutter_width
+      text-align: center
+      h3,p
+        color: $color_white
+    
+    .btn
+      margin-bottom: $gutter_width*4
+    .acc_sm_pic
+      // background-color: $theme_color
+      border: none
+      padding: $gutter_width*3.5 0px
+      cursor: pointer
+      &:hover
+        &:before
+          opacity: 1
+      &:before
+        content: ""
+        display: block
+        +ab_center
+        +size(100%,100%)
+        background-color: rgba($theme_color,0.5)
+        opacity: 0
+        transition: 0.5s
+        z-index: 2
+      &:after
+        content: ""
+        display: block
+        +ab_center
+        +size(100%,100%)
+        background-size: cover
+        z-index: 1
+      h4
+        color: $color_white
+        font-weight: 300
+        font-size: 20px
+        letter-spacing: 3px
+        +ab_center
+        z-index: 3
+      
+    .acc_sm_pic[data-type="1"]:after
+      background-image: url("../img/homepage/Home6-1.jpg")
+    .acc_sm_pic[data-type="2"]:after
+      background-image: url("../img/homepage/Home6-4.jpg")
+    .acc_sm_pic[data-type="3"]:after
+      background-image: url("../img/homepage/Home6-2.jpg")
+    .acc_sm_pic[data-type="4"]:after
+      background-image: url("../img/homepage/Home6-3.jpg")
+
+    .type_container
+      +pos_fixed_bottom
+      div[class^="col"]:first-child
+        padding-left: 0
+    
+
+
+  //------------------------------------------------------
+
+  .page_index_sponsor
+    min-height: initial
+    background-color: $color_grey_bg
+    padding: $gutter_width*4 0px
+
+    .sponsorlogo
+      width: 90%
+      margin-left: auto
+      margin-right: auto
+      min-height: 60px
+      background-color: darken($color_grey,5)
+      mix-blend-mode: darken
+
+  include footer

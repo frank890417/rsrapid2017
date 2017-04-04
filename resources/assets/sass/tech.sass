@@ -1,0 +1,87 @@
+@import "common";
+.page_tech
+  *
+    // border: solid 1px
+
+  section
+    min-height: 0px
+    position: relative
+    
+
+  section.section_hero
+    min-height: 100vh
+    display: flex  
+    align-items: center
+    hr
+      margin: $gutter_width*2 0px
+      width: $column_width
+      border-bottom: solid 1px black
+      margin-left: auto
+      margin-right: auto
+    .conpany_logos
+      display: flex
+      align-items: center
+      justify-content: space-around
+    .company_logo
+      mix-blend-mode: multiply
+      width: $gutter_width*8
+    .section_title
+      // padding-top: $gutter_width*4
+      margin-top: 0
+      margin-bottom: $gutter_width*2
+      font-weight: 300
+      font-size: 44px
+      opacity: 0.8
+      letter-spacing: 10px
+
+  .block_50_percent
+    height: 100%
+    width: 50%
+    display: inline-block
+    float: left
+    background-color: transparent
+
+    &[data-image="1"]
+      background-image: url("../img/homepage/Tech2.jpg")
+    &[data-image="3"]
+      background-image: url("../img/homepage/Tech4.jpg")
+
+  .bg_color_spli
+    font-size: 0
+    padding: 0
+
+  .bg_theme
+
+
+  .section_tech
+    padding: 4*$gutter_width 0px
+    background-attachment: auto 100%
+    color: $color_grey
+    .section_title
+      margin-top: $gutter_width*3.5
+      font-weight: 500
+      color: $color_grey
+    &:nth-child(even)
+      .place_odd
+        display: none
+    .dynamic_icon
+      margin-bottom: $gutter_width*2
+      +size(50px,auto)
+      // background-color: $theme_color
+    .inner
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+    .btn
+      margin-top: $gutter_width*3
+    &[data-img="2"]
+      background-image: url("")
+
+  .section_manhead
+    background-color: #F4F5F7
+
+  .man_head_ab
+    position: absolute
+    bottom: 0
+    height: calc( 100% + 70px)

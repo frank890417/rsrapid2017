@@ -8,7 +8,7 @@ html(lang="{{ config('app.locale') }}")
     meta(name='csrf-token', content='{{ csrf_token() }}')
     title {{ config('app.name', 'Laravel') }}
     // Styles
-    link(href="{{ asset('css/app.css') }}", rel='stylesheet')
+    link(href="{{ asset('css/app.css') }}" rel="stylesheet")
     // Scripts
     script.
       window.Laravel = {!! json_encode([
@@ -16,51 +16,17 @@ html(lang="{{ config('app.locale') }}")
       ]) !!};
   body
     #app
-      nav.navbar.navbar-default.navbar-static-top
-        .container
-          .navbar-header
-            // Collapsed Hamburger
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#app-navbar-collapse')
-              span.sr-only Toggle Navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            // Branding Image
-            a.navbar-brand(href="{{ url('/') }}")
-              | 睿軒網站後台(開發中)
-          #app-navbar-collapse.collapse.navbar-collapse
-            // Left Side Of Navbar
-            ul.nav.navbar-nav
-            // Right Side Of Navbar
-            ul.nav.navbar-nav.navbar-right
-              // Authentication Links
-              li
-                a(href="{{ url('manage/news') }}") 新聞管理
-              @if (Auth::guest())
-              li
-                a(href="{{ route('login') }}") Login
-              li
-                a(href="{{ route('register') }}") Register
-              @else
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                  | {{ Auth::user()->name }} 
-                  span.caret
-                ul.dropdown-menu(role='menu')
-                  li
-                    a(href="{{ route('logout') }}", onclick="event.preventDefault();\
-                    document.getElementById('logout-form').submit();")
-                      | Logout
-                    form#logout-form(action="{{ route('logout') }}", method='POST', style='display: none;')
-                      | {{ csrf_field() }}
-              @endif
-    @yield('content')
+      navbar
+      router-view
+      section_footer
+    //@yield('content')
     
     @yield('blade_pass_variables')
     
 
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.min.js")
     script(src="/js/app.js")
 
     {{-- Script AFTER app.js --}}

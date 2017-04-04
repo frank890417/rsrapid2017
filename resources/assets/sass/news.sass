@@ -1,0 +1,137 @@
+@import "common";
+.page_news
+  *
+    // border: solid 1px
+
+  section
+    min-height: 0px
+    position: relative
+    .section_title
+      // padding-top: $gutter_width*4
+
+      font-weight: 300
+      font-size: 44px
+      opacity: 0.8
+
+  nav.navbar-default.at_top
+    background-color: #FFF
+
+  .section_hero
+    min-height: 72vh
+    padding-top: $column_width*1.5+$nav_height
+    padding-bottom: $column_width*2
+
+    display: flex
+    align-items: center
+    justify-content: center
+    background: url("../img/homepage/News1.jpg")
+    background-size: cover
+    background-position: center center
+
+    &:before
+      +cover_opacity(rgba(black,0.5))
+    &,.date,h1
+      color: white
+      margin: 0
+      font-weight: 300
+    .date
+      font-size: 16px
+      margin-bottom: -$gutter_width
+    .tag
+      font-weight: normal
+      padding: $gutter_width*0.2 $gutter_width*0.4
+      display: inline-block
+      font-size: 14px
+      background-color: rgba($color_white,0.8)
+    h1
+      font-weight: 300
+      margin-top: $gutter_width*2
+      margin-bottom: $gutter_width*1
+      font-size: 48px
+      letter-spacing: 5px
+
+    p
+      color: $color_white
+    .description
+      max-width: 50%
+
+
+  .section_news
+    
+    .container
+      background-color: $color_white
+      margin-top: -$gutter_width*3
+      // margin-left: -$gutter_width
+      // margin-right: $gutter_width
+      // padding-top: $gutter_width*2
+    
+    .news_field
+      padding: $gutter_width
+
+    .news_box
+      padding: $gutter_width/2
+
+    .news_box_inner
+      position: relative
+      border: solid 1px rgba(black,0.3)
+      cursor: pointer
+      min-height: 400px
+
+      &:before
+        +cover_opacity(rgba($theme_color,0))
+        transition: 0.5s
+
+      .btn
+        opacity: 0
+        transition: 0.5s
+      
+      &:hover
+        &:before
+          +cover_opacity(rgba($theme_color,0.8))
+        .btn
+          opacity: 1
+
+      .info
+        padding: $gutter_width*0.8
+        color: $color_grey_light
+        
+        h5.date
+          margin: 0
+          font-size: 16px
+          color: $color_grey_light
+
+        h3.title
+          margin-top: 0
+          margin-bottom: $gutter_width/3
+          color: $theme_color
+          font-weight: normal
+    
+    .nav_line_split
+      margin-top: $gutter_width*2
+      margin-bottom: $gutter_width*2
+    
+      &.page_nav
+        li
+          padding-left: $gutter_width/2
+          padding-right: $gutter_width/2
+
+
+
+    .cover
+      min-height: $gutter_width*8
+      +bg_theme
+      &[data-img="1"]
+        background-image: url("../img/homepage/News1.jpg")
+      &[data-img="2"]
+        background-image: url("../img/homepage/News2.jpg")
+      &[data-img="3"]
+        background-image: url("../img/homepage/News3.jpg")
+      &[data-img="4"]
+        background-image: url("../img/homepage/Post1.jpg")
+      &[data-img="5"]
+        background-image: url("../img/homepage/Post2.jpg")
+      &[data-img="6"]
+        background-image: url("../img/homepage/Post3.jpg")
+      &[data-img="7"]
+        background-image: url("../img/homepage/Post4.jpg")
+      

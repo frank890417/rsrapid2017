@@ -1,0 +1,552 @@
+@import "_variables"
+
+*
+  font-family: 'Noto Sans TC','微軟正黑體'
+  background-size: cover
+  background-position: center center
+
+h1,h2,h3,h4,h5,h6
+  color: $color_grey
+
+//tag size
+h1
+  +paragraph_size_leading(56px,83px)
+  letter-spacing: 2px
+
+h2
+  +paragraph_size_leading(34px,50px)
+  letter-spacing: 2px
+h3
+  +paragraph_size_leading(24px,36px)
+  letter-spacing: 2px
+h4
+  +paragraph_size_leading(21px,31px)
+  letter-spacing: 2px
+h5
+  +paragraph_size_leading(17px,25px)
+  letter-spacing: 2px
+h6
+  +paragraph_size_leading(15px,25px)
+  letter-spacing: 2px
+p
+  +paragraph_size_leading(15px,25px)
+  letter-spacing: 3px
+  color: $color_grey
+  font-weight: 300
+
+body
+  font-size: 16px
+  letter-spacing: 3px
+  font-weight: light
+  // min-width: 1600px
+
+
+//color setting
+h1,h2,h3,h4,h5,h6
+  color: #333
+.color_theme
+  color: $theme_color
+.color_white
+  color: #fff
+
+.cover_image
+  background-color: $theme_color
+
+//bootstrap setting
+.btn
+  border-radius: 2px
+  letter-spacing: 2px
+  // margin-top: $gutter_widt
+  padding: $gutter_width/2 $gutter_width
+  transition: 0.5s
+  font-weight: 300
+  font-size: 15px
+  letter-spacing: 4px
+
+.btn-primary
+  border: none
+  background-color: $theme_color
+  border: solid 1px $theme_color
+  &:hover
+    background-color: transparent
+    color: $theme_color
+    border-color: $theme_color
+
+.btn-primary-lighter
+  border: none
+  background-color: lighten($theme_color,7)
+  color: $color_white
+  &:hover
+    background-color:  lighten($theme_color,15)
+    color: $color_white
+    border-color:  lighten($theme_color,7)
+
+.btn-transparent
+  background-color: transparent
+  border-color: $color_white
+  color: $color_white
+  &:hover
+    background-color: $color_white
+    color: $theme_color
+    border-color: $color_white
+
+@mixin cover_opacity($color: black)
+  display: block
+  content: ""
+  position: absolute
+  +size(100%,100%)
+  left: 0
+  top: 0
+  background-color: $color
+
+//用線分隔的導覽
+.nav_line_split
+  list-style: none
+  li
+    display: inline-block
+    padding: 0px $gutter_width
+    margin-bottom: $gutter_width*2
+    border-right: solid 1px $theme_color
+    cursor: pointer
+    &:hover
+      color: $theme_color
+    &:last-child
+      border-right: none
+    &.active
+      color: $theme_color
+
+a
+  color: $theme_color
+
+.default_bg
+  background: url("../img/homepage/Home7.jpg") no-repeat 60% bottom
+  &:before
+    content: ""
+    display: block
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    background-color: rgba(white,0.4)
+
+//------------------------------------------------------
+
+
+section
+  min-height: 100vh
+  background-size: cover
+  background-position: 60% center
+  .section_title
+    margin-bottom: 30px
+    font-weight: 300
+    margin-top: 9*$gutter_width
+    transition: 0.7s
+    &.initial
+      opacity: 0
+  .section_para
+    transition: 1s 0.2s
+    &.initial
+      opacity: 0
+  
+  .slide_bg_set
+    width: 100%
+    height: 100%
+
+
+
+.fade-enter-active,.fade-leave-active
+  transition: 0.5s
+.fade-enter,.fade-leave-to
+  opacity: 0
+  
+
+//nav
+//--------------------------
+
+nav.navbar-default
+  height: 3*$gutter_width+10px
+  background-color: rgba(white,0.95)
+  border-bottom: none
+  border-top: solid 5px $theme_color
+  transition: 0.5s
+  font-size: 17px
+  i
+    font-style: normal
+    font-size: 22px
+    cursor: pointer
+  .logo
+    height: 50px
+    transition: 0.5s
+
+  .icon_text_size
+    background-color: $theme_color
+    border-radius: 50%
+    color: $color_white
+    font-size: 12px
+    +size(22px,22px)
+    position: relative
+    cursor: pointer
+    margin-top: 2px
+    vertical-align: middle
+    .text
+      +ab_center
+      transform: scale(0.8) translate(-50%,-50%)
+
+
+  .navbar-nav
+    margin-left: $gutter_width*2
+    padding: 0
+    padding-top: $gutter_width*0.5
+    transition: 0.5s
+ 
+    li 
+      padding: 8px
+      transition: 0.5s
+      a
+        font-size: 17px
+        font-weight: light
+        letter-spacing: 2px
+        padding: 4px 8px
+        padding-bottom: 8px
+        transition: 0.3s
+        &:hover
+          color: $theme_color
+          background-color: transparent
+
+      & .router-link-active
+        color: $theme_color
+        background-color: transparent
+        border-bottom: solid 1px $theme_color
+        &:hover
+          color: $theme_color
+          background-color: transparent
+      
+  .navbar-right
+    padding: 0
+    padding-top: $gutter_width/2
+    
+    img
+      height: 20px
+
+  .nav_open 
+    margin-left: $gutter_width
+
+  //nav 再上方的狀態
+  &.at_top
+    height: 4.5*$gutter_width
+    background-color: transparent
+    border-top: solid 3px $theme_color
+    li
+      margin-top: -$gutter_width
+    .navbar-nav
+      padding-top: $gutter_width*2
+    .logo
+      height: 65px
+
+
+
+.slide_bullet
+  list-style: none
+  position: fixed
+  right: 5px
+  top: 50%
+  transform: translate(-50%,0px)
+  z-index: 10
+  li
+    display: block
+    +size(9px,9px)
+    border-color: #777
+    border-radius: 50%
+    margin-bottom: 12px
+    cursor: pointer
+    transition: 0.5s
+    position: relative
+    &:after
+      content: ""
+      display: block
+      border-radius: 50%
+      +ab_center
+      +size(6px,6px)
+      background-color: darken($color_grey,9)
+      transition-duration: 0.5s
+
+    &:hover
+      border-color: $theme_color
+      &:after
+        background-color: $theme_color
+        +size(12px,12px)
+    &.active
+      background-color: $theme_color
+      &:after
+        background-color: $theme_color
+        +size(12px,12px)
+      
+
+//----------------------------------------------
+footer
+  background-color: $theme_color
+  padding: $gutter_width
+  color: $color_white
+  font-weight: 300
+ 
+  .info
+    display: inline-block
+    margin: 0
+    font-size: 14px
+    opacity: 0.9
+  ul.footer_nav
+    display: block
+    float: right
+    li
+      display: inline-block
+      letter-spacing: 3px
+      // margin-left: 30px
+      padding: 0px 15px
+      border-right: solid 1px $color_white
+      &:last-child
+        border-right: none
+    a
+      color: $color_white
+      text-decoration: none
+      font-size: 17px
+
+
+//-----------------------------------------------
+.section_solution
+  background: url("../img/homepage/Home7.jpg") 60% bottom
+  min-height: 100vh
+  position: relative
+  h4.slogan
+    margin-bottom: $gutter_width
+    color: $color_grey_light
+    font-weight: 500
+  &:before
+    +cover_opacity(rgba(white,0.6))
+  .section_title
+    margin-top: $gutter_width*5
+    margin-bottom: $gutter_width*3
+  .solution_box_row
+    margin-top: $gutter_width*1
+    // margin-bottom: $gutter_width*3
+    min-height: 500px
+
+  .solution_box
+    text-align: center
+    padding: 0 $gutter_width/2
+    cursor: pointer
+    transition: 0.8s
+    vertical-align: middle
+    margin-top: 0px
+
+    & .box_inner
+      padding-top: $gutter_width*3
+      display: block
+      position: relative
+      +box_shadow  
+      transition: 0.5s
+      min-height: 450px
+      overflow: hidden
+      cursor: pointer
+
+
+      .box_info
+        position: absolute
+        z-index: 50
+        width: 100%
+
+
+      &:after,&:before
+        content: ""
+        display: block
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 0
+        top: 0
+        // +ab_center
+      &:after
+        background-color: rgba(0,0,0,0.4)
+        // opacity: 0
+        transition: 0.5s
+
+      &:hover
+        min-height: 550px
+        background-color: transparent
+        // padding-top: $gutter_width*1
+        // padding-bottom: $gutter_width*3
+        
+          color: #333
+
+        margin-top: -50px
+        .box_info
+          h4.solution_title
+            color: $color_grey_dark
+            &:after
+              border-bottom: solid 2px  $color_grey_dark
+        .btn
+          opacity: 1
+        &:after
+          opacity: 0
+        a
+          margin-top: 50px
+      h4
+        color: $color_white
+
+      h4.solution_title
+        line-height: 2em
+        color: $color_white
+        transition: 0.5s
+        font-weight: 300
+        
+        &:after
+          content: ""
+          display: block
+          width: 72px
+          margin-top: $gutter_width*2
+          transition: 0.5s
+          border-bottom: solid 2px $color_white
+
+          margin-left: auto
+          margin-right: auto
+
+        background-size: cover
+
+    .btn
+      margin: $gutter_width*3 0px
+      margin-bottom: $gutter_width*2
+      transition: 0.5s
+      opacity: 0
+      cursor: pointer
+
+    &:nth-child(1) .box_inner:before
+      background-image: url("../img/homepage/Home8-1.jpg")
+      background-position: 60% bottom
+      background-size: 100% auto
+      
+
+    &:nth-child(2) .box_inner:before
+      background-image: url("../img/homepage/Home8-2.jpg")
+      background-position: 60% bottom
+      background-size: 100% auto
+
+
+    &:nth-child(3) .box_inner:before
+      background-image: url("../img/homepage/Home8-3.jpg")
+      background-position: 60% bottom
+      background-size: 100% auto
+
+
+  .row_else
+    padding: $gutter_width*1
+    padding-bottom: $gutter_width*2
+
+
+//----------------------------------------------
+.detail_footer
+  min-height: initial
+  padding: $gutter_width*3 0px
+  padding-bottom: $gutter_width*2
+  .container
+    position: relative
+  h5
+    font-weight: light
+    margin-bottom: 30px
+
+  .social_icon
+    width: 30px
+    margin-right: 10px
+    &.fb
+      width: 20px
+  .more
+    border-bottom: solid 2px $theme_color
+    padding-bottom: 3px
+    cursor: pointer
+    &:hover
+      color: $theme_color
+      text-decoration: none
+
+  .icon
+    +size(18px)
+    // background-color: darken($color_white,15)
+    border-radius: 2px
+    position: relative
+    display: inline-block
+    position: absolute
+    left: -35px
+    top: 5px
+    cursor: pointer
+    transition: 0.5s
+    &:hover
+      background-color: $theme_color
+      &:before,&:after
+        background-color: $color_white
+
+    &:before,&:after 
+      // transform-origin: center center
+      transition: 0.5s
+      display: block
+      content: ""
+      width: 45%
+      height: 2px
+      background-color: $theme_color
+
+      +ab_center
+    &.icon_plus
+
+      &:before
+        transform: translate(-50%,-50%) rotate(-90deg) 
+      &:after
+        transform: translate(-50%,-50%) rotate(180deg) 
+
+
+  .question_list
+    position: relative
+
+    &
+      list-style: none
+      padding-left: $gutter_width*1.5
+
+    li
+      margin-bottom: $gutter_width
+      position: relative
+
+
+    .question
+      color: #555
+      letter-spacing: 1px
+      cursor: pointer
+    .answer
+      color: $theme_color
+      margin-top: $gutter_width/2
+      // max-height: 0px
+      // overflow: hidden
+    
+    input[type=checkbox]:checked+.answer
+      .answer
+        display: block
+        max-height: 50px
+
+  .company_icon
+    width: 33%
+    display: block
+    margin-bottom: 10px
+    margin-left: auto
+    margin-right: auto
+
+    
+  .go_to_topbtn
+    position: fixed
+    background-color: $theme_color
+    +size(40px,40px)
+    cursor: pointer
+
+    border-radius: 50%
+    bottom: $gutter_width*6
+    right: $gutter_width*2
+
+    i
+      +ab_center
+      color: $color_white
+      font-size: 25px
+

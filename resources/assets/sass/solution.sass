@@ -1,0 +1,136 @@
+@import "common";
+.page_solution
+  *
+    // border: solid 1px
+
+  section
+    min-height: 0px
+    position: relative
+    .section_title
+      // padding-top: $gutter_width*4
+      margin-top: 0
+      margin-bottom: $gutter_width*2
+      font-size: 30px
+      // opacity: 0.8
+
+  .section_hero
+    min-height: 50vh
+    display: flex
+    align-items: center
+    justify-content: center
+    background-size: cover
+    background-position: center center
+    .section_title
+      // padding-top: $gutter_width*4
+      margin-top: $gutter_width*2
+      margin-bottom: 0
+      opacity: 0.8
+      letter-spacing: 10px
+      // opacity: 0.8
+    &,h1
+      // color: $color_white
+    // h1
+    //   margin-bottom: $gutter_width*4
+  .block_50_percent
+    height: 100%
+    width: 50%
+    display: inline-block
+    float: left
+
+    &[data-image="1"]
+      background-image: url("../img/homepage/Solution2.jpg")
+
+    &[data-image="2"]
+      background-image: url("../img/homepage/Post2.jpg")
+    &[data-image="3"]
+      background-image: url("../img/homepage/Post3.jpg")
+    &[data-image="4"]
+      background-image: url("../img/homepage/Post1.jpg")
+  .bg_color_split
+    font-size: 0
+    padding: 0
+
+
+  h1.section_title
+    margin-top: $gutter_width*1.5
+    line-height: 1.4em
+    padding-bottom: 0px
+    font-weight: 300
+    // margin-bottom: $gutter_width*1.5
+
+  .section_solution_1
+    padding-top: $gutter_width*5
+    padding-bottom: $gutter_width*5
+
+  .section_solution_2
+    padding-top: $gutter_width*3
+    padding-bottom: $gutter_width*3
+
+  .section_solution_1,.section_solution_2
+    
+    h3
+      color: $theme_color
+      font-weight: 300
+
+    hr
+      margin-top: $gutter_width*1.5
+      width: $gutter_width*2
+      border-color: $theme_color
+      margin-left: 0
+      margin-bottom: $gutter_width
+
+  .section_solution_1
+    display: flex
+    position: relative
+    
+    &,p,h4
+      color: white
+      font-weight: 300
+
+  .section_solution_2
+    &:before
+      +cover_opacity(rgba(white,0.7))
+
+  .envtext
+    font-weight: normal
+    margin-bottom: $gutter_width*3
+
+  .section_talk
+    min-height: $gutter_width*18
+    background-image: url("../img/homepage/Solution3.jpg")
+    background-size: 100% auto
+    *
+      color: white
+    +flex_center
+    .container
+      position: relative
+    .lr_btn
+      color: $color_white
+      cursor: pointer
+      z-index: 100
+
+      +ab_center
+    h2
+      margin-top: $gutter_width*3
+      font-weight: 300
+    h4
+      margin-top: $gutter_width*3
+    .btn_pre
+      left: 30px
+    .btn_post
+      left: initial
+      right: 30px
+
+    .talk_box
+      opacity: 0
+      position: relative
+      // top: -30px
+      transition: 0.5s
+      // +ab_center
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
+      &.active
+        // top: 0px
+        opacity: 1

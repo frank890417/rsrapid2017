@@ -1,0 +1,98 @@
+
+// Fonts
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+// @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css)
+// @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+// @import url(../css/bootstrap/css/bootstrap.min.css);
+
+// color variables
+$theme_color: #3FBFBB
+$color_white: #fff
+$color_grey: #555
+$color_grey_light: #777
+$color_grey_dark: #333
+$color_grey_bg: #f4f5f5
+
+$gutter_width: 24px
+$column_width: 72px
+$nav_height: 80px
+
+//mixins
+@mixin paragraph_size_leading($fz,$lh)
+  font-size: $fz
+  line-height: $lh
+
+@mixin size($w,$h:false)
+  width: $w
+  @if ($h)
+    height: $h 
+  @else
+    height: $w
+  @endif
+
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+
+.ab_center
+  +ab_center
+
+@mixin flex_center
+  display: flex
+  align-items: center
+  justify-content: center
+
+@mixin bg_theme
+  background-color: $theme_color
+
+.bg_theme
+  +bg_theme
+
+@mixin bg_grey
+  background-color: $color_grey
+
+.bg_grey
+  +bg_grey
+
+@mixin bg_white
+  background-color: $color_white
+
+.bg_white
+  +bg_white 
+
+.border_theme
+  border: solid 1px $theme_color
+
+@mixin box_shadow
+  box-shadow: 0px 0px 20px rgba(0,0,0,.3)
+
+@mixin pos_fixed_bottom
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
+
+@mixin bg_block($el:'before',$place:'left',$color: $theme_color)
+  &:#{$el} 
+    content: ""
+    display: block
+    width: 50%
+    height: 100%
+    position: absolute
+    @if ($place=='left')
+      left: 0px
+    @else
+      right: 0px
+    @endif
+    top: 0
+    background-color: $color
+    opacity: 0.8
+
+.size_full
+  +size(100%,100%)

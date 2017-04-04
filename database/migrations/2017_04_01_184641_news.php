@@ -21,6 +21,7 @@ class News extends Migration
           $table->string('date')->nullable();
           $table->string('title')->nullable();
           $table->string('cover',500)->nullable();
+          $table->integer('size')->default(1);
           $table->string('description',1000)->nullable();
           $table->text('content')->nullable();
           $table->timestamps();
