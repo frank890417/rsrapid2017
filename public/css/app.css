@@ -15810,7 +15810,7 @@ footer ul.footer_nav a {
   background-image: url("../img/homepage/Tech4.jpg");
 }
 
-.page_tech .bg_color_spli {
+.page_tech .bg_color_split {
   font-size: 0;
   padding: 0;
 }
@@ -15825,10 +15825,6 @@ footer ul.footer_nav a {
   margin-top: 84px;
   font-weight: 500;
   color: #555;
-}
-
-.page_tech .section_tech:nth-child(even) .place_odd {
-  display: none;
 }
 
 .page_tech .section_tech .dynamic_icon {

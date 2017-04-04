@@ -49,13 +49,11 @@ div.page_news
 </template>
 
 <script>
-  import { mapState } from 'vuex';
-    export default {
-        mounted() {
-            console.log('index mounted.');
-        },
-        computed() {
-          return mapState(['news']);
-        }
-    }
+import { mapGetter, mapActions , mapState } from 'vuex'
+export default {
+    mounted() {
+      console.log('index mounted.');
+    },
+    computed() {return mapState(['news']);}
+}
 </script>

@@ -13,7 +13,7 @@ div.page_about
         .col-sm-12
           h1.section_title.text-center 大事記
           ul.nav_line_split.text-center
-            li.active(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
+            li(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
             li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
 
         .col-sm-12.logs_area

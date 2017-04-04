@@ -1,16 +1,16 @@
 <template lang="jade">
 div.page_tech
   section.section_hero.default_bg
-        .container
-          .row
-            .col-sm-6.col-sm-offset-3
-              h1.section_title.text-center 睿軒快篩平台
-              p 與國立中山大學共同開發「快速檢驗平台」專利技術為基礎，以建構食的安心、用的放心，便利顧客享有快速與安全的保障為出發點，守護民眾的健康期許，營造安心的生活環境。同時創造獨特的檢驗效率，與無可取代的時間效益。
-              p
-              hr
-              .conpany_logos
-                img.company_logo(alt="永齡logo" src="img/homepage/tech_company_logo1.png")
-                img.company_logo(alt="中山大學logo" src="img/homepage/tech_company_logo2.png")
+    .container
+      .row
+        .col-sm-6.col-sm-offset-3
+          h1.section_title.text-center 睿軒快篩平台
+          p 與國立中山大學共同開發「快速檢驗平台」專利技術為基礎，以建構食的安心、用的放心，便利顧客享有快速與安全的保障為出發點，守護民眾的健康期許，營造安心的生活環境。同時創造獨特的檢驗效率，與無可取代的時間效益。
+          p
+          hr
+          .conpany_logos
+            img.company_logo(alt="永齡logo" src="img/homepage/tech_company_logo1.png")
+            img.company_logo(alt="中山大學logo" src="img/homepage/tech_company_logo2.png")
 
   section.section_tech(data-img=1)
 
@@ -34,7 +34,6 @@ div.page_tech
         img.section_para.man_head_ab(src="img/homepage/Tech3.png" alt="")
     .container
       .row
-        .col-sm-6.place_odd
         .col-sm-4.col-sm-offset-1.inner
           h3.section_title 獨家探針，多樣檢測
           img.section_para.dynamic_icon(src="img/homepage/rapid-tech-icon_2.svg" alt="動態icon" )

@@ -19,7 +19,9 @@
   <body>
     <div id="app">
       <navbar></navbar>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
       <section_footer></section_footer>
     </div>
     <!-- @yield('content') -->
