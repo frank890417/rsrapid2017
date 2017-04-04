@@ -42,12 +42,15 @@ const router = new VueRouter({
   mode: "history"
 })
 
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+  next();
+})
+
 const store = new Vuex.Store({
   state: {
-    news: [],
-    news_id: 0,
-    news_time: 0,
-    news_change_time: 5000
+    
     
   },
   mutations: {
@@ -68,7 +71,7 @@ const app = new Vue({
       this.news_time=0;
     }
   },mounted: function(){
-    var vobj=this;
+    var vobj=store.state;
     $.get("http://rsrapid2017.dev/api/news").then(function(res){
       vobj.news=res;
     });

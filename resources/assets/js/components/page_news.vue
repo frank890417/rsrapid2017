@@ -54,6 +54,6 @@ export default {
     mounted() {
       console.log('index mounted.');
     },
-    computed() {return mapState(['news']);}
+    computed: mapState(['news'])
 }
 </script>
