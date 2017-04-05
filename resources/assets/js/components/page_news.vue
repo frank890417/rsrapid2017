@@ -22,13 +22,14 @@ div.page_news
         .container-fluid.news_field
           .row
             .news_box.section_para(v-for='a_news in news' v-bind:class="'col-sm-'+a_news.size*4")
-              .news_box_inner(onclick="window.open('post.html','_self')")
-                .cover(:style="'background-image: url('+a_news.cover+')'")
-                  .btn.btn-transparent.ab_center 瞭解更多
-                .info
-                  h5.date {{a_news.date}}
-                  h3.title {{a_news.title}}
-                  p {{a_news.description}}
+              router-link(:to="'/news/'+a_news.id")
+                .news_box_inner
+                  .cover(:style="'background-image: url('+a_news.cover+')'")
+                    .btn.btn-transparent.ab_center 瞭解更多
+                  .info
+                    h5.date {{a_news.date}}
+                    h3.title {{a_news.title}}
+                    p {{a_news.description}}
           
           .row
             .col-sm-12
