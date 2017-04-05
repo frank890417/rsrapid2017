@@ -16,7 +16,7 @@ div.page_about
             li(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
             li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
 
-        .col-sm-12.logs_area
+        .col-sm-12.logs_area(v-if="about_logs[sel_year]")
           .row.log_box(v-for="log in about_logs[sel_year]")
             .col-sm-4
               .cover_image(:style="'background-image:url('+log.cover+')'")
@@ -27,54 +27,15 @@ div.page_about
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapGetter, mapActions , mapState } from 'vuex'
   export default {
       data() {return {
-        sel_year: "year_2015",
-        about_logs: {
-          year_2015: [
-            {
-              date: "03/01",
-              title: "成立睿軒檢驗",
-              cover: "/img/homepage/Post1.jpg",
-              content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
-            },
-            {
-              date: "05/01",
-              title: "貴陽大數據博覽會參展",
-              cover: "/img/homepage/Post2.jpg",
-              content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
-            },
-            {
-              date: "12/01",
-              title: "全台幼兒環境大義診",
-              cover: "/img/homepage/Post3.jpg",
-              content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
-            }
-          ],
-          year_2016: [
-            {
-              date: "04/01",
-              title: "貴陽大數據博覽會參展",
-              cover: "/img/homepage/Post3.jpg",
-              content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
-            },
-            {
-              date: "05/01",
-              title: "貴陽大數據博覽會參展",
-              cover: "/img/homepage/Post2.jpg",
-              content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
-            }
-          ],
-
-        }
+        sel_year: "year_2015"
       }},
       mounted() {
           console.log('about mounted.')
       },
-      computed() {
-        return Vuex.mapState(['about_logs'])
-      }
+      computed: Vuex.mapState(['about_logs'])
 
   }
 </script>

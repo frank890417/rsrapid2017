@@ -9,17 +9,17 @@ section.section_solution
         .box_inner
           .box_info
             h4.solution_title 校園環境健檢<br>檢測計畫
-            a.btn.btn-default.btn-primary(href="solution.html") 了解更多
+            router-link.btn.btn-default.btn-primary(to="/solution/0") 了解更多
       .solution_box.col-sm-4
         .box_inner
           .box_info
             h4.solution_title 校園食材健檢<br>檢測計畫
-            a.btn.btn-default.btn-primary(href="solution2.html") 了解更多
+            router-link.btn.btn-default.btn-primary(to="/solution/1") 了解更多
       .solution_box.col-sm-4
         .box_inner
           .box_info
             h4.solution_title 農場作物自主管理<br>檢測計畫
-            a.btn.btn-default.btn-primary(href="solution3.html") 了解更多
+            router-link.btn.btn-default.btn-primary(to="/solution/2") 了解更多
     .row.row_else.text-center
       .col-sm-12
         h4.slogan 我們為您制定周全的環境健檢計畫!
@@ -27,9 +27,12 @@ section.section_solution
 </template>
 
 <script>
+
     export default {
+        props: ["id"],
         mounted() {
             console.log('solutions mounted.')
-        }
+        },
+
     }
 </script>

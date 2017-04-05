@@ -51,6 +51,8 @@ h1,h2,h3,h4,h5,h6
 .color_white
   color: #fff
 
+.bg_parallax
+  background-size: auto 100%
 .cover_image
   background-color: $theme_color
 
@@ -104,6 +106,7 @@ h1,h2,h3,h4,h5,h6
 //用線分隔的導覽
 .nav_line_split
   list-style: none
+  padding: 0
   li
     display: inline-block
     padding: 0px $gutter_width
@@ -327,8 +330,8 @@ footer
   &:before
     +cover_opacity(rgba(white,0.6))
   .section_title
-    margin-top: $gutter_width*5
-    margin-bottom: $gutter_width*3
+    margin-top: $gutter_width*5 !important
+    margin-bottom: $gutter_width*3 !important
   .solution_box_row
     margin-top: $gutter_width*1
     // margin-bottom: $gutter_width*3

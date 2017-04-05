@@ -32,7 +32,8 @@ const routes = [
   { path: '/', component: page_index },
   { path: '/about', component: page_about },
   { path: '/tech', component: page_tech },
-  { path: '/solution', component: page_solution },
+  { path: '/solution/:id', component: page_solution , props: true},
+  { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
   { path: '/job', component: page_index },
 ]
@@ -51,12 +52,102 @@ router.beforeEach((to, from, next) => {
 
 const store = new Vuex.Store({
   state: {
-    
-    
+    news: [],
+    about_logs: {
+      year_2015: [
+        {
+          date: "03/01",
+          title: "成立睿軒檢驗",
+          cover: "/img/homepage/Post1.jpg",
+          content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
+        },
+        {
+          date: "05/01",
+          title: "貴陽大數據博覽會參展",
+          cover: "/img/homepage/Post2.jpg",
+          content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
+        },
+        {
+          date: "12/01",
+          title: "全台幼兒環境大義診",
+          cover: "/img/homepage/Post3.jpg",
+          content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
+        }
+      ],
+      year_2016: [
+        {
+          date: "04/01",
+          title: "貴陽大數據博覽會參展",
+          cover: "/img/homepage/Post3.jpg",
+          content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
+        },
+        {
+          date: "05/01",
+          title: "貴陽大數據博覽會參展",
+          cover: "/img/homepage/Post2.jpg",
+          content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
+        }
+      ],
+
+    },
+    solutions: [
+      {
+        title: "校園環境健檢檢測計畫",
+        sub_title: "健康安全的成長環境",
+        sub_content: "健康安全的成長環境",
+        test_item: "塑化劑：8種鄰苯二甲酸酯類塑化劑(DEHP、DNOP、BBP、DINP、DIDP、DEP、DMP、DBP)",
+        env: "各級學校、補習班、幼兒園、托育中心等孩童活動空間。",
+        schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
+        talk: [
+          {
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          },{
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          }
+        ]
+      },{
+        title: "校園食材健檢檢測計畫",
+        sub_title: "營養美味的安心食材",
+        sub_content: "協助每日校園營養午餐食材的農藥殘留檢測服務，加強用餐安全。有效管理不符規定的食材進行監控，以提供學子兼具營養與美味的安心食材",
+        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。",
+        env: "各級學校、幼兒園、托育中心提供營養午餐的中央廚房、團膳供應商或學校合作社。",
+        schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
+        talk: [
+          {
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          },{
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          }
+        ]
+      },{
+        title: "自主管理從源頭做起",
+        sub_title: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",
+        sub_content: "健康安全的成長環境",
+        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。",
+        env: "果菜園、茶園等各式農場、蔬果產銷中心、合作社及批發通路",
+        schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
+        talk: [
+          {
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          },{
+            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
+            name: "馬雲"
+          }
+        ]
+      }
+    ]
   },
   mutations: {
     increment (state) {
       state.count++;
+    },
+    setNews(state, news){
+      state.news=news;
     }
   }
 })
@@ -72,9 +163,13 @@ const app = new Vue({
       this.news_time=0;
     }
   },mounted: function(){
-    var vobj=store.state;
     $.get("http://www.rapidsuretech.com/api/news").then(function(res){
-      vobj.news=res;
+      console.log("news loaded");
+      store.commit("setNews",res);
+    });
+    $.get("http://www.rapidsuretech.com/api/news").then(function(res){
+      console.log("news loaded");
+      store.commit("setNews",res);
     });
   }
 });
@@ -182,7 +277,6 @@ $( window ).ready(function(){
   $(".percent , .section_title , .section_para").addClass("initial");
   // $(window).scrollto(0);
   //initial bg parallax
-  $(".bg_parallax").css("background-size","105% auto");
 
   //把答案藏起來
   $(".question_list .answer").slideToggle();
