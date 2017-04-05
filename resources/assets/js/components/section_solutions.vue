@@ -29,7 +29,7 @@ section.section_solution
 <script>
     export default {
         mounted() {
-            console.log('example mounted.')
+            console.log('solutions mounted.')
         }
     }
 </script>

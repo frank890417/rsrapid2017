@@ -52,7 +52,7 @@ div.page_news
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
     mounted() {
-      console.log('index mounted.');
+      console.log('news mounted.');
     },
     computed: mapState(['news'])
 }

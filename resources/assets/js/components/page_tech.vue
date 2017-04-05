@@ -61,7 +61,7 @@ div.page_tech
 <script>
     export default {
         mounted() {
-            console.log('index mounted.')
+            console.log('tech mounted.')
         }
     }
 </script>

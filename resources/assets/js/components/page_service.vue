@@ -51,7 +51,7 @@ div.page_service
 <script>
     export default {
         mounted() {
-            console.log('index mounted.')
+            console.log('service mounted.')
         }
     }
 </script>

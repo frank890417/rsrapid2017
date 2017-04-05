@@ -46,7 +46,8 @@ router.beforeEach((to, from, next) => {
   console.log(to);
   $("html, body").animate({ scrollTop: 0 }, "slow");
   next();
-})
+});
+
 
 const store = new Vuex.Store({
   state: {
@@ -86,7 +87,7 @@ var scroll_delay=1000;
 var scrolling=false;
 var pre_region=null, now_region=null, next_region=null;
 var direction='up';
-var lock_scroll=false;
+var lock_scroll=true;
 var window_height= $(window).height();
 var scroll = Rx.Observable.fromEvent(document,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
@@ -233,7 +234,7 @@ $( window ).ready(function(){
 
   update_bullet(0);
   //snap locker by Rxjs
-  if (lock_scroll || location.href.indexOf("index")!=-1){
+  if (lock_scroll){
     //filter delta which bigger than thereshold and filter out twice down/up condition
     var source_page_nav=mousewheel.filter(
       delta=>((delta>50 && (direction=='down' || !scrolling))
@@ -243,11 +244,13 @@ $( window ).ready(function(){
     .throttleTime(500);                               //filter event by 200ms time span
 
     source_page_nav.subscribe((direct)=>{             //subscribe the event
-      console.log(direct);
-      direction=direct;
-      var target_block=(direct=='up')?pre_region:next_region;
-      if (target_block)
-        $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
+      if (router.history.current.fullPath=="/"){
+        console.log(direct);
+        direction=direct;
+        var target_block=(direct=='up')?pre_region:next_region;
+        if (target_block)
+          $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
+      }
     }); 
     //cancel the scrolling boolean after scroll
     source_page_nav.delay(500).subscribe(()=>{
@@ -255,9 +258,23 @@ $( window ).ready(function(){
     });
 
     $(window).bind('mousewheel', function(event) {
-      event.preventDefault();
+      if (router.history.current.fullPath=="/"){
+        event.preventDefault();
+      }
     });
-  }
+}
+
+
+  //router event
+
+  router.afterEach((route) => {
+    if (route.path=="/about" || route.path=="/news"){
+      $("nav").addClass("bg_white");
+    }else{
+      $("nav").removeClass("bg_white");
+    }
+  });
+
 });
 
 // var source = Rx.Observable.interval(100);

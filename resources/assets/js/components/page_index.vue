@@ -93,7 +93,7 @@ div.page_index
 <script>
     export default {
         data () {
-          return {news: [],
+          return {
                   news_id: 0,
                   news_time: 0,
                   news_change_time: 5000
