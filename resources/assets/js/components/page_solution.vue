@@ -28,7 +28,7 @@ div.page_solution
               br
               br
               p 詳細檢驗項目歡迎與我聯絡&nbsp;&nbsp;&nbsp;&nbsp;
-                a.btn.btn-primary(href="contact.html#1") 聯絡我們  
+                router-link.btn.btn-primary(to="/contact") 聯絡我們  
           .col-sm-6
             h3 適用環境
 

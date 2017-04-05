@@ -24,6 +24,7 @@ var page_about=Vue.component('page_about', require('./components/page_about.vue'
 var page_news=Vue.component('page_news', require('./components/page_news.vue'));
 var page_solution=Vue.component('page_solution', require('./components/page_solution.vue'));
 var page_tech=Vue.component('page_tech', require('./components/page_tech.vue'));
+var page_post=Vue.component('page_post', require('./components/page_post.vue'));
 
 var section_footer=Vue.component('section_footer', require('./components/section_footer.vue'));
 var section_solutions=Vue.component('section_solutions', require('./components/section_solutions.vue'));
@@ -35,6 +36,7 @@ const routes = [
   { path: '/solution/:id', component: page_solution , props: true},
   { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
+  { path: '/news/:id', component: page_post , props: true},
   { path: '/job', component: page_index },
 ]
 
@@ -94,7 +96,7 @@ const store = new Vuex.Store({
       {
         title: "校園環境健檢檢測計畫",
         sub_title: "健康安全的成長環境",
-        sub_content: "健康安全的成長環境",
+        sub_content: "塑膠產品使用狀況趨多，學子成長環境隱藏潛在風險，特別是常用的文玩具。我們提供塑化劑檢測服務，為各式塑膠類生活用品進行檢測分析，排除幼兒與兒童成長環境安全憂慮，為下一代健康把關。",
         test_item: "塑化劑：8種鄰苯二甲酸酯類塑化劑(DEHP、DNOP、BBP、DINP、DIDP、DEP、DMP、DBP)",
         env: "各級學校、補習班、幼兒園、托育中心等孩童活動空間。",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
@@ -125,8 +127,8 @@ const store = new Vuex.Store({
         ]
       },{
         title: "自主管理從源頭做起",
-        sub_title: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",
-        sub_content: "健康安全的成長環境",
+        sub_title: "農場作物自主管理檢測計畫",
+        sub_content: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",
         test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。",
         env: "果菜園、茶園等各式農場、蔬果產銷中心、合作社及批發通路",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
@@ -163,14 +165,17 @@ const app = new Vue({
       this.news_time=0;
     }
   },mounted: function(){
-    $.get("http://www.rapidsuretech.com/api/news").then(function(res){
-      console.log("news loaded");
-      store.commit("setNews",res);
-    });
-    $.get("http://www.rapidsuretech.com/api/news").then(function(res){
-      console.log("news loaded");
-      store.commit("setNews",res);
-    });
+    if (document.URL.indexOf("dev")!=-1){
+      $.get("http://www.rapidsuretech.com/api/news").then(function(res){
+        console.log("news loaded");
+        store.commit("setNews",res);
+      });
+    }else{
+      $.get("http://rsrapid2017.dev/api/news").then(function(res){
+        console.log("news loaded");
+        store.commit("setNews",res);
+      });
+    }
   }
 });
 

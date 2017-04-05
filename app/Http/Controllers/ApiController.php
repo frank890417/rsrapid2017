@@ -10,6 +10,6 @@ class ApiController extends Controller
 {
     //
     function news(){
-      return News::orderBy('date','desc')->get();
+      return News::orderBy('id','desc')->get();
     }
 }
