@@ -19,6 +19,7 @@ html(lang="{{ config('app.locale') }}")
       navbar
       transition(name="fade" mode="out-in")
         router-view
+      @yield('content')
       section_footer
     //@yield('content')
     

@@ -15,8 +15,9 @@
 //     return view('welcome');
 // });
 
+Route::get('home','NewsController@index');
 Route::get('manage/news','NewsController@index');
-Route::resource('manage','NewsController');
+Route::resource('manage/news','NewsController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');

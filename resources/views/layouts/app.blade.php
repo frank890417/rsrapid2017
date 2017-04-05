@@ -22,6 +22,7 @@
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
+      @yield('content')
       <section_footer></section_footer>
     </div>
     <!-- @yield('content') -->
