@@ -15751,6 +15751,11 @@ footer ul.footer_nav a {
   font-size: 25px;
 }
 
+.page_tech {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 .page_tech section {
   min-height: 0px;
   position: relative;

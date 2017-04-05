@@ -72,7 +72,7 @@ const app = new Vue({
     }
   },mounted: function(){
     var vobj=store.state;
-    $.get("http://rsrapid2017.dev/api/news").then(function(res){
+    $.get("http://www.rapidsuretech.com/api/news").then(function(res){
       vobj.news=res;
     });
   }

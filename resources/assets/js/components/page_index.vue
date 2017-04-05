@@ -52,7 +52,7 @@ div.page_index
           .col-sm-12
             h3.section_title 從居家到工作環境
             p.section_para.text-left 農產品從田間到通路銷售過程需要追蹤農藥殘留狀況。我們藉由農藥測像分析，再產銷供應鏈上執行進出手農殘檢測，可降低風險、保證品質，以確保農產符合法規標準，為守護民眾食安問題。<br><br>消費產品使用狀況趨多，健康風險成為關注焦點。特別是兒童用品，我們提供塑化劑檢測服務，為您所購買的生活日用品進行分析，排除居家安全憂慮，為下一代健康把關
-            a.btn.btn-primary(href='tech.html') 了解更多
+            router-link.btn.btn-primary(to='/tech') 了解更多
             .percent.text-right(data-target=42) 42
 
   section.page_index_accurate
@@ -61,7 +61,7 @@ div.page_index
         .col-sm-6.col-sm-offset-6.text-center
           h3.section_title 睿軒專注精準檢驗
           p.section_para.text-left 農產品從田間到通路銷售過程需要追蹤農藥殘留狀況。我們藉由農藥測像分析，再產銷供應鏈上執行進出手農殘檢測，可降低風險、保證品質，以確保農產符合法規標準，為守護民眾食安問題。
-          a.btn.btn-default.btn-transparent(href='tech.html') 了解更多
+          router-link.btn.btn-default.btn-transparent(to='tech') 了解更多
     .container.type_container
       .row      
         .col-sm-8.col-sm-offset-6
