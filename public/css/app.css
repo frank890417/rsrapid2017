@@ -263,7 +263,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -277,9 +277,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -292,12 +292,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -305,7 +316,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -313,8 +324,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -370,6 +381,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -582,7 +604,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -737,13 +759,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -8933,7 +8958,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -8947,9 +8972,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -8962,12 +8987,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -8975,7 +9011,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -8983,8 +9019,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -9040,6 +9076,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -9252,7 +9299,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -9407,13 +9454,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -9716,7 +9766,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -9730,9 +9780,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -9745,12 +9795,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -9758,7 +9819,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -9766,8 +9827,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -9823,6 +9884,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -10035,7 +10107,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -10190,13 +10262,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -10598,7 +10673,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -10612,9 +10687,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -10627,12 +10702,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -10640,7 +10726,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -10648,8 +10734,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -10705,6 +10791,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -10917,7 +11014,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -11072,13 +11169,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -11666,7 +11766,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -11680,9 +11780,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -11695,12 +11795,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -11708,7 +11819,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -11716,8 +11827,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -11773,6 +11884,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -11985,7 +12107,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -12140,13 +12262,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -12624,7 +12749,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -12638,9 +12763,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -12653,12 +12778,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -12666,7 +12802,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -12674,8 +12810,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -12731,6 +12867,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -12943,7 +13090,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -13098,13 +13245,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -13598,7 +13748,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -13612,9 +13762,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -13627,12 +13777,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -13640,7 +13801,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -13648,8 +13809,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -13705,6 +13866,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -13917,7 +14089,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -14072,13 +14244,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -14509,7 +14684,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -14523,9 +14698,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -14538,12 +14713,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -14551,7 +14737,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -14559,8 +14745,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -14616,6 +14802,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -14828,7 +15025,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -14983,13 +15180,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -15471,7 +15671,7 @@ nav.navbar-default {
 
 nav.navbar-default i {
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -15485,9 +15685,9 @@ nav.navbar-default .icon_text_size {
   background-color: #3FBFBB;
   border-radius: 50%;
   color: #fff;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   @endif {}  position: relative;
   cursor: pointer;
   margin-top: 2px;
@@ -15500,12 +15700,23 @@ nav.navbar-default .icon_text_size .text {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-  transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-50%, -60%);
+  transform: scale(0.8) translate(-50%, -60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.navbar-default .icon_text_size .text span.plus {
+  position: relative;
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  top: -1px;
 }
 
 nav.navbar-default .navbar-nav {
-  margin-left: 48px;
+  margin-left: -10px;
   padding: 0;
   padding-top: 12px;
   -webkit-transition: 0.5s;
@@ -15513,7 +15724,7 @@ nav.navbar-default .navbar-nav {
 }
 
 nav.navbar-default .navbar-nav li {
-  padding: 8px;
+  padding: 8px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -15521,8 +15732,8 @@ nav.navbar-default .navbar-nav li {
 nav.navbar-default .navbar-nav li a {
   font-size: 17px;
   font-weight: light;
-  letter-spacing: 2px;
-  padding: 4px 8px;
+  letter-spacing: 3px;
+  padding: 4px 4px;
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -15578,6 +15789,17 @@ nav.navbar-default.at_top .logo {
 
 nav.navbar-default.bg_white {
   background-color: #fff;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 67px;
+}
+
+nav.navbar-default .lang_dropdown .dropdown-menu li {
+  margin-top: -24px;
 }
 
 .slide_bullet {
@@ -15790,7 +16012,7 @@ footer ul.footer_nav a {
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-weight: 300;
+  font-weight: 500;
   background-size: cover;
 }
 
@@ -15945,13 +16167,16 @@ footer ul.footer_nav a {
 }
 
 .detail_footer .question_list .question {
-  color: #555;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .detail_footer .question_list .answer {
   color: #3FBFBB;
+  font-weight: 400;
   margin-top: 12px;
 }
 

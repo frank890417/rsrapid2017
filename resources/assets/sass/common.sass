@@ -182,7 +182,7 @@ nav.navbar-default
   color: $color_grey
   i
     font-style: normal
-    font-size: 22px
+    font-size: 18px
     cursor: pointer
   .logo
     height: 50px
@@ -192,31 +192,37 @@ nav.navbar-default
     background-color: $theme_color
     border-radius: 50%
     color: $color_white
-    font-size: 12px
-    +size(22px,22px)
+    font-size: 18px
+
+
+    +size(24px,24px)
     position: relative
     cursor: pointer
     margin-top: 2px
     vertical-align: middle
     .text
       +ab_center
-      transform: scale(0.8) translate(-50%,-50%)
-
+      transform: scale(0.8) translate(-50%,-60%)
+      user-select: none
+      span.plus
+        position: relative
+        transform: scale(0.4)
+        top: -1px
 
   .navbar-nav
-    margin-left: $gutter_width*2
+    margin-left: -10px
     padding: 0
     padding-top: $gutter_width*0.5
     transition: 0.5s
- 
+
     li 
-      padding: 8px
+      padding: 8px 12px
       transition: 0.5s
       a
         font-size: 17px
         font-weight: light
-        letter-spacing: 2px
-        padding: 4px 8px
+        letter-spacing: 3px
+        padding: 4px 4px
         padding-bottom: 8px
         transition: 0.3s
         color: $color_grey
@@ -256,6 +262,16 @@ nav.navbar-default
 
   &.bg_white
     background-color: #fff
+
+  //語言選單
+  .lang_dropdown .dropdown-menu
+    background-color: transparent
+    border: none
+    box-shadow: none
+    min-width: 67px
+    li
+      margin-top: -$gutter_width
+
 
 .slide_bullet
   list-style: none
@@ -412,7 +428,7 @@ footer
         line-height: 2em
         color: $color_white
         transition: 0.5s
-        font-weight: 300
+        font-weight: 500
         
         &:after
           content: ""
@@ -534,11 +550,14 @@ footer
 
 
     .question
-      color: #555
+      color: $color_grey_dark
+      font-size: 16px
+      font-weight: 400
       letter-spacing: 1px
       cursor: pointer
     .answer
       color: $theme_color
+      font-weight: 400
       margin-top: $gutter_width/2
       // max-height: 0px
       // overflow: hidden
