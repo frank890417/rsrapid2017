@@ -17,7 +17,7 @@ div.page_index
         .col-sm-12.text-center
           h1 為安全出發 
             span.color_theme 讓生活更美好
-          h3.page_header_eng Preserve in good health, apply in the future
+          h3.page_header_eng Better health, better life
 
     .container.news_container
       .row

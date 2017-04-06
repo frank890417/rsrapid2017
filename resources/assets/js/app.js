@@ -97,7 +97,7 @@ const store = new Vuex.Store({
         title: "校園環境健檢檢測計畫",
         sub_title: "健康安全的成長環境",
         sub_content: "塑膠產品使用狀況趨多，學子成長環境隱藏潛在風險，特別是常用的文玩具。我們提供塑化劑檢測服務，為各式塑膠類生活用品進行檢測分析，排除幼兒與兒童成長環境安全憂慮，為下一代健康把關。",
-        test_item: "塑化劑：8種鄰苯二甲酸酯類塑化劑(DEHP、DNOP、BBP、DINP、DIDP、DEP、DMP、DBP)",
+        test_item: "塑化劑：8種鄰苯二甲酸酯類塑化劑:<br>DEHP：鄰苯二甲酸二(2-乙基己基)酯<br>DNOP：鄰苯二甲酸二正辛酯<br>BBP：鄰苯二甲酸丁基苯酯<br>DINP：鄰苯二甲酸二異壬酯<br>DIDP：鄰苯二甲酸二異癸酯<br>DEP：鄰苯二甲酸二乙酯<br>DMP：鄰苯二甲酸二甲酯<br>DBP：鄰苯二甲酸二丁酯",
         env: "各級學校、補習班、幼兒園、托育中心等孩童活動空間。",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
         talk: [
@@ -284,7 +284,9 @@ $( window ).ready(function(){
   //initial bg parallax
 
   //把答案藏起來
-  $(".question_list .answer").slideToggle();
+  $(".question_list .answer").each(function(index,obj){
+    if (index!=0) $(obj).slideToggle();
+  });
 
   $(".question_list li").click(function(){
     // console.log($(this));
@@ -302,9 +304,9 @@ $( window ).ready(function(){
       el.removeClass("bigger");
       el.addClass("smaller");
       el.children(".text").text("A-");
-      $("p").css("font-size","17px")
+      $("p").css("font-size","18px")
           .css("line-height","30px");
-      $(".question_list").css("font-size","17px");
+      $(".question_list").css("font-size","18px");
     }else{
       el.removeClass("smaller");
       el.addClass("bigger");

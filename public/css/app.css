@@ -70,19 +70,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -258,6 +258,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -317,6 +318,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -443,6 +445,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -640,6 +643,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -709,6 +714,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -754,8 +767,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -8727,19 +8740,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -8915,6 +8928,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -8974,6 +8988,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -9100,6 +9115,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -9297,6 +9313,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -9366,6 +9384,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -9411,8 +9437,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -9497,19 +9523,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -9685,6 +9711,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -9744,6 +9771,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -9870,6 +9898,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -10067,6 +10096,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -10136,6 +10167,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -10181,8 +10220,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -10366,19 +10405,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -10554,6 +10593,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -10613,6 +10653,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -10739,6 +10780,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -10936,6 +10978,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -11005,6 +11049,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -11050,8 +11102,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -11421,19 +11473,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -11609,6 +11661,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -11668,6 +11721,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -11794,6 +11848,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -11991,6 +12046,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -12060,6 +12117,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -12105,8 +12170,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -12366,19 +12431,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -12554,6 +12619,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -12613,6 +12679,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -12739,6 +12806,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -12936,6 +13004,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -13005,6 +13075,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -13050,8 +13128,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -13327,19 +13405,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -13515,6 +13593,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -13574,6 +13653,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -13700,6 +13780,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -13897,6 +13978,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -13966,6 +14049,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -14011,8 +14102,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -14225,19 +14316,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -14413,6 +14504,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -14472,6 +14564,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -14598,6 +14691,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -14795,6 +14889,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -14864,6 +14960,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -14909,8 +15013,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {
@@ -15174,19 +15278,19 @@ h4 {
 
 h5 {
   font-size: 17px;
-  line-height: 25px;
+  line-height: 28px;
   letter-spacing: 2px;
 }
 
 h6 {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 2px;
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 27px;
   letter-spacing: 3px;
   color: #555;
   font-weight: 300;
@@ -15362,6 +15466,7 @@ nav.navbar-default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 17px;
+  color: #555;
 }
 
 nav.navbar-default i {
@@ -15421,6 +15526,7 @@ nav.navbar-default .navbar-nav li a {
   padding-bottom: 8px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #555;
 }
 
 nav.navbar-default .navbar-nav li a:hover {
@@ -15547,6 +15653,7 @@ footer .info {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+  letter-spacing: 2px;
 }
 
 footer ul.footer_nav {
@@ -15744,6 +15851,8 @@ footer ul.footer_nav a {
 .detail_footer h5 {
   font-weight: light;
   margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .detail_footer .social_icon {
@@ -15813,6 +15922,14 @@ footer ul.footer_nav a {
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.detail_footer .address_col p {
+  font-size: 16px;
+}
+
+.detail_footer .address_col hr {
+  border-bottom: solid 1px #aaa;
+}
+
 .detail_footer .question_list {
   position: relative;
 }
@@ -15858,8 +15975,8 @@ footer ul.footer_nav a {
   height: 40px;
   @endif {}  cursor: pointer;
   border-radius: 50%;
-  bottom: 144px;
-  right: 48px;
+  bottom: 65px;
+  right: 65px;
 }
 
 .detail_footer .go_to_topbtn i {

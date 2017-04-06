@@ -30,7 +30,7 @@ nav.navbar.navbar-default.navbar-fixed-top.at_top
             router-link(to="/index") 會員服務
 
         ul.nav.navbar-nav.navbar-right
-          li 繁中
+          li 繁
             i.fa.fa-angle-down 
           li 
             i.fa.fa-search

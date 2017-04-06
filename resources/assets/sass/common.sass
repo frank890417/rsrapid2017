@@ -23,13 +23,13 @@ h4
   +paragraph_size_leading(21px,31px)
   letter-spacing: 2px
 h5
-  +paragraph_size_leading(17px,25px)
+  +paragraph_size_leading(17px,28px)
   letter-spacing: 2px
 h6
-  +paragraph_size_leading(15px,25px)
+  +paragraph_size_leading(16px,27px)
   letter-spacing: 2px
 p
-  +paragraph_size_leading(15px,25px)
+  +paragraph_size_leading(16px,27px)
   letter-spacing: 3px
   color: $color_grey
   font-weight: 300
@@ -179,6 +179,7 @@ nav.navbar-default
   border-top: solid 5px $theme_color
   transition: 0.5s
   font-size: 17px
+  color: $color_grey
   i
     font-style: normal
     font-size: 22px
@@ -218,6 +219,7 @@ nav.navbar-default
         padding: 4px 8px
         padding-bottom: 8px
         transition: 0.3s
+        color: $color_grey
         &:hover
           color: $theme_color
           background-color: transparent
@@ -304,6 +306,10 @@ footer
     margin: 0
     font-size: 14px
     opacity: 0.9
+    letter-spacing: 2px
+
+
+
   ul.footer_nav
     display: block
     float: right
@@ -461,6 +467,8 @@ footer
   h5
     font-weight: light
     margin-bottom: 30px
+    font-size: 18px
+    color: $color_grey_dark
 
   .social_icon
     width: 30px
@@ -508,7 +516,11 @@ footer
       &:after
         transform: translate(-50%,-50%) rotate(180deg) 
 
-
+  .address_col
+    p
+      font-size: 16px
+    hr
+      border-bottom: solid 1px #aaa
   .question_list
     position: relative
 
@@ -551,8 +563,8 @@ footer
     cursor: pointer
 
     border-radius: 50%
-    bottom: $gutter_width*6
-    right: $gutter_width*2
+    bottom: 65px
+    right: 65px
 
     i
       +ab_center
