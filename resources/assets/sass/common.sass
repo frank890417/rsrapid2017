@@ -53,6 +53,8 @@ h1,h2,h3,h4,h5,h6
 
 .bg_parallax
   background-size: auto 100%
+.bg_parallax_about
+  background-size: 100% auto
 .cover_image
   background-color: $theme_color
 
@@ -238,7 +240,9 @@ nav.navbar-default
         &:hover
           color: $theme_color
           background-color: transparent
-      
+  .navbar-left
+    @media screen and (max-width: 1200px)
+      display: none
   .navbar-right
     padding: 0
     padding-top: $gutter_width/2

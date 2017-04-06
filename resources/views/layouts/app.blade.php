@@ -9,6 +9,7 @@
     <title>睿軒檢驗科技</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([

@@ -60,33 +60,33 @@ const store = new Vuex.Store({
         {
           date: "03/01",
           title: "成立睿軒檢驗",
-          cover: "/img/homepage/Post1.jpg",
+          cover: "/img/homepage/Post2.jpg",
           content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
         },
         {
           date: "05/01",
           title: "貴陽大數據博覽會參展",
-          cover: "/img/homepage/Post2.jpg",
+          cover: "/img/homepage/Post3.jpg",
           content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
         },
         {
           date: "12/01",
           title: "全台幼兒環境大義診",
-          cover: "/img/homepage/Post3.jpg",
+          cover: "/img/homepage/Home-news-2.jpg",
           content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
         }
       ],
       year_2016: [
         {
-          date: "04/01",
-          title: "貴陽大數據博覽會參展",
-          cover: "/img/homepage/Post3.jpg",
+          date: "03/01",
+          title: "鴻海和中山合資技轉記者會",
+          cover: "/img/homepage/Post1.jpg",
           content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
         },
         {
           date: "05/01",
           title: "貴陽大數據博覽會參展",
-          cover: "/img/homepage/Post2.jpg",
+          cover: "/img/homepage/Post4.jpg",
           content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
         }
       ],
@@ -206,27 +206,28 @@ scroll
 //使用卷軸位置更新元件
 function update_scroll(top_val){
   $(".bg_parallax").css("background-position","center "+top_val/5.00+"px");
+  $(".bg_parallax_about").css("background-position","center "+(1250+top_val/4.60)+"px");
 
-    //percet nt init
-    $(".percent.initial").each(function(index,obj){
-      // console.log("test");
-      // update element enter animation
-      if ($(obj).offset().top<top_val+window_height*0.8){
-        $(obj).removeClass("initial");
-        
-        var ed_val=1.0*$(obj).attr("data-target");
+  //percet nt init
+  $(".percent.initial").each(function(index,obj){
+    // console.log("test");
+    // update element enter animation
+    if ($(obj).offset().top<top_val+window_height*0.8){
+      $(obj).removeClass("initial");
+      
+      var ed_val=1.0*$(obj).attr("data-target");
 
-        var nowval=0;
-        var timer=setInterval(function(){
-          $(obj).html(Math.round(nowval));
-          if (nowval>=ed_val-0.2){
-            clearInterval(timer);
-          }else{
-            nowval+=(ed_val-nowval)*0.05;
-          }
-        },30);
-      }
-    });
+      var nowval=0;
+      var timer=setInterval(function(){
+        $(obj).html(Math.round(nowval));
+        if (nowval>=ed_val-0.2){
+          clearInterval(timer);
+        }else{
+          nowval+=(ed_val-nowval)*0.05;
+        }
+      },30);
+    }
+  });
 
     //update section content fadeIn
     $(".section_title.initial,.section_para").each(function(index,obj){
@@ -368,12 +369,18 @@ $( window ).ready(function(){
 
   //router event
 
-  router.afterEach((route) => {
-    if (route.path=="/about" || route.path=="/news"){
-      $("nav").addClass("bg_white");
-    }else{
-      $("nav").removeClass("bg_white");
-    }
+router.afterEach((route) => {
+  if (route.path=="/about" || route.path=="/news" || route.path.indexOf("/news/")!=-1){
+    $("nav").addClass("bg_white");
+  }else{
+    $("nav").removeClass("bg_white");
+  }
+  // //加上初始化
+  $(".percent , .section_title , .section_para").addClass("initial");
+  if (route.path=="/index"){
+    setTimeout(()=>{update_scroll(0);},1200);
+  } 
+  
   });
 
 });

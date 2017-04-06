@@ -110,6 +110,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -346,6 +350,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -8855,6 +8865,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -9091,6 +9105,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -9713,6 +9733,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -9949,6 +9973,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -10670,6 +10700,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -10906,6 +10940,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -11813,6 +11853,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -12049,6 +12093,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -12846,6 +12896,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -13082,6 +13136,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -13895,6 +13955,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -14131,6 +14195,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -14876,6 +14946,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -15112,6 +15186,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {
@@ -15913,6 +15993,10 @@ h1, h2, h3, h4, h5, h6 {
   background-size: auto 100%;
 }
 
+.bg_parallax_about {
+  background-size: 100% auto;
+}
+
 .cover_image {
   background-color: #3FBFBB;
 }
@@ -16149,6 +16233,12 @@ nav.navbar-default .navbar-nav li .router-link-active {
 nav.navbar-default .navbar-nav li .router-link-active:hover {
   color: #3FBFBB;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  nav.navbar-default .navbar-left {
+    display: none;
+  }
 }
 
 nav.navbar-default .navbar-right {

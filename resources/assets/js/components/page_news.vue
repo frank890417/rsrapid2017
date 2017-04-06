@@ -15,13 +15,13 @@ div.page_news
       .row
         .col-sm-12
           ul.nav_line_split.text-center
-            li.active 全部新聞
-            li 重要通知
-            li 活動快訊
-            li 投資相關
+            li.active(@click='filter=""') 全部新聞
+            li(@click='filter="重要通知"') 重要通知
+            li(@click='filter="活動快訊"') 活動快訊
+            li(@click='filter="投資相關"') 投資相關
         .container-fluid.news_field
           .row
-            .news_box.section_para(v-for='a_news in news' v-bind:class="'col-sm-'+a_news.size*4")
+            .news_box.section_para(v-for='a_news in filtered_news' v-bind:class="'col-sm-'+a_news.size*4")
               router-link(:to="'/news/'+a_news.id")
                 .news_box_inner
                   .cover(:style="'background-image: url('+a_news.cover+')'")
@@ -55,6 +55,16 @@ export default {
     mounted() {
       console.log('news mounted.');
     },
-    computed: mapState(['news'])
+    data() {
+      return {
+        filter: ""
+      }
+    },
+    computed: {
+      ...mapState(['news']),
+      filtered_news (){
+        return this.news.filter(item=>( item.tag==this.filter || this.filter==""))
+      }
+    }
 }
 </script>

@@ -15,7 +15,20 @@ div.page_tech
   section.section_tech(data-img=1)
 
     .ab_center.size_full.bg_color_split
-      .block_50_percent.bg_theme(data-image="1")
+      .block_50_percent
+        #myCarousel2.carousel.slide(data-ride='carousel' style='height: 100%')
+          // Indicators
+          ol.carousel-indicators
+            li.active(data-target='#myCarousel2', data-slide-to='0')
+            li(data-target='#myCarousel2', data-slide-to='1')
+           
+          // Wrapper for slides
+          .carousel-inner(role='listbox' style='height: 100%')
+            .item.active(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Tech2.jpg);background-size: cover; height: 100%;")
+            .item(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Home1.jpg);background-size: cover; height: 100%;")
+
       .block_50_percent
     .container
       .row
@@ -26,7 +39,7 @@ div.page_tech
           p.section_para.text-left 不需任何前處理，也不需破壞待測物件。 快速採樣、即時檢測，立即與資料庫進行比對作業，完成一次分析的時間只需5秒。
           a.btn.btn-primary.section_para 了解更多
 
-  section.section_tech.section_manhead(data-img=2)
+  section.section_tech.section_manhead
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
@@ -44,7 +57,20 @@ div.page_tech
   section.section_tech(data-img=3)
 
     .ab_center.size_full.bg_color_split
-      .block_50_percent.bg_theme(data-image="3")
+      .block_50_percent
+        #myCarousel4.carousel.slide(data-ride='carousel' style='height: 100%')
+          // Indicators
+          ol.carousel-indicators
+            li.active(data-target='#myCarousel4', data-slide-to='0')
+            li(data-target='#myCarousel4', data-slide-to='1')
+           
+          // Wrapper for slides
+          .carousel-inner(role='listbox' style='height: 100%')
+            .item.active(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Tech4.jpg);background-size: cover; height: 100%;")
+            .item(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Post4.jpg);background-size: cover; height: 100%;")
+
       .block_50_percent
     .container
       .row
