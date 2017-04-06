@@ -79,14 +79,24 @@ div.page_index
 
   section.page_index_sponsor
     .container.text-center
-      .col-sm-3
-        img.sponsorlogo(src="https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/8/7224/upto-700xauto/56701e6e/surface-logo.png?resolution=0")
-      .col-sm-3
-        img.sponsorlogo(src="https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/8/7224/upto-700xauto/56701e6e/surface-logo.png?resolution=0")
-      .col-sm-3
-        img.sponsorlogo(src="https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/8/7224/upto-700xauto/56701e6e/surface-logo.png?resolution=0")
-      .col-sm-3
-        img.sponsorlogo(src="https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/8/7224/upto-700xauto/56701e6e/surface-logo.png?resolution=0")
+      #myCarousel2.carousel.slide(data-ride='carousel' style='height: 180px')
+           
+          // Wrapper for slides
+          .carousel-inner.vertical(role='listbox' style='height: 100%')
+            .item.active(style='height: 100%')
+              .col-sm-3.col-sm-offset-3
+                a(href="#")
+                  img.sponsorlogo(src="/img/homepage/surface-logo.png")
+              .col-sm-3
+                a(href="#")
+                  img.sponsorlogo(src="/img/homepage/surface-logo.png")
+            .item(style='height: 100%')
+              .col-sm-3
+                a(href="#").col-sm-offset-3
+                  img.sponsorlogo(src="/img/homepage/surface-logo.png")
+              .col-sm-3
+                a(href="#")
+                  img.sponsorlogo(src="/img/homepage/surface-logo.png")
 
 </template>
 

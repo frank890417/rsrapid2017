@@ -38,6 +38,8 @@ body
   font-size: 16px
   letter-spacing: 3px
   font-weight: light
+
+
   // min-width: 1600px
 
 
@@ -105,6 +107,8 @@ h1,h2,h3,h4,h5,h6
   top: 0
   background-color: $color
 
+//----------------
+
 //用線分隔的導覽
 .nav_line_split
   list-style: none
@@ -136,6 +140,59 @@ a
     left: 0
     top: 0
     background-color: rgba(white,0.4)
+
+
+//------------------
+.carousel-inner.vertical
+  height: 100%
+  >
+    .item
+      -webkit-transition: .6s ease-in-out top
+      -o-transition: .6s ease-in-out top
+      transition: .6s ease-in-out top
+    .active
+      top: 0
+    .next, .prev
+      top: 0
+      height: 100%
+      width: auto
+    .next
+      left: 0
+      top: 100%
+    .prev
+      left: 0
+      top: -100%
+    .next.left, .prev.right
+      top: 0
+    .active
+      &.left
+        left: 0
+        top: -100%
+      &.right
+        left: 0
+        top: 100%
+
+@media all and (transform-3d), (-webkit-transform-3d)
+  .carousel-inner.vertical > .item
+    -webkit-transition: -webkit-transform .6s ease-in-out
+    -o-transition: -o-transform .6s ease-in-out
+    transition: transform .6s ease-in-out
+    -webkit-backface-visibility: hidden
+    backface-visibility: hidden
+    -webkit-perspective: 1000
+    perspective: 1000
+    &.next, &.active.right
+      top: 0
+      -webkit-transform: translate3d(0, 100%, 0)
+      transform: translate3d(0, 100%, 0)
+    &.prev, &.active.left
+      top: 0
+      -webkit-transform: translate3d(0, -100%, 0)
+      transform: translate3d(0, -100%, 0)
+    &.next.left, &.prev.right, &.active
+      top: 0
+      -webkit-transform: translate3d(0, 0, 0)
+      transform: translate3d(0, 0, 0)
 
 //------------------------------------------------------
 
