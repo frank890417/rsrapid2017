@@ -29,7 +29,7 @@ Route::get('/about', 'HomeController@index');
 
 Route::get('/news', 'HomeController@index');
 Route::get('/news/{id}', 'HomeController@index');
-
+Route::get('/solution/{id}', 'HomeController@index');
 Route::get('/solution', 'HomeController@index');
 
 Route::get('/job', 'HomeController@index');

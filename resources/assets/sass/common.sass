@@ -173,7 +173,8 @@ section
 //--------------------------
 
 nav.navbar-default
-  height: 3*$gutter_width+10px
+  $nav_height: 3*$gutter_width+10px
+  height: $nav_height
   background-color: rgba(white,0.95)
   border-bottom: none
   border-top: solid 5px $theme_color
@@ -250,15 +251,18 @@ nav.navbar-default
 
   //nav 再上方的狀態
   &.at_top
-    height: 4.5*$gutter_width
+    $at_top_nav_height: 4.5*$gutter_width
+    height: $at_top_nav_height
     background-color: transparent
     border-top: solid 3px $theme_color
-    li
+    .navbar-nav > li
       margin-top: -$gutter_width
     .navbar-nav
       padding-top: $gutter_width*2
     .logo
       height: 65px
+    .subnav
+      top: $at_top_nav_height
 
   &.bg_white
     background-color: #fff
@@ -272,6 +276,41 @@ nav.navbar-default
     li
       margin-top: -$gutter_width
 
+.navbar-nav ul.subnav
+  width: 100vw
+  position: fixed
+  top: $nav_height
+  left: 0
+  background-color: rgba($theme_color,0.9)
+  color: white
+  opacity: 0
+  overflow: hidden
+  max-height: 0
+  transition: 0.5s 0.2s
+  padding: 0
+  text-align: center
+
+  li
+    padding: $gutter_width*0.8 15px
+    display: inline-block
+    margin-top: 0 
+    cursor: pointer
+    a
+      color: rgba(white,0.8)
+      // padding-bottom: 10px
+      text-decoration: none
+      &:hover
+        color: rgba(white,1)
+      &.router-link-active
+        color: rgba(white,1)
+        &:hover
+          color: rgba(white,1)
+
+
+li:hover
+  .subnav
+    max-height: 70px
+    opacity: 1
 
 .slide_bullet
   list-style: none

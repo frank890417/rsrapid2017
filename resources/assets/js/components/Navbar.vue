@@ -24,6 +24,13 @@ nav.navbar.navbar-default.navbar-fixed-top.at_top
             router-link(to="/tech") 檢驗科技
           li
             router-link(to="/solution") 檢測方案
+            ul.subnav
+              li 
+                router-link(to="/solution/1")校園環境健檢
+              li 
+                router-link(to="/solution/2")校園食材健檢
+              li 
+                router-link(to="/solution/3")農場作物自主管理
           li
             router-link(to="/news") 最新消息
           li
