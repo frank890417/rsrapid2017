@@ -44,13 +44,23 @@
   .section_post
     background-position: center bottom
     position: relative
+    // &:before
+    //   content: ""
+    //   display: block
+    //   +size(100%,$gutter_width*3)
+    //   background-color: $color_white
+    //   position: absolute
+    //   top: -$gutter_width*3
+    //   left: 0
+    //   z-index: 10
     .container
       background-color: white
-      position: absolute
-      top: -$gutter_width*3
-      z-index: 10
-      left: 50%
-      transform: translateX(-50%)
+      // position: absolute
+      // top: -$gutter_width*3
+      // z-index: 10
+      // left: 50%
+      // transform: translateX(-50%)
+      margin-top: -$gutter_width*3
       padding-top: $gutter_width*3
       padding-bottom: $gutter_width*3
     .share

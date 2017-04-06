@@ -1,34 +1,33 @@
 <template lang="jade">
 div.page_post
-  #myCarousel.carousel.slide(data-ride='carousel')
+  #myCarousel.carousel.slide(data-ride='carousel' v-if='newsset')
     // Indicators
     ol.carousel-indicators
       li.active(data-target='#myCarousel', data-slide-to='0')
       li(data-target='#myCarousel', data-slide-to='1')
-      li(data-target='#myCarousel', data-slide-to='2')
-      li(data-target='#myCarousel', data-slide-to='3')
+     
     // Wrapper for slides
     .carousel-inner(role='listbox')
       .item.active
-        .img(style="background-image: url('http://localhost:7885/img/homepage/Post1.jpg');background-size: cover; height: 700px").bg_parallax
-      .item
-        .img(style="background-image: url('http://localhost:7885/img/homepage/Post1.jpg');background-size: cover; height: 700px").bg_parallax
+        .img(:style="'background-image:url('+newsset.cover+')'+';background-size: cover; height: 600px;'").bg_parallax
+     
     // Left and right controls
     a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
-      span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+      span.fa.fa-angle-left(aria-hidden='true')
+
       span.sr-only Previous
     a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
-      span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+      span.fa.fa-angle-right(aria-hidden='true')
       span.sr-only Next
 
   section.section_post
-    .container(v-for='news in newsset')
+    .container(v-if='newsset')
       .row
         .col-sm-10.col-sm-offset-1.post_box
-          h4.tag(v-text='news.tag')
-          h1.section_title(v-text='news.title')
-          p.date(v-text='news.date')
-          p(v-html='news.content')
+          h4.tag(v-text='newsset.tag')
+          h1.section_title(v-text='newsset.title')
+          p.date(v-text='newsset.date')
+          p(v-html='newsset.content')
           h5.share 分享文章
             .logos
               img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
@@ -48,7 +47,7 @@ export default {
     computed: {
       ...mapState(['news']),
       newsset (){
-        return this.news.filter((n)=>(n.id==this.id));
+        return this.news.filter((n)=>(n.id==this.id))[0];
       }
     }
 }
