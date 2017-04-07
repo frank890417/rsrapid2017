@@ -24,12 +24,13 @@ div.page_index
         transition(name='fade' mode="out-in")
           .news.col-sm-10.color_white.col-sm-offset-1.col-xs-12(v-if="id==news_id" v-for='(a_news,id) in news')
             .btns
-                a.btn.btn-default.btn-primary-lighter.btn_more 了解更多
-                a.btn.btn-default.btn-transparent.btn_next(@click="news_delta(1)" v-bind:title="'下一則:'+news[(news_id+1)%news.length].title") 下一則  >
-            .col-sm-8(v-if="a_news")
-              h4 {{a_news.title}}
-              h5 {{a_news.date}}
-              p {{a_news.description}}
+                router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
+                a.btn.btn-default.btn-transparent.btn_next(@click="news_delta(1)" ) 下一則  >
+            transition(name='fade' mode="out-in")
+              .col-sm-8(v-if="a_news")
+                h4 {{a_news.title}}
+                h5 {{a_news.date}}
+                p {{a_news.description}}
               
             .col-sm-4.cover_img(:style="'background-image: url('+a_news.cover+')'")
             .timeline
@@ -110,8 +111,18 @@ div.page_index
                 };
         },
         mounted() {
-            console.log('index mounted.')
+            console.log('index mounted.');
+            setTimeout(function(){
+              update_scroll(0);
+            },200);
             
+            
+        },
+        methods: {
+          news_delta: function(d){
+            this.news_id=(this.news.length+d+this.news_id)%this.news.length;
+            this.news_time=0;
+          }
         },
         computed: Vuex.mapState(['news'])
     }

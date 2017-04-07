@@ -56,13 +56,13 @@ div.footer
         .info Copyright 2017 © 睿軒檢驗科技 Rapidsure Tech, All right reserved.
         ul.footer_nav
           li
-            a(href="job.html") 人才招募
+            router-link(to="/job") 人才招募
           li
-            a(href="member.html") 會員管理
+            a(href="#") 會員管理
           li
             a(href="#") 各項聲明
           li
-            a(href="contact.html") 聯絡我們
+            router-link(to="/contact") 聯絡我們
 
 
 </template>

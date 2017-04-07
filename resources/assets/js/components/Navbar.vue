@@ -49,7 +49,7 @@ nav.navbar.navbar-default.navbar-fixed-top.at_top
               li 
                 router-link(to="/news/3") 食安新知
           li
-            router-link(to="/index") 會員服務
+            a(href="#") 會員服務
 
         ul.nav.navbar-nav.navbar-right
           li.dropdown.lang_dropdown

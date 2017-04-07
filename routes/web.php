@@ -33,3 +33,5 @@ Route::get('/solution/{id}', 'HomeController@index');
 Route::get('/solution', 'HomeController@index');
 
 Route::get('/job', 'HomeController@index');
+
+Route::get('/contact', 'HomeController@index');

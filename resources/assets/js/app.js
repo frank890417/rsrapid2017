@@ -25,6 +25,8 @@ var page_news=Vue.component('page_news', require('./components/page_news.vue'));
 var page_solution=Vue.component('page_solution', require('./components/page_solution.vue'));
 var page_tech=Vue.component('page_tech', require('./components/page_tech.vue'));
 var page_post=Vue.component('page_post', require('./components/page_post.vue'));
+var page_job=Vue.component('page_job', require('./components/page_job.vue'));
+var page_contact=Vue.component('page_contact', require('./components/page_contact.vue'));
 
 var section_footer=Vue.component('section_footer', require('./components/section_footer.vue'));
 var section_solutions=Vue.component('section_solutions', require('./components/section_solutions.vue'));
@@ -37,8 +39,9 @@ const routes = [
   { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
   { path: '/news/:id', component: page_post , props: true},
-  { path: '/job', component: page_index },
-]
+  { path: '/job', component: page_job },
+  { path: '/contact', component: page_contact }
+];
 
 const router = new VueRouter({
   routes,
@@ -160,10 +163,7 @@ const app = new Vue({
   store,
   computed: Vuex.mapState(['news','about_logs']),
   methods: {
-    news_delta: function(d){
-      this.news_id=(this.news.length+d+this.news_id)%this.news.length;
-      this.news_time=0;
-    }
+    
   },mounted: function(){
     if (document.URL.indexOf("dev")!=-1){
       $.get("http://www.rapidsuretech.com/api/news").then(function(res){
@@ -204,7 +204,7 @@ scroll
   });
 
 //使用卷軸位置更新元件
-function update_scroll(top_val){
+window.update_scroll=function update_scroll(top_val){
   $(".bg_parallax").css("background-position","center "+top_val/5.00+"px");
   $(".bg_parallax_about").css("background-position","center "+(1250+top_val/4.60)+"px");
 
@@ -272,7 +272,8 @@ function update_bullet(st){
     
   });
 }
-  
+
+
 //載入執行
 $( window ).ready(function(){
   //

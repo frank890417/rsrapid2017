@@ -50,6 +50,7 @@ div.page_tech
         .col-sm-4.col-sm-offset-1.inner
           h3.section_title 獨家探針，多樣檢測
           img.section_para.dynamic_icon(src="img/homepage/rapid-tech-icon_2.svg" alt="動態icon" )
+            
           p.section_para.text-left 獨家開發的採樣探針可利用高溫處理被重複使用，不需分析耗材，單次單件分析費用只需傳統檢測的 1/6。可針對有疑慮的物件進行快速分析的檢測作業。
           a.btn.btn-primary.section_para 了解更多
 
