@@ -68,8 +68,37 @@
         // display: none
     .dynamic_icon
       margin-bottom: $gutter_width*2
-      +size(50px,auto)
+      +size(52px,auto)
       // background-color: $theme_color
+    
+      .st0
+        fill: #3FBFBB
+      .st1
+        fill: #3FBFBB
+        stroke: #FFFFFF
+        stroke-miterlimit: 10
+      circle
+        animation: b_fade 1.5s infinite
+        transform-origin: center center
+        &:nth-child(1)
+          animation-delay: 0s
+        &:nth-child(2)
+          animation-delay: -0.3s
+        &:nth-child(3)
+          animation-delay: -0.7s
+      @keyframes b_fade
+        0%
+          transform: translate(-6px,6px) scale(0.8)
+          opacity: 0
+        50%
+          opacity: 1
+          
+        100%
+          transform: translate(4px,-4px) scale(1)
+          opacity: 0
+          
+
+
     .inner
       display: flex
       flex-direction: column

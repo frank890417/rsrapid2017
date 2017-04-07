@@ -30,9 +30,9 @@ div.page_contact
           .form-group
             label 諮詢
             select#select_contact
-              option(value="1") 校園環境健檢檢測計畫
-              option(value="2") 校園食材健檢檢測計畫
-              option(value="3") 農場作物自主管理檢測計畫
+              option(value="1") &nbsp;&nbsp;&nbsp;校園環境健檢檢測計畫
+              option(value="2") &nbsp;&nbsp;&nbsp;校園食材健檢檢測計畫
+              option(value="3") &nbsp;&nbsp;&nbsp;農場作物自主管理檢測計畫
 
           .form-group
             textarea.form-control(rows=14 placeholder="訊息...")
