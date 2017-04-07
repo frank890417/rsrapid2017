@@ -116,7 +116,7 @@ const store = new Vuex.Store({
         title: "校園食材健檢檢測計畫",
         sub_title: "營養美味的安心食材",
         sub_content: "協助每日校園營養午餐食材的農藥殘留檢測服務，加強用餐安全。有效管理不符規定的食材進行監控，以提供學子兼具營養與美味的安心食材",
-        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。",
+        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。<br>殺蟲劑：谷速松、陶斯松、普伏松、賽滅寧、護賽寧<br>殺蹣劑：必芬松、蟎離丹、大克蟎、芬普寧、得芬瑞...等<br>殺菌劑：比多農、滅普寧、賽福座、亞托敏、達滅芬...等<br>除草劑：拉草、復祿芬、必芬諾、比達寧、伏寄普...等",
         env: "各級學校、幼兒園、托育中心提供營養午餐的中央廚房、團膳供應商或學校合作社。",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
         talk: [
@@ -132,7 +132,7 @@ const store = new Vuex.Store({
         title: "自主管理從源頭做起",
         sub_title: "農場作物自主管理檢測計畫",
         sub_content: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",
-        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。",
+        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。<br>殺蟲劑：谷速松、陶斯松、普伏松、賽滅寧、護賽寧<br>殺蹣劑：必芬松、蟎離丹、大克蟎、芬普寧、得芬瑞...等<br>殺菌劑：比多農、滅普寧、賽福座、亞托敏、達滅芬...等<br>除草劑：拉草、復祿芬、必芬諾、比達寧、伏寄普...等",
         env: "果菜園、茶園等各式農場、蔬果產銷中心、合作社及批發通路",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
         talk: [
@@ -165,17 +165,10 @@ const app = new Vue({
   methods: {
     
   },mounted: function(){
-    if (document.URL.indexOf("dev")!=-1){
-      $.get("http://www.rapidsuretech.com/api/news").then(function(res){
-        console.log("news loaded");
-        store.commit("setNews",res);
-      });
-    }else{
-      $.get("http://rsrapid2017.dev/api/news").then(function(res){
-        console.log("news loaded");
-        store.commit("setNews",res);
-      });
-    }
+    $.get("http://www.rapidsuretech.com/api/news").then(function(res){
+      console.log("news loaded");
+      store.commit("setNews",res);
+    });
   }
 });
 

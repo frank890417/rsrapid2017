@@ -22,7 +22,7 @@ div.page_index
     .container.news_container
       .row
         transition(name='fade' mode="out-in")
-          .news.col-sm-10.color_white.col-sm-offset-1.col-xs-12(v-if="id==news_id" v-for='(a_news,id) in news')
+          .news.col-sm-10.color_white.col-sm-offset-1(v-if="id==news_id" v-for='(a_news,id) in news')
             .btns
                 router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
                 a.btn.btn-default.btn-transparent.btn_next(@click="news_delta(1)" ) 下一則  >
