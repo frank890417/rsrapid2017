@@ -23,9 +23,8 @@ class QuestionSeeder extends Seeder
         ],[
         "question"=>"塑化劑多久才會排出體外?",
         "answer"=>"塑化劑DEHP代謝速度非常快，進入人體後於12~24小時內，約有一半的DEHP及其代謝物會於24~48小時由尿液或糞便排出。
-        塑化劑DINP亦會被人體迅速代謝，72小時內有85%由糞便中排出，其餘部分則由尿液排出。
-        ]在48小時內停止接觸或攝入含有DEHP之產品，體內DEHP濃度便會快速下降，因此不必過度擔憂。"
-        [
+        塑化劑DINP亦會被人體迅速代謝，72小時內有85%由糞便中排出，其餘部分則由尿液排出。在48小時內停止接觸或攝入含有DEHP之產品，體內DEHP濃度便會快速下降，因此不必過度擔憂。"
+        ],[
         "question"=>"檢測的原理是什麼呢?",
         "answer"=>"先利用探針在待測物體表面上輕刮一下，再將探針放入檢測設備中加熱。高溫下探針表面的化學粒子釋放成游離狀態，經由質譜分析儀和大量的資料庫進行比對。過程只需5秒即可完成檢測。"
         ],[
@@ -37,8 +36,8 @@ class QuestionSeeder extends Seeder
         ]];
         foreach ($qas as $qa){
           Question::create([
-            "question" => $qa->question,
-            "answer" => $qa->answer,
+            "question" => $qa["question"],
+            "answer" => $qa["answer"],
             "updated_at" => date("Y-m-d H:i:s"),
             "created_at" => date("Y-m-d H:i:s")
           ]);

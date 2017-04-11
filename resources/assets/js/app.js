@@ -39,6 +39,7 @@ const routes = [
   { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
   { path: '/news/:id', component: page_post , props: true},
+  { path: '/news/cata/:id', component: page_news , props: true},
   { path: '/job', component: page_job },
   { path: '/contact', component: page_contact },
   { path: '/tern', component: page_tern }
