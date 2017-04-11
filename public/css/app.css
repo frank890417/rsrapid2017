@@ -1026,11 +1026,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -1046,6 +1044,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -2344,11 +2344,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -2364,6 +2362,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -3441,11 +3441,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -3461,6 +3459,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -4657,11 +4657,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -4677,6 +4675,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -6143,11 +6143,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -6163,6 +6161,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -7415,11 +7415,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -7435,6 +7433,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -8737,11 +8737,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -8757,6 +8755,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -9973,11 +9973,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -9993,6 +9991,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {
@@ -11257,11 +11257,9 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
-  max-height: 0px;
-  overflow: hidden;
 }
 
-.detail_footer .question_list li.open {
+.detail_footer .question_list li.open .answer {
   max-height: 400px;
 }
 
@@ -11277,6 +11275,8 @@ section.section_solution .row_else {
   color: #3FBFBB;
   font-weight: 400;
   margin-top: 12px;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .detail_footer .question_list input[type=checkbox]:checked + .answer .answer {

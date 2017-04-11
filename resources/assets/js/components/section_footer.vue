@@ -16,7 +16,7 @@ div.footer
       .col_question
         h5 常見問題
         ul.question_list
-          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="state[id]?'open':''" v-on:click="state[id]=!state[id]")
+          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="state[id]?'open':''" v-on:click="toggle(id)")
             .icon.icon_minus.icon_plus
             .question {{qa.question}}
               p.answer {{qa.answer}}
@@ -53,6 +53,11 @@ div.footer
           return {
             state: [true,false,false]
           };
+        },
+        methods: {
+          toggle (id){
+            this.state[id] = !this.state[id] ; 
+          }
         },
         computed: mapState(['questions'])
     }
