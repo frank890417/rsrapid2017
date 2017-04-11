@@ -10,12 +10,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon.png" />
+
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([
       'csrfToken' => csrf_token(),
       ]) !!};
     </script>
+    <!--新黑體-->
+    <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/script/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script>
   </head>
   <body>
     <div id="app">

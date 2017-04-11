@@ -11,11 +11,8 @@ require('./bootstrap');
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+
+//components
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('Navbar', require('./components/Navbar.vue'));
@@ -27,9 +24,12 @@ var page_tech=Vue.component('page_tech', require('./components/page_tech.vue'));
 var page_post=Vue.component('page_post', require('./components/page_post.vue'));
 var page_job=Vue.component('page_job', require('./components/page_job.vue'));
 var page_contact=Vue.component('page_contact', require('./components/page_contact.vue'));
+var page_tern=Vue.component('page_tern', require('./components/page_tern.vue'));
 
 var section_footer=Vue.component('section_footer', require('./components/section_footer.vue'));
 var section_solutions=Vue.component('section_solutions', require('./components/section_solutions.vue'));
+
+//routes
 
 const routes = [
   { path: '/', component: page_index },
@@ -40,7 +40,8 @@ const routes = [
   { path: '/news', component: page_news },
   { path: '/news/:id', component: page_post , props: true},
   { path: '/job', component: page_job },
-  { path: '/contact', component: page_contact }
+  { path: '/contact', component: page_contact },
+  { path: '/tern', component: page_tern }
 ];
 
 const router = new VueRouter({
@@ -279,8 +280,14 @@ $( window ).ready(function(){
   //initial bg parallax
 
   //把答案藏起來
-  $(".question_list .answer").each(function(index,obj){
-    if (index!=0) $(obj).slideToggle();
+  $(".question_list li").each(function(index,obj){
+    if (index!=0) {
+      $(obj).children(".question").children(".answer").slideToggle();
+      $(obj).children(".icon").addClass("icon_plus");
+    }else{
+      $(obj).children(".icon").toggleClass("icon_plus");
+    
+    }
   });
 
   $(".question_list li").click(function(){
@@ -330,7 +337,7 @@ $( window ).ready(function(){
 
   update_bullet(0);
   //snap locker by Rxjs
-  if (lock_scroll){
+  if (lock_scroll && window_height>850){
     //filter delta which bigger than thereshold and filter out twice down/up condition
     var source_page_nav=mousewheel.filter(
       delta=>((delta>50 && (direction=='down' || !scrolling))
@@ -354,7 +361,7 @@ $( window ).ready(function(){
     });
 
     $(window).bind('mousewheel', function(event) {
-      if (router.history.current.fullPath=="/"){
+      if (router.history.current.fullPath=="/" && window_height>850 ){
         event.preventDefault();
       }
     });

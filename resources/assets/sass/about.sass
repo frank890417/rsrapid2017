@@ -1,8 +1,11 @@
 @import "common";
 .page_about
+  .container
+    flex-direction: column
+    justify-content: center
+
   *
     // border: solid 1px
-
   section
     min-height: 0px
     .section_title
@@ -21,13 +24,13 @@
     min-height: 140vh
     padding-top: $nav_height
     display: flex
-    align-items: center
-    justify-content: center
     background: url("../img/homepage/About1.jpg")
     // background-attachment: fixed。
     background-size: auto 120%
     background-position: center bottom
     padding-bottom: 30vh
+    
+
     &,h1
       color: $color_white
       opacity: 0.95
@@ -43,9 +46,14 @@
     padding-top: $gutter_width*4
 
   .section_log
+    padding-top: $gutter_width*8
+    .container
+      flex-direction: column
     .logs_area
       background-color: $color_white
-      padding: $gutter_width
+      padding: grid_sz(0,1)
+      width: 100%
+
     .section_title
       font-weight: 300
       // color: black
@@ -55,18 +63,26 @@
 
     .log_box
       margin-bottom: $gutter_width
-      .info
-        padding: $gutter_width
-        background-color: $color_white
-        border-bottom: solid 2px $theme_color
-        min-height: 200px
-      .title 
-        font-weight: 500
+      display: flex
+      *
+        color: $color_grey_light
+
+      .title
+        color: $color_grey_dark
+        margin-bottom: grid_sz(0,1)
+
+  
+    .col_cover
+      width: percent_grid(4,3)
+    .col_info
+      width: percent_grid(8,7)
+      padding: grid_sz(0,1)
+      padding-left: 0px
+      margin-left: grid_sz(0,1)
+      border-bottom: solid 1px $color_theme
 
   .cover_image
     min-height: 200px
-
-  .cover_image
     background-size: cover
     
     &[data-log="1"]

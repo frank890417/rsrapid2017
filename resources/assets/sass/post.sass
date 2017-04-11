@@ -14,10 +14,7 @@
       opacity: 0.8
 
   nav.navbar-default.at_top
-    background-color: #FFF
-
-
-    
+    background-color: #FFF 
 
   .section_hero
     min-height: 60vh
@@ -42,8 +39,14 @@
     // margin-bottom: $gutter_width*1.5
 
   .section_post
-    background-position: center bottom
-    position: relative
+    background: url("../img/homepage/Home7.jpg") no-repeat left bottom
+    background-size: 100% auto
+    .container.flex
+      justify-content: center
+      flex-direction: column
+
+    .post_box
+      width: percent_grid(10,9)
     // &:before
     //   content: ""
     //   display: block
@@ -55,14 +58,9 @@
     //   z-index: 10
     .container
       background-color: white
-      // position: absolute
-      // top: -$gutter_width*3
-      // z-index: 10
-      // left: 50%
-      // transform: translateX(-50%)
-      margin-top: -$gutter_width*3
-      padding-top: $gutter_width*3
-      padding-bottom: $gutter_width*3
+      margin-top: grid_sz(0,-3)
+      padding-top: grid_sz(0,3)
+      padding-bottom: grid_sz(0,3)
     .share
       margin-top: $gutter_width*2
     .tag
@@ -86,7 +84,6 @@
       margin-top: 0px
       opacity: 0.7
       margin-bottom: $gutter_width*2
-    .post_box
 
     .post_block_btn
       padding: $gutter_width*3
@@ -109,6 +106,10 @@
 
   .block_50_percent[data-image="1"]
     background-image: url("../img/homepage/Post2.jpg")
+
+
+  .carousel-control
+    display: none
 
   footer
     margin-top: 80vh

@@ -24,33 +24,31 @@ div.page_solution
               .item(style='height: 100%')
                 .img(style="background-image:url(/img/homepage/Post2.jpg);background-size: cover; height: 100%;")
 
-      .container
-        .row
-          .col-sm-5.bg_theme
-            h4.section_title(v-text="solu.sub_title")
-            p.section_para(v-text="solu.sub_content")
-          .col-sm-6.bg_parallax
+      .container.flex
+        .bg_theme.col_left
+          h4.section_title(v-text="solu.sub_title")
+          p.section_para(v-text="solu.sub_content")
+        .col-sm-6.bg_parallax
     section.section_solution_2.default_bg
-      .container
-        .row
-          .col-sm-6
-            h3 檢驗項目
-            hr
-            p(v-html="solu.test_item")
-            div
-              br
-              br
-              p 詳細檢驗項目歡迎與我聯絡&nbsp;&nbsp;&nbsp;&nbsp;
-                router-link.btn.btn-primary(to="/contact") 聯絡我們  
-          .col-sm-6
-            h3 適用環境
+      .container.flex
+        .col_left
+          h3 檢驗項目
+          hr
+          p(v-html="solu.test_item")
+          div
+            br
+            br
+            p 詳細檢驗項目歡迎與我聯絡&nbsp;&nbsp;&nbsp;&nbsp;
+              router-link.btn.btn-primary(to="/contact") 聯絡我們  
+        .col_right
+          h3 適用環境
 
-            hr
-            h4.envtext(v-html="solu.env")
+          hr
+          h4.envtext(v-html="solu.env")
 
-            h3 方案類型
-            hr
-            p(v-html="solu.schedule")
+          h3 方案類型
+          hr
+          p(v-html="solu.schedule")
     section.section_talk.bg_theme
       .container
         i.lr_btn.btn_pre(href='#Caro_solution_2', role='button', data-slide='prev')
@@ -66,11 +64,7 @@ div.page_solution
                 .col-sm-8.col-sm-offset-2
                   h2(v-text="solu.talk[0].title")
                   h4.text-right(v-text="solu.talk[0].name")
-              .item(style='height: 100%')
-                .col-sm-8.col-sm-offset-2
-                  h2(v-text="solu.talk[1].title")
-                  h4.text-right(v-text="solu.talk[1].name")
-          
+
           
 
         

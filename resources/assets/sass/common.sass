@@ -1,101 +1,202 @@
 @import "_variables"
 
+//reset
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,b, u, i, center,
+dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+
+body
+  line-height: 1
+
+ol, ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote:before, blockquote:after,q:before, q:after
+  content: ''
+  content: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+//----
+
+
+
+//----
+
 *
-  font-family: 'Noto Sans TC','微軟正黑體'
+  font-family: '新黑體 R','微軟正黑體'
   background-size: cover
   background-position: center center
+  box-sizing: border-box
+  position: relative
+  vertical-align: top
 
-h1,h2,h3,h4,h5,h6
-  color: $color_grey
+
+  // font-family: '新黑體 R'
 
 //tag size
 h1
-  +paragraph_size_leading(56px,83px)
-  letter-spacing: 2px
-
+  +paragraph_size_leading(56px,83px,2px)
 h2
-  +paragraph_size_leading(34px,50px)
-  letter-spacing: 2px
+  +paragraph_size_leading(34px,50px,2px)
 h3
-  +paragraph_size_leading(24px,36px)
-  letter-spacing: 2px
+  +paragraph_size_leading(23px,36px,2px)
 h4
-  +paragraph_size_leading(21px,31px)
-  letter-spacing: 2px
+  +paragraph_size_leading(21px,31px,2px)
 h5
-  +paragraph_size_leading(17px,28px)
-  letter-spacing: 2px
+  +paragraph_size_leading(17px,28px,2px)
 h6
-  +paragraph_size_leading(16px,27px)
-  letter-spacing: 2px
+  +paragraph_size_leading(16px,27px,2px)
 p
-  +paragraph_size_leading(16px,27px)
-  letter-spacing: 3px
+  +paragraph_size_leading(16px,27px,3px)
   color: $color_grey
   font-weight: 300
+  text-align: left !important
+
+hr
+  margin-top: grid_sz(0,3)
+  border: solid 1px #aaa
 
 body
-  font-size: 16px
-  letter-spacing: 3px
-  font-weight: light
+  +paragraph_size_leading(16px,27px,3px)
+  font-weight: 300
 
-
+h1,h2,h3,h4,h5,h6
+  color: $color_grey_dark
+  font-weight: 400
   // min-width: 1600px
 
-
-
-
-//color setting
-h1,h2,h3,h4,h5,h6
-  color: #333
 .color_theme
-  color: $theme_color
+  color: $color_theme
+
 .color_white
   color: #fff
+
+
+//----
+
+
+section
+  // min-height: 100vh
+  background-size: cover
+  background-position: 60% center
+  .section_title
+    margin-bottom: grid_sz(0,3)
+    margin-top: grid_sz(0,-3)
+    +trans
+    &.initial
+      opacity: 0
+  .section_para
+    +trans(1s,0.2s)
+    &.initial
+      opacity: 0
+  
+  .slide_bg_set
+    width: 100%
+    height: 100%
+
+//---
+
+.container
+  max-width: grid_sz(12,13)
+  margin: auto
+  width: 100%
+  height: 100%
+
+
+  &.flex
+    display: flex
+    flex-direction: row
+    align-items: center
+
+  &.center
+    justify-content: center
+
+  &.full
+    max-width: initial
+
+  &.column
+    flex-direction: column
+
+  &.row
+    flex-direction: row
+
+  .col_left,.col_right
+    width: 50%
+    padding: grid_sz(0,1,10px)
+    text-align: center
+    height: 100%
+    +flex_center
+    flex-direction: column
+    p
+      text-align: left
+  .col_hero
+    width: grid_sz(6,5)
+    text-align: center
 
 .bg_parallax
   background-size: auto 100%
 .bg_parallax_about
   background-size: 100% auto
 .cover_image
-  background-color: $theme_color
+  background-color: $color_theme
 
 //bootstrap setting
 .btn
   border-radius: 2px
   letter-spacing: 2px
   // margin-top: $gutter_widt
-  padding: $gutter_width/2 $gutter_width
-  transition: 0.5s
+  padding: 10px grid_sz(0,1)
   font-weight: 300
   font-size: 15px
   letter-spacing: 4px
+  text-decoration: none !important
+  cursor: pointer
+  +trans
 
 .btn-primary
   border: none
-  background-color: $theme_color
-  border: solid 1px $theme_color
+  background-color: $color_theme
+  color: $color_white
   &:hover
-    background-color: transparent
-    color: $theme_color
-    border-color: $theme_color
+    background-color: lighten($color_theme,15)
+    color: $color_white
 
 .btn-primary-lighter
   border: none
-  background-color: lighten($theme_color,7)
+  background-color: lighten($color_theme,7)
   color: $color_white
   &:hover
-    background-color:  lighten($theme_color,15)
+    background-color:  lighten($color_theme,15)
     color: $color_white
-    border-color:  lighten($theme_color,7)
+    border-color:  lighten($color_theme,7)
 
 .btn-transparent
   background-color: transparent
-  border-color: $color_white
+  border: solid 1px $color_white
   color: $color_white
   &:hover
     background-color: $color_white
-    color: $theme_color
+    color: $color_theme
     border-color: $color_white
 
 @mixin cover_opacity($color: black)
@@ -116,18 +217,19 @@ h1,h2,h3,h4,h5,h6
   li
     display: inline-block
     padding: 0px $gutter_width
-    margin-bottom: $gutter_width*2
-    border-right: solid 1px $theme_color
+    // margin-bottom: $gutter_width*2
+    border-right: solid 1px $color_theme
     cursor: pointer
+    +trans
     &:hover
-      color: $theme_color
+      color: $color_theme
     &:last-child
       border-right: none
     &.active
-      color: $theme_color
+      color: $color_theme
 
 a
-  color: $theme_color
+  color: $color_theme
 
 .default_bg
   background: url("../img/homepage/Home7.jpg") no-repeat 60% bottom
@@ -197,238 +299,342 @@ a
 //------------------------------------------------------
 
 
-section
-  min-height: 100vh
-  background-size: cover
-  background-position: 60% center
-  .section_title
-    margin-bottom: 30px
-    font-weight: 300
-    margin-top: 9*$gutter_width
-    transition: 0.7s
-    &.initial
-      opacity: 0
-  .section_para
-    transition: 1s 0.2s
-    &.initial
-      opacity: 0
-  
-  .slide_bg_set
-    width: 100%
-    height: 100%
 
 
-//-------------------------
-.fade-enter-active,.fade-leave-active
-  transition: opacity .5s
 
-.fade-enter,.fade-leave-to
-  opacity: 0
-.fade-enter-to,.fade-leave
-  opacity: 1
-  
 
 //nav
 //--------------------------
 
-nav.navbar-default
-  $nav_height: 3*$gutter_width+10px
+nav
+  $nav_height: grid_sz(0,3)
+  width: 100%
   height: $nav_height
-  background-color: rgba(white,0.95)
-  border-bottom: none
-  border-top: solid 5px $theme_color
-  transition: 0.5s
-  font-size: 17px
-  color: $color_grey
-  i
-    font-style: normal
-    font-size: 18px
-    cursor: pointer
-  .logo
-    height: 50px
-    transition: 0.5s
-
-  .icon_text_size
-    background-color: $theme_color
-    border-radius: 50%
-    color: $color_white
-    font-size: 18px
-
-
-    +size(24px,24px)
-    position: relative
-    cursor: pointer
-    margin-top: 2px
-    vertical-align: middle
-    .text
-      +ab_center
-      transform: scale(0.8) translate(-50%,-60%)
-      user-select: none
-      span.plus
-        position: relative
-        transform: scale(0.4)
-        top: -1px
-
-  .navbar-nav
-    margin-left: -10px
-    padding: 0
-    padding-top: $gutter_width*0.5
-    transition: 0.5s
-
-    li 
-      padding: 8px 12px
-      transition: 0.5s
-      a
-        font-size: 17px
-        font-weight: 400
-        letter-spacing: 3px
-        padding: 4px 4px
-        padding-bottom: 8px
-        transition: 0.3s
-        color: $color_grey
-        &:hover
-          color: $theme_color
-          background-color: transparent
-
-      & .router-link-active
-        color: $theme_color
-        background-color: transparent
-        border-bottom: solid 1px $theme_color
-        &:hover
-          color: $theme_color
-          background-color: transparent
-  .navbar-left
-    @media screen and (max-width: 1200px)
-      display: none
-  .navbar-right
-    padding: 0
-    padding-top: $gutter_width/2
-    
-    img
-      height: 20px
-
-  .nav_open 
-    margin-left: $gutter_width
-
-  //nav 再上方的狀態
-  &.at_top
-    $at_top_nav_height: 4.5*$gutter_width
-    height: $at_top_nav_height
-    background-color: transparent
-    border-top: solid 3px $theme_color
-    .navbar-nav > li
-      margin-top: -$gutter_width
-    .navbar-nav
-      padding-top: $gutter_width*2
-    .logo
-      height: 65px
-    .subnav
-      top: $at_top_nav_height
-
-  &.bg_white
-    background-color: #fff
-
-  //語言選單
-  .lang_dropdown .dropdown-menu
-    background-color: transparent
-    border: none
-    box-shadow: none
-    min-width: 67px
-    li
-      margin-top: -$gutter_width
-
-.navbar-nav ul.subnav
-  width: 100vw
   position: fixed
-  top: $nav_height
-  left: 0
-  background-color: rgba($theme_color,0.9)
-  color: white
-  opacity: 0
-  overflow: hidden
-  max-height: 0
-  transition: 0.5s 0.2s
-  padding: 0
-  text-align: center
+  font-size: 17px
+  +colors_bg_text(white,$color_grey_dark)
+  padding-top: grid_sz(0,1)/2
+  border-top: solid 3px $color_theme
+  z-index: 100
+  +trans
 
-  li
-    padding: $gutter_width*0.8 15px
+  *
+    color: $color_grey
+    text-decoration: none
+    font-weight: 400
+
+  .row
+    display: flex
+
+  //---
+  .navbar-header
+    width: grid_sz(3,2)
+    img
+      height: 50px
+      +trans
+  .navbar-left
+    margin-left: grid_sz(0,1)
+    width: grid_sz(7,6)
+
+  .navbar-right
+    width: grid_sz(2,2)
+
+  .navbar-left,.navbar-right
+    margin-top: grid_sz(0,1)/2
+    +trans
+
+  //---
+  
+  
+
+  .navbar-nav li
+    list-style: none
     display: inline-block
-    margin-top: 0 
-    cursor: pointer
-    a
-      color: rgba(white,0.8)
-      // padding-bottom: 10px
-      text-decoration: none
+    margin-right: grid_sz(0,1)
+    
+    & a.router-link-active
+      +colors_bg_text(transparent,$color_theme)
+      border-bottom: solid 1px $color_theme
       &:hover
-        color: rgba(white,1)
-      &.router-link-active
-        color: rgba(white,1)
-        &:hover
-          color: rgba(white,1)
+        color: $color_theme
+        background-color: transparent
+
+    & > a
+      padding-bottom: 6px
+      border-bottom: solid 1px transparent
+      +trans
 
 
-li:hover
-  .subnav
-    max-height: 70px
-    opacity: 1
+    & ul.subnav
+      width: 100vw
+      position: fixed
+      +pos(0,$nav_height)
+      opacity: 0
+      overflow: hidden
+      max-height: 0px
+      height: 0px
+      transition: 0.5s 0.2s, top 0.5s 0s
+      text-align: center
+      background-color: rgba($color_theme,0.9)
+      li a
+        color: $color_white
+
+    &:hover
+      a
+        border-bottom: solid 1px $color_theme
+      .subnav
+        max-height: 200px
+        height: grid_sz(0,3)
+        opacity: 1
+        z-index: 100      
+        padding: grid_sz(0,1) 0px
+
+
+  .navbar-right li.function
+    margin-left: 3px
+
+  //---- when at top of the page
+  &.at_top
+    $nav_height_at_top: grid_sz(0,5)
+    height: $nav_height_at_top
+    padding: grid_sz(0,1)
+
+    .navbar-header
+      width: grid_sz(3,2)
+
+    .navbar-left,.navbar-right
+      margin-top: grid_sz(0,1)
+    img
+      height: 65px
+
+    .navbar-nav li
+      & ul.subnav
+        +pos(0,$nav_height_at_top)
+
+  +range_width(0px,1080px)
+    .navbar-left
+      display: none
+    .navbar-right
+      position: absolute
+      right: 0px
+
+  +range_width(0px,500px)
+    .navbar-right .function
+      display: none
+    .navbar-right
+      display: inline-block
+      width: auto
+
+
+// nav.navbar-default
+//   $nav_height: grid_sz(1,0,10px) 
+//   height: $nav_height
+//   background-color: rgba(white,0.95)
+//   border-bottom: none
+//   border-top: solid 5px $color_theme
+//   transition: 0.5s
+//   font-size: 17px
+//   color: $color_grey
+//   padding-top: $gutter_width/2
+//   a
+//     padding: 0
+//   i
+//     font-style: normal
+//     font-size: 18px
+//     cursor: pointer
+//   .logo
+//     height: 50px
+//     transition: 0.5s
+
+//   .icon_text_size
+//     background-color: $color_theme
+//     border-radius: 50%
+//     color: $color_white
+//     font-size: 18px
+
+
+//     +size(24px,24px)
+//     position: relative
+//     cursor: pointer
+//     margin-top: 2px
+//     vertical-align: middle
+//     .text
+//       +ab_center
+//       transform: scale(0.8) translate(-50%,-60%)
+//       user-select: none
+//       span.plus
+//         position: relative
+//         transform: scale(0.4)
+//         top: -1px
+
+//   .navbar-nav
+//     margin-left: -10px
+    
+//     padding-top: $gutter_width/2
+//     transition: 0.5s
+
+//     li 
+//       padding: 0px 12px 8px 12px
+//       transition: 0.5s
+//       a
+//         font-size: 17px
+//         font-weight: 400
+//         letter-spacing: 3px
+//         padding: 0px 4px 4px 4px
+//         padding-bottom: 8px
+//         transition: 0.3s
+//         color: $color_grey
+//         &:hover
+//           color: $color_theme
+//           background-color: transparent
+
+//       & .router-link-active
+//         color: $color_theme
+//         background-color: transparent
+//         border-bottom: solid 1px $color_theme
+//         &:hover
+//           color: $color_theme
+//           background-color: transparent
+//   .navbar-header
+//     width: grid_sz(3,2)
+
+//   .navbar-left
+//     @media screen and (max-width: 1200px)
+//       display: none
+//   .navbar-right
+//     padding: 0
+//     padding-top: $gutter_width/2
+    
+//     img
+//       height: 20px
+
+//   .nav_open 
+//     margin-left: $gutter_width
+
+//   //nav 再上方的狀態
+//   &.at_top
+
+//     background-color: transparent
+//     padding-top: $gutter_width
+//     border-top: solid 3px $color_theme
+//     .navbar-nav > li
+//       margin-top: -$gutter_width
+//     .navbar-nav
+//       padding-top: $gutter_width*2
+//     .logo
+//       height: 65px
+//     .subnav
+//       top: $gutter_width*5
+
+//   &.bg_white
+//     background-color: #fff
+
+//   //語言選單
+//   .lang_dropdown .dropdown-menu
+//     background-color: transparent
+//     border: none
+//     box-shadow: none
+//     min-width: 67px
+//     li
+//       margin-top: -$gutter_width
+
+// .navbar-nav ul.subnav
+//   width: 100vw
+//   position: fixed
+//   top: $nav_height
+//   left: 0
+//   background-color: rgba($color_theme,0.9)
+//   color: white
+//   opacity: 0
+//   overflow: hidden
+//   max-height: 0
+//   transition: 0.5s 0.2s
+//   padding: 0
+//   text-align: center
+
+
+//   li
+//     padding: $gutter_width*0.8 15px
+//     display: inline-block
+//     margin-top: 0 
+//     cursor: pointer
+//     a
+//       color: rgba(white,0.8)
+//       // padding-bottom: 10px
+//       text-decoration: none
+//       &:hover
+//         color: rgba(white,1)
+//       &.router-link-active
+//         color: rgba(white,1)
+//         &:hover
+//           color: rgba(white,1)
+
+
+// li:hover
+//   .subnav
+//     max-height: 70px
+//     opacity: 1
+
+//---------------------------------------
 
 .slide_bullet
   list-style: none
   position: fixed
-  right: 5px
+  right: 40px
   top: 50%
   transform: translate(-50%,0px)
   z-index: 10
   li
     display: block
-    +size(9px,9px)
-    border-color: #777
+    +size(9px)
+    border-color: $color_grey_light
     border-radius: 50%
-    margin-bottom: 12px
+    margin-bottom: 16px
     cursor: pointer
-    transition: 0.5s
+    +trans
     position: relative
     &:after
       content: ""
       display: block
       border-radius: 50%
       +ab_center
-      +size(6px,6px)
+      +size(6px)
       background-color: darken($color_grey,9)
       transition-duration: 0.5s
 
     &:hover
-      border-color: $theme_color
+      border-color: $color_theme
       &:after
-        background-color: $theme_color
-        +size(12px,12px)
+        background-color: $color_theme
+        +size(12px)
     &.active
-      background-color: $theme_color
+      background-color: $color_theme
       &:after
-        background-color: $theme_color
-        +size(12px,12px)
+        background-color: $color_theme
+        +size(12px)
       
 
 //----------------------------------------------
 footer
-  background-color: $theme_color
-  padding: $gutter_width
+  background-color: $color_theme
   color: $color_white
+  height: 61px
   font-weight: 300
- 
+
+  .container
+    margin-bottom: -10px
+    +flex_split("lr")
+    align-items: center
   .info
     display: inline-block
     margin: 0
     font-size: 14px
     opacity: 0.9
     letter-spacing: 2px
-
-
+    width: grid_sz(6,5)
 
   ul.footer_nav
     display: block
-    float: right
     li
       display: inline-block
       letter-spacing: 3px
@@ -444,20 +650,30 @@ footer
 
 
 //-----------------------------------------------
-.section_solution
+section.section_solution
   background: url("../img/homepage/Home7.jpg") 60% bottom
   min-height: 100vh
   position: relative
-  h4.slogan
+  padding-top: grid_sz(0,2)
+  padding-bottom: grid_sz(0,2)
+  text-align: center
+  .container.flex
+    height: grid_sz(0,24)
+    min-height: initial
+    padding: 0px grid_sz(0,1)
+    justify-content: center
+  .slogan
+    margin-top: grid_sz(0,1)
     margin-bottom: $gutter_width
     color: $color_grey_light
     font-weight: 400
   &:before
     +cover_opacity(rgba(white,0.6))
-  .section_title
-    margin-top: $gutter_width*5 !important
-    margin-bottom: $gutter_width*3 !important
+  h3.section_title
+    margin-top: grid_sz(0,2)
+    margin-bottom: grid_sz(0,2)
     color: $color_grey_dark
+    font-size: 24px
   .solution_box_row
     margin-top: $gutter_width*1
     // margin-bottom: $gutter_width*3
@@ -465,52 +681,46 @@ footer
 
   .solution_box
     text-align: center
-    padding: 0 $gutter_width/2
+    width: grid_sz(4,3)
     cursor: pointer
-    transition: 0.8s
-    vertical-align: middle
-    margin-top: 0px
+    +trans
+
+    &:nth-child(2n)
+      margin-left: $gutter_width
+      margin-right: $gutter_width
 
     & .box_inner
-      padding-top: $gutter_width*3
       display: block
       position: relative
       +box_shadow  
-      transition: 0.5s
-      min-height: 450px
+      +trans
+      height: grid_sz(0,19)
       overflow: hidden
       cursor: pointer
 
-
       .box_info
-        position: absolute
-        z-index: 50
-        width: 100%
+        margin-top: grid_sz(0,3)
+      .box_btn
+        margin-bottom: grid_sz(0,3)
 
+      .box_text
+        +flex_split("td")
+        +ab_full
+        z-index: 10
 
       &:after,&:before
-        content: ""
-        display: block
-        width: 100%
-        height: 100%
-        position: absolute
-        left: 0
-        top: 0
-        // +ab_center
+        +pseudo_ab_full
+
       &:after
         background-color: rgba(0,0,0,0.4)
         // opacity: 0
-        transition: 0.5s
+        +trans
 
       &:hover
-        min-height: 550px
+        height: grid_sz(0,24)
         background-color: transparent
-        // padding-top: $gutter_width*1
-        // padding-bottom: $gutter_width*3
-        
-          color: #333
+        color: #333
 
-        margin-top: -50px
         .box_info
           h4.solution_title
             color: $color_grey_dark
@@ -518,55 +728,53 @@ footer
               border-bottom: solid 2px  $color_grey_dark
         .btn
           opacity: 1
+
         &:after
           opacity: 0
-        a
-          margin-top: 50px
+
       h4
         color: $color_white
 
       h4.solution_title
         line-height: 2em
         color: $color_white
-        transition: 0.5s
+        +trans
         font-weight: 400
         
         &:after
           content: ""
           display: block
-          width: 72px
-          margin-top: $gutter_width*2
-          transition: 0.5s
+          width: grid_sz(1,0)
+          margin: auto
+          margin-top: grid_sz(0,2)
+          +trans
           border-bottom: solid 2px $color_white
+          
 
-          margin-left: auto
-          margin-right: auto
-
-        background-size: cover
+        
 
     .btn
-      margin: $gutter_width*3 0px
       margin-bottom: $gutter_width*2
-      transition: 0.5s
+      +trans
       opacity: 0
       cursor: pointer
 
     &:nth-child(1) .box_inner:before
       background-image: url("../img/homepage/Home8-1.jpg")
       background-position: 60% bottom
-      background-size: 100% auto
+      background-size: 105% auto
       
 
     &:nth-child(2) .box_inner:before
       background-image: url("../img/homepage/Home8-2.jpg")
       background-position: 60% bottom
-      background-size: 100% auto
+      background-size: 105% auto
 
 
     &:nth-child(3) .box_inner:before
       background-image: url("../img/homepage/Home8-3.jpg")
       background-position: 60% bottom
-      background-size: 100% auto
+      background-size: 105% auto
 
 
   .row_else
@@ -580,25 +788,47 @@ footer
   padding: $gutter_width*3 0px
   padding-bottom: $gutter_width*2
   .container
-    position: relative
+    align-items: flex-start
+
+  .col_address
+    width: grid_sz(4,3)
+
+  .col_question
+    width: grid_sz(5,4)
+    margin-left: grid_sz(0,1)
+    margin-right: grid_sz(0,1)
+  .col_corp
+    width: grid_sz(3,2)
+
+  .col_address,.col_question,.col_corp
+    color: $color_grey_light
+
   h5
-    font-weight: light
-    margin-bottom: 30px
     font-size: 18px
     color: $color_grey_dark
+    height: grid_sz(0,2)
 
+  //--------
+
+  hr
+    border: none
+    border: solid 1px #ddd
+    margin-top: grid_sz(0,1)
+    
   .social_icon
     width: 30px
     margin-right: 10px
+    vertical-align: middle
     &.fb
       width: 20px
   .more
-    border-bottom: solid 2px $theme_color
+    border-bottom: solid 2px $color_theme
     padding-bottom: 3px
     cursor: pointer
     &:hover
-      color: $theme_color
+      color: $color_theme
       text-decoration: none
+
 
   .icon
     +size(18px)
@@ -607,12 +837,14 @@ footer
     position: relative
     display: inline-block
     position: absolute
-    left: -35px
+    left: -26px
     top: 5px
+    opacity: 0.7
     cursor: pointer
     transition: 0.5s
+    
     &:hover
-      background-color: $theme_color
+      background-color: $color_theme
       &:before,&:after
         background-color: $color_white
 
@@ -621,9 +853,9 @@ footer
       transition: 0.5s
       display: block
       content: ""
-      width: 45%
+      width: 10px
       height: 2px
-      background-color: $theme_color
+      background-color: $color_theme
 
       +ab_center
     &.icon_plus
@@ -633,7 +865,7 @@ footer
       &:after
         transform: translate(-50%,-50%) rotate(180deg) 
 
-  .address_col
+  .col_address
     p
       font-size: 16px
     hr
@@ -651,13 +883,13 @@ footer
 
 
     .question
-      color: $color_grey_dark
+      color: $color_grey_light
       font-size: 16px
       font-weight: 400
       letter-spacing: 1px
       cursor: pointer
     .answer
-      color: $theme_color
+      color: $color_theme
       font-weight: 400
       margin-top: $gutter_width/2
       // max-height: 0px
@@ -678,7 +910,7 @@ footer
     
   .go_to_topbtn
     position: fixed
-    background-color: $theme_color
+    background-color: $color_theme
     +size(40px,40px)
     cursor: pointer
 
@@ -690,4 +922,15 @@ footer
       +ab_center
       color: $color_white
       font-size: 25px
+
+
+//-------------------------
+.fade-enter-active,.fade-leave-active
+  transition: opacity .5s
+
+.fade-enter,.fade-leave-to
+  opacity: 0
+.fade-enter-to,.fade-leave
+  opacity: 1
+  
 

@@ -66,12 +66,12 @@
       h3.title
         margin-top: 0
         margin-bottom: $gutter_width/3
-        color: $theme_color
+        color: $color_theme
         font-weight: bold
 
 
       &:before
-        +cover_opacity(rgba($theme_color,0))
+        +cover_opacity(rgba($color_theme,0))
         transition: 0.5s
 
       .btn
@@ -80,7 +80,7 @@
       p,h3
         transition: 0.5s
       &:hover
-        background-color: $theme_color
+        background-color: $color_theme
         p,h3
           color: white
         .btn

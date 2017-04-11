@@ -8,7 +8,8 @@
     min-height: 0px
     position: relative
 
-    
+  .section_title
+    margin-top: 0px
 
   section.section_hero
     min-height: 100vh
@@ -17,7 +18,6 @@
     hr
       margin: $gutter_width*2 0px
       width: $column_width
-      border-bottom: solid 1px black
       margin-left: auto
       margin-right: auto
     .conpany_logos
@@ -27,10 +27,9 @@
     .company_logo
       mix-blend-mode: multiply
       width: $gutter_width*8
+
     .section_title
-      // padding-top: $gutter_width*4
-      margin-top: 0
-      margin-bottom: $gutter_width*2
+      color: $color_grey
       font-weight: 300
       font-size: 44px
       opacity: 0.8
@@ -56,20 +55,25 @@
 
 
   .section_tech
-    padding: 4*$gutter_width 0px
+    // padding: 4*$gutter_width 0px
     background-attachment: auto 100%
     color: $color_grey
+
     .section_title
-      margin-top: $gutter_width*3.5
-      font-weight: 500
-      color: $color_grey
-    // &:nth-child(even)
-      // .place_odd
-        // display: none
+      margin-bottom: grid_sz(0,2)
+
+    a.section_para
+      margin-bottom: grid_sz(0,4)
+
+    .col_right,.col_left
+      padding-left: grid_sz(1,1)
+      padding-right: grid_sz(1,1)
+      margin-top: grid_sz(0,4)
+
     .dynamic_icon
       margin-bottom: $gutter_width*2
-      +size(52px,auto)
-      // background-color: $theme_color
+      +size(56px,auto)
+      // background-color: $color_theme
     
       .st0
         fill: #3FBFBB

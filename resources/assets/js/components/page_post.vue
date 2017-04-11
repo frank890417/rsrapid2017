@@ -21,18 +21,17 @@ div.page_post
       span.sr-only Next
 
   section.section_post
-    .container(v-if='newsset')
-      .row
-        .col-sm-10.col-sm-offset-1.post_box
-          h4.tag(v-text='newsset.tag')
-          h1.section_title(v-text='newsset.title')
-          p.date(v-text='newsset.date')
-          p(v-html='newsset.content')
-          h5.share 分享文章
-            .logos
-              img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
-              img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
-              img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
+    .container.flex(v-if='newsset')
+      .post_box
+        h4.tag(v-text='newsset.tag')
+        h1.section_title(v-text='newsset.title')
+        p.date(v-text='newsset.date')
+        p(v-html='newsset.content')
+        h5.share 分享文章
+          .logos
+            img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
+            img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
+            img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
 
       hr
 </template>
