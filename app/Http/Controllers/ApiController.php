@@ -6,10 +6,14 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 
 use App\News;
+use App\Question;
 class ApiController extends Controller
 {
     //
     function news(){
       return News::orderBy('id','desc')->get();
+    }
+    function questions(){
+      return Question::all();
     }
 }

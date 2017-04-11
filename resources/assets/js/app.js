@@ -60,6 +60,7 @@ router.beforeEach((to, from, next) => {
 const store = new Vuex.Store({
   state: {
     news: [],
+    questions: [],
     about_logs: {
       year_2015: [
         {
@@ -155,6 +156,9 @@ const store = new Vuex.Store({
     },
     setNews(state, news){
       state.news=news;
+    },
+    setQuestion(state,questions){
+      state.questions=questions;
     }
   }
 })
@@ -170,6 +174,9 @@ const app = new Vue({
     $.get("http://www.rapidsuretech.com/api/news").then(function(res){
       console.log("news loaded");
       store.commit("setNews",res);
+    });$.get("http://www.rapidsuretech.com/api/questions").then(function(res){
+      console.log("questions loaded");
+      store.commit("setQuestion",res);
     });
   }
 });
