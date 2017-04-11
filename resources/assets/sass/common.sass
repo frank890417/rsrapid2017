@@ -878,8 +878,11 @@ section.section_solution
     li
       margin-bottom: $gutter_width
       position: relative
-
-
+      max-height: 0px
+      overflow: hidden
+      &.open
+        max-height: 400px
+    
     .question
       color: $color_grey_light
       font-size: 16px
@@ -890,6 +893,7 @@ section.section_solution
       color: $color_theme
       font-weight: 400
       margin-top: $gutter_width/2
+
       // max-height: 0px
       // overflow: hidden
     

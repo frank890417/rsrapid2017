@@ -16,9 +16,9 @@ div.footer
       .col_question
         h5 常見問題
         ul.question_list
-          li(v-for='qa in questions.slice(0,3)')
+          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="state[id]?'open':''" v-on:click="state[id]=!state[id]")
             .icon.icon_minus.icon_plus
-            .question {{qa.title}}
+            .question {{qa.question}}
               p.answer {{qa.answer}}
           
           li 
@@ -45,12 +45,16 @@ div.footer
 
 </template>
 <script>
-    import { mapGetter, mapActions , mapState } from 'vuex'
+    import { mapGetter, mapActions , mapState } from 'vuex';
     export default {
         mounted() {
-            console.log('footer mounted.')
-        }
-    },
-    computed: mapState(['questions'])
+            console.log('footer mounted.');
+        },data(){
+          return {
+            state: [true,false,false]
+          };
+        },
+        computed: mapState(['questions'])
+    }
 
 </script>

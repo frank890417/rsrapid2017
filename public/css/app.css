@@ -1026,6 +1026,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -2338,6 +2344,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -3429,6 +3441,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -4639,6 +4657,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -6119,6 +6143,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -7385,6 +7415,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -8701,6 +8737,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -9931,6 +9973,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {
@@ -11209,6 +11257,12 @@ section.section_solution .row_else {
 .detail_footer .question_list li {
   margin-bottom: 24px;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.detail_footer .question_list li.open {
+  max-height: 400px;
 }
 
 .detail_footer .question_list .question {

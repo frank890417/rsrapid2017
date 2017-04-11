@@ -292,24 +292,6 @@ $( window ).ready(function(){
   // //加上初始化
   init_element()
   //initial bg parallax
-
-  //把答案藏起來
-  $(".question_list li").each(function(index,obj){
-    if (index!=0) {
-      $(obj).children(".question").children(".answer").slideToggle();
-      $(obj).children(".icon").addClass("icon_plus");
-    }else{
-      $(obj).children(".icon").toggleClass("icon_plus");
-    
-    }
-  });
-
-  $(".question_list li").click(function(){
-    // console.log($(this));
-    $(this).children(".question").children(".answer").slideToggle();
-    $(this).children(".icon").toggleClass("icon_plus");
-  });
-
   
 
   //調整字體大小
