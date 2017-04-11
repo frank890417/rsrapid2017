@@ -46,7 +46,7 @@ nav.navbar.at_top
           a(href="#") 會員服務
 
       ul.nav.navbar-nav.navbar-right
-        li.function
+        li.function.func_lang
           router-link(to="/news") 
             span 繁
             i.fa.fa-angle-down 
@@ -59,14 +59,14 @@ nav.navbar.at_top
               router-link(to="#") EN
 
 
-        li.function
+        li.function.func_search
           i.fa.fa-search
-        li.function
+        li.function.func_size
           .icon_text_size.bigger 
             .text A
               span.plus +
 
-        li.nav_open 
+        li.nav_open.func_burger
           i.fa.fa-bars
 </template>
 

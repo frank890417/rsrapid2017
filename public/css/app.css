@@ -571,12 +571,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -1887,12 +1883,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -2982,12 +2974,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -4196,12 +4184,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -5680,12 +5664,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -6950,12 +6930,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -7654,6 +7630,7 @@ section.section_solution .row_else {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  width: 100%;
 }
 
 .page_news .section_news .nav_line_split.page_nav li {
@@ -8269,12 +8246,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -9503,12 +9476,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 
@@ -10785,12 +10754,8 @@ nav.at_top .navbar-nav li ul.subnav {
 }
 
 @media screen and (max-width: 1079px) and (min-width: 0px) {
-  nav .navbar-left {
+  nav .func_lang, nav .func_search {
     display: none;
-  }
-  nav .navbar-right {
-    position: absolute;
-    right: 0px;
   }
 }
 

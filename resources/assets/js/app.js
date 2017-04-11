@@ -207,7 +207,7 @@ window.update_scroll=function update_scroll(top_val){
   $(".percent.initial").each(function(index,obj){
     // console.log("test");
     // update element enter animation
-    if ($(obj).offset().top<top_val+window_height*0.8){
+    if ($(obj).offset().top<top_val+window_height*0.9){
       $(obj).removeClass("initial");
       
       var ed_val=1.0*$(obj).attr("data-target");
@@ -226,7 +226,7 @@ window.update_scroll=function update_scroll(top_val){
 
     //update section content fadeIn
     $(".section_title.initial,.section_para").each(function(index,obj){
-      if ($(obj).offset().top<top_val+window_height*0.8){
+      if ($(obj).offset().top<top_val+window_height){
         $(obj).removeClass("initial");
       }
     });
@@ -268,6 +268,13 @@ function update_bullet(st){
   });
 }
 
+//頁面還原初始狀態
+function init_element(){
+  $(".percent , .section_title , .section_para").addClass("initial");
+  update_scroll(0);
+
+}
+
 
 //載入執行
 $( window ).ready(function(){
@@ -276,8 +283,7 @@ $( window ).ready(function(){
     $("#select_contact").val(location.href.split("#")[1]);
   }
   // //加上初始化
-  $(".percent , .section_title , .section_para").addClass("initial");
-  // $(window).scrollto(0);
+  init_element()
   //initial bg parallax
 
   //把答案藏起來
@@ -297,8 +303,7 @@ $( window ).ready(function(){
     $(this).children(".icon").toggleClass("icon_plus");
   });
 
-  update_scroll(0);
-
+  
 
   //調整字體大小
   $(".icon_text_size").click(function(){
@@ -372,19 +377,19 @@ $( window ).ready(function(){
   //router event
 
 router.afterEach((route) => {
+  $( window ).ready();
   if (route.path=="/about" || route.path=="/news" || route.path.indexOf("/news/")!=-1){
     $("nav").addClass("bg_white");
   }else{
     $("nav").removeClass("bg_white");
   }
   // //加上初始化
-  $(".percent , .section_title , .section_para").addClass("initial");
   if (route.path=="/index"){
-    setTimeout(()=>{update_scroll(0);},1200);
+    setTimeout(()=>{init_element();},1200);
   } 
   
   });
-
+  
 });
 
 // var source = Rx.Observable.interval(100);

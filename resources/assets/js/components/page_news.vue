@@ -15,7 +15,7 @@ div.page_news
         li(@click='filter="活動快訊"') 活動快訊
         li(@click='filter="投資相關"') 投資相關
       
-      .news_box.section_para(v-for='a_news in filtered_news' v-bind:class="(filter=='')?('size_'+a_news.size):'size-small'")
+      .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
         .cover(:style="'background-image: url('+a_news.cover+')'") 
         .info
           h5.date {{a_news.date}}
