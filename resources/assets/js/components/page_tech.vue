@@ -15,12 +15,14 @@ div.page_tech
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
-        .slick
+        
+        .slick(data-timelime=".tl1")
           .item(style='height: 100%')
             .img(style="background-image:url(/img/homepage/Tech2.jpg);background-size: cover; height: 100%;")
           .item(style='height: 100%')
             .img(style="background-image:url(/img/homepage/Home1.jpg);background-size: cover; height: 100%;")
-
+        .timeline.tl1
+            .value
       .block_50_percent
     .container.flex
       .col_left
@@ -55,12 +57,14 @@ div.page_tech
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
-        .slick
+        
+        .slick(data-timelime=".tl2")
           .item(style='height: 100%;width: 100%')
             .img(style="background-image:url(/img/homepage/Tech4.jpg);background-size: cover; height: 100%;")
           .item(style='height: 100%;width: 100%')
             .img(style="background-image:url(/img/homepage/Post4.jpg);background-size: cover; height: 100%;")
-
+        .timeline.tl2
+          .value
       .block_50_percent
     .container
       .container.flex
@@ -77,14 +81,38 @@ div.page_tech
 
 <script>
     export default {
+        data(){
+          return {
+            timer_list: []
+          }
+        },
         mounted() {
-            console.log('tech mounted.');
-            $('.slick').slick({
-              autoplay: true,
-              autoplaySpeed: 5000,
+          var vobj=this;
+          console.log('tech mounted.');
+          $('.slick').each(function(index,obj){
+            var tl=$($(obj).attr("data-timelime") + " .value");
+            $(obj).slick({
+              autoplay: false,
+              autoplaySpeed: 4000,
               dots: true,
-              easing: 'ease-in'
+              speed: 700,
+              easing: 'linear'
             });
+            function delta(){
+
+              $(obj).slick("slickNext");
+              tl.stop();
+              tl.animate({"width":"0%"},0);
+              tl.animate({"width":"100%"},4000);
+            
+            }
+            delta();
+            var timer=setInterval(delta,4000);
+            vobj.timer_list.push(timer);
+          });
+        },beforeDestroy() {
+          vobj.timer_list.map(obj=>clearInterval(obj));
+          vobj.timer_list=[];
         }
     }
 </script>

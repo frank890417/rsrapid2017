@@ -11,11 +11,13 @@ div.page_solution
       .ab_center.size_full.bg_color_split
         .block_50_percent.bg_theme
         .block_50_percent(style="position: relative")
-          .slick
+          .slick(data-timelime=".tl_s1")
             .item(style='height: 100%')
               .img(style="background-image:url(/img/homepage/Solution2.jpg);background-size: cover; height: 100%;")
             .item(style='height: 100%')
               .img(style="background-image:url(/img/homepage/Post2.jpg);background-size: cover; height: 100%;")
+          .timeline.tl_s1
+              .value
 
       .container.flex
         .bg_theme.col_left
@@ -42,14 +44,13 @@ div.page_solution
           h3 方案類型
           hr
           p(v-html="solu.schedule")
-    section.section_talk.bg_theme.slick
-      .container
-        .row.talk_box.active(v-if="solu.talk[0]")
+    section.section_talk.bg_theme
+      .container.slick
+        .talk_box.active(v-if="solu.talk[0]")
           .item(style='height: 100%')
             h2(v-text="solu.talk[0].title")
             h4.text-right(v-text="solu.talk[0].name")
-      .container
-        .row.talk_box.active(v-if="solu.talk[0]")    
+        .talk_box.active(v-if="solu.talk[0]")    
           .item(style='height: 100%')
             h2(v-text="solu.talk[0].title")
             h4.text-right(v-text="solu.talk[0].name")
@@ -66,14 +67,38 @@ div.page_solution
 <script>
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
+        data(){
+          return {
+            timer_list: []
+          }
+        },
         mounted() {
             console.log('solution mounted.')
-            $('.slick').slick({
-              autoplay: true,
-              autoplaySpeed: 5000,
-              dots: true,
-              easing: 'ease-in'
+            var vobj=this;
+            $('.slick').each(function(index,obj){
+              var tl=$($(obj).attr("data-timelime") + " .value");
+              $(obj).slick({
+                autoplay: false,
+                autoplaySpeed: 4000,
+                dots: true,
+                speed: 700,
+                easing: 'linear'
+              });
+              function delta(){
+
+                $(obj).slick("slickNext");
+                tl.stop();
+                tl.animate({"width":"0%"},0);
+                tl.animate({"width":"100%"},4000);
+              
+              }
+              delta();
+              var timer=setInterval(delta,4000);
+              vobj.timer_list.push(timer);
             });
+        },beforeDestroy() {
+          vobj.timer_list.map(obj=>clearInterval(obj));
+          vobj.timer_list=[];
         },
         props: ['id'],
         computed: mapState(['solutions'])

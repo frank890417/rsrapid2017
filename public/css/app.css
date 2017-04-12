@@ -5,6 +5,11 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -172,6 +177,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -1314,6 +1334,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -1350,6 +1375,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -1517,6 +1547,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -2473,6 +2518,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -2640,6 +2690,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -3715,6 +3780,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -3882,6 +3952,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -4965,21 +5050,6 @@ section.section_solution .row_else {
   height: 264px;
 }
 
-.page_index .page_index_main .news_container .timeline {
-  width: 100%;
-  height: 4px;
-  background-color: #ddd;
-  position: absolute;
-  bottom: 0px;
-  z-index: 90;
-}
-
-.page_index .page_index_main .news_container .timeline .value {
-  width: 50%;
-  height: 100%;
-  background-color: #777;
-}
-
 .page_index .page_index_main .news {
   display: -webkit-box;
   display: flex;
@@ -5229,6 +5299,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -5396,6 +5471,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -6527,6 +6617,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -6694,6 +6789,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -7656,17 +7766,28 @@ section.section_solution .row_else {
 
 .page_news .section_hero {
   height: 696px;
-  padding-top: 216px;
-  padding-bottom: 144px;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: end;
   align-items: flex-end;
   -webkit-box-pack: end;
   justify-content: flex-end;
+}
+
+.page_news .section_hero .full {
+  padding-top: 216px;
+}
+
+.page_news .section_hero .bg {
   background: url("../img/homepage/News1.jpg");
   background-size: cover;
   background-position: center center;
+  padding-bottom: 144px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .page_news .section_hero .container.flex {
@@ -7678,6 +7799,17 @@ section.section_solution .row_else {
   align-items: flex-start;
   -webkit-box-pack: start;
   justify-content: flex-start;
+}
+
+.page_news .section_hero .container.flex:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .page_news .section_hero:before {
@@ -7875,6 +8007,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -8042,6 +8179,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -9137,6 +9289,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -9304,6 +9461,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
@@ -10325,8 +10497,8 @@ section.section_solution .row_else {
 }
 
 .page_solution .section_solution_1 {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 48px;
+  padding-bottom: 96px;
 }
 
 .page_solution .section_solution_2 {
@@ -10447,6 +10619,11 @@ section.section_solution .row_else {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 .ab_center {
   position: absolute;
   left: 50%;
@@ -10614,6 +10791,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_white {
   color: #fff;
+}
+
+.timeline {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  z-index: 90;
+}
+
+.timeline .value {
+  width: 50%;
+  height: 100%;
+  background-color: #777;
 }
 
 section {
