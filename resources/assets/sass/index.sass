@@ -83,7 +83,18 @@
       width: grid_sz(10,9)
       height: grid_sz(0,11)
 
-    $time_line_height: 4px
+      .timeline
+        width: 100%
+        height: 4px
+        background-color: #ddd
+        position: absolute
+        bottom: 0px
+        z-index: 90
+        .value
+          width: 50%
+          height: 100%
+          background-color: #777
+          // transition: 0.5s
     .news
       display: flex
       flex-direction: row
@@ -92,18 +103,6 @@
       
       opacity: 1
       +box_shadow
-      .timeline
-        width: 100%
-        height: $time_line_height
-        background-color: #ddd
-        position: absolute
-        bottom: 0px
-        .value
-          width: 50%
-          height: 100%
-          background-color: #777
-          transition: 0.15s
-          // transition: 0.5s
   
       .col_infos,.col_img
         height: 100%
@@ -252,6 +251,11 @@
 
     .sponsorlogo
       width: grid_sz(2,2)
+      margin-left: auto
+      margin-right: auto
+      text-align: center
+      // padding-left: grid_sz(0,1)
+      // padding-right: grid_sz(0,1)
 
       mix-blend-mode: darken
 

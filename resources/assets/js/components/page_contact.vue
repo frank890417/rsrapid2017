@@ -5,6 +5,20 @@ div.page_contact
       h1 聯絡我們
       p.description 兒童節即將到來，鴻海旗下永齡健康基金會今年首波公益行動將全台走透透，為偏鄉弱勢的400所幼兒園進行「玩具義診」，針對校園中常見的玩具、遊樂設施、塑膠地墊、餐具等進行「塑化劑」檢測。
 
+  .slider( style="width: 500px")
+    div
+      h3 1
+    div
+      h3 2
+    div
+      h3 3
+    div
+      h3 4
+    div
+      h3 5
+    div
+      h3 6
+
   section.section_form
     .container
       ul.nav_line_split
@@ -42,7 +56,12 @@ div.page_contact
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
         mounted() {
-            console.log('contact mounted.')
+            console.log('contact mounted.');
+            $(".slider").slick({
+              autoplay: true,
+              dots: true,
+              easing: 'ease-in'
+            });
         },
     }
 </script>

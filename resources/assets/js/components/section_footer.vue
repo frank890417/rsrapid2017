@@ -16,10 +16,10 @@ div.footer
       .col_question
         h5 常見問題
         ul.question_list
-          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="state[id]?'open':''" v-on:click="toggle(id)")
+          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
             .icon.icon_minus.icon_plus
             .question {{qa.question}}
-              p.answer {{qa.answer}}
+            p.answer {{qa.answer}}
           
           li 
             a.more 更多問題...
@@ -51,12 +51,13 @@ div.footer
             console.log('footer mounted.');
         },data(){
           return {
-            state: [true,false,false]
+            qa_state: [{open:true},{open:false},{open:false}]
           };
         },
         methods: {
           toggle (id){
-            this.state[id] = !this.state[id] ; 
+            this.qa_state[id].open = !this.qa_state[id].open  ; 
+              console.log(!this.qa_state[id].open );
           }
         },
         computed: mapState(['questions'])

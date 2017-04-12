@@ -6,6 +6,7 @@
  */
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
+import Slick from 'vue-slick';
 
 require('./bootstrap');
 Vue.use(VueRouter);
@@ -13,6 +14,8 @@ Vue.use(Vuex);
 
 
 //components
+
+Vue.component('slick', Slick);
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('Navbar', require('./components/Navbar.vue'));
@@ -167,6 +170,7 @@ const app = new Vue({
   el: "#app",
   router,
   store,
+  components: {Slick: Slick},
   computed: Vuex.mapState(['news','about_logs']),
   methods: {
     

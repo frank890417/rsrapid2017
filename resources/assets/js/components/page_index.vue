@@ -18,19 +18,20 @@ div.page_index
           h3.page_header_eng Better health, better life
 
     .container.news_container
-      .news.color_white(v-for='(a_news,id) in news' v-bind:key="a_news" v-if="id==news_id")          
-        .col_infos
-          .texts
-            h4 {{a_news.title}}
-            h5 {{a_news.date}}
-            p {{a_news.description}}
-          .btns
-            router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
-            a.btn.btn-default.btn-transparent.btn_next(@click="news_delta(1)" ) 下一則  > 
-        
-        .col_img(:style="'background-image: url('+a_news.cover+')'")
-        .timeline
-          .value(:style="'width:'+100*(news_time)/news_change_time+'%'")
+      .slick
+        .news.color_white(v-for='(a_news,id) in news')          
+          .col_infos
+            .texts
+              h4 {{a_news.title}}
+              h5 {{a_news.date}}
+              p {{a_news.description}}
+            .btns
+              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
+              a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
+          
+          .col_img(:style="'background-image: url('+a_news.cover+')'")
+      .timeline
+        .value
 
 
   section.page_index_grow
@@ -73,11 +74,23 @@ div.page_index
   section_solutions
 
   section.page_index_sponsor
-    .container.flex
-      img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      img.sponsorlogo(src="/img/homepage/surface-logo.png")
+    .container.flex.slicklogo1
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
+      div
+        img.sponsorlogo(src="/img/homepage/surface-logo.png")
 
 
 </template>
@@ -86,32 +99,62 @@ div.page_index
     export default {
         data () {
           return {
-                  news_id: 0,
-                  news_time: 0,
-                  news_change_time: 5000
-                };
+            news_id: 0,
+            news_time: 0,
+            news_change_time: 5000,
+            timer: null
+          };
+
         },
         mounted() {
             console.log('index mounted.');
+            $(".percent , .section_title , .section_para").addClass("initial");
             setTimeout(function(){
               update_scroll(0);
             },200);
             var vobj=this;
-            setInterval(()=>{
-              vobj.news_time+=100;
-              if (vobj.news_time>vobj.news_change_time){
-                  this.news_delta(1);
+
+            this.timer=setInterval(this.news_delta,this.news_change_time);
+
+            var loader = setInterval(function(){
+              if (vobj.news.length>0){
+                $('.slick').slick({
+                  autoplay: false,
+                  // dots: true,
+                  easing: 'ease-in',
+                  fade: true
+                });
+                clearInterval(loader);
+                vobj.news_delta();
               }
             },100);
             
-            
+            console.log("slick integrated");
+
+            $('.slicklogo1').slick({
+              autoplay: true,
+              autoplaySpeed: 3000,
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              dots: true,
+              easing: 'ease-in'
+            });
         },
         methods: {
-          news_delta: function(d){
-            this.news_id=(this.news.length+d+this.news_id)%this.news.length;
-            this.news_time=0;
-          }
+          news_delta: function(){
+            $('.slick').slick('slickNext');
+            console.log("next");
+            $(".value").stop();
+            $(".value").animate({width: "0%"},0);
+            $(".value").animate({width: "100%"},this.news_change_time,'linear');
+            clearInterval(this.timer);
+            this.timer=setInterval(this.news_delta,this.news_change_time);
+          },
+
         },
-        computed: Vuex.mapState(['news'])
+        computed: Vuex.mapState(['news']),
+        beforeDestroy() {
+          clearInterval(this.timer);
+        }
     }
 </script>

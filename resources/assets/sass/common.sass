@@ -43,7 +43,7 @@ table
 //----
 
 *
-  font-family: '新黑體 R','微軟正黑體'
+  font-family: 'Noto Sans TC','微軟正黑體'
   background-size: cover
   background-position: center center
   box-sizing: border-box
@@ -52,6 +52,24 @@ table
 
 
   // font-family: '新黑體 R'
+
+
+//slick
+
+.slick-track,.slick-list,.slick-slider
+  height: 100%
+
+ul.slick-dots
+  bottom: 20px
+  li
+    margin: 0
+    button
+      &:before
+        content: ""
+        +size(10px,10px)
+        border-radius: 50%
+        background-color: rgba(white,0.8)
+
 
 //tag size
 h1
@@ -71,6 +89,8 @@ p
   color: $color_grey
   font-weight: 300
   text-align: left !important
+
+
 
 hr
   margin-top: grid_sz(0,3)
@@ -315,7 +335,7 @@ nav
   +colors_bg_text(white,$color_grey_dark)
   padding-top: grid_sz(0,1)/2
   border-top: solid 3px $color_theme
-  z-index: 100
+  z-index: 200
   +trans
 
   *
@@ -338,6 +358,8 @@ nav
 
   .navbar-right
     width: grid_sz(2,2)
+    display: flex
+    align-items: space-between
 
   .navbar-left,.navbar-right
     margin-top: grid_sz(0,1)/2
@@ -388,11 +410,7 @@ nav
         opacity: 1
         z-index: 100      
         padding: grid_sz(0,1) 0px
-
-
-  .navbar-right li.function
-    margin-left: 3px
-
+        
   //---- when at top of the page
   &.at_top
     $nav_height_at_top: grid_sz(0,5)
@@ -881,7 +899,8 @@ section.section_solution
       
       &.open
         .answer
-          max-height: 400px
+          max-height: 150px
+          margin-top: $gutter_width/2
     
     .question
       color: $color_grey_light
@@ -892,9 +911,10 @@ section.section_solution
     .answer
       color: $color_theme
       font-weight: 400
-      margin-top: $gutter_width/2
+      margin-top: 0
       max-height: 0px
       overflow: hidden
+      +trans
 
       // max-height: 0px
       // overflow: hidden

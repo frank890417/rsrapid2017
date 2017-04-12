@@ -11,18 +11,11 @@ div.page_solution
       .ab_center.size_full.bg_color_split
         .block_50_percent.bg_theme
         .block_50_percent(style="position: relative")
-          #Caro_solution_1.carousel.slide(data-ride='carousel' style='height: 100%')
-            // Indicators
-            ol.carousel-indicators
-              li.active(data-target='#Caro_solution_1', data-slide-to='0')
-              li(data-target='#Caro_solution_1', data-slide-to='1')
-             
-            // Wrapper for slides
-            .carousel-inner(role='listbox' style='height: 100%')
-              .item.active(style='height: 100%')
-                .img(style="background-image:url(/img/homepage/Solution2.jpg);background-size: cover; height: 100%;")
-              .item(style='height: 100%')
-                .img(style="background-image:url(/img/homepage/Post2.jpg);background-size: cover; height: 100%;")
+          .slick
+            .item(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Solution2.jpg);background-size: cover; height: 100%;")
+            .item(style='height: 100%')
+              .img(style="background-image:url(/img/homepage/Post2.jpg);background-size: cover; height: 100%;")
 
       .container.flex
         .bg_theme.col_left
@@ -49,23 +42,21 @@ div.page_solution
           h3 方案類型
           hr
           p(v-html="solu.schedule")
-    section.section_talk.bg_theme
+    section.section_talk.bg_theme.slick
       .container
-        i.lr_btn.btn_pre(href='#Caro_solution_2', role='button', data-slide='prev')
-          .fa.fa-chevron-left
-        i.lr_btn.btn.btn_post(href='#Caro_solution_2', role='button', data-slide='next')
-          .fa.fa-chevron-right
         .row.talk_box.active(v-if="solu.talk[0]")
-          #Caro_solution_2.carousel.slide(data-ride='carousel' style='height: 100%')
+          .item(style='height: 100%')
+            h2(v-text="solu.talk[0].title")
+            h4.text-right(v-text="solu.talk[0].name")
+      .container
+        .row.talk_box.active(v-if="solu.talk[0]")    
+          .item(style='height: 100%')
+            h2(v-text="solu.talk[0].title")
+            h4.text-right(v-text="solu.talk[0].name")
 
-            // Wrapper for slides
-            .carousel-inner(role='listbox' style='height: 100%')
-              .item.active(style='height: 100%')
-                .col-sm-8.col-sm-offset-2
-                  h2(v-text="solu.talk[0].title")
-                  h4.text-right(v-text="solu.talk[0].name")
+    
 
-          
+      
 
         
     section_solutions
@@ -77,6 +68,12 @@ div.page_solution
     export default {
         mounted() {
             console.log('solution mounted.')
+            $('.slick').slick({
+              autoplay: true,
+              autoplaySpeed: 5000,
+              dots: true,
+              easing: 'ease-in'
+            });
         },
         props: ['id'],
         computed: mapState(['solutions'])

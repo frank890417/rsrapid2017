@@ -15,18 +15,11 @@ div.page_tech
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
-        #myCarousel2.carousel.slide(data-ride='carousel' style='height: 100%')
-          // Indicators
-          ol.carousel-indicators
-            li.active(data-target='#myCarousel2', data-slide-to='0')
-            li(data-target='#myCarousel2', data-slide-to='1')
-           
-          // Wrapper for slides
-          .carousel-inner(role='listbox' style='height: 100%')
-            .item.active(style='height: 100%')
-              .img(style="background-image:url(/img/homepage/Tech2.jpg);background-size: cover; height: 100%;")
-            .item(style='height: 100%')
-              .img(style="background-image:url(/img/homepage/Home1.jpg);background-size: cover; height: 100%;")
+        .slick
+          .item(style='height: 100%')
+            .img(style="background-image:url(/img/homepage/Tech2.jpg);background-size: cover; height: 100%;")
+          .item(style='height: 100%')
+            .img(style="background-image:url(/img/homepage/Home1.jpg);background-size: cover; height: 100%;")
 
       .block_50_percent
     .container.flex
@@ -62,18 +55,11 @@ div.page_tech
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
-        #myCarousel4.carousel.slide(data-ride='carousel' style='height: 100%')
-          // Indicators
-          ol.carousel-indicators
-            li.active(data-target='#myCarousel4', data-slide-to='0')
-            li(data-target='#myCarousel4', data-slide-to='1')
-           
-          // Wrapper for slides
-          .carousel-inner(role='listbox' style='height: 100%')
-            .item.active(style='height: 100%')
-              .img(style="background-image:url(/img/homepage/Tech4.jpg);background-size: cover; height: 100%;")
-            .item(style='height: 100%')
-              .img(style="background-image:url(/img/homepage/Post4.jpg);background-size: cover; height: 100%;")
+        .slick
+          .item(style='height: 100%;width: 100%')
+            .img(style="background-image:url(/img/homepage/Tech4.jpg);background-size: cover; height: 100%;")
+          .item(style='height: 100%;width: 100%')
+            .img(style="background-image:url(/img/homepage/Post4.jpg);background-size: cover; height: 100%;")
 
       .block_50_percent
     .container
@@ -92,7 +78,13 @@ div.page_tech
 <script>
     export default {
         mounted() {
-            console.log('tech mounted.')
+            console.log('tech mounted.');
+            $('.slick').slick({
+              autoplay: true,
+              autoplaySpeed: 5000,
+              dots: true,
+              easing: 'ease-in'
+            });
         }
     }
 </script>
