@@ -52,9 +52,11 @@
         <div class="form-group">
           <label for="tag">標籤</label>
           <select id="tag" name="tag" class="form-control">
-            <option value="重要通知">重要通知</option>
-            <option value="活動快訊">活動快訊</option>
-            <option value="投資相關">投資相關</option>
+            <option value="睿軒活動">睿軒活動</option>
+            <option value="新聞快訊">新聞快訊</option>
+            <option value="食安新知">食安新知</option>
+            <option value="友善連結">友善連結</option>\
+
           </select>
         </div>
         <div class="form-group">
