@@ -45,6 +45,8 @@ nav.navbar.at_top
             .container.flex
               div.options
                 li 
+                  router-link(to="/news/cata/all") 全部新聞
+                li 
                   router-link(to="/news/cata/睿軒活動") 睿軒活動
                 li 
                   router-link(to="/news/cata/新聞快訊") 新聞快訊
@@ -52,8 +54,7 @@ nav.navbar.at_top
                   router-link(to="/news/cata/食安新知") 食安新知
                 li 
                   router-link(to="/news/cata/友善連結") 友善連結
-                li 
-                  router-link(to="/news/cata/all") 全部新聞
+                
         li
           a(href="#") 會員服務
 
@@ -88,22 +89,25 @@ nav.navbar.at_top
             console.log('navbar mounted.');
 
             //update subnav position
+            function place_sub_nav(){
+              $(".navbar-nav > li").each(function(index,obj){
+                // console.log(index);
+                var li_width=$(obj).outerWidth();
+                var container=$(obj).children(".subnav").children(".container");
+                var content=container.children(".options");
+                container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
+                if (index>=2 && index<=3){
+                  content.css("margin-left",(-content.outerWidth()/2+li_width)+"px");
 
-            $(".navbar-nav > li").each(function(index,obj){
-              console.log(index);
-              var li_width=$(obj).width();
-              var container=$(obj).children(".subnav").children(".container");
-              var content=container.children(".options");
-              container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
-              if (index>=2 && index<=3){
-                content.css("margin-left",(-content.width()/2+li_width)+"px");
-
-              }if (index>3){
-                content.css("margin-left",(-content.width()+li_width)+"px");
-                content.children("li").css("margin-left","24px").css("margin-right","0px");
-              }
-              console.log(content);
-            });
+                }if (index>3){
+                  content.css("margin-left",(-content.outerWidth()+li_width)+"px");
+                  content.children("li").css("margin-left","24px").css("margin-right","0px");
+                }
+                
+              });
+            }
+            place_sub_nav();
+            $(window).resize(place_sub_nav);
         }
     }
 </script>

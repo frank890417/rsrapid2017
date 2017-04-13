@@ -419,6 +419,11 @@ nav
       transition: 0.5s 0.2s, top 0.5s 0s
       text-align: center
       background-color: rgba($color_theme,0.9)
+      li
+        margin: 0
+        &:nth-child(2n)
+          margin-left: grid_sz(0,1)
+          margin-right: grid_sz(0,1)
       .container
         justify-content: flex-start
       li a
