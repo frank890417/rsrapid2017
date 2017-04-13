@@ -8,7 +8,7 @@ div.page_tech
         p
         hr
         .conpany_logos
-          img.company_logo(alt="永齡logo" src="img/homepage/tech_company_logo1.png")
+          img.company_logo(alt="永齡logo" src="img/Rapid.png")
           img.company_logo(alt="中山大學logo" src="img/homepage/tech_company_logo2.png")
 
   section.section_tech(data-img=1)

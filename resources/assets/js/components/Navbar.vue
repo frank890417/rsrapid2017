@@ -15,33 +15,41 @@ nav.navbar.at_top
         li
           router-link(to="/about") 關於睿軒
           ul.subnav
-            li 
-              router-link(to="/about#section_about_from") 睿軒源起
-            li 
-              router-link(to="/about#section_about_log") 睿軒大事紀
+            .container.flex
+              div.options
+                li 
+                  router-link(to="/about#section_about_from") 睿軒源起
+                li 
+                  router-link(to="/about#section_about_log") 睿軒大事紀
         li
           router-link(to="/tech") 檢驗科技
           ul.subnav
-            li 
-              router-link(to="/solution/1") 快檢平台
+            .container.flex
+              div.options
+                li 
+                  router-link(to="/tech") 快檢平台
         li
           router-link(to="/solution") 檢測方案
           ul.subnav
-            li 
-              router-link(to="/solution/0") 校園環境健檢
-            li 
-              router-link(to="/solution/1") 校園食材健檢
-            li 
-              router-link(to="/solution/2") 農場作物自主管理
+            .container.flex
+              div.options
+                li 
+                  router-link(to="/solution/0") 校園環境健檢
+                li 
+                  router-link(to="/solution/1") 校園食材健檢
+                li 
+                  router-link(to="/solution/2") 農場作物自主管理
         li
           router-link(to="/news") 最新消息
           ul.subnav
-            li 
-              router-link(to="/news/1") 睿軒活動
-            li 
-              router-link(to="/news/2") 新聞快訊
-            li 
-              router-link(to="/news/3") 食安新知
+            .container.flex
+              div.options
+                li 
+                  router-link(to="/news/1") 睿軒活動
+                li 
+                  router-link(to="/news/2") 新聞快訊
+                li 
+                  router-link(to="/news/3") 食安新知
         li
           a(href="#") 會員服務
 
@@ -51,12 +59,14 @@ nav.navbar.at_top
             span 繁
             i.fa.fa-angle-down 
           ul.subnav
-            li 
-              router-link(to="#") 繁
-            li 
-              router-link(to="#") 简
-            li 
-              router-link(to="#") EN
+            .container
+              div.options
+                li 
+                  router-link(to="#") 繁
+                li 
+                  router-link(to="#") 简
+                li 
+                  router-link(to="#") EN
 
         li.function.func_search
           i.fa.fa-search
@@ -71,7 +81,25 @@ nav.navbar.at_top
 <script>
     export default {
         mounted() {
-            console.log('navbar mounted.')
+            console.log('navbar mounted.');
+
+            //update subnav position
+
+            $(".navbar-nav > li").each(function(index,obj){
+              console.log(index);
+              var li_width=$(obj).width();
+              var container=$(obj).children(".subnav").children(".container");
+              var content=container.children(".options");
+              container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
+              if (index>=2){
+                content.css("margin-left",(-content.width()/2+li_width)+"px");
+
+              }if (index>=3){
+                content.css("margin-left",(-content.width()+li_width)+"px");
+                content.children("li").css("margin-left","24px").css("margin-right","0px");
+              }
+              console.log(content);
+            });
         }
     }
 </script>

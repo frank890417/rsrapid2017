@@ -97,8 +97,8 @@ div.page_solution
               vobj.timer_list.push(timer);
             });
         },beforeDestroy() {
-          vobj.timer_list.map(obj=>clearInterval(obj));
-          vobj.timer_list=[];
+          this.timer_list.map(obj=>clearInterval(obj));
+          this.timer_list=[];
         },
         props: ['id'],
         computed: mapState(['solutions'])

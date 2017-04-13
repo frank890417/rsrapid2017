@@ -86,6 +86,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -581,6 +582,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -1490,6 +1496,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -1985,6 +1992,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -2667,6 +2679,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -3162,6 +3175,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -3963,6 +3981,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -4458,6 +4477,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -5517,6 +5541,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -6012,6 +6037,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -6869,6 +6899,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -7364,6 +7395,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -8297,6 +8333,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -8792,6 +8829,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -9613,6 +9655,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -10108,6 +10151,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
@@ -10977,6 +11025,7 @@ table {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  background-repeat: no-repeat;
 }
 
 .slick-track, .slick-list, .slick-slider {
@@ -11472,6 +11521,11 @@ nav .navbar-nav li ul.subnav {
   transition: 0.5s 0.2s, top 0.5s 0s;
   text-align: center;
   background-color: rgba(63, 191, 187, 0.9);
+}
+
+nav .navbar-nav li ul.subnav .container {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 nav .navbar-nav li ul.subnav li a {
