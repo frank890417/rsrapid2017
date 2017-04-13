@@ -19,7 +19,6 @@ div.page_news
         li(@click='filter="新聞快訊"') 新聞快訊
         li(@click='filter="食安新知"') 食安新知
         li(@click='filter="友善連結"') 友善連結
-        li(@click='filter="全部新聞"') 全部新聞
       
       .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
         .cover(:style="'background-image: url('+a_news.cover+')'") 

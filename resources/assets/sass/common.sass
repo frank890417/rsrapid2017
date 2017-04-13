@@ -677,10 +677,6 @@ footer
   height: 61px
   font-weight: 300
 
-  .container
-    margin-bottom: -10px
-    +flex_split("lr")
-    align-items: center
   .info
     display: inline-block
     margin: 0
@@ -704,6 +700,30 @@ footer
       text-decoration: none
       font-size: 17px
 
+
+  +range_width(0px,930px)
+    height: auto
+
+  .container.flex
+    +flex_split("lr")
+    align-items: center
+
+    
+
+    +range_width(0px,930px)
+      flex-direction: column
+      padding: grid_sz(0,1) 0px
+      .info
+        margin-bottom: grid_sz(0,1)
+
+    +range_width(0px,600px)
+      ul.footer_nav
+        display: none
+      .info
+        margin-bottom: 0px
+
+  
+  
 
 //-----------------------------------------------
 section.section_solution
