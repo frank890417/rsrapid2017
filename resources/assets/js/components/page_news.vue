@@ -19,14 +19,16 @@ div.page_news
         li(@click='filter="新聞快訊"' v-bind:class='filter=="新聞快訊"?"active":""') 新聞快訊
         li(@click='filter="食安新知"' v-bind:class='filter=="食安新知"?"active":""') 食安新知
         li(@click='filter="友善連結"' v-bind:class='filter=="友善連結"?"active":""') 友善連結
-      
-      .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
+
+    transition-group(name="fade" tag="div").container.flex
+      .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''" v-bind:key="a_news")
         .cover(:style="'background-image: url('+a_news.cover+')'") 
         .info
           h5.date {{a_news.date}}
           h3.title {{a_news.title}}
           p {{a_news.description}}
         router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center 瞭解更多
+    .container.flex
       ul.nav_line_split.text-center.page_nav
         li 上一頁
         li.active 1

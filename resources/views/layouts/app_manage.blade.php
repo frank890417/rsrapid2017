@@ -66,6 +66,10 @@
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 新聞管理</a></li>
+        <li><a href="{{ url('manage/question') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 問答管理</a></li>
         {{--          
           a(href='charts.html')
             svg.glyph.stroked.line-graph

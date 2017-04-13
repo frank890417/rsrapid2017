@@ -1,0 +1,52 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 問題管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 問題管理
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading 問題管理
+      .panel-body
+        
+        table.table.table-hover
+          thead
+            th 編號
+            th 問題
+            th 回答
+            th 更新時間
+            th 編輯
+            th 刪除
+          tbody
+          @foreach ($questions as $question)
+            tr
+              td(style="width: 5%") {{$question->id}}
+              td(style="width: 15%") {{$question->question}}
+              td(style="width: 50%") {{$question->answer}}
+              td {{$question->updated_at}}
+              td(style="width: 5%")
+                a.btn.btn-default(href!="{{ url('manage/question/'.($question->id).'/edit') }}") 編輯
+              td(style="width: 5%")
+                button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_question_{{$question->id}}').submit();}") 刪除
+                form(id!='delete_question_{{$question->id}}', action!="{{url('manage/question/'.$question->id)}}", method='POST')
+                  input(type='hidden', name='_method', value='delete')
+                  input(type='hidden', name='_token', value='{{ csrf_token() }}')
+          @endforeach
+        br
+        a.btn.btn-primary(href!="{{ url('manage/question/create') }}") 新增新聞
+        br
+
+
+@endsection

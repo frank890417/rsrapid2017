@@ -19,6 +19,7 @@ Route::get('home','NewsController@index');
 Route::get('manage/news','NewsController@index');
 
 Route::resource('manage/news','NewsController');
+Route::resource('manage/question','QuestionController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
