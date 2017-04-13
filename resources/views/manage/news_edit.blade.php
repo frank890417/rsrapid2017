@@ -55,7 +55,7 @@
             <option value="睿軒活動">睿軒活動</option>
             <option value="新聞快訊">新聞快訊</option>
             <option value="食安新知">食安新知</option>
-            <option value="友善連結">友善連結</option>\
+            <option value="友善連結">友善連結</option>
 
           </select>
         </div>

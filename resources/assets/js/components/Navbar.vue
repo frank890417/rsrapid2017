@@ -45,15 +45,15 @@ nav.navbar.at_top
             .container.flex
               div.options
                 li 
-                  router-link(to="/news/1") 睿軒活動
+                  router-link(to="/news/cata/睿軒活動") 睿軒活動
                 li 
-                  router-link(to="/news/2") 新聞快訊
+                  router-link(to="/news/cata/新聞快訊") 新聞快訊
                 li 
-                  router-link(to="/news/3") 食安新知
+                  router-link(to="/news/cata/食安新知") 食安新知
                 li 
-                  router-link(to="/news/3") 友善連結
+                  router-link(to="/news/cata/友善連結") 友善連結
                 li 
-                  router-link(to="/news/3") 全部新聞
+                  router-link(to="/news/cata/all") 全部新聞
         li
           a(href="#") 會員服務
 
@@ -95,10 +95,10 @@ nav.navbar.at_top
               var container=$(obj).children(".subnav").children(".container");
               var content=container.children(".options");
               container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
-              if (index>=2){
+              if (index>=2 && index<=3){
                 content.css("margin-left",(-content.width()/2+li_width)+"px");
 
-              }if (index>=3){
+              }if (index>3){
                 content.css("margin-left",(-content.width()+li_width)+"px");
                 content.children("li").css("margin-left","24px").css("margin-right","0px");
               }

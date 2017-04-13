@@ -865,6 +865,8 @@ section.section_solution
   padding-bottom: $gutter_width*2
   .container
     align-items: flex-start
+    +range_width(0px,768px)
+      flex-direction: column
 
   .col_address
     width: grid_sz(4,3)

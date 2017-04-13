@@ -14,11 +14,11 @@ div.page_news
   section.section_news
     .container.flex
       ul.nav_line_split.text-center
-        li.active(@click='filter=""') 全部新聞
-        li(@click='filter="睿軒活動"') 睿軒活動
-        li(@click='filter="新聞快訊"') 新聞快訊
-        li(@click='filter="食安新知"') 食安新知
-        li(@click='filter="友善連結"') 友善連結
+        li(@click='filter=""' v-bind:class='filter==""?"active":""') 全部新聞
+        li(@click='filter="睿軒活動"' v-bind:class='filter=="睿軒活動"?"active":""') 睿軒活動
+        li(@click='filter="新聞快訊"' v-bind:class='filter=="新聞快訊"?"active":""') 新聞快訊
+        li(@click='filter="食安新知"' v-bind:class='filter=="食安新知"?"active":""') 食安新知
+        li(@click='filter="友善連結"' v-bind:class='filter=="友善連結"?"active":""') 友善連結
       
       .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
         .cover(:style="'background-image: url('+a_news.cover+')'") 
@@ -75,6 +75,11 @@ export default {
       filtered_news (){
         return this.news.filter(item=>( item.tag==this.filter || this.filter==""))
       }
-    }
+    },watch: {
+      cataname(){
+        this.filter=this.cataname=="all"?"":this.cataname;
+      }
+    },
+    props: ["cataname"]
 }
 </script>
