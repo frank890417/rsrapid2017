@@ -155,11 +155,39 @@
 
       &.page_nav
         li
-          padding-left: $gutter_width/2
-          padding-right: $gutter_width/2
+          padding-left: 18px
+          padding-right: 18px
+          // height: 16px
           margin-bottom: 0px
-          margin-top: grid_sz(0,1)
+          margin-top: grid_sz(0,2)
+          text-align: center
+          vertical-align: middle
+          border: none
 
+          &:before
+            content: ""
+            display: block
+            position: absolute
+            right: 0
+            top: 50%
+            transform: translateY(-50%)
+            height: 16px
+            width: 0px
+            border-left: solid 1px $color_theme
+
+          &:first-child,&:last-child
+            color: $color_grey
+          &:last-child
+            &:before
+              opacity: 0
+
+
+            // margin-bottom: grid_sz(0,6)
+
+    hr 
+      width: 100%
+      border: none
+      border-bottom: solid 1px #eee
 
 
     .cover

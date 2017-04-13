@@ -40,7 +40,7 @@ div.page_news
         li 9
         li ...
         li 下一頁
-    hr
+      hr
 </template>
 
 <script>
