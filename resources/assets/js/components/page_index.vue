@@ -40,16 +40,16 @@ div.page_index
       .col_left
       .col_right
         h3.section_title 孩子成長的生活環境
-        p.section_para.text-left 農產品從田間到通路銷售過程需要追蹤農藥殘留狀況。我們藉由農藥測像分析，再產銷供應鏈上執行進出手農殘檢測，可降低風險、保證品質，以確保農產符合法規標準，為守護民眾食安問題。<br><br>消費產品使用狀況趨多，健康風險成為關注焦點。特別是兒童用品，我們提供塑化劑檢測服務，為您所購買的生活日用品進行分析，排除居家安全憂慮，為下一代健康把關
-        .percent.text-right(data-target=75) 75
+        p.section_para.text-left 我們的生活環境有許多食安風險與汙染問題直接影響健康，這些有毒的化學物質被不肖業者濫用，使得我們的飲食與環境到處充斥具有危害與累積性毒素。<br><br>全世界每天有約5,500位兒童死於污染的水、空氣與食物所導致的疾病。
+        .percent.text-right(data-target=75) 5500
 
   section.page_index_live
     .container.flex
       .col_left
         h3.section_title 從居家到工作環境
-        p.section_para.text-left 農產品從田間到通路銷售過程需要追蹤農藥殘留狀況。我們藉由農藥測像分析，再產銷供應鏈上執行進出手農殘檢測，可降低風險、保證品質，以確保農產符合法規標準，為守護民眾食安問題。<br><br>消費產品使用狀況趨多，健康風險成為關注焦點。特別是兒童用品，我們提供塑化劑檢測服務，為您所購買的生活日用品進行分析，排除居家安全憂慮，為下一代健康把關
+        p.section_para.text-left 近年來食安問題層出不窮，引發全民對食品安全的恐慌與疑慮。有鑒於食安事件中不乏多家知名大廠，凸顯了業者自主管理的漏洞。食品安全須從源頭管理做起，以保障民眾得到安全的食物來源。<br><br>根據估計，每年食安事件導致的死亡人數高達200萬人。
         router-link.btn.btn-primary(to='/tech') 了解更多
-        .percent.text-right(data-target=42) 42
+        .percent.text-right(data-target=42) 200
       .col_right
         
 
@@ -58,7 +58,7 @@ div.page_index
       .col_left
       .col_right
         h3.section_title 睿軒專注精準檢驗
-        p.section_para.text-left 農產品從田間到通路銷售過程需要追蹤農藥殘留狀況。我們藉由農藥測像分析，再產銷供應鏈上執行進出手農殘檢測，可降低風險、保證品質，以確保農產符合法規標準，為守護民眾食安問題。
+        p.section_para.text-left 在關懷台灣食品與環境安全問題的基礎上，我們與國立中山大學共同開發「快速檢驗平台」專利技術，只須5秒即可分析出有害化學物質，是你我守護居家生活安全的最佳快速幫手。
         router-link.btn.btn-transparent(to='tech') 了解更多
     .container.flex.type_container
       .row
