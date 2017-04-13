@@ -1,24 +1,15 @@
 <template lang="jade">
 div.page_news
   .slick
-    section.section_hero
-      .bg.bg_parallax
+    section.section_hero(v-for='a_news in news')
+      .bg.bg_parallax(:style="'background-image: url('+a_news.cover+')'") 
       div.full
-        
         .container.flex
-          h5.tag 活動快訊
-          h5.date 2017.01.23
-          h1 全方位企業檢測方案現正推出!
-          p.description 兒童節即將到來，鴻海旗下永齡健康基金會今年首波公益行動將全台走透透，為偏鄉弱勢的400所幼兒園進行「玩具義診」，針對校園中常見的玩具、遊樂設施、塑膠地墊、餐具等進行「塑化劑」檢測。
-    section.section_hero
-      .bg.bg_parallax
-      div.full
-        
-        .container.flex
-          h5.tag 活動快訊
-          h5.date 2017.01.23
-          h1 全方位企業檢測方案現正推出!
-          p.description 兒童節即將到來，鴻海旗下永齡健康基金會今年首波公益行動將全台走透透，為偏鄉弱勢的400所幼兒園進行「玩具義診」，針對校園中常見的玩具、遊樂設施、塑膠地墊、餐具等進行「塑化劑」檢測。
+          h5.tag {{a_news.tag}}
+          h5.date {{a_news.date}}
+          h1 {{a_news.title}}
+          p.description {{a_news.description}}
+
 
   section.section_news
     .container.flex
@@ -56,12 +47,21 @@ import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
     mounted() {
       console.log('news mounted.');
-      $('.slick').slick({
-        autoplay: true,
-        autoplaySpeed: 5000,
-        dots: true,
-        easing: 'ease-in'
-      });
+      var vobj=this;
+      var loader = setInterval(function(){
+        if (vobj.news.length>0){
+          $('.slick').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            dots: true,
+            easing: 'ease-in'
+          });
+          clearInterval(loader);
+          // vobj.news_delta();
+          console.log("news_slick_loaded");
+        }
+      },100);
+      
 
     },
     data() {

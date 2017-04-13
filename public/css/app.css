@@ -92,20 +92,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -1488,20 +1496,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -2657,20 +2673,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -3945,20 +3969,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -5386,6 +5418,7 @@ section.section_solution .row_else {
   padding-top: 72px;
   padding-bottom: 48px;
   justify-content: space-around;
+  margin: auto;
 }
 
 .page_index .page_index_sponsor .sponsorlogo {
@@ -5490,20 +5523,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -6834,20 +6875,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -7920,6 +7969,10 @@ section.section_solution .row_else {
   opacity: 0.8;
 }
 
+.page_news .slick-dots {
+  bottom: 120px;
+}
+
 .page_news .section_hero {
   height: 696px;
   display: -webkit-box;
@@ -8250,20 +8303,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -9558,20 +9619,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {
@@ -10914,20 +10983,28 @@ table {
   height: 100%;
 }
 
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
 ul.slick-dots {
   bottom: 20px;
 }
 
 ul.slick-dots li {
   margin: 0;
+  padding: 0px 13px;
 }
 
 ul.slick-dots li button:before {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
+  border: solid 1px white;
 }
 
 h1 {

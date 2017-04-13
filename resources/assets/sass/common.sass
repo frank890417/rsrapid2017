@@ -59,16 +59,22 @@ table
 .slick-track,.slick-list,.slick-slider
   height: 100%
 
+.slick-dotted.slick-slider
+  margin: 0  
+
 ul.slick-dots
   bottom: 20px
   li
     margin: 0
+    padding: 0px 13px
     button
       &:before
+        transition: 0.5s
         content: ""
-        +size(10px,10px)
+        +size(8px)
         border-radius: 50%
         background-color: rgba(white,0.8)
+        border: solid 1px rgba(white,1)
 
 
 //tag size
