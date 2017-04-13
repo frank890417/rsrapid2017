@@ -45,17 +45,18 @@ div.page_solution
           hr
           p(v-html="solu.schedule")
     section.section_talk.bg_theme
-      .container.slick
-        .talk_box.active(v-if="solu.talk[0]")
-          .item(style='height: 100%')
-            h2(v-text="solu.talk[0].title")
-            h4.text-right(v-text="solu.talk[0].name")
-        .talk_box.active(v-if="solu.talk[0]")    
-          .item(style='height: 100%')
-            h2(v-text="solu.talk[0].title")
-            h4.text-right(v-text="solu.talk[0].name")
+      .container.flex.center
+        .slick
+          .talk_box(v-if="solu.talk[0]" style='height: 100%')
+            .item(style='height: 100%')
+              h2(v-text="solu.talk[0].title")
+              h4.text-right(v-text="solu.talk[0].name")
 
-    
+          .talk_box(v-if="solu.talk[0]" style='height: 100%')
+            .item(style='height: 100%')
+              h2(v-text="solu.talk[0].title")
+              h4.text-right(v-text="solu.talk[0].name")
+
 
       
 
@@ -82,6 +83,7 @@ div.page_solution
                 autoplaySpeed: 4000,
                 dots: true,
                 speed: 700,
+                arrows: false,
                 easing: 'linear'
               });
               function delta(){

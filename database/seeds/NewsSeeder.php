@@ -28,7 +28,7 @@ class NewsSeeder extends Seeder
             'description' => ["解讀先天遺傳癌症風險，傳統健檢Out、精準醫療In，罹癌時鐘越跑越快。","癌症風險，傳統健檢Out、精準醫療In，罹癌時鐘越跑越快。"][1],
             'tag' => ["睿軒活動","新聞快訊","食安新知","友善連結"][rand(0,3)],
             'size' => $now_size,
-            'cover' => rand(0,1)<0.5?("/img/homepage/News".rand(1,3).".jpg"):("/img/homepage/Post".rand(1,4).".jpg"),
+            'cover' => rand(0,1)<0.5?("/img/homepage/News".rand(1,3).".jpg"):("/img/homepage/Post".rand(1,2).".jpg"),
             'updated_at' => date("Y-m-d H:i:s"),
             'created_at' => date("Y-m-d H:i:s"),
           ]);

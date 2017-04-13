@@ -102,7 +102,7 @@
     color: $color_grey
 
   .section_talk
-    min-height: $gutter_width*18
+    height: $gutter_width*18
     background-image: url("../img/homepage/Solution3.jpg")
     background-size: 100% auto
     *
@@ -117,8 +117,9 @@
 
       +ab_center
     h2
-      margin-top: $gutter_width*3
+      margin-top: grid_sz(0,6)
       font-weight: 300
+      font-size: 26px
     h4
       margin-top: $gutter_width*3
       font-weight: 300
@@ -129,15 +130,10 @@
       right: 30px
 
     .talk_box
-      opacity: 0
       position: relative
-      // top: -30px
-      transition: 0.5s
-      // +ab_center
-      position: absolute
-      top: 50%
-      transform: translateY(-50%)
-
-      &.active
-        // top: 0px
-        opacity: 1
+    .slick
+      height: 100%
+      width: grid_sz(8,7)
+    h4
+      text-align: right
+      
