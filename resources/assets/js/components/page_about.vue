@@ -32,6 +32,7 @@ div.page_about
       }},
       mounted() {
           console.log('about mounted.')
+          Ts.reload();
       },
       computed: Vuex.mapState(['about_logs'])
 

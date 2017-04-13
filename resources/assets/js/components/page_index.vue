@@ -34,6 +34,7 @@ div.page_index
         .value
 
 
+
   section.page_index_grow
     .container.flex
       .col_left
@@ -126,6 +127,7 @@ div.page_index
                 });
                 clearInterval(loader);
                 vobj.news_delta();
+                Ts.reload();
               }
             },100);
             
@@ -139,6 +141,8 @@ div.page_index
               dots: true,
               easing: 'ease-in'
             });
+
+            Ts.reload();
         },
         methods: {
           news_delta: function(){

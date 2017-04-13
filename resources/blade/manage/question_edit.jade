@@ -38,6 +38,17 @@ form(action!="{{ (isset($question))?(url('manage/question/'.$question->id)):(url
       .panel-heading 問題設定
       .panel-body
         .form-group
+          label 首頁置頂
+          br
+          .btn-group
+            label(for='stick_top')
+              | 置頂
+              input(type='radio', name='stick_top', value='1')
+            label(for='stick_top')
+              | 否
+              input(type='radio', name='stick_top', value='0')
+
+        .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
 
   script.

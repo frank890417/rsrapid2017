@@ -51,7 +51,8 @@ div.page_service
 <script>
     export default {
         mounted() {
-            console.log('service mounted.')
+            console.log('service mounted.');
+            Ts.reload();
         }
     }
 </script>

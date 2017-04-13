@@ -27,6 +27,7 @@
             <th>編號</th>
             <th>問題</th>
             <th>回答</th>
+            <th>置頂</th>
             <th>更新時間</th>
             <th>編輯</th>
             <th>刪除</th>
@@ -37,6 +38,7 @@
               <td style="width: 5%">{{$question->id}}</td>
               <td style="width: 15%">{{$question->question}}</td>
               <td style="width: 50%">{{$question->answer}}</td>
+              <td style="width: 5%">{{$question->stick_top}}</td>
               <td>{{$question->updated_at}}</td>
               <td style="width: 5%"><a href="{{ url('manage/question/'.($question->id).'/edit') }}" class="btn btn-default">編輯</a></td>
               <td style="width: 5%">

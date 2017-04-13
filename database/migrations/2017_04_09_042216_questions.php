@@ -19,6 +19,7 @@ class Questions extends Migration
           $table->increments('id');
           $table->string('question')->nullable();
           $table->string('answer')->nullable();
+          $table->boolean('stick_top')->default(false);
 
           $table->timestamps();
 

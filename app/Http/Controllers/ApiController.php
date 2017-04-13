@@ -11,9 +11,9 @@ class ApiController extends Controller
 {
     //
     function news(){
-      return News::orderBy('id','desc')->get();
+      return News::orderBy('id','desc')->limit(4)->get();
     }
     function questions(){
-      return Question::all();
+      return Question::orderBy('stick_top','desc')->get();
     }
 }

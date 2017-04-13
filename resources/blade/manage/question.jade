@@ -26,6 +26,7 @@
             th 編號
             th 問題
             th 回答
+            th 置頂
             th 更新時間
             th 編輯
             th 刪除
@@ -35,6 +36,7 @@
               td(style="width: 5%") {{$question->id}}
               td(style="width: 15%") {{$question->question}}
               td(style="width: 50%") {{$question->answer}}
+              td(style="width: 5%") {{$question->stick_top}}
               td {{$question->updated_at}}
               td(style="width: 5%")
                 a.btn.btn-default(href!="{{ url('manage/question/'.($question->id).'/edit') }}") 編輯

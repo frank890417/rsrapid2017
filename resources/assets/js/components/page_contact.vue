@@ -43,6 +43,7 @@ div.page_contact
     export default {
         mounted() {
             console.log('contact mounted.');
+            Ts.reload();
             
         },
     }

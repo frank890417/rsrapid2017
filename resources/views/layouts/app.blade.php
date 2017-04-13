@@ -18,7 +18,7 @@
       ]) !!};
     </script>
     <!--新黑體-->
-    {{-- <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/script/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script> --}}
+    <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/apiscript/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->

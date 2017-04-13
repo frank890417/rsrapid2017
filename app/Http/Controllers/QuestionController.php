@@ -16,7 +16,7 @@ class QuestionController extends Controller
     }
     //
     public function index(){
-      $questions = Question::all();
+      $questions = Question::orderBy("stick_top","desc")->get();
       return view('manage.question')
               ->with("questions",$questions);
     }
