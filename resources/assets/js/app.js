@@ -299,19 +299,17 @@ $( window ).ready(function(){
   
 
   //調整字體大小
-  $(".icon_text_size").click(function(){
-    var el=$(this)
+  $(".func_size").click(function(){
+    var el=$(this);
     if (el.hasClass("bigger")){
       el.removeClass("bigger");
       el.addClass("smaller");
-      el.children(".text").text("A-");
       $("p").css("font-size","18px")
           .css("line-height","30px");
       $(".question_list").css("font-size","18px");
     }else{
       el.removeClass("smaller");
       el.addClass("bigger");
-      el.children(".text").text("A+");
       $("p").css("font-size","")
           .css("line-height","");
       $(".question_list").css("font-size");

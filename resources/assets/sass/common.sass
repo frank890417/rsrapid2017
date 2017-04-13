@@ -134,6 +134,7 @@ section
   .section_title
     margin-bottom: grid_sz(0,3)
     margin-top: grid_sz(0,-3)
+    font-size: 26px
     +trans
     &.initial
       opacity: 0
@@ -371,6 +372,7 @@ nav
   .navbar-right
     width: grid_sz(2,2)
     display: flex
+    justify-content: flex-end
     align-items: space-between
 
   .navbar-left,.navbar-right
@@ -422,6 +424,20 @@ nav
         opacity: 1
         z-index: 100      
         padding: grid_sz(0,1) 0px
+
+  +range_width(0px,1080px)
+    .navbar-nav
+      .func_lang,.func_search
+        display: none
+    .row
+      justify-content: space-between
+    .nav-right
+      justify-content: flex-end
+
+
+  +range_width(0px,970px)
+    .navbar-nav.navbar-left
+      display: none
         
   //---- when at top of the page
   &.at_top
@@ -431,27 +447,30 @@ nav
 
     .navbar-header
       width: grid_sz(3,2)
+      img
+        height: 65px
 
     .navbar-left,.navbar-right
       margin-top: grid_sz(0,1)
-    img
-      height: 65px
+    
 
     .navbar-nav li
       & ul.subnav
         +pos(0,$nav_height_at_top)
 
-  +range_width(0px,1080px)
-    .func_lang,.func_search
+
+.func_size
+  padding-top: 3px
+  .icon_big,.icon_small
+    cursor: pointer
+  .icon_big
+    display: none
+  &.bigger
+    .icon_big
+      display: block
+    .icon_small
       display: none
 
-
-  +range_width(0px,500px)
-    .navbar-right .function
-      display: none
-    .navbar-right
-      display: inline-block
-      width: auto
 
 
 // nav.navbar-default

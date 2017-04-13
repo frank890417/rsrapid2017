@@ -58,13 +58,11 @@ nav.navbar.at_top
             li 
               router-link(to="#") EN
 
-
         li.function.func_search
           i.fa.fa-search
         li.function.func_size
-          .icon_text_size.bigger 
-            .text A
-              span.plus +
+          img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
+          img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
 
         li.nav_open.func_burger
           i.fa.fa-bars

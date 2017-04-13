@@ -3,7 +3,7 @@ div.footer
   section.detail_footer
     .container.flex
       .go_to_topbtn
-        i.fa.fa-angle-up
+        img(src="/img/icon_arrow_up.svg")
       .col_address
         h5 公司資訊
         h5 台北, 台灣

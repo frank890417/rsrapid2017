@@ -23,6 +23,8 @@
     align-items: flex-end
     justify-content: flex-end
 
+    
+
     .full
       padding-top: grid_sz(0,9)
 
@@ -33,15 +35,17 @@
       padding-bottom: $column_width*2
       +ab_full
 
+      &:before
+        +pseudo_ab_full
+        background-color: rgba(black,0.3)
+
     .container.flex
       padding: 0 grid_sz(1,2) grid_sz(0,6) grid_sz(1,2) 
       flex-direction: column
       align-items: flex-start
       justify-content: flex-start
 
-      &:before
-        +pseudo_ab_full
-        background-color: rgba(black,0.3)
+      
 
     &:before
       +cover_opacity(rgba(black,0.5))
