@@ -1,7 +1,7 @@
 <template lang="jade">
 div.page_news
   .slick
-    section.section_hero(v-for='a_news in news')
+    section.section_hero(v-for='a_news in news.slice(0,5)')
       .bg.bg_parallax(:style="'background-image: url('+a_news.cover+')'") 
       div.full
         .container.flex
@@ -15,9 +15,11 @@ div.page_news
     .container.flex
       ul.nav_line_split.text-center
         li.active(@click='filter=""') 全部新聞
-        li(@click='filter="重要通知"') 重要通知
-        li(@click='filter="活動快訊"') 活動快訊
-        li(@click='filter="投資相關"') 投資相關
+        li(@click='filter="睿軒活動"') 睿軒活動
+        li(@click='filter="新聞快訊"') 新聞快訊
+        li(@click='filter="食安新知"') 食安新知
+        li(@click='filter="友善連結"') 友善連結
+        li(@click='filter="全部新聞"') 全部新聞
       
       .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
         .cover(:style="'background-image: url('+a_news.cover+')'") 

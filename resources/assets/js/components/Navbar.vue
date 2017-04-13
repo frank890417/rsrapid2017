@@ -50,6 +50,10 @@ nav.navbar.at_top
                   router-link(to="/news/2") 新聞快訊
                 li 
                   router-link(to="/news/3") 食安新知
+                li 
+                  router-link(to="/news/3") 友善連結
+                li 
+                  router-link(to="/news/3") 全部新聞
         li
           a(href="#") 會員服務
 
