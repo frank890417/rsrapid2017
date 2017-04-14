@@ -9,8 +9,6 @@
       // padding-top: $gutter_width*4
       margin-top: 0
       margin-bottom: $gutter_width*2
-      font-weight: normal
-      font-size: 44px
       opacity: 0.8
 
   nav.navbar-default.at_top
@@ -46,18 +44,8 @@
       flex-direction: column
 
     .post_box
-      width: 100%
-      max-width: percent_grid(10,11)
+      +grid_sz_mx(10,11)
 
-    // &:before
-    //   content: ""
-    //   display: block
-    //   +size(100%,$gutter_width*3)
-    //   background-color: $color_white
-    //   position: absolute
-    //   top: -$gutter_width*3
-    //   left: 0
-    //   z-index: 10
     .container
       background-color: $color_white
       margin-top: grid_sz(0,-3)

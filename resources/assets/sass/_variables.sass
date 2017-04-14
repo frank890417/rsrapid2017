@@ -177,7 +177,17 @@ $nav_height: 80px
   transition-duration: $t
   transition-delay: $td
 
+@mixin grid_sz_mx($i,$o)
+  max-width: grid_sz($i,$o)
+  width: 100%
 
+// @for $i from 1 through 20
+//   @for $o from 1 through 20
+//     .grid_sz_mx_#{$i}_#{$o}
+//       +grid_sz_mx($i,$o)
+//     .grid_sz_#{$i}_#{$o}
+//       width: grid_sz($i,$o)
+  
 
 
 

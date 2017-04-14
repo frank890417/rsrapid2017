@@ -6,7 +6,7 @@ div.page_index
     li(data-link=".page_index_live")
     li(data-link=".page_index_accurate")
     li(data-link=".section_solution")
-    li(data-link=".page_index_sponsor")
+    li(data-link=".page_index_sponsor" style="display: none")
     li(data-link=".detail_footer" style="display: none")
 
   section.page_index_main.bg_parallax
@@ -101,6 +101,7 @@ div.page_index
             news_id: 0,
             news_time: 0,
             news_change_time: 5000,
+            arrows: false,
             timer: null
           };
 
@@ -136,6 +137,7 @@ div.page_index
               autoplaySpeed: 3000,
               slidesToShow: 4,
               slidesToScroll: 1,
+              arrows: false,
               dots: true,
               easing: 'ease-in'
             });

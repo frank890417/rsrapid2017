@@ -7,11 +7,8 @@
     min-height: 0px
     position: relative
     .section_title
-      // padding-top: $gutter_width*4
       margin-top: 0
       margin-bottom: $gutter_width*2
-      font-size: 30px
-      // opacity: 0.8
     .container
       .col_left,.col_right
         align-items: flex-start
@@ -19,32 +16,23 @@
 
   .section_hero
     min-height: 50vh
-    display: flex
-    align-items: center
-    justify-content: center
+    +flex_center
     background-size: cover
     background-position: center center
     .section_title
-      // padding-top: $gutter_width*4
       margin-top: $gutter_width*2
       margin-bottom: 0
       opacity: 0.8
       letter-spacing: 10px
-      // opacity: 0.8
     &,h1
-      // color: $color_white
-    // h1
-    //   margin-bottom: $gutter_width*4
   .block_50_percent
-    height: 100%
-    width: 50%
+    +size(50%,100%)
     display: inline-block
     float: left
     
 
     &[data-image="1"]
       background-image: url("../img/homepage/Solution2.jpg")
-
     &[data-image="2"]
       background-image: url("../img/homepage/Post2.jpg")
     &[data-image="3"]
@@ -60,7 +48,6 @@
     margin-top: $gutter_width*1.5
     line-height: 1.4em
     padding-bottom: 0px
-    font-weight: 300
     // margin-bottom: $gutter_width*1.5
 
   .section_solution_1

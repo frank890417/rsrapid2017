@@ -14,7 +14,7 @@ nav.navbar.at_top
         ul.navbar-nav.navbar-left.text-left
           // Authentication Links
           li
-            router-link(to="/about") 關於睿軒
+            a(href="#") 關於睿軒
             ul.subnav
               .container.flex
                 div.options
@@ -23,14 +23,14 @@ nav.navbar.at_top
                   li 
                     router-link(to="/about#section_about_log") 睿軒大事紀
           li
-            router-link(to="/tech") 檢驗科技
+            a(href="#") 檢驗科技
             ul.subnav
               .container.flex
                 div.options
                   li 
                     router-link(to="/tech") 快檢平台
           li
-            router-link(to="/solution") 檢測方案
+            a(href="#") 檢測方案
             ul.subnav
               .container.flex
                 div.options
@@ -41,7 +41,7 @@ nav.navbar.at_top
                   li 
                     router-link(to="/solution/2") 農場作物自主管理
           li
-            router-link(to="/news") 最新消息
+            a(href="#") 最新消息
             ul.subnav
               .container.flex
                 div.options

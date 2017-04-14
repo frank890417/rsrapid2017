@@ -56,9 +56,13 @@ div.footer
         },
         methods: {
           toggle (id){
-            this.qa_state.forEach((op)=>{op.open=false});
-            this.qa_state[id].open = !this.qa_state[id].open  ; 
-              console.log(!this.qa_state[id].open );
+            this.qa_state.forEach((op,index)=>{
+              if (index==id) {
+                op.open=!op.open;
+              }else{ 
+                op.open=false;
+              }
+            });
           }
         },
         computed: mapState(['questions'])

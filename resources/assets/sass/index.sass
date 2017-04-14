@@ -6,7 +6,6 @@
   section
     .section_title
       margin-bottom: $gutter_width*2
-      font-size: 26px
       letter-spacing: 3px
 
   .percent
@@ -47,6 +46,7 @@
     align-items: center
     align-content: center
     justify-content: space-between
+    background-position: center 0px
     .row
       position: relative
     .index_slogan_area
@@ -54,13 +54,13 @@
       +flex_center
       flex-direction: column
     h1
-      font-size: 48px
       letter-spacing: 15px
       margin-bottom: 0px
       margin-top: 0px
       animation: lspace_in 2s 1 both
       text-align: center
-      font-weight: 300
+      span
+        font-weight: 300
 
     @keyframes lspace_in
       0%
@@ -76,7 +76,6 @@
       letter-spacing: 2px
       animation: lspace_in2 2s 0.5s 1 both
       text-align: center
-      font-weight: 300
 
     @keyframes lspace_in2
       0%
@@ -229,22 +228,16 @@
       
       .row
         display: flex
-        height: 50%
-        width: grid_sz(8,8)
+        +size(grid_sz(8,8),50%)
         &:nth-child(1)
           left: grid_sz(4,4)
         &:nth-child(2)
           left: grid_sz(2,2)
     
-
-
   //------------------------------------------------------
-
   .page_index_sponsor
     min-height: initial
     background-color: $color_grey_bg
-
-
 
     .container
       height: auto

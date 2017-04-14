@@ -8,9 +8,6 @@
     position: relative
     .section_title
       // padding-top: $gutter_width*4
-
-      font-weight: 300
-      font-size: 44px
       opacity: 0.8
 
   .section_hero
@@ -27,7 +24,15 @@
 
     .container.flex
       align-items: flex-start
-      padding-left: grid_sz(1,2)
+      // padding-left: grid_sz(1,2)
+      background-color: $color_white
+      margin-top: grid_sz(0,-3)
+      width: grid_sz(12,15)
+      max-width: grid_sz(12,15)
+      padding: grid_sz(0,1)
+      flex-wrap: wrap
+      padding-top: grid_sz(0,3)
+
 
     &:before
       +cover_opacity(rgba(white,0.1))
