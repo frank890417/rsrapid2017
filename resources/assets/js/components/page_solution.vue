@@ -36,14 +36,15 @@ div.page_solution
             p 詳細檢驗項目歡迎與我聯絡&nbsp;&nbsp;&nbsp;&nbsp;
               router-link.btn.btn-primary(to="/contact") 聯絡我們  
         .col_right
-          h3 適用環境
+          .area_env
+            h3 適用環境
 
-          hr
-          h4.envtext(v-html="solu.env")
-
-          h3 方案類型
-          hr
-          p(v-html="solu.schedule")
+            hr
+            h4.envtext(v-html="solu.env")
+          .area_type
+            h3 方案類型
+            hr
+            p(v-html="solu.schedule")
     section.section_talk.bg_theme
       .container.flex.center
         .slick

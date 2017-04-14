@@ -61,8 +61,6 @@ div.page_tech
         .slick(data-timelime=".tl2")
           .item(style='height: 100%;width: 100%')
             .img(style="background-image:url(/img/homepage/Tech4.jpg);background-size: cover; height: 100%;")
-          .item(style='height: 100%;width: 100%')
-            .img(style="background-image:url(/img/homepage/Post4.jpg);background-size: cover; height: 100%;")
         .timeline.tl2
           .value
       .block_50_percent

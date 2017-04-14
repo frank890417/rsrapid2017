@@ -28,7 +28,6 @@
       opacity: 0
     &:after
       content: "人"
-      display: inline-block
       font-weight: 500
       font-size: grid_sz(0,2.2)
       vertical-align: middle
@@ -41,12 +40,19 @@
 
   //-----------------------------------------------
   .page_index_main
+    $news_height: grid_sz(0,11)
     background-image: url("../img/homepage/Home1.jpg")
     min-height: 100vh
-    +flex_center
+    +flex_split("td")
+    align-items: center
+    align-content: center
+    justify-content: space-between
     .row
       position: relative
-
+    .index_slogan_area
+      height: calc(100vh - #{$news_height})
+      +flex_center
+      flex-direction: column
     h1
       font-size: 48px
       letter-spacing: 15px
@@ -66,7 +72,7 @@
 
     h3.page_header_eng
       margin-top: 10px
-      font-size: 26px
+      font-size: 30px
       letter-spacing: 2px
       animation: lspace_in2 2s 0.5s 1 both
       text-align: center
@@ -85,7 +91,9 @@
       position: absolute
       bottom: 0px
       width: grid_sz(10,9)
-      height: grid_sz(0,11)
+      height: $news_height
+      +box_shadow
+  
 
     .news
       display: flex
@@ -94,8 +102,7 @@
       height: 100%
       
       opacity: 1
-      +box_shadow
-  
+      
       .col_infos,.col_img
         height: 100%
         position: relative
@@ -153,6 +160,8 @@
   .page_index_accurate
     background-image: url("../img/homepage/Home5.jpg")
     position: relative
+    display: flex
+    justify-content: center
     
     
     .section_title,.section_para

@@ -17,7 +17,7 @@ div.footer
         h5 常見問題
         ul.question_list
           li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
-            .icon.icon_minus.icon_plus
+            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
             .question {{qa.question}}
             p.answer {{qa.answer}}
           
@@ -56,6 +56,7 @@ div.footer
         },
         methods: {
           toggle (id){
+            this.qa_state.forEach((op)=>{op.open=false});
             this.qa_state[id].open = !this.qa_state[id].open  ; 
               console.log(!this.qa_state[id].open );
           }

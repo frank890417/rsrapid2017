@@ -68,8 +68,8 @@
     padding-bottom: grid_sz(0,4)
 
   .section_solution_2
-    padding-top: $gutter_width*3
-    padding-bottom: $gutter_width*3
+    padding-top: grid_sz(0,2)
+    padding-bottom: grid_sz(0,2)
 
   .section_solution_1,.section_solution_2
     
@@ -93,8 +93,18 @@
       font-weight: 300
 
   .section_solution_2
+    .container
+      align-items: flex-start
     &:before
       +cover_opacity(rgba(white,0.7))
+    .area_env
+      min-height: grid_sz(0,13)
+      margin-bottom: grid_sz(0,2)
+
+    .area_type
+      min-height: grid_sz(0,10)
+      margin-bottom: 0
+
 
   .envtext
     font-weight: 400

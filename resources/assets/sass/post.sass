@@ -46,7 +46,9 @@
       flex-direction: column
 
     .post_box
-      width: percent_grid(10,9)
+      width: 100%
+      max-width: percent_grid(10,11)
+
     // &:before
     //   content: ""
     //   display: block
@@ -57,10 +59,14 @@
     //   left: 0
     //   z-index: 10
     .container
-      background-color: white
+      background-color: $color_white
       margin-top: grid_sz(0,-3)
+      width: grid_sz(12,15)
+      max-width: grid_sz(12,15)
+      padding: grid_sz(0,1)
+      flex-wrap: wrap
       padding-top: grid_sz(0,3)
-      padding-bottom: grid_sz(0,3)
+
     .share
       margin-top: $gutter_width*2
     .tag
