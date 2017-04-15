@@ -26,8 +26,15 @@ div.footer
 
       .col_corp
         h5.text-left 合作夥伴
-        img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
-        img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
+        .slicklogo2
+          .item
+            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
+          .item
+            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
+          .item
+            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
+          .item
+            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
 
   footer
     .container.flex
@@ -49,6 +56,16 @@ div.footer
     export default {
         mounted() {
             console.log('footer mounted.');
+            $('.slicklogo2').slick({
+              autoplay: true,
+              autoplaySpeed: 3000,
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              arrows: true,
+              vertical: true,
+              dots: true,
+              easing: 'ease-in'
+            });
         },data(){
           return {
             qa_state: [{open:true},{open:false},{open:false}]

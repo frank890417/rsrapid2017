@@ -7,4 +7,8 @@ git push
 echo ""
 echo "Git Commit complete!"
 echo ""
-
+echo "Watch(y/n) ?"
+read option
+if ["$option" == "y"]; then
+  gulp watch
+fi

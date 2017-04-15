@@ -671,6 +671,7 @@ section.section_solution
   min-height: initial
   padding: $gutter_width*3 0px
   padding-bottom: $gutter_width*2
+
   .container
     align-items: flex-start
     +range_width(0px,768px)
@@ -685,6 +686,14 @@ section.section_solution
     margin-right: grid_sz(0,1)
   .col_corp
     width: grid_sz(3,2)
+
+    .item
+    .company_icon
+      width: grid_sz(1,1)
+      margin: grid_sz(0.1)
+      margin-left: auto
+      margin-right: auto
+
 
   .col_address,.col_question,.col_corp
     color: $color_grey_light
