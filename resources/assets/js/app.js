@@ -212,7 +212,7 @@ scroll
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
   $(".bg_parallax").css("background-position","center "+top_val/5.00+"px");
-  $(".bg_parallax_about").css("background-position","center "+(1250+top_val/4.60)+"px");
+  $(".mountain").css("bottom",(+(-(top_val+window_height*0.75-$("#section_about_log").offset().top)/4))+"px");
 
   //percet nt init
   $(".percent.initial").each(function(index,obj){

@@ -93,15 +93,15 @@ nav.navbar.at_top
             function place_sub_nav(){
               $(".navbar-nav > li").each(function(index,obj){
                 // console.log(index);
-                var li_width=$(obj).outerWidth();
+                var li_width=$(obj).width();
                 var container=$(obj).children(".subnav").children(".container");
                 var content=container.children(".options");
                 container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
                 if (index>=2 && index<=3){
-                  content.css("margin-left",(-content.outerWidth()/2+li_width)+"px");
+                  content.css("margin-left",(-content.width()/2)+"px");
 
                 }if (index>3){
-                  content.css("margin-left",(-content.outerWidth()+li_width)+"px");
+                  content.css("margin-left",(-content.width()+li_width)+"px");
                   content.children("li").css("margin-left","24px").css("margin-right","0px");
                 }
                 
