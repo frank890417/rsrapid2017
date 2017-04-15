@@ -64,6 +64,23 @@ table
 .slick-dotted.slick-slider
   margin: 0  
 
+.slick-slide:focus
+  outline: none
+  
+.fa.fa-angle-left,.fa.fa-angle-right
+  +ab_center
+  z-index: 105
+  color: white
+  font-size: grid_sz(0,1.2)
+  top: calc(50% - #{grid_sz(0,1)/2}) 
+  cursor: pointer
+.fa.fa-angle-left
+  left: 50px
+.fa.fa-angle-right
+  left: initial
+  right: 50px
+
+
 ul.slick-dots
   bottom: 20px
   li
@@ -174,6 +191,9 @@ section
   &.center
     justify-content: center
 
+  &.wrap
+    flex-wrap: wrap
+
   &.full
     max-width: initial
 
@@ -192,6 +212,13 @@ section
     flex-direction: column
     p
       text-align: left
+
+  +range_width(0px,700px)
+    &.flex
+      flex-direction: column
+    .col_left,.col_right
+      width: 100%
+      min-height: 50vh
   .col_hero
     width: grid_sz(6,5)
     text-align: center

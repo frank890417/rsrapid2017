@@ -57,7 +57,9 @@ export default {
             autoplay: true,
             autoplaySpeed: 5000,
             dots: true,
-            easing: 'ease-in'
+            easing: 'ease-in',
+            prevArrow: '<i class="fa fa-angle-left"></i> ',
+            nextArrow: '<i class="fa fa-angle-right"></i> '
           });
           clearInterval(loader);
           // vobj.news_delta();
