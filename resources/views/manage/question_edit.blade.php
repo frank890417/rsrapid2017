@@ -64,13 +64,21 @@
     window.require_js={};
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;
+    
+    
+    
   </script>
-  <script></script>
 </form>
 @endsection
 @section('require_js')
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js"></script>
 @endsection
 @section('require_js_after')
-  <script>$("#tag").val("{{isset($question)?($question->tag):''}}");</script>
+  <script>
+    $("#tag").val("{{isset($question)?($question->tag):''}}");
+    $(window).ready(function(){
+      var value={!! isset($question)?$question->stick_top:0 !!};
+      $("input[name=stick_top][value="+value+"]").attr("checked","checked");
+    });
+  </script>
 @endsection
