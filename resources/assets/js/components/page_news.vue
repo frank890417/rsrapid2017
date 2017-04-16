@@ -81,7 +81,7 @@ export default {
       }
     },watch: {
       cataname(){
-        this.filter=this.cataname=="all"?"":this.cataname;
+        this.filter=(this.cataname=="all")?"":this.cataname;
       }
     },
     props: ["cataname"]

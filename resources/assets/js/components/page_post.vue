@@ -21,7 +21,7 @@ div.page_post
       span.sr-only Next
 
   section.section_post
-    .container.flex(v-if='newsset')
+    .container.flex.column(v-if='newsset')
       .post_box
         h4.tag(v-text='newsset.tag')
         h1.section_title(v-text='newsset.title')
@@ -32,6 +32,11 @@ div.page_post
             img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
             img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
+      .container.flex.row.nav_end
+        .pre
+          h3
+        .post
+          h3
 
       hr
 </template>

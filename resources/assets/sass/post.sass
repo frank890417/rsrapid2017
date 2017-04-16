@@ -41,7 +41,8 @@
     background-size: 100% auto
     .container.flex
       justify-content: center
-      flex-direction: column
+
+
 
     .post_box
       +grid_sz_mx(10,11)
@@ -70,7 +71,7 @@
       font-size: 48px
       margin-bottom: 5px
     hr
-      margin-top: $gutter_width*4
+      margin-top: grid_sz(0,6)
       margin-bottom: $gutter_width*4
     p
       font-weight: normal
@@ -88,6 +89,30 @@
       margin-left: $gutter_width/2
       cursor: pointer
       width: 30px
+    
+    .nav_end
+      padding: 0
+      margin-top: grid_sz(0,5)
+      height: grid_sz(0,12)
+      margin-left: grid_sz(0,-1)
+      .pre,.post
+        width: 50%
+        height: 100%
+        background-color: $color_theme
+        background-image: url("../img/homepage/Post2.jpg")
+        +flex_center
+      .pre
+        background-color: $color_white
+        h4
+          color: $color_theme
+        &:before
+          +pseudo_ab_full
+          background-color: rgba($color_white,0.85)
+
+      .post
+        &:before
+          +pseudo_ab_full
+          background-color: rgba($color_theme,0.85)
 
   .page_nav_btn
     margin-top: $gutter_width*3
