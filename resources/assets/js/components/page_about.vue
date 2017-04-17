@@ -15,7 +15,7 @@ div.page_about
         li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
 
       transition(name="fade" mode="out-in")
-        .logs_area(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
+        .logs_area.top_out(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
           router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
             .col_cover
               .cover_image(:style="'background-image:url('+log.cover+')'")

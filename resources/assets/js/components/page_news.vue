@@ -3,7 +3,7 @@ div.page_news
   .slick
     section.section_hero(v-for='a_news in news.slice(0,5)')
       .bg.bg_parallax(:style="'background-image: url('+a_news.cover+')'") 
-      div.full
+      router-link.full(:to="'/news/'+a_news.id")
         .container.flex
           h5.tag {{a_news.tag}}
           h5.date {{a_news.date}}
@@ -12,34 +12,27 @@ div.page_news
 
 
   section.section_news
-    .container.flex
+    .container.flex.top_out
       ul.nav_line_split.text-center
-        li(@click='filter=""' v-bind:class='filter==""?"active":""') 全部新聞
-        li(@click='filter="睿軒活動"' v-bind:class='filter=="睿軒活動"?"active":""') 睿軒活動
-        li(@click='filter="新聞快訊"' v-bind:class='filter=="新聞快訊"?"active":""') 新聞快訊
-        li(@click='filter="食安新知"' v-bind:class='filter=="食安新知"?"active":""') 食安新知
-        li(@click='filter="友善連結"' v-bind:class='filter=="友善連結"?"active":""') 友善連結
 
-    transition-group(name="fade" tag="div").container.flex
-      .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='')?([0,6,10].indexOf(id)>-1?'size_2':''):''" v-bind:key="a_news")
-        .cover(:style="'background-image: url('+a_news.cover+')'") 
-        .info
-          h5.date {{a_news.date}}
-          h3.title {{a_news.title}}
-          p {{a_news.description}}
-        router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center 瞭解更多
+        li(@click='filter=cata' v-for="cata in catas" v-bind:class='filter==cata?"active":""') {{cata}}
+        
+    transition-group(name="fade-delay")
+      .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
+        .news_box.section_para(v-for='(a_news,id) in filtered_news(cata)' v-bind:class="(filter=='全部新聞')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
+          .cover(:style="'background-image: url('+a_news.cover+')'") 
+          .info
+            h5.date {{a_news.date}}
+            h3.title {{a_news.title}}
+            p {{a_news.content.substr(0,60)}}
+          router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center 瞭解更多
     .container.flex
       ul.nav_line_split.text-center.page_nav
         li 上一頁
         li.active 1
         li 2
         li 3
-        li 4
-        li 5
-        li 6
-        li 7
-        li 8
-        li 9
+
         li ...
         li 下一頁
       hr.footer_line
@@ -71,17 +64,19 @@ export default {
     },
     data() {
       return {
-        filter: ""
+        filter: "全部新聞",
+        catas: ["全部新聞","睿軒活動","新聞快訊","食安新知","友善連結"]
       }
     },
     computed: {
-      ...mapState(['news']),
-      filtered_news (){
-        return this.news.filter(item=>( item.tag==this.filter || this.filter==""))
-      }
+      ...mapState(['news'])
     },watch: {
       cataname(){
-        this.filter=(this.cataname=="all")?"":this.cataname;
+        this.filter=(this.cataname=="all")?"全部新聞":this.cataname;
+      }
+    },methods: {
+      filtered_news (cata){
+        return this.news.filter(item=>( item.tag==cata || this.filter=="全部新聞"))
       }
     },
     props: ["cataname"]

@@ -12,9 +12,11 @@
     font-family: 'Lato'
     font-weight: 300
     opacity: 0.5
-    font-size: 200px
+    font-size: 160px
+    opacity: 0.3
+
     color: $color_theme
-    letter-spacing: 14px
+    letter-spacing: 0px
     vertical-align: middle
     // margin-bottom: 3*$gutter_width
     transform: skewX(-10deg)
@@ -51,6 +53,14 @@
       position: relative
     .index_slogan_area
       height: calc(100vh - #{$news_height})
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin: auto;
+      left: 50%
+      padding-top: grid_sz(0,3)
+      transform: translateX(-50%)
       +flex_center
       flex-direction: column
     h1
@@ -76,6 +86,7 @@
       letter-spacing: 2px
       animation: lspace_in2 2s 0.5s 1 both
       text-align: center
+      font-weight: 300
 
     @keyframes lspace_in2
       0%

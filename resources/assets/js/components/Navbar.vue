@@ -1,45 +1,45 @@
 <template lang="jade">
 div
   div.fullnav(:class="open_full?'open':''")
-    .close_btn(@click="open_full=!open_full")
+    .close_btn(@click="toggle_open")
     .container
       img.headerimg(src="/img/Rapid.png")
       ul.main_list
         li 
           h4 關於睿軒
           ul.sub_list
-            li 
+            li(@click="toggle_open")
               router-link( to="/about#section_about_from") 睿軒源起
-            li 
+            li(@click="toggle_open")
               router-link( to="/about#section_about_log") 睿軒大事紀
         li 
           h4 檢驗科技
           ul.sub_list
-            li 
+            li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
-            li 
+            li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
         li 
           h4 檢測方案
           ul.sub_list
-            li 
+            li(@click="toggle_open") 
               router-link( to="/solution/0") 校園環境健檢
-            li 
+            li(@click="toggle_open")
               router-link( to="/solution/1") 校園食材健檢
-            li 
+            li(@click="toggle_open") 
               router-link( to="/solution/2") 農場作物自主管理
         li 
           h4 最新消息
           ul.sub_list
-            li 
+            li(@click="toggle_open") 
               router-link( to="/news/cata/all") 全部新聞
-            li 
+            li(@click="toggle_open") 
               router-link( to="/news/cata/睿軒活動") 睿軒活動
-            li 
+            li(@click="toggle_open") 
               router-link( to="/news/cata/新聞快訊") 新聞快訊
-            li 
+            li(@click="toggle_open") 
               router-link( to="/news/cata/食安新知") 食安新知
-            li 
+            li(@click="toggle_open") 
               router-link( to="/news/cata/友善連結") 友善連結
         li 
           h4 會員服務
@@ -107,7 +107,7 @@ div
                       router-link(to="/news/cata/友善連結") 友善連結
                     
             li
-              a(href="#") 會員服務
+              router-link(to="/contact")  聯絡我們
 
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
@@ -130,7 +130,7 @@ div
             img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
             img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
 
-          li.nav_open.func_burger(@click="open_full=!open_full")
+          li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
 </template>
 
@@ -146,14 +146,19 @@ div
                 var li_width=$(obj).width();
                 var container=$(obj).children(".subnav").children(".container");
                 var content=container.children(".options");
-                container.css("padding-left",($(obj).offset().left-$(".navbar .container").offset().left)+"px");
-                if (index>=2 && index<=3){
-                  content.css("margin-left",(-content.width()/2)+"px");
+                // var align_obj=$(obj);
+                var align_obj=$(".navbar-nav > li:first");
+                
+                container.css("padding-left",(align_obj.offset().left-$(".navbar .container").offset().left)+"px");
+                // if (index>=2 && index<=5){
+                //   content.css("margin-left",(-content.width()/2)+"px");
 
-                }if (index>3){
-                  content.css("margin-left",(-content.width()+li_width)+"px");
-                  content.children("li").css("margin-left","24px").css("margin-right","0px");
-                }
+                // }
+
+                // if (index>2){
+                //   content.css("margin-left",(-content.width()+li_width)+"px");
+                //   content.children("li").css("margin-left","24px").css("margin-right","0px");
+                // }
                 
               });
             }
@@ -163,6 +168,10 @@ div
         data(){
           return {
             open_full: false
+          }
+        },methods:{
+          toggle_open(){
+            this.open_full=!this.open_full;
           }
         }
     }

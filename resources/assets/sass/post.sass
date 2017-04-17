@@ -15,16 +15,26 @@
     background-color: #FFF 
 
   .section_hero
-    min-height: 60vh
-    display: flex
+    height: grid_sz(5,5)   
     align-items: center
     justify-content: center
     padding-top: $column_width*1.5+$nav_height
     background: url("../img/homepage/Post1.jpg")
     // background-attachment: fixed。
-    background-size: cover
-    background-position: center center
+    background-size: 100% 0px
     padding-bottom: 20vh
+    display: flex
+    
+
+    .full
+      padding-top: grid_sz(0,9)
+
+    .bg
+      background-size: cover
+      background-position: center 0px
+      padding-bottom: $column_width*2
+      +ab_full
+    
     &,h1
       color: $color_white
     h1
@@ -60,7 +70,8 @@
       margin-top: $gutter_width*2
     .tag
       +bg_theme
-      color: $color_white
+      a
+        color: $color_white
       display: inline-block
       font-size: 18px
       letter-spacing: 4px

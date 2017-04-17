@@ -38,12 +38,15 @@ table
 
 //----
 
-
+a
+  text-decoration: none
+  &:hover
+  
 
 //----
 
 *
-  font-family: "新黑體 L" , 'Noto Sans TC','微軟正黑體'
+  font-family: "Lato","新黑體 L" , 'Noto Sans TC','微軟正黑體'
   background-size: cover
   background-position: center center
   box-sizing: border-box
@@ -132,7 +135,7 @@ h1,h2,h3,h4,h5,h6
   color: $color_grey_dark
   font-weight: 300
   // min-width: 1600px
-h4,h5,h6
+h3,h4,h5,h6
   font-weight: 400
 
 .color_theme
@@ -204,6 +207,15 @@ section
 
   &.row
     flex-direction: row
+
+  &.top_out
+    background-color: $color_white
+    margin-top: grid_sz(0,-3)
+    +grid_sz_mx(12,15)
+    padding: grid_sz(0,1)
+    flex-wrap: wrap
+    padding-top: grid_sz(0,3)
+    align-items: flex-start
 
   .col_left,.col_right
     width: 50%
@@ -396,18 +408,24 @@ nav
       overflow: hidden
       max-height: 0px
       height: 0px
-      transition: 0.5s 0.2s, top 0.5s 0s
+      transition: 0.4s 0.2s, top 0.4s 0s
       text-align: center
       background-color: rgba($color_theme,0.9)
       li
         margin: 0
+        border-bottom: none
+        opacity: 0.8
+        +trans
         &:nth-child(2n)
           margin-left: grid_sz(0,1)
           margin-right: grid_sz(0,1)
+        &:hover
+          opacity: 1
       .container
         justify-content: flex-start
       li a
         color: $color_white
+        text-decoration: none
 
     &:hover
       a
@@ -713,6 +731,8 @@ section.section_solution
 
   .col_address
     width: grid_sz(4,3)
+    p
+      letter-spacing: 2px
 
   .col_question
     width: grid_sz(5,4)
@@ -870,4 +890,13 @@ section.section_solution
 .fade-enter-to,.fade-leave
   opacity: 1
 
+.fade-delay-enter-active
+  transition: opacity .5s .5s
+.fade-delay-leave-active
+  transition: opacity .5s
+
+.fade-delay-enter,.fade-delay-leave-to
+  opacity: 0
+.fade-delay-enter-to,.fade-delay-leave
+  opacity: 1
 
