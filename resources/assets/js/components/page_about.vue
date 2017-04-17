@@ -15,8 +15,8 @@ div.page_about
         li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
 
       transition(name="fade" mode="out-in")
-        .logs_area(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel" )
-          .row.log_box(v-for="log in about_logs[sel]" v-bind:key="log")
+        .logs_area(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
+          router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
             .col_cover
               .cover_image(:style="'background-image:url('+log.cover+')'")
             .col_info
@@ -34,6 +34,14 @@ div.page_about
       mounted() {
           console.log('about mounted.')
           Ts.reload();
+      },
+      methods: {
+        to_href: function(obj) {
+          console.log(this);
+          if (obj.news_id!=1){
+            this$route.router.go("/news/"+obj.news_id);
+          }
+        }
       },
       computed: Vuex.mapState(['about_logs'])
 
