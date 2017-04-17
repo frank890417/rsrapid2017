@@ -84,12 +84,8 @@ div
               ul.subnav
                 .container.flex
                   div.options
-                    li 
-                      router-link(to="/solution/0") 校園環境健檢
-                    li 
-                      router-link(to="/solution/1") 校園食材健檢
-                    li 
-                      router-link(to="/solution/2") 農場作物自主管理
+                    li(v-for='(sol,id) in solutions')
+                      router-link(:to="'/solution/'+id") {{sol.title.replace('計畫','')}}
             li
               a(href="#") 最新消息
               ul.subnav
@@ -135,6 +131,7 @@ div
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
         mounted() {
             console.log('navbar mounted.');
@@ -173,6 +170,6 @@ div
           toggle_open(){
             this.open_full=!this.open_full;
           }
-        }
+        },computed: mapState(["solutions"])
     }
 </script>

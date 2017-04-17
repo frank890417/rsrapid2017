@@ -12,6 +12,7 @@ div.page_post
           router-link(v-text='newsset.tag' v-bind:to="'/news/cata/'+newsset.tag")
         h1.section_title(v-text='newsset.title')
         p.date(v-text='newsset.date')
+        p(v-html='newsset.author')
         p(v-html='newsset.content')
         h5.share 分享文章
           .logos
@@ -20,9 +21,12 @@ div.page_post
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
       .container.flex.row.nav_end
         .pre
-          h3
+          h3 
+            i.fa.fa-angle-left 前一則
         .post
           h3
+            | 後一則
+            i.fa.fa-angle-right 
 
       hr
 </template>

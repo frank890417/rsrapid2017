@@ -109,21 +109,31 @@
       .pre,.post
         width: 50%
         height: 100%
-        background-color: $color_theme
         background-image: url("../img/homepage/Post2.jpg")
         +flex_center
-      .pre
         background-color: $color_white
-        h4
+        cursor: pointer
+        +trans
+
+        h3,i
           color: $color_theme
+          +trans
+      .pre
         &:before
           +pseudo_ab_full
           background-color: rgba($color_white,0.85)
-
+          +trans
       .post
         &:before
           +pseudo_ab_full
-          background-color: rgba($color_theme,0.85)
+          background-color: rgba($color_white,0.85)
+          +trans
+      .pre,.post
+        &:hover 
+          &:before
+            background-color: $color_theme
+          h3,i
+            color: $color_white
 
   .page_nav_btn
     margin-top: $gutter_width*3

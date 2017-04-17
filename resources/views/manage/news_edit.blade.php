@@ -34,8 +34,8 @@
           <input id="date" name="date" value="{!! isset($news)?$news->date:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
-          <label for="description">短描述(80字以內)</label>
-          <textarea id="description" name="description" rows="3" class="form-control">{!! isset($news)?$news->description:'' !!}</textarea>
+          <label for="author">作者或轉載來源</label>
+          <input id="author" name="author" value="{!! isset($news)?$news->author:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
           <label for="content">內文</label>
@@ -52,11 +52,9 @@
         <div class="form-group">
           <label for="tag">標籤</label>
           <select id="tag" name="tag" class="form-control">
-            <option value="睿軒活動">睿軒活動</option>
-            <option value="新聞快訊">新聞快訊</option>
-            <option value="食安新知">食安新知</option>
-            <option value="友善連結">友善連結</option>
-
+            <option value="重要通知">重要通知</option>
+            <option value="活動快訊">活動快訊</option>
+            <option value="投資相關">投資相關</option>
           </select>
         </div>
         <div class="form-group">

@@ -33,8 +33,8 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
             label(for='date') 日期
             input#date.form-control(name='date', value!='{!! isset($news)?$news->date:"" !!}')
           .form-group
-            label(for='description') 短描述(80字以內)
-            textarea#description.form-control(name='description', rows='3') {!! isset($news)?$news->description:'' !!}
+            label(for='author') 作者或轉載來源
+            input#author.form-control(name='author', value!='{!! isset($news)?$news->author:"" !!}')
           .form-group
             label(for='content') 內文
             div(class="btn btn-default btn-md btn-dropzone"  style='display:none;') 上傳圖片

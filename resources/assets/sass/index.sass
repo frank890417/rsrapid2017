@@ -4,6 +4,7 @@
   .container.flex
     height: 100vh
   section
+    min-height: 800px
     .section_title
       margin-bottom: $gutter_width*2
       letter-spacing: 3px
@@ -177,8 +178,13 @@
     .section_title,.section_para
       color: $color_white
 
+    .col_right
+      padding-top: grid_sz(0,3)
+      padding-bottom: grid_sz(0,14)
+
     .btn
       margin-top: $gutter_width*2
+
 
     +bg_block('before','right',$color_theme)
 
@@ -191,7 +197,7 @@
         color: $color_white
     
     .btn
-      margin-bottom: $gutter_width*4
+      margin-bottom: 0
     .acc_sm_pic
       // background-color: $color_theme
       border: none
