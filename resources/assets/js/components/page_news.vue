@@ -8,7 +8,7 @@ div.page_news
           h5.tag {{a_news.tag}}
           h5.date {{a_news.date}}
           h1 {{a_news.title}}
-          p.description {{a_news.description}}
+          p.description {{a_news.content.substr(0,60)+'...'}}
 
 
   section.section_news
@@ -19,12 +19,12 @@ div.page_news
         
     transition-group(name="fade-delay")
       .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
-        .news_box.section_para(v-for='(a_news,id) in filtered_news(cata)' v-bind:class="(filter=='全部新聞')?([0,6,10].indexOf(id)>-1?'size_2':''):''")
+        .news_box.section_para(v-for='(a_news,id) in filtered_news(cata)' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
           .cover(:style="'background-image: url('+a_news.cover+')'") 
           .info
             h5.date {{a_news.date}}
             h3.title {{a_news.title}}
-            p {{a_news.content.substr(0,60)}}
+            p {{a_news.content.substr(0,is_double(id)?90:45)+'...'}}
           router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center 瞭解更多
     .container.flex
       ul.nav_line_split.text-center.page_nav
@@ -77,6 +77,9 @@ export default {
     },methods: {
       filtered_news (cata){
         return this.news.filter(item=>( item.tag==cata || this.filter=="全部新聞"))
+      },
+      is_double(id){
+        return [0,6,10].indexOf(id)!=-1;
       }
     },
     props: ["cataname"]
