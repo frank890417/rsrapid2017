@@ -3,7 +3,8 @@
   margin-top: grid_sz(0,2)
   height: grid_sz(0,3)
   margin-bottom: grid_sz(0,2)
-.fallnav
+
+.fullnav
 
   +ab_full
   +flex_center
@@ -12,8 +13,45 @@
   +pos(0,0)
   z-index: 1000
   background-color: rgba($color_white,0.95)
-  overflow-y: scroll
-  display: none
+  pointer-events: none
+  overflow: hidden
+  opacity: 0
+  transition: 0.5s
+  .close_btn
+    position: absolute
+    right: grid_sz(0,1)
+    top: grid_sz(0,1)
+    +size(30px)
+    // background-color: darken($color_white,15)
+    border-radius: 2px
+    opacity: 0.7
+    cursor: pointer
+    +trans
+
+    &:before,&:after 
+      // transform-origin: center center
+      +trans
+      display: block
+      content: ""
+      width: 20px
+      height: 2px
+      background-color: $color_theme
+
+      +ab_center
+
+  &.open .close_btn
+    &:before
+      transform: translate(-50%,-50%) rotate(-45deg) 
+    &:after
+      transform: translate(-50%,-50%) rotate(45deg)  
+
+
+  &.open
+    opacity: 1
+    pointer-events: initial
+    overflow-y: scroll
+
+
   h2
     margin-top: grid_sz(0,2)
     margin-bottom: grid_sz(0,2)
@@ -37,6 +75,7 @@
       cursor: pointer
       a
         color: rgba($color_grey_light,0.7)
+        text-decoration: none
         +trans
       padding-left: grid_sz(0,1)
       padding-right: grid_sz(0,1)

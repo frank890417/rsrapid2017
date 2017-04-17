@@ -1,87 +1,137 @@
 <template lang="jade">
-nav.navbar.at_top
-  .container
-    .row
-      div.nav-leftpart
-        .navbar-header.col-sm-3
-          // Collapsed Hamburger
+div
+  div.fullnav(:class="open_full?'open':''")
+    .close_btn(@click="open_full=!open_full")
+    .container
+      img.headerimg(src="/img/Rapid.png")
+      ul.main_list
+        li 
+          h4 關於睿軒
+          ul.sub_list
+            li 
+              router-link( to="/about#section_about_from") 睿軒源起
+            li 
+              router-link( to="/about#section_about_log") 睿軒大事紀
+        li 
+          h4 檢驗科技
+          ul.sub_list
+            li 
+              router-link( to="/tech") 快檢平台
+            li 
+              router-link( to="/tech") 快檢平台
+        li 
+          h4 檢測方案
+          ul.sub_list
+            li 
+              router-link( to="/solution/0") 校園環境健檢
+            li 
+              router-link( to="/solution/1") 校園食材健檢
+            li 
+              router-link( to="/solution/2") 農場作物自主管理
+        li 
+          h4 最新消息
+          ul.sub_list
+            li 
+              router-link( to="/news/cata/all") 全部新聞
+            li 
+              router-link( to="/news/cata/睿軒活動") 睿軒活動
+            li 
+              router-link( to="/news/cata/新聞快訊") 新聞快訊
+            li 
+              router-link( to="/news/cata/食安新知") 食安新知
+            li 
+              router-link( to="/news/cata/友善連結") 友善連結
+        li 
+          h4 會員服務
+        li 
+          h4 人才招募
+        li 
+          h4 各項聲明
+        li 
+          h4 聯絡我們
+  nav.navbar.at_top
+    .container
+      .row
+        div.nav-leftpart
+          .navbar-header.col-sm-3
+            // Collapsed Hamburger
 
-          // Branding Image
-          router-link.navbar-brand(to="/")
-            img.logo(src="/img/Rapid.png")
+            // Branding Image
+            router-link.navbar-brand(to="/")
+              img.logo(src="/img/Rapid.png")
 
-        // Left Side Of Navbar
-        ul.navbar-nav.navbar-left.text-left
-          // Authentication Links
-          li
-            a(href="#") 關於睿軒
+          // Left Side Of Navbar
+          ul.navbar-nav.navbar-left.text-left
+            // Authentication Links
+            li
+              a(href="#") 關於睿軒
+              ul.subnav
+                .container.flex
+                  div.options
+                    li 
+                      router-link(to="/about#section_about_from") 睿軒源起
+                    li 
+                      router-link(to="/about#section_about_log") 睿軒大事紀
+            li
+              a(href="#") 檢驗科技
+              ul.subnav
+                .container.flex
+                  div.options
+                    li 
+                      router-link(to="/tech") 快檢平台
+            li
+              a(href="#") 檢測方案
+              ul.subnav
+                .container.flex
+                  div.options
+                    li 
+                      router-link(to="/solution/0") 校園環境健檢
+                    li 
+                      router-link(to="/solution/1") 校園食材健檢
+                    li 
+                      router-link(to="/solution/2") 農場作物自主管理
+            li
+              a(href="#") 最新消息
+              ul.subnav
+                .container.flex
+                  div.options
+                    li 
+                      router-link(to="/news/cata/all") 全部新聞
+                    li 
+                      router-link(to="/news/cata/睿軒活動") 睿軒活動
+                    li 
+                      router-link(to="/news/cata/新聞快訊") 新聞快訊
+                    li 
+                      router-link(to="/news/cata/食安新知") 食安新知
+                    li 
+                      router-link(to="/news/cata/友善連結") 友善連結
+                    
+            li
+              a(href="#") 會員服務
+
+        ul.nav.navbar-nav.navbar-right
+          li.function.func_lang
+            router-link(to="/news") 
+              span 繁
+              i.fa.fa-angle-down 
             ul.subnav
-              .container.flex
+              .container
                 div.options
                   li 
-                    router-link(to="/about#section_about_from") 睿軒源起
+                    router-link(to="#") 繁
                   li 
-                    router-link(to="/about#section_about_log") 睿軒大事紀
-          li
-            a(href="#") 檢驗科技
-            ul.subnav
-              .container.flex
-                div.options
+                    router-link(to="#") 简
                   li 
-                    router-link(to="/tech") 快檢平台
-          li
-            a(href="#") 檢測方案
-            ul.subnav
-              .container.flex
-                div.options
-                  li 
-                    router-link(to="/solution/0") 校園環境健檢
-                  li 
-                    router-link(to="/solution/1") 校園食材健檢
-                  li 
-                    router-link(to="/solution/2") 農場作物自主管理
-          li
-            a(href="#") 最新消息
-            ul.subnav
-              .container.flex
-                div.options
-                  li 
-                    router-link(to="/news/cata/all") 全部新聞
-                  li 
-                    router-link(to="/news/cata/睿軒活動") 睿軒活動
-                  li 
-                    router-link(to="/news/cata/新聞快訊") 新聞快訊
-                  li 
-                    router-link(to="/news/cata/食安新知") 食安新知
-                  li 
-                    router-link(to="/news/cata/友善連結") 友善連結
-                  
-          li
-            a(href="#") 會員服務
+                    router-link(to="#") EN
 
-      ul.nav.navbar-nav.navbar-right
-        li.function.func_lang
-          router-link(to="/news") 
-            span 繁
-            i.fa.fa-angle-down 
-          ul.subnav
-            .container
-              div.options
-                li 
-                  router-link(to="#") 繁
-                li 
-                  router-link(to="#") 简
-                li 
-                  router-link(to="#") EN
+          li.function.func_search
+            i.fa.fa-search
+          li.function.func_size
+            img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
+            img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
 
-        li.function.func_search
-          i.fa.fa-search
-        li.function.func_size
-          img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
-          img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
-
-        li.nav_open.func_burger
-          i.fa.fa-bars
+          li.nav_open.func_burger(@click="open_full=!open_full")
+            i.fa.fa-bars
 </template>
 
 <script>
@@ -109,6 +159,11 @@ nav.navbar.at_top
             }
             place_sub_nav();
             $(window).resize(place_sub_nav);
+        },
+        data(){
+          return {
+            open_full: false
+          }
         }
     }
 </script>

@@ -1,53 +1,5 @@
 <template lang="jade">
 div.page_index
-  div.fallnav
-    .container
-      img.headerimg(src="/img/Rapid.png")
-      ul.main_list
-        li 
-          h4 關於睿軒
-          ul.sub_list
-            li 
-              a 睿軒源起
-            li 
-              a 睿軒大事紀
-        li 
-          h4 檢驗科技
-          ul.sub_list
-            li 
-              a 快檢平台
-            li 
-              a 快檢平台
-        li 
-          h4 檢測方案
-          ul.sub_list
-            li 
-              a 校園環境健檢
-            li 
-              a 校園食材健檢
-            li 
-              a 農場作物自主管理
-        li 
-          h4 最新消息
-          ul.sub_list
-            li 
-              a 全部新聞
-            li 
-              a 睿軒活動
-            li 
-              a 新聞快訊
-            li 
-              a 食安新知
-            li 
-              a 友善連結
-        li 
-          h4 會員服務
-        li 
-          h4 人才招募
-        li 
-          h4 各項聲明
-        li 
-          h4 聯絡我們
   ul.slide_bullet
     li(data-link=".page_index_main")
     li(data-link=".page_index_grow")
