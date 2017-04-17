@@ -28,14 +28,10 @@ div.footer
         h5.text-left 合作夥伴
         .slicklogo2
           .item
-            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
+            img.company_icon(src="/img/cor_logo/cor_logo-01.png")
           .item
-            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
-          .item
-            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
-          .item
-            img.company_icon(src="http://vector.me/files/images/8/7/87940/iso_9001_2000_sgs.png")
-
+            img.company_icon(src="/img/cor_logo/cor_logo-02.png")
+         
   footer
     .container.flex
       .info Copyright 2017 © 睿軒檢驗科技 Rapidsure Tech, All right reserved.
