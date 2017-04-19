@@ -78,7 +78,7 @@ export default {
       }
     },methods: {
       filtered_news (cata){
-        return this.news.filter(item=>( item.tag==cata || this.filter=="全部新聞"))
+        return this.news.filter(item=>( item.tag==cata || this.filter=="全部新聞"));
       },
       is_double(id){
         return [0,6,10].indexOf(id)!=-1;

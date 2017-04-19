@@ -64,6 +64,7 @@ const store = new Vuex.Store({
   state: {
     news: [],
     questions: [],
+    big_font: false,
     about_logs: {
       year_2015: [
         {
@@ -167,6 +168,10 @@ const store = new Vuex.Store({
     },
     setQuestion(state,questions){
       state.questions=questions;
+    },
+    toggle_size(state){
+      state.big_font=!state.big_font;
+      console.log("toggle size");
     }
   }
 })
@@ -176,10 +181,14 @@ const app = new Vue({
   router,
   store,
   components: {Slick: Slick},
-  computed: Vuex.mapState(['news','about_logs']),
+  computed: Vuex.mapState(['news','about_logs','big_font']),
+  data:{
+    
+  },
   methods: {
     
-  },mounted: function(){
+  },
+  mounted (){
     $.get("http://www.rapidsuretech.com/api/news").then(function(res){
       console.log("news loaded");
       store.commit("setNews",res);
@@ -306,23 +315,17 @@ $( window ).ready(function(){
   
 
   //調整字體大小
-  $(".func_size").click(function(){
-    var el=$(this);
-    if (el.hasClass("bigger")){
-      el.removeClass("bigger");
-      el.addClass("smaller");
-      $("p").css("font-size","18px")
-          .css("line-height","30px");
-      $(".question_list").css("font-size","18px");
-    }else{
-      el.removeClass("smaller");
-      el.addClass("bigger");
-      $("p").css("font-size","")
-          .css("line-height","");
-      $(".question_list").css("font-size");
-    }
+  // $(".func_size").click(function(){
+  //   var el=$(this);
+  //   if (!app.big_font){
+  //     app.big_font=true;
+  //     $(".question_list").css("font-size","18px");
+  //   }else{
+  //     app.big_font=false;
+  //     $(".question_list").css("font-size");
+  //   }
       
-  });
+  // });
   //回到最上面按鈕
   $(".go_to_topbtn").click(function(){
     $("html, body").animate({ scrollTop: 0 }, "slow");

@@ -127,16 +127,16 @@ div
 
           li.function.func_search
             i.fa.fa-search(@click="search=!search")
-          li.function.func_size
-            img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
-            img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
+          li.function.func_size(@click='toggle_size')
+            img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
 
           li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+    import {mapState,mapMutations} from 'vuex'
     export default {
         mounted() {
             console.log('navbar mounted.');
@@ -172,10 +172,13 @@ div
             open_full: false,
             search: false
           }
-        },methods:{
+        },
+        methods:{
           toggle_open(){
             this.open_full=!this.open_full;
-          }
-        },computed: mapState(["solutions"])
+          },
+          ...mapMutations(['toggle_size'])
+        },
+        computed: mapState(["solutions","big_font"])
     }
 </script>

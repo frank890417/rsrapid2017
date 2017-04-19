@@ -117,8 +117,6 @@ p
   color: $color_grey
   text-align: left !important
 
-
-
 hr
   margin-top: grid_sz(0,2)
   margin-bottom: grid_sz(0,2)
@@ -130,6 +128,11 @@ hr
 body
   +paragraph_size_leading(16px,27px,3px)
   font-weight: 400
+
+.big_font
+  &,p,.question_list
+    +paragraph_size_leading(18px,27px,3px)
+  
 
 h1,h2,h3,h4,h5,h6
   color: $color_grey_dark
@@ -314,7 +317,11 @@ a
   color: $color_theme
 
 .default_bg
-  background: url("../img/homepage/Home7.jpg") no-repeat 60% bottom
+  background: url("../img/homepage/Home7.jpg")
+  background-size: auto 100% 
+  background-repeat: none
+  background-position: center center
+
   &:before
     content: ""
     display: block
@@ -524,13 +531,6 @@ nav
   padding-top: 3px
   .icon_big,.icon_small
     cursor: pointer
-  .icon_big
-    display: none
-  &.bigger
-    .icon_big
-      display: block
-    .icon_small
-      display: none
 
 
 .slide_bullet
