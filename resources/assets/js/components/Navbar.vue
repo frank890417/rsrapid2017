@@ -49,16 +49,21 @@ div
           h4 各項聲明
         li 
           h4 聯絡我們
-  nav.navbar.at_top
+  nav.navbar.at_top(:class="search?'search':''")
     .container
       .row
         div.nav-leftpart
+          
           .navbar-header.col-sm-3
             // Collapsed Hamburger
 
             // Branding Image
             router-link.navbar-brand(to="/")
               img.logo(src="/img/Rapid.png")
+          .navbar-search-input
+            i.fa.fa-search
+            input
+            i.fa.fa-times(@click="search=false")
 
           // Left Side Of Navbar
           ul.navbar-nav.navbar-left.text-left
@@ -104,7 +109,7 @@ div
                     
             li
               router-link(to="/contact")  聯絡我們
-
+            
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
             router-link(to="/news") 
@@ -121,7 +126,7 @@ div
                     router-link(to="#") EN
 
           li.function.func_search
-            i.fa.fa-search
+            i.fa.fa-search(@click="search=!search")
           li.function.func_size
             img.icon_big(src="img/icon_word_big.svg" style="width: 22px")
             img.icon_small(src="img/icon_word_small.svg" style="width: 22px")
@@ -164,7 +169,8 @@ div
         },
         data(){
           return {
-            open_full: false
+            open_full: false,
+            search: false
           }
         },methods:{
           toggle_open(){

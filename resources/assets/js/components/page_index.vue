@@ -74,24 +74,14 @@ div.page_index
 
   section.page_index_sponsor
     .container.flex.slicklogo1
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-      div
-        img.sponsorlogo(src="/img/homepage/surface-logo.png")
-
-
+      .item
+        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png" style="opacity: 0")
+      .item
+        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png")
+      .item
+        img.sponsorlogo(src="/img/cor_logo/cor_logo-02.png")
+      .item
+        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png" style="opacity: 0")
 </template>
 
 <script>

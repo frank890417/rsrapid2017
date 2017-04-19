@@ -360,9 +360,38 @@ nav
       +trans
 
   .nav-leftpart
+    position: relative
     > *
       display: inline-block
       vertical-align: top
+
+  .navbar-search-input
+    position: absolute
+    top: grid_sz(0,0.5)
+    width: 100%
+    max-width: grid_sz(7,6)
+    pointer-events: none
+    opacity: 0
+    +trans
+    input
+      width: 100%
+      border: none
+      border: solid 1px #ccc
+      padding: 5px 10px
+      border-radius: 30px
+      padding-left: 50px
+    i.fa-search
+      position: absolute
+      top: 6px
+      z-index: 20
+      left: 15px
+    i.fa-times
+      position: absolute
+      top: 6px
+      z-index: 20
+      right: 15px
+      cursor: pointer
+
 
   .navbar-left
     margin-left: grid_sz(0,1)
@@ -386,6 +415,8 @@ nav
     list-style: none
     display: inline-block
     margin-right: grid_sz(0,1)
+
+
     
     & a.router-link-active
       +colors_bg_text(transparent,$color_theme)
@@ -437,8 +468,19 @@ nav
         z-index: 100      
         padding: grid_sz(0,1) 0px
 
-  .func_burger
+    // &.func_lang .subnav
+    //   position: absolute
+    //   top: 40px
+    //   width: 60px
+    li
+      display: block
+      width: 100%
+
+
+  .func_burger,.func_search
     cursor: pointer
+
+  
 
   +range_width(0px,1080px)
 
@@ -461,6 +503,9 @@ nav
     height: $nav_height_at_top
     padding: grid_sz(0,1)
 
+    .navbar-search-input
+      top: grid_sz(0,1)
+
     .navbar-header
       width: grid_sz(3,2)
       img
@@ -473,6 +518,14 @@ nav
     .navbar-nav li
       & ul.subnav
         +pos(0,$nav_height_at_top)
+  &.search
+    .navbar-search-input
+      pointer-events: initial
+      opacity: 1
+    .navbar-left
+      pointer-events: none
+      opacity: 0
+
 
 
 .func_size
