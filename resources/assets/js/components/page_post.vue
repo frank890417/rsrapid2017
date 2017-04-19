@@ -12,7 +12,9 @@ div.page_post
           router-link(v-text='newsset.tag' v-bind:to="'/news/cata/'+newsset.tag")
         h1.section_title(v-text='newsset.title')
         p.date(v-text='newsset.date')
-        p(v-html='newsset.author')
+        p 文章來源 
+          a(v-html='newsset.author' href="#")
+        br
         p(v-html='newsset.content')
         h5.share 分享文章
           .logos
