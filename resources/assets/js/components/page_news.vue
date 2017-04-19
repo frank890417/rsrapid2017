@@ -3,11 +3,13 @@ div.page_news
   .slick
     section.section_hero(v-for='a_news in news.slice(0,5)')
       .bg.bg_parallax(:style="'background-image: url('+a_news.cover+')'") 
-      router-link.full(:to="'/news/'+a_news.id")
+      .full
         .container.flex
           h5.tag {{a_news.tag}}
           h5.date {{a_news.date}}
-          h1 {{a_news.title}}
+          router-link(:to="'/news/'+a_news.id")
+            h1 
+               {{a_news.title}}
           p.description {{a_news.content.substr(0,60)+'...'}}
 
 
