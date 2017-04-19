@@ -75,7 +75,7 @@ export default {
       },
       postset(){
         var vobj=this;
-        return this.news.filter((n)=>(n.id==(vobj.id+1)))[0];
+        return this.news.filter((n)=>(n.id==(parseInt(vobj.id)+1)))[0];
         
       }
     }
