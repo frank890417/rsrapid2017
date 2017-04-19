@@ -13,16 +13,16 @@ div.page_about
       ul.nav_line_split.text-center
         li(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
         li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
-
-      transition(name="fade" mode="out-in")
-        .logs_area.top_out(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
-          router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
-            .col_cover
-              .cover_image(:style="'background-image:url('+log.cover+')'")
-            .col_info
-              h5.date {{log.date}}
-              h4.title {{log.title}}
-              p {{log.content}}
+      .logs_area.top_out
+        transition(name="fade" mode="out-in")
+          div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
+            router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
+              .col_cover
+                .cover_image(:style="'background-image:url('+log.cover+')'")
+              .col_info
+                h5.date {{log.date}}
+                h4.title {{log.title}}
+                p {{log.content}}
 </template>
 
 <script>
