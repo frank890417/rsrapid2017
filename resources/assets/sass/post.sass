@@ -14,6 +14,8 @@
   nav.navbar-default.at_top
     background-color: #FFF 
 
+
+  
   .section_hero
     height: grid_sz(5,5)   
     align-items: center
@@ -106,34 +108,72 @@
       margin-top: grid_sz(0,5)
       height: grid_sz(0,12)
       margin-left: grid_sz(0,-1)
-      .pre,.post
+      .wrap
+        height: 100%
         width: 50%
+      .pre,.post
+        width: 100%
         height: 100%
         background-image: url("../img/homepage/Post2.jpg")
         +flex_center
         background-color: $color_white
         cursor: pointer
         +trans
-
-        h3,i
+        h6,h3
+          margin: 0
+        h6
+          margin-top: grid_sz(0,2)
+        i,span
           color: $color_theme
           +trans
-      .pre
-        &:before
+
+        .guide_text
+          display: flex
+          flex-direction: row
+          z-index: 100
+          +trans
+          opacity: 1
+          span,i
+            display: inline-block
+          i
+            position: absolute
+            left: grid_sz(0,-2)
+            top: 50%
+            transform: translateY(-50%)
+        &.post
+          .guide_text i
+            left: initial
+            right: grid_sz(0,-2)
+        .cover
+          +flex_center
           +pseudo_ab_full
           background-color: rgba($color_white,0.85)
+          padding: grid_sz(0,2)
           +trans
-      .post
-        &:before
-          +pseudo_ab_full
-          background-color: rgba($color_white,0.85)
+          h3,h6
+            color: transparent
+            font-weight: 300
+            +trans
+          left: 0
+          top: 0
+          +ab_full
           +trans
-      .pre,.post
+
         &:hover 
-          &:before
-            background-color: $color_theme
+          h3,i
+            color: transparent
+          .guide_text
+            opacity: 0
+            span,i
+              color: transparent
+          .cover
+            background-color: rgba($color_theme,0.85)
+          h3,h6
+            color: $color_white
           h3,i
             color: $color_white
+          .cover
+            opacity: 1
 
   .page_nav_btn
     margin-top: $gutter_width*3
@@ -141,6 +181,8 @@
     border: solid 1px
     cursor: pointer
     position: relative
+
+
 
     // background-image: url("../img/homepage/Post2.jpg")
 

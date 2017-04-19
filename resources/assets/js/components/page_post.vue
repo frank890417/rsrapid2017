@@ -19,14 +19,23 @@ div.page_post
             img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
             img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
-      .container.flex.row.nav_end
-        .pre
-          h3 
-            i.fa.fa-angle-left 前一則
-        .post
-          h3
-            | 後一則
-            i.fa.fa-angle-right 
+      .container.flex.row.nav_end(v-if="preset || postset")
+        .wrap
+          router-link.pre(v-if="preset" ,:to="'/news/'+preset.id")
+            h3.guide_text
+              span 前一則
+              i.fa.fa-angle-left 
+            .cover
+              h6.date {{preset.date}}
+              h3 {{preset.title}}
+        .wrap
+          router-link.post(v-if="postset",:to="'/news/'+postset.id")
+            h3.guide_text
+              i.fa.fa-angle-right
+              span 後一則
+            .cover
+              h6.date  {{postset.date}}
+              h3  {{postset.title}}
 
       hr
 </template>
@@ -56,7 +65,18 @@ export default {
     computed: {
       ...mapState(['news']),
       newsset (){
-        return this.news.filter((n)=>(n.id==this.id))[0];
+        var vobj=this;
+        return this.news.filter((n)=>(n.id==vobj.id))[0];
+      },
+      preset(){
+        var vobj=this;
+        return this.news.filter((n)=>(n.id==(vobj.id-1)))[0];
+
+      },
+      postset(){
+        var vobj=this;
+        return this.news.filter((n)=>(n.id==(vobj.id+1)))[0];
+        
       }
     }
 }
