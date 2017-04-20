@@ -114,7 +114,6 @@ div.section_search
     flex-direction: column;
     width: 100%;
     z-index: 500;
-    padding: 10px 50px;
 
     .input_area{
       width: 100%;
