@@ -93,7 +93,7 @@ div.section_search
                   ))
                   
           },{
-            type: "方案",
+            type: "檢測方案",
             data: this.turn_match(this.solutions
                   .map(
                     (obj)=>(
@@ -106,12 +106,26 @@ div.section_search
                     )
                   ))
                   
+          },{
+            type: "檢驗科技",
+            data: this.turn_match(this.techs
+                  .map(
+                    (obj)=>(
+                      {
+                         id: obj.id,
+                         title: obj.title,
+                         content: obj.title+obj.description+(obj.sections.map((t)=>(t.title+t.content))).join("   "),
+                         link: "/tech"
+                      }
+                    )
+                  ))
+                  
           }];
         },
         has_match(){
           return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
-        ...Vuex.mapState(['solutions','news'])
+        ...Vuex.mapState(['solutions','news','techs'])
       }
   }
 </script>
@@ -149,7 +163,7 @@ div.section_search
       width: 30%;
     }
     border-bottom: solid 1px #ddd;
-    
+
     &:last{
       border: none
     }
