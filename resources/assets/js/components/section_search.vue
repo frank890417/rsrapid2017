@@ -4,18 +4,19 @@ div.section_search
     .container.flex.column
       .input_area
         i.fa.fa-search
-        input(v-model="filter")
-        i.fa.fa-times(v-on:click="filter=''")
+        input(v-model="filter",v-on:click="show_search=true")
+        i.fa.fa-times(v-on:click="hide_search")
       transition(name="fade")
-        ul.search_list(v-if="has_match")
+        ul.search_list(v-if="has_match && show_search")
           li(v-for='match in matches' v-if="match.data.length")
             .cata {{match.type}}
             ul.match_list
-              li(v-for='d in match.data' ,v-on:click="filter=''")
+              li(v-for='d in match.data' ,v-on:click="show_search=false")
                 router-link(:to="d.link")
                   .match
                     h5(v-html="d.title")
                     p(v-html="d.content")
+          li 總共有 {{has_match}} 項結果
 
     
 </template>
@@ -25,14 +26,21 @@ div.section_search
   export default {
       data() {
         return {
-          filter: ""
+          filter: "",
+          show_search: true
         }
       },
       mounted() {
           console.log('section_search mounted.');
       },
       methods: {
+        hide_search(){
+          if (this.filter==''){
 
+          }else{
+            this.filter='';
+          }
+        },
         turn_match(obj){
           var vobj=this;
           return obj.map(
@@ -141,6 +149,10 @@ div.section_search
       width: 30%;
     }
     border-bottom: solid 1px #ddd;
+    
+    &:last{
+      border: none
+    }
   }
   .match_list{
     display: flex;
@@ -148,9 +160,9 @@ div.section_search
     flex-wrap: wrap;
     width: 100%;
     li{
-      padding: 0px 10px;
+      padding: 5px 10px;
       &:hover{
-        background-color: #eee;
+        background-color: rgba(#eee,0.5);
       }
     }
     li,.match{
