@@ -31,6 +31,7 @@ var page_tern=Vue.component('page_tern', require('./components/page_tern.vue'));
 
 var section_footer=Vue.component('section_footer', require('./components/section_footer.vue'));
 var section_solutions=Vue.component('section_solutions', require('./components/section_solutions.vue'));
+var section_search=Vue.component('section_search', require('./components/section_search.vue'));
 
 //routes
 
@@ -45,7 +46,8 @@ const routes = [
   { path: '/news/cata/:cataname', component: page_news , props: true},
   { path: '/job', component: page_job },
   { path: '/contact', component: page_contact },
-  { path: '/tern', component: page_tern }
+  { path: '/tern', component: page_tern },
+  { path: '/search', component: section_search }
 ];
 
 const router = new VueRouter({
@@ -109,6 +111,7 @@ const store = new Vuex.Store({
     },
     solutions: [
       {
+        id: 0,
         title: "校園環境健檢檢測計畫",
         sub_title: "健康安全的成長環境",
         sub_content: "塑膠產品使用狀況趨多，學子成長環境隱藏潛在風險，特別是常用的文玩具。我們提供塑化劑檢測服務，為各式塑膠類生活用品進行檢測分析，排除幼兒與兒童成長環境安全憂慮，為下一代健康把關。",
@@ -125,6 +128,7 @@ const store = new Vuex.Store({
           }
         ]
       },{
+        id: 1,
         title: "校園食材健檢檢測計畫",
         sub_title: "營養美味的安心食材",
         sub_content: "協助每日校園營養午餐食材的農藥殘留檢測服務，加強用餐安全。有效管理不符規定的食材進行監控，以提供學子兼具營養與美味的安心食材",
@@ -141,6 +145,7 @@ const store = new Vuex.Store({
           }
         ]
       },{
+        id: 2,
         title: "農場作物自主管理檢測計畫",
         sub_title: "自主管理從源頭做起",
         sub_content: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",

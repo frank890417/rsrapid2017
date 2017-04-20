@@ -61,9 +61,7 @@ div
             router-link.navbar-brand(to="/")
               img.logo(src="/img/Rapid.png")
           .navbar-search-input
-            i.fa.fa-search
-            input
-            i.fa.fa-times(@click="search=false")
+            section_search
 
           // Left Side Of Navbar
           ul.navbar-nav.navbar-left.text-left

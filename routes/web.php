@@ -38,4 +38,5 @@ Route::get('/job', 'HomeController@index');
 
 Route::get('/contact', 'HomeController@index');
 
+Route::get('/search', 'HomeController@index');
 Route::get('/tern', 'HomeController@index');

@@ -71,9 +71,9 @@ div.footer
           toggle (id){
             this.qa_state.forEach((op,index)=>{
               if (index==id) {
-                op.open=!op.open;
+                op.open = !op.open;
               }else{ 
-                op.open=false;
+                op.open = false;
               }
             });
           }
