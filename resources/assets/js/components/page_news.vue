@@ -61,7 +61,7 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
-      
+      this.filter=this.cataname;
 
     },
     data() {

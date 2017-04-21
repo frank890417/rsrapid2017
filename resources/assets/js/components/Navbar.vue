@@ -110,7 +110,7 @@ div
             
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
-            router-link(to="/news") 
+            a(href="#")
               span 繁
               i.fa.fa-angle-down 
             ul.subnav(style="display: none")
