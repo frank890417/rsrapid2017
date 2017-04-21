@@ -4,7 +4,7 @@ div.section_search
     .container.flex.column
       .input_area
         i.fa.fa-search
-        input(v-model="filter",v-on:click="show_search=true")
+        input(v-model="filter",v-on:click="show_search=true" placeholder="請輸入關鍵字(例 毒、檢測、塑化劑)... ")
         i.fa.fa-times(v-on:click="hide_search")
       transition(name="fade")
         ul.search_list(v-if="has_match && show_search")
@@ -63,7 +63,7 @@ div.section_search
                       var m=obj.content.match(new RegExp(vobj.filter,"i"));
                       if (m[0]){
                         console.log(m);
-                        var highlight_content=obj.content.replace(m[0],"<span style='background-color: red;color: white;padding: 2px 5px;'>"+m[0]+"</span>");
+                        var highlight_content=obj.content.replace(m[0],"<span class='highlight'>"+m[0]+"</span>");
 
                         obj.content=highlight_content+"...";
                       }

@@ -378,6 +378,13 @@ nav
       display: inline-block
       vertical-align: top
 
+  .navbar-search
+    .highlight
+      // background-color: red
+      // color: white
+      padding: 2px 1px 4px 1px
+      border-bottom: solid 2px $color_theme
+
   .navbar-search-input
     position: absolute
     top: grid_sz(0,0.5)
@@ -393,6 +400,9 @@ nav
       padding: 5px 10px
       border-radius: 30px
       padding-left: 50px
+      letter-spacing: 1px
+      &::placeholder
+        opacity: 0.4
     i.fa-search
       position: absolute
       top: 6px
@@ -404,6 +414,7 @@ nav
       z-index: 20
       right: 15px
       cursor: pointer
+
 
 
   .navbar-left
@@ -428,7 +439,6 @@ nav
     list-style: none
     display: inline-block
     margin-right: grid_sz(0,1)
-
 
     
     & a.router-link-active
@@ -458,6 +468,7 @@ nav
       li
         margin: 0
         border-bottom: none
+        cursor: pointer
         
         +trans
         &:nth-child(2n)
