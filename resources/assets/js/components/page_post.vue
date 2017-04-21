@@ -23,7 +23,7 @@ div.page_post
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
       .container.flex.row.nav_end(v-if="preset || postset")
         .wrap
-          router-link.pre(v-if="preset" ,:to="'/news/'+preset.id")
+          router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="'background-image:url('+preset.cover+')'") 
             h3.guide_text
               span 前一則
               i.fa.fa-angle-left 
@@ -31,7 +31,7 @@ div.page_post
               h6.date {{preset.date}}
               h3 {{preset.title}}
         .wrap
-          router-link.post(v-if="postset",:to="'/news/'+postset.id")
+          router-link.post(v-if="postset",:to="'/news/'+postset.id" ,:style="'background-image:url('+postset.cover+')'") 
             h3.guide_text
               i.fa.fa-angle-right
               span 後一則

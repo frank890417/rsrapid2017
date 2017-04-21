@@ -458,19 +458,20 @@ nav
       li
         margin: 0
         border-bottom: none
-        opacity: 0.8
+        
         +trans
         &:nth-child(2n)
           margin-left: grid_sz(0,1)
           margin-right: grid_sz(0,1)
-        &:hover
-          opacity: 1
+        a
+          text-decoration: none
+          border-bottom: transparent
+          color: rgba(white,0.6)
+          +trans
+        &:hover a
+          color: rgba(white,0.8)
       .container
         justify-content: flex-start
-      li a
-        color: $color_white
-        text-decoration: none
-        border-bottom: transparent
 
     &:hover
       a
@@ -481,6 +482,8 @@ nav
         opacity: 1
         z-index: 100      
         padding: grid_sz(0,1) 0px
+        a.router-link-active
+          color: white
 
   .func_burger,.func_search
     cursor: pointer
