@@ -67,6 +67,7 @@ const store = new Vuex.Store({
     news: [],
     questions: [],
     big_font: false,
+    search: false,
     about_logs: {
       year_2015: [
         {
@@ -200,6 +201,10 @@ const store = new Vuex.Store({
     toggle_size(state){
       state.big_font=!state.big_font;
       console.log("toggle size");
+    },
+    toggle_search(state){
+      state.search=!state.search;
+      console.log("toggle search");
     }
   }
 })

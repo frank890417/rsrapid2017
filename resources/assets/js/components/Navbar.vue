@@ -113,7 +113,7 @@ div
             router-link(to="/news") 
               span 繁
               i.fa.fa-angle-down 
-            ul.subnav
+            ul.subnav(style="display: none")
               .container
                 div.options
                   li 
@@ -124,7 +124,7 @@ div
                     router-link(to="#") EN
 
           li.function.func_search
-            i.fa.fa-search(@click="search=!search")
+            i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
             img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
             img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
@@ -168,15 +168,14 @@ div
         data(){
           return {
             open_full: false,
-            search: false
           }
         },
         methods:{
           toggle_open(){
             this.open_full=!this.open_full;
           },
-          ...mapMutations(['toggle_size'])
+          ...mapMutations(['toggle_size','toggle_search'])
         },
-        computed: mapState(["solutions","big_font"])
+        computed: mapState(["solutions","big_font","search"])
     }
 </script>

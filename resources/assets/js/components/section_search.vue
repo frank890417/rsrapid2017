@@ -22,7 +22,7 @@ div.section_search
 </template>
 
 <script>
-  import { mapGetter, mapActions , mapState } from 'vuex'
+  import { mapGetter, mapActions , mapState ,mapMutations} from 'vuex'
   export default {
       data() {
         return {
@@ -34,12 +34,9 @@ div.section_search
           console.log('section_search mounted.');
       },
       methods: {
+        ...mapMutations(['toggle_search']),
         hide_search(){
-          if (this.filter==''){
-
-          }else{
-            this.filter='';
-          }
+          this.toggle_search();
         },
         turn_match(obj){
           var vobj=this;
