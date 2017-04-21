@@ -34,6 +34,9 @@ div.page_about
       mounted() {
           console.log('about mounted.')
           Ts.reload();
+          // if (document.location.hash=="#section_about_log"){
+          //   $("html, body").animate({ scrollTop: $(".section_about_log") }, "slow");
+          // }
       },
       methods: {
         to_href: function(obj) {

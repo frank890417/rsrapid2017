@@ -57,7 +57,18 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   console.log(to);
-  $("html, body").animate({ scrollTop: 0 }, "slow");
+  var waittime=600;
+  if (to.path==from.path){
+    waittime=50;
+  }
+  if (to.path=="/about" && to.hash=="#section_about_log"){
+
+    setTimeout(function(){
+      $("html, body").animate({ scrollTop: $(".section_log").offset().top-100  }, "slow");
+    },waittime);
+  }else{
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  }
   next();
 });
 
