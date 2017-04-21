@@ -940,11 +940,16 @@ section.section_solution
     border-radius: 50%
     bottom: 65px
     right: 65px
+    opacity: 1
+    +trans
 
     i
       +ab_center
       color: $color_white
       font-size: 25px
+
+    &.at_top 
+      opacity: 0
 
 
 //-------------------------

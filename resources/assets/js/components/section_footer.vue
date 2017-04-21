@@ -2,7 +2,7 @@
 div.footer
   section.detail_footer
     .container.flex
-      .go_to_topbtn
+      .go_to_topbtn.at_top
         img(src="/img/icon_arrow_up.svg")
       .col_address
         h5 公司資訊

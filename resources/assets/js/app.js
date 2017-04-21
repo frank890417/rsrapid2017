@@ -262,9 +262,9 @@ scroll
   .map(top => top<=0)
   .subscribe((at_top)=>{
     if (at_top) 
-      $("nav").addClass("at_top");
+      $("nav,.go_to_topbtn").addClass("at_top");
     else 
-      $("nav").removeClass("at_top");
+      $("nav,.go_to_topbtn").removeClass("at_top");
   });
 
 //使用卷軸位置更新元件
@@ -342,7 +342,10 @@ function update_bullet(st){
 //頁面還原初始狀態
 function init_element(){
   $(".percent , .section_title , .section_para").addClass("initial");
-  update_scroll(0);
+  setTimeout(function(){
+    update_scroll(0);
+  },50);
+ 
 
 }
 
