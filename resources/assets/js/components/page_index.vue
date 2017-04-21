@@ -72,7 +72,7 @@ div.page_index
 
   section_solutions
 
-  section.page_index_sponsor
+  section.page_index_sponsor(style="display: none")
     .container.flex.slicklogo1
       .item
         img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png" style="opacity: 0")

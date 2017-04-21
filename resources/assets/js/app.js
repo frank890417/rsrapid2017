@@ -115,7 +115,7 @@ const store = new Vuex.Store({
         title: "校園環境健檢檢測計畫",
         sub_title: "健康安全的成長環境",
         sub_content: "塑膠產品使用狀況趨多，學子成長環境隱藏潛在風險，特別是常用的文玩具。我們提供塑化劑檢測服務，為各式塑膠類生活用品進行檢測分析，排除幼兒與兒童成長環境安全憂慮，為下一代健康把關。",
-        test_item: "塑化劑：8種鄰苯二甲酸酯類塑化劑:<br>DEHP：鄰苯二甲酸二(2-乙基己基)酯<br>DNOP：鄰苯二甲酸二正辛酯<br>BBP：鄰苯二甲酸丁基苯酯<br>DINP：鄰苯二甲酸二異壬酯<br>DIDP：鄰苯二甲酸二異癸酯<br>DEP：鄰苯二甲酸二乙酯<br>DMP：鄰苯二甲酸二甲酯<br>DBP：鄰苯二甲酸二丁酯",
+        test_item: "塑化劑：(8種)<br><br><ul style='list-style: initial;margin-left: 20px'><li>DEHP：鄰苯二甲酸二(2-乙基己基)酯</li><li>DNOP：鄰苯二甲酸二正辛酯</li><li>BBP：鄰苯二甲酸丁基苯酯</li><li>DINP：鄰苯二甲酸二異壬酯</li><li>DIDP：鄰苯二甲酸二異癸酯</li><li>DEP：鄰苯二甲酸二乙酯</li><li>DMP：鄰苯二甲酸二甲酯</li><li>DBP：鄰苯二甲酸二丁酯</li>",
         env: "各級學校、補習班、幼兒園、托育中心等孩童活動空間。",
         schedule: "單次方案: 一次性檢驗環境空間<br><br>週期方案:     1     3     6     12 (月)",
         talk: [
@@ -126,7 +126,8 @@ const store = new Vuex.Store({
             title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
             name: "-阿里巴巴集團主席 馬雲"
           }
-        ]
+        ],
+        solution_area_slogan: "我們為您制定周全的環境健檢計畫"
       },{
         id: 1,
         title: "校園食材健檢檢測計畫",
@@ -143,7 +144,8 @@ const store = new Vuex.Store({
             title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
             name: "-阿里巴巴集團主席 馬雲"
           }
-        ]
+        ],
+        solution_area_slogan: "我們為您制定周全的食材健檢計畫"
       },{
         id: 2,
         title: "農場作物自主管理檢測計畫",
@@ -160,7 +162,8 @@ const store = new Vuex.Store({
             title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
             name: "-阿里巴巴集團主席 馬雲"
           }
-        ]
+        ],
+        solution_area_slogan: "我們為您制定周全的健檢計畫"
       }
     ],
     techs: [

@@ -116,6 +116,7 @@ p
   +paragraph_size_leading(16px,27px,3px)
   color: $color_grey
   text-align: left !important
+  text-justify: inter-word
 
 hr
   margin-top: grid_sz(0,2)
@@ -127,11 +128,16 @@ hr
 
 body
   +paragraph_size_leading(16px,27px,3px)
+
   font-weight: 400
+
+html,body
+  min-width: 1280px
+  min-height: 900px
 
 .big_font
   &,p,.question_list
-    +paragraph_size_leading(18px,27px,3px)
+    +paragraph_size_leading(18px,32px,3px)
   
 
 h1,h2,h3,h4,h5,h6

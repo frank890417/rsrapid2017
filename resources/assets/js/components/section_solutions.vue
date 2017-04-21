@@ -24,14 +24,14 @@ section.section_solution
               h4.solution_title 農場作物自主管理<br>檢測計畫
             .box_btn  
               router-link.btn.btn-primary(to="/solution/2") 了解更多
-    h6.slogan 我們為您制定周全的環境健檢計畫
+    h4.slogan {{ slogan?slogan:"我們為您制定周全的環境健檢計畫" }}
     router-link.btn.btn-primary(to="/contact") 聯絡我們  
 </template>
 
 <script>
 
     export default {
-        props: ["id"],
+        props: ["id","slogan"],
         mounted() {
             console.log('solutions mounted.')
         },

@@ -38,12 +38,11 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.min.js"></script>
+    <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script type="text/javascript" src="/js/slick.min.js"></script>
   </body>
 
 </html>

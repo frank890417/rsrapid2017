@@ -55,11 +55,7 @@ div.page_solution
               h2(v-text="solu.talk[0].title")
               h4.text-right(v-text="solu.talk[0].name")
 
-
-      
-
-        
-    section_solutions
+    section_solutions(:slogan="solu.solution_area_slogan")
 
 </template>
 

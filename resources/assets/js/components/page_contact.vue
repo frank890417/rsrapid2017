@@ -3,7 +3,7 @@ div.page_contact
   section.section_hero.bg_theme.before_black_mask.bg_parallax
     .container.flex.column
       h1.section_title 聯絡我們
-      p.description 兒童節即將到來，鴻海旗下永齡健康基金會今年首波公益行動將全台走透透，為偏鄉弱勢的400所幼兒園進行「玩具義診」，針對校園中常見的玩具、遊樂設施、塑膠地墊、餐具等進行「塑化劑」檢測。
+      p.description 我們專注於提供優質的檢驗服務，以前瞻先進科技守護企業與民眾的健康。若您有任何產品疑問、客製化服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
 
   section.section_form
     .container.row.top_out
