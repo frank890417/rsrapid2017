@@ -6,7 +6,6 @@ div.page_index
     li(data-link=".page_index_live")
     li(data-link=".page_index_accurate")
     li(data-link=".section_solution")
-    li(data-link=".page_index_sponsor" style="display: none")
     li(data-link=".detail_footer" style="display: none")
 
   section.page_index_main.bg_parallax
