@@ -27,10 +27,15 @@
       opacity: 0.8
       letter-spacing: 10px
     &,h1
+
   .block_50_percent
     +size(50%,100%)
     display: inline-block
     float: left
+
+    +range_width(0px,800px)
+      width: 100%
+      height: 400px
     
 
     &[data-image="1"]
@@ -133,6 +138,8 @@
     .slick
       height: 100%
       width: grid_sz(8,7)
+      +range_width(0px,800px)
+        width: calc(100% - #{grid_sz(0,2)})
     h4
       text-align: right
       
