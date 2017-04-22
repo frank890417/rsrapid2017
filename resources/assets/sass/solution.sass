@@ -19,13 +19,20 @@
     +flex_center
     background-size: cover
     background-position: center center
-    padding-top: grid_sz(0,13)
-    padding-bottom: grid_sz(0,7)
     .section_title
       
       text-align: center
       opacity: 0.8
       letter-spacing: 10px
+      
+    +range_width(0px,800px)
+
+      padding-top: grid_sz(2,1)
+
+      padding-bottom: grid_sz(1,1)
+      padding-left: grid_sz(0,1)
+      padding-right: grid_sz(0,1)
+
     &,h1
 
   .block_50_percent
@@ -36,6 +43,7 @@
     +range_width(0px,800px)
       width: 100%
       height: 400px
+      min-height: 400px
     
 
     &[data-image="1"]
@@ -95,9 +103,15 @@
       min-height: grid_sz(0,13)
       margin-bottom: grid_sz(0,2)
 
+      +range_width(0px ,800px)
+        min-height: initial
+
     .area_type
       min-height: grid_sz(0,10)
       margin-bottom: 0
+
+      +range_width(0px ,800px)
+        min-height: initial
 
 
   .envtext
@@ -109,6 +123,8 @@
     height: $gutter_width*18
     background-image: url("../img/homepage/Solution3.jpg")
     background-size: 100% auto
+
+
     *
       color: white
     +flex_center
@@ -127,6 +143,7 @@
     h4
       margin-top: $gutter_width*3
       font-weight: 300
+      text-align: right
     .btn_pre
       left: 30px
     .btn_post
@@ -140,6 +157,12 @@
       width: grid_sz(8,7)
       +range_width(0px,800px)
         width: calc(100% - #{grid_sz(0,2)})
-    h4
-      text-align: right
+
+      
+    +range_width(0px ,800px)
+      background-size: auto 100%
+      h2
+        margin-top: grid_sz(0,4)
+
+      
       

@@ -22,10 +22,17 @@
     justify-content: center
     padding-top: $column_width*1.5+$nav_height
     background: url("../img/homepage/Post1.jpg")
+    background-size: cover
+    background-position: center center
     // background-attachment: fixed。
     background-size: 100% 0px
     padding-bottom: 20vh
     display: flex
+
+    +range_width(0px,800px)
+      height: 450px
+      background-size: cover
+      background-position: center center
 
     .full
       padding-top: grid_sz(0,9)
@@ -41,11 +48,7 @@
     h1
       margin-bottom: $gutter_width*4
 
-  h1.section_title
-    margin-top: $gutter_width*1.5
-    line-height: 1.4em
-    padding-bottom: 0px
-    // margin-bottom: $gutter_width*1.5
+
 
   .section_post
     background: url("../img/homepage/Post_bg.jpg") no-repeat left bottom
@@ -79,10 +82,16 @@
       letter-spacing: 4px
       padding: $gutter_width/4 $gutter_width/1.2
       font-weight: 300
-    .section_title
+    h1.section_title
+      margin-top: $gutter_width*1.5
+      line-height: 1.4em
+      padding-bottom: 0px
       font-weight: 300
       font-size: 48px
       margin-bottom: 5px
+      +range_width(0px,800px)
+        font-size: 35px
+        line-height: 45px
     hr
       margin-top: grid_sz(0,6)
       margin-bottom: $gutter_width*4
