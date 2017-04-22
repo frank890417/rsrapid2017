@@ -42,6 +42,9 @@
 
     .section_title
       margin-top: grid_sz(0,13)
+      +range_width(0px,800px)
+        margin-top: grid_sz(0,7)
+
 
     &,h1
       color: $color_white
@@ -86,8 +89,11 @@
       width: percent_grid(8,8,12,13)
       padding: grid_sz(0,1)
       padding-left: 0px
+      
       margin-left: grid_sz(0,1)
       border-bottom: solid 1px $color_theme
+    
+
 
   .cover_image
     min-height: 200px
@@ -103,19 +109,20 @@
       background: url("../img/homepage/Post4.jpg")
       background-size: cover
 
-    
 
-  .cover_image[data-people]
-    position: absolute
-    +size(100%,30%)
-    +pos(0,0)
+  
+  +range_width(0px,800px)
+    .col_info
+      width: 70%
+    .col_cover
+      width: 30%
+    .col_info
+      padding-right: 0px
+    .col_cover
+      height: 100%
 
-    &[data-people="1"]
-      background: url("../img/homepage/About3.jpg")
-      background-size: auto 100%
-    &[data-people="2"]
-      background: url("../img/homepage/About4.jpg")
-      background-size: auto 100%
+    .cover_image
+      height: 100%
 
   .person_box
     padding: $gutter_width*2 $gutter_width*1
