@@ -125,11 +125,11 @@ p
   h2
     +paragraph_size_leading(30px,45px,2px)
   h3
-    +paragraph_size_leading(24px,31px,2px)
+    +paragraph_size_leading(24px,36px,2px)
   h4
-    +paragraph_size_leading(20px,26px,2px)
+    +paragraph_size_leading(20px,32px,2px)
   p
-    +paragraph_size_leading(16px,22px,3px)
+    +paragraph_size_leading(16px,27px,3px)
     color: $color_grey
     text-align: justify !important
     transition: 0s
@@ -700,14 +700,14 @@ footer
 section.section_solution
   background: url("../img/homepage/Home7.jpg") 60% bottom
   background-size: cover
-  min-height: 100vh
+  min-height: 130vh
   position: relative
   padding-top: grid_sz(0,2)
   padding-bottom: grid_sz(0,2)
   text-align: center
+
   .container.flex
-    height: grid_sz(0,24)
-    min-height: initial
+    min-height: grid_sz(0,24)
     padding: 0px grid_sz(0,1)
     justify-content: center
   .slogan
@@ -717,6 +717,7 @@ section.section_solution
     font-weight: 400
   &:before
     +cover_opacity(rgba(white,0.6))
+
   h3.section_title
     margin-top: grid_sz(0,2)
     margin-bottom: grid_sz(0,2)
@@ -732,6 +733,9 @@ section.section_solution
     width: grid_sz(4,3)
     cursor: pointer
     +trans
+    +range_width(0px,800px)
+      margin-bottom: grid_sz(0,1)
+      width: 100%
 
     &:nth-child(2n)
       margin-left: $gutter_width
@@ -764,7 +768,7 @@ section.section_solution
         // opacity: 0
         +trans
 
-      &:hover
+      &:hover,&:focus
         height: grid_sz(0,24)
         background-color: transparent
         color: #333
