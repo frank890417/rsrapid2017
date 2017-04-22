@@ -252,8 +252,8 @@ var scrolling=false;
 var pre_region=null, now_region=null, next_region=null;
 var direction='up';
 var lock_scroll=true;
+var window_width= $(window).outerWidth();
 var window_height= $(window).outerHeight();
-var window_height= $(window).outerWeight();
 var scroll = Rx.Observable.fromEvent(document,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
@@ -342,6 +342,7 @@ function update_bullet(st){
 
 //頁面還原初始狀態
 function init_element(){
+
   $(".percent , .section_title , .section_para").addClass("initial");
   setTimeout(function(){
     update_scroll(0);
