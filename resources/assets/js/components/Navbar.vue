@@ -41,14 +41,18 @@ div
               router-link( to="/news/cata/食安新知") 食安新知
             li(@click="toggle_open") 
               router-link( to="/news/cata/友善連結") 友善連結
-        li 
-          h4 會員服務
-        li 
-          h4 人才招募
-        li 
-          h4 各項聲明
-        li 
-          h4 聯絡我們
+        li(@click="toggle_open") 
+          h4 
+            a(href="#") 會員服務
+        li(@click="toggle_open") 
+          h4 
+            router-link(to="/job") 人才招募
+        li(@click="toggle_open") 
+          h4 
+            router-link(to="/tern") 各項聲明
+        li(@click="toggle_open") 
+          h4
+            router-link(to="/contact") 聯絡我們
   nav.navbar.at_top(:class="search?'search':''")
     .container
       .row

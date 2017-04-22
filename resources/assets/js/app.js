@@ -252,7 +252,8 @@ var scrolling=false;
 var pre_region=null, now_region=null, next_region=null;
 var direction='up';
 var lock_scroll=true;
-var window_height= $(window).height();
+var window_height= $(window).outerHeight();
+var window_height= $(window).outerWeight();
 var scroll = Rx.Observable.fromEvent(document,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
@@ -268,43 +269,43 @@ scroll
   });
 
 //使用卷軸位置更新元件
-window.update_scroll=function update_scroll(top_val){
-  $(".bg_parallax").css("background-position","center "+top_val/1.50+"px");
-  if ($(".mountain").length>0){
-    $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
-  }
+// window.update_scroll=function update_scroll(top_val){
+//   $(".bg_parallax").css("background-position","center "+top_val/1.50+"px");
+//   if ($(".mountain").length>0){
+//     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
+//   }
 
-  //percet nt init
-  $(".percent.initial").each(function(index,obj){
-    // console.log("test");
-    // update element enter animation
-    if ($(obj).offset().top<top_val+window_height*0.9){
-      $(obj).removeClass("initial");
+//   //percet nt init
+//   $(".percent.initial").each(function(index,obj){
+//     // console.log("test");
+//     // update element enter animation
+//     if ($(obj).offset().top<top_val+window_height*0.9){
+//       $(obj).removeClass("initial");
       
-      var ed_val=1.0*$(obj).attr("data-target");
+//       var ed_val=1.0*$(obj).attr("data-target");
 
-      var nowval=0;
-      var timer=setInterval(function(){
-        $(obj).html(Math.round(nowval));
-        if (nowval>=ed_val-0.2){
-          clearInterval(timer);
-        }else{
-          nowval+=(ed_val-nowval)*0.05;
-        }
-      },30);
-    }
-  });
+//       var nowval=0;
+//       var timer=setInterval(function(){
+//         $(obj).html(Math.round(nowval));
+//         if (nowval>=ed_val-0.2){
+//           clearInterval(timer);
+//         }else{
+//           nowval+=(ed_val-nowval)*0.05;
+//         }
+//       },30);
+//     }
+//   });
 
-    //update section content fadeIn
-    $(".section_title.initial,.section_para").each(function(index,obj){
-      if ($(obj).offset().top<top_val+window_height){
-        $(obj).removeClass("initial");
-      }
-    });
+//     //update section content fadeIn
+//     $(".section_title.initial,.section_para").each(function(index,obj){
+//       if ($(obj).offset().top<top_val+window_height){
+//         $(obj).removeClass("initial");
+//       }
+//     });
 
-    //update right side bullet
-    update_bullet(top_val);
-}
+//     //update right side bullet
+//     update_bullet(top_val);
+// }
 
 //subscribe parallax top
 scroll.subscribe(top_val=>update_scroll(top_val));

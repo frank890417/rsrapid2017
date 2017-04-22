@@ -9,6 +9,9 @@
     .section_title
       opacity: 0.8
 
+  i.slick-arrow
+    +range_width(0px,800px)
+      display: none !important
 
   .slick-dots
     bottom: grid_sz(0,5)
@@ -21,8 +24,12 @@
     justify-content: flex-end
     
 
+
     .full
       padding-top: grid_sz(0,9)
+
+      +range_width(0px,800px)
+        padding-top: grid_sz(0,6)
 
     .bg
       background-size: cover
@@ -40,7 +47,8 @@
       align-items: flex-start
       justify-content: flex-start
 
-      
+      +range_width(0px,800px)
+        padding: 0 grid_sz(0,1) grid_sz(0,6) grid_sz(0,1) 
 
     &:before
       +cover_opacity(rgba(black,0.5))
@@ -70,12 +78,18 @@
       +trans
       &:hover
         text-decoration: underline
+      +range_width
+        font-size: 30px
+        line-height: 40px
 
 
     p
       color: $color_white
     .description
-      max-width: 70%
+      max-width: 80%
+
+      +range_width
+        max-width: 100%
 
 
   .section_news
