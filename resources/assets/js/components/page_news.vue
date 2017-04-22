@@ -21,7 +21,7 @@ div.page_news
         
     transition-group(name="fade-delay")
       .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
-        .news_box.section_para(v-for='(a_news,id) in filtered_news(cata)' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
+        .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
           .cover(:style="'background-image: url('+a_news.cover+')'") 
           .info
             h5.date {{a_news.date}}
@@ -71,15 +71,16 @@ export default {
       }
     },
     computed: {
-      ...mapState(['news'])
+      ...mapState(['news']),
+      filtered_news(){
+        return this.news.filter(item=>( item.tag == this.filter || this.filter=="全部新聞"));
+      },
     },watch: {
       cataname(){
         this.filter=(this.cataname=="all")?"全部新聞":this.cataname;
       }
     },methods: {
-      filtered_news (cata){
-        return this.news.filter(item=>( item.tag==cata || this.filter=="全部新聞"));
-      },
+      
       is_double(id){
         return [0,6,10].indexOf(id)!=-1;
       }
