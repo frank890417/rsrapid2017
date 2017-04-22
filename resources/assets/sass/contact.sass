@@ -21,10 +21,24 @@
     background: url("../img/homepage/Contact1.jpg")
     background-size: cover
     background-position: center center
+
+    +range_width(0px,800px)
+      padding-top: grid_sz(0,7)
+      height: auto
+      min-height: 60vh
+
+
     .container
       
       padding-left: grid_sz(1,2)
       padding-right: grid_sz(1,2)
+
+      +range_width(0px,800px)
+        padding-left: grid_sz(0,1)
+        padding-right: grid_sz(0,1)
+
+        .description
+          max-width: 100%
 
     .section_title
       margin-top: 0px
