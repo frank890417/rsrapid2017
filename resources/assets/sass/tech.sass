@@ -35,12 +35,17 @@
       opacity: 0.8
       letter-spacing: 10px
 
+
   .block_50_percent
     height: 100%
     width: 50%
     display: inline-block
     float: left
     background-color: transparent
+
+    +range_width(0px,800px)
+      width: 100%
+      height: 400px
 
     &[data-image="1"]
       background-image: url("../img/homepage/Tech2.jpg")
@@ -69,6 +74,11 @@
       padding-left: grid_sz(1,1)
       padding-right: grid_sz(1,1)
       margin-top: grid_sz(0,4)
+
+      +range_width(0px,800px)
+        padding-left: grid_sz(0,1)
+        padding-right: grid_sz(0,1)
+
 
     .dynamic_icon
       margin-bottom: $gutter_width*2
