@@ -61,7 +61,8 @@
     .container
       background-color: $color_white
       margin-top: grid_sz(0,-3)
-      width: grid_sz(12,15)
+      // width: grid_sz(12,15)
+      width: 100%
       max-width: grid_sz(12,15)
       padding: grid_sz(0,1)
       flex-wrap: wrap
@@ -104,9 +105,11 @@
     
     .nav_end
       padding: 0
+      width: calc(100%  + #{grid_sz(0,2)} )
       margin-top: grid_sz(0,5)
       height: grid_sz(0,12)
-      margin-left: grid_sz(0,-1)
+      margin-left: grid_sz(0,-2)
+      margin-right: grid_sz(0,-2)
       .wrap
         height: 100%
         width: 50%
