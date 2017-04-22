@@ -32,6 +32,7 @@ div.section_search
       },
       mounted() {
           console.log('section_search mounted.');
+          if (Ts) Ts.reload();
       },
       methods: {
         ...mapMutations(['toggle_search']),
@@ -117,12 +118,26 @@ div.section_search
                     )
                   ))
                   
+          },{
+            type: "常見問題",
+            data: this.turn_match(this.questions
+                  .map(
+                    (obj)=>(
+                      {
+                         id: obj.id,
+                         title: obj.question,
+                         content: obj.question+obj.answer,
+                         link: "/contact"
+                      }
+                    )
+                  ))
+                  
           }];
         },
         has_match(){
           return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
-        ...Vuex.mapState(['solutions','news','techs'])
+        ...Vuex.mapState(['solutions','news','techs','questions'])
       }
   }
 </script>

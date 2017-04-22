@@ -33,7 +33,8 @@ section.section_solution
     export default {
         props: ["id","slogan"],
         mounted() {
-            console.log('solutions mounted.')
+            console.log('solutions mounted.');
+            if (Ts) Ts.reload();
         },
 
     }

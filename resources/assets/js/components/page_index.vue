@@ -33,6 +33,7 @@ div.page_index
 
 
   section.page_index_grow
+    canvas.wave
     .container.flex
       .col_left
       .col_right
@@ -41,6 +42,7 @@ div.page_index
         .percent.text-right(data-target=5500) 5500
 
   section.page_index_live
+    canvas.wave
     .container.flex
       .col_left
         h3.section_title 從居家到工作環境
@@ -131,7 +133,71 @@ div.page_index
               easing: 'ease-in'
             });
 
-            Ts.reload();
+            
+
+            var mCanvasSelector = "canvas.wave";
+            (function waveGenerator(window,mCanvasSelector){
+              var canvas = document.createElement('canvas');
+              var windowHeight=window.outerHeight;
+              canvas.height=windowHeight;
+              canvas.width=windowHeight;
+              var ctx = canvas.getContext("2d");
+              var len = windowHeight;
+              var panY=150;
+              var freq=100;
+              var time=0;
+              var mirror_list=[];
+              $(mCanvasSelector).each((index,obj)=>{
+                mirror_list.push(obj);
+              });
+              
+              mirror_list.forEach((mCtx)=>{
+                mCtx.height=300;
+                mCtx.width=windowHeight;
+              },20);
+              
+              ctx.strokeWidth=1;
+              //set timer
+              setInterval(function(){
+                ctx.clearRect(0,0,len,300);
+                ctx.beginPath();
+                function draw_wave(r,freq,pan,speed){
+                  for(var i=0;i<len;i++){
+                    var deg1=2*Math.PI*((i-1)/freq+pan+time*speed);
+                    var deg2=2*Math.PI*(i/freq+pan+time*speed);
+                    var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/8))*0.2;
+                    ctx.strokeStyle="rgba(63,191,187,"+opacity+")";
+                    ctx.beginPath();
+                    ctx.moveTo(i-1,panY+r*Math.sin(deg1));
+                    ctx.lineTo(i,panY+r*Math.sin(deg2));
+                    ctx.stroke();
+                  }
+                }
+                draw_wave( 30 , 600 , 0 , 0.0005 );
+                draw_wave( 30 , 800 , 20 , 0.00075 );
+                draw_wave( 30 , 1000 , 40 , 0.0009 );
+
+                time++;
+
+                mirror_list.forEach((mCtx)=>{
+                  var destCtx = mCtx.getContext('2d');
+                  destCtx.clearRect(0,0,len,1000)
+                  destCtx.drawImage(canvas, 0, 0);
+                },20);
+              });
+
+            })(window,mCanvasSelector);
+
+
+
+
+
+
+
+
+            if (Ts) Ts.reload();
+
+
         },
         methods: {
           news_delta: function(){

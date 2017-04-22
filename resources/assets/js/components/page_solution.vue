@@ -92,7 +92,7 @@ div.page_solution
               var timer=setInterval(delta,4000);
               vobj.timer_list.push(timer);
             });
-            Ts.reload();
+            if (Ts) Ts.reload();
         },beforeDestroy() {
           this.timer_list.map(obj=>clearInterval(obj));
           this.timer_list=[];
