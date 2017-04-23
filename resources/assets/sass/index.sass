@@ -264,6 +264,7 @@
         +range_width(0px,800px)
           flex-direction: column
           height: grid_sz(0,28)
+          width: 100%
 
           &:nth-child(1)
             left: 0
@@ -332,9 +333,12 @@
 
     .page_index_accurate
       min-height: 130vh
+      display: block
+      align-items: flex-start
+      .container.flex
+        align-items: flex-start
       .col_left
-        min-height: initial
-        height: 0px
+        display: none
 
 
 

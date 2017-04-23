@@ -13,6 +13,9 @@
       .col_left,.col_right
         align-items: flex-start
         text-align: left
+        +range_width(0px,800px)
+          height: auto
+
 
   .section_hero
     min-height: 50vh
@@ -94,6 +97,15 @@
       color: white
       font-weight: 300
 
+    +range_width(0px,800px)
+      .container.flex
+        align-items: flex-start
+        height: 600px
+
+        .col_left
+          min-height: initial
+
+
   .section_solution_2
     .container
       align-items: flex-start
@@ -162,7 +174,7 @@
     +range_width(0px ,800px)
       background-size: auto 100%
       h2
-        margin-top: grid_sz(0,4)
+        margin-top: grid_sz(0,6)
 
       
       
