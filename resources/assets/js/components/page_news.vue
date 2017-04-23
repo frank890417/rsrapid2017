@@ -32,9 +32,6 @@ div.page_news
       ul.nav_line_split.text-center.page_nav
         li 上一頁
         li.active 1
-        li 2
-        li 3
-
         li ...
         li 下一頁
       hr.footer_line
