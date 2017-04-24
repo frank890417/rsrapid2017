@@ -296,10 +296,15 @@
       mix-blend-mode: darken
 
   +range_width(0px, 800px)
+
     section
       min-height: 100vh
       height: auto
-      
+    
+    .percent
+      font-size: 100px  
+      &:after
+        font-size: 60px  
 
     .page_index_main
       min-height: 150vh
@@ -322,14 +327,23 @@
             height: auto
             min-height: 350px
 
+
     .page_index_grow
+      .percent
+        right: grid_sz(0,2)
+        
+
       .col_left
         display: none
 
     .page_index_live
+      .percent
+        bottom: 0px
+        right: grid_sz(0,2)
       .col_right
         min-height: initial
         height: 0px
+
 
     .page_index_accurate
       min-height: 130vh
