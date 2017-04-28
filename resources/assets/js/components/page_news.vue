@@ -22,7 +22,7 @@ div.page_news
     transition-group(name="fade-delay")
       .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
         .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
-          .cover(:style="'background-image: url('+a_news.cover+')'") 
+          .cover(:style="'background-image: url('+a_news.cover.trim().replace(' ','%20')+')'") 
           .info
             h5.date {{a_news.date}}
             h3.title {{a_news.title}}
