@@ -25,6 +25,7 @@
         <table class="table table-hover">
           <thead>
             <thead>
+              <th>封面</th>
               <th>標題</th>
               <th>日期</th>
               <th>標籤</th>
@@ -36,6 +37,7 @@
           <tbody></tbody>
           @foreach($news as $a_news)
             <tr>
+              <td style="width: 100px"><img src="{{$a_news->cover}}" style="width: 100px" alt=""></td>
               <td style="width: 30%">{{$a_news->title}}</td>
               <td style="width: 10%">{{$a_news->date}}</td>
               <td style="width: 10%">{{$a_news->tag}}</td>
