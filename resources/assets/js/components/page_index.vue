@@ -26,7 +26,7 @@ div.page_index
               router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
           
-          .col_img(:style="'background-image: url('+a_news.cover+')'")
+          .col_img(:style="'background-image: url('+a_news.cover.trim().replace(' ','%20')+')'")
       .timeline
         .value
 
