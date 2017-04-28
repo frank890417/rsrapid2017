@@ -514,7 +514,7 @@ if (window.require_js.dropzone){
   //初始化Dropzone上傳圖片function
   function gen_dz(classname,callback){  
     var myDropzone = new window.Dropzone(classname, {
-      url: "/dropzone/upload.php",maxFiles: 1
+      url: "http://www.rapidsuretech.com/dropzone/upload.php",maxFiles: 1
       ,sending: function(){
         // vm.page_status="圖片上傳中<img src='../img/loadingicon_gold.png' class=loadingspin>";
       }

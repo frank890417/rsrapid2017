@@ -1,6 +1,6 @@
 <?php
 	header("Content-Type:text/html; charset=utf-8");
-  	header('Access-Control-Allow-Origin: http://build.zashare.org');  
+  	header('Access-Control-Allow-Origin: http://www.rapidsuretech.com/,http://rsrapid2017.dev/');  
   	header('Access-Control-Allow-Headers: Cache-Control, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
   	header('Access-Control-Allow-Methods: POST,GET,OPTIONS,PUT,DELETE');
 

@@ -9,6 +9,7 @@
     <link href="/css/admin_css/styles.css" rel="stylesheet">
     <!-- Icons -->
     <script src="/js/admin_js/lumino.glyphs.js"></script>
+    <script src="/js/Rx.min.js"></script>
     <!--      
       script(src='/js/admin_js/html5shiv.js')
       script(src='/js/admin_js/respond.min.js')
