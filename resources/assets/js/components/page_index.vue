@@ -21,7 +21,7 @@ div.page_index
             .texts
               h4 {{a_news.title}}
               h5 {{a_news.date}}
-              p {{a_news.content.substr(0,70)+'...'}}
+              p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
             .btns
               router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
