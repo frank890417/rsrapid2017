@@ -66,7 +66,7 @@ export default {
     },
     methods: {
       bg_css(url){
-        return {'background-image': 'url('+url+')'}
+        return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
       }
     },
     props: ['id'],

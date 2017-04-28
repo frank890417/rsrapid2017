@@ -32,7 +32,7 @@ div
           h4 最新消息
           ul.sub_list
             li(@click="toggle_open") 
-              router-link( to="/news/cata/all") 全部新聞
+              router-link( to="/news/cata/全部新聞") 全部新聞
             li(@click="toggle_open") 
               router-link( to="/news/cata/睿軒活動") 睿軒活動
             li(@click="toggle_open") 
@@ -99,7 +99,7 @@ div
                 .container.flex
                   div.options
                     li 
-                      router-link(to="/news/cata/all") 全部新聞
+                      router-link(to="/news/cata/全部新聞") 全部新聞
                     li 
                       router-link(to="/news/cata/睿軒活動") 睿軒活動
                     li 

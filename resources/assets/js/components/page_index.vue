@@ -210,7 +210,7 @@ div.page_index
             this.timer=setInterval(this.news_delta,this.news_change_time);
           },
           bg_css(url){
-            return {'background-image': 'url('+url+')'}
+            return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
           }
 
 
