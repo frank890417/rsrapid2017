@@ -82,9 +82,12 @@
           <label for="cover">封面圖片</label>
           <div class="row">
             <div class="col-sm-12"><img src="{!! isset($news)?$news->cover:"" !!}" width="100%" class="cover_preview"/></div>
+
             <div class="col-sm-12">
               {{-- input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}') --}}<br/>
+              <input id="cover" name="cover" value="{!! isset($news)?$news->cover:"" !!}" class="form-control"/>
               <div style=" display: inline-block" class="btn btn-default btn-md btn-dropzone-cover">上傳圖片</div>
+
             </div>
           </div>
         </div>
