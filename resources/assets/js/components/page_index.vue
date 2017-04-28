@@ -26,7 +26,7 @@ div.page_index
               router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
           
-          .col_img(:style="'background-image: url('+a_news.cover.trim().replace(' ','%20')+')'")
+          .col_img(:style="bg_css(a_news.cover)")
       .timeline
         .value
 
@@ -209,6 +209,10 @@ div.page_index
             clearInterval(this.timer);
             this.timer=setInterval(this.news_delta,this.news_change_time);
           },
+          bg_css(url){
+            return {'background-image': 'url('+url+')'}
+          }
+
 
         },
         computed: Vuex.mapState(['news']),

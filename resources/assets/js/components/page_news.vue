@@ -2,7 +2,7 @@
 div.page_news
   .slick
     section.section_hero(v-for='a_news in news.slice(0,5)')
-      .bg.bg_parallax(:style="'background-image: url('+a_news.cover.trim().replace(' ','%20')+')'") 
+      .bg.bg_parallax(:style="bg_css(a_news.cover)") 
       .full
         .container.flex
           h5.tag {{a_news.tag}}
@@ -22,7 +22,7 @@ div.page_news
     transition-group(name="fade-delay")
       .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
         .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
-          .cover(:style="'background-image: url('+a_news.cover.trim().replace(' ','%20')+')'") 
+          .cover(:style="bg_css(a_news.cover)") 
           .info
             h5.date {{a_news.date}}
             h3.title {{a_news.title}}
@@ -80,6 +80,8 @@ export default {
       
       is_double(id){
         return [0,6,10].indexOf(id)!=-1;
+      },bg_css(url){
+        return {'background-image': 'url('+url+')'}
       }
     },
     props: ["cataname"]

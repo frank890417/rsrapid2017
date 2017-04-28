@@ -2,7 +2,7 @@
 div.page_post
   .slick
     section.section_hero(v-if='newsset' v-for='id in 2')
-      .bg.bg_parallax(:style="'background-image:url('+newsset.cover+')'+';background-size: cover; height: 600px;'") 
+      .bg.bg_parallax(:style="bg_css(newsset.cover)") 
       .container.flex
   
   section.section_post
@@ -23,7 +23,7 @@ div.page_post
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
       .container.flex.row.nav_end(v-if="preset || postset")
         .wrap
-          router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="'background-image:url('+preset.cover+')'") 
+          router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="bg_css(preset.cover)") 
             h3.guide_text
               span 前一則
               i.fa.fa-angle-left 
@@ -31,7 +31,7 @@ div.page_post
               h6.date {{preset.date}}
               h3 {{preset.title}}
         .wrap
-          router-link.post(v-if="postset",:to="'/news/'+postset.id" ,:style="'background-image:url('+postset.cover+')'") 
+          router-link.post(v-if="postset",:to="'/news/'+postset.id" ,:style="bg_css(postset.cover)") 
             h3.guide_text
               i.fa.fa-angle-right
               span 後一則
@@ -63,6 +63,11 @@ export default {
         }
       },100);
       if (Ts) Ts.reload();
+    },
+    methods: {
+      bg_css(url){
+        return {'background-image': 'url('+url+')'}
+      }
     },
     props: ['id'],
     computed: {
