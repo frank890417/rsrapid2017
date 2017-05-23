@@ -468,7 +468,8 @@ nav
 
   .navbar-left
     margin-left: grid_sz(0,1)
-    width: grid_sz(7,6)
+    // width: grid_sz(7,6)
+    width: auto
 
   .navbar-right
     width: grid_sz(2,2)
@@ -690,12 +691,13 @@ footer
       font-size: 17px
 
 
-  +range_width(0px,930px)
+  +rwd_md
     height: auto
 
   .container.flex
     +flex_split("lr")
     align-items: center
+
 
     
 
@@ -709,12 +711,13 @@ footer
       .info
         margin-bottom: 0px
 
-    +range_width(0px,1200px)
+    +rwd_md
       ul.footer_nav
         display: none
       .info
         width: 100%
         text-align: center
+
 
   
 
@@ -722,7 +725,7 @@ footer
 section.section_solution
   background: url("../img/homepage/Home7.jpg") 60% bottom
   background-size: cover
-  min-height: 130vh
+  min-height: 100vh
   position: relative
   padding-top: grid_sz(0,2)
   padding-bottom: grid_sz(0,2)
@@ -882,6 +885,7 @@ section.section_solution
 
   .col_address
     width: grid_sz(4,3)
+    padding-left: grid_sz(0,1)
     p
       letter-spacing: 2px
 

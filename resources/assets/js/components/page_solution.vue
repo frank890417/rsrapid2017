@@ -76,6 +76,7 @@ div.page_solution
                 autoplay: false,
                 autoplaySpeed: 4000,
                 dots: true,
+                fade: true,
                 speed: 700,
                 arrows: false,
                 easing: 'linear'

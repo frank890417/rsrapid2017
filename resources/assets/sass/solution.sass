@@ -27,6 +27,7 @@
       text-align: center
       opacity: 0.8
       letter-spacing: 10px
+      font-size: 26px
       
     +range_width(0px,800px)
 
@@ -80,7 +81,7 @@
     
     h3
       color: $color_theme
-      font-weight: 300
+      font-weight: 400
 
     hr
       margin-top: $gutter_width*1.5
@@ -92,8 +93,15 @@
   .section_solution_1
     display: flex
     position: relative
+
+    .block_50_percent
+      order: -1
     
-    &,p,h4
+    h4
+      font-weight: 400
+      color: white
+
+    &,p
       color: white
       font-weight: 300
 
