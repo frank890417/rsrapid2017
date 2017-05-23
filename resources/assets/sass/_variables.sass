@@ -192,6 +192,46 @@ $nav_height: 80px
   max-width: grid_sz($i,$o)
   width: 100%
 
+$break_lg: 1600px
+$break_md: 1200px
+$break_sm: 800px
+$break_xs: 500px
+
+@for $i from 1 through 12
+  +range_width(0px,$break_lg)
+    .flex_lg_#{$i}
+      width: calc( $i * 100% / 12)
+
+  +range_width(0px,$break_md)
+    .flex_md_#{$i}
+      width: calc( $i * 100% / 12)
+
+  +range_width(0px,$break_sm)    
+    .flex_sm_#{$i}
+      width: calc( $i * 100% / 12)
+
+  @for $o from 1 through 12
+    .flex_md_#{$i}_sm_#{$o}
+      +range_width(0px,$break_md)
+        width: calc( $i * 100% / 12)
+      +range_width(0px,$break_sm)    
+        width: calc( $o * 100% / 12)
+
+@mixin rwd_md
+  +range_width(0px,$break_md)
+    @content
+@mixin rwd_lg
+  +range_width(0px,$break_lg)
+    @content
+@mixin rwd_sm
+  +range_width(0px,$break_sm)
+    @content
+@mixin rwd_xs
+  +range_width(0px,$break_xs)
+    @content
+
+
+
 // @for $i from 1 through 20
 //   @for $o from 1 through 20
 //     .grid_sz_mx_#{$i}_#{$o}

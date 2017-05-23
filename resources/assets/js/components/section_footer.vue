@@ -10,8 +10,8 @@ div.footer
 
         p 231 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
         hr
-        img.social_icon.fb(src="http://www.greenvalefarm.com.au/wp-content/themes/greenvale/images/fb-icon.png")
-        img.social_icon(src="https://cdn4.iconfinder.com/data/icons/picons-social/57/40-google-plus-3-128.png")
+        i.social_icon.fa.fa-facebook
+        i.social_icon.fa.fa-google-plus
 
       .col_question
         h5 常見問題

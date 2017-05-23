@@ -443,21 +443,23 @@ nav
     input
       width: 100%
       border: none
-      border: solid 1px #ccc
-      padding: 5px 10px
-      border-radius: 30px
+      // border: solid 1px #ccc
+      padding: 12px 12px
+      // border-radius: 30px
       padding-left: 50px
       letter-spacing: 1px
       &::placeholder
         opacity: 0.4
     i.fa-search
       position: absolute
-      top: 6px
+      top: 50%
+      transform: translateY(-50%)
       z-index: 20
       left: 15px
     i.fa-times
       position: absolute
-      top: 6px
+      top: 50%
+      transform: translateY(-50%)
       z-index: 20
       right: 15px
       cursor: pointer
@@ -542,16 +544,21 @@ nav
         a.router-link-active
           color: white
 
-  .func_burger,.func_search
+  .func_burger,.func_search,.func_lang
     cursor: pointer
+    &,i,span
+      +trans
+    &:hover
+      &,i,span
+        color: $color_theme
 
   
 
   +range_width(0px,1080px)
     
-    .navbar-nav
-      .func_lang,.func_search
-        display: none
+    // .navbar-nav
+    //   .func_lang,.func_search
+    //     display: none
     .row
       justify-content: space-between
     .nav-right
@@ -600,6 +607,10 @@ nav
 
 .func_size
   padding-top: 3px
+  filter: saturate(100%) brightness(1) contrast(1)
+  +trans
+  &:hover
+    filter: saturate(0%) brightness(0.7) contrast(5)
   .icon_big,.icon_small
     cursor: pointer
 
@@ -695,12 +706,16 @@ footer
         margin-bottom: grid_sz(0,1)
 
     +range_width(0px,600px)
-      ul.footer_nav
-        display: none
       .info
         margin-bottom: 0px
 
-  
+    +range_width(0px,1200px)
+      ul.footer_nav
+        display: none
+      .info
+        width: 100%
+        text-align: center
+
   
 
 //-----------------------------------------------
@@ -740,6 +755,7 @@ section.section_solution
     text-align: center
     width: grid_sz(4,3)
     cursor: pointer
+    background-repeat: no-repeat
     +trans
     +range_width(0px,800px)
       margin-bottom: grid_sz(0,1)
@@ -757,6 +773,7 @@ section.section_solution
       height: grid_sz(0,19)
       overflow: hidden
       cursor: pointer
+      
 
       .box_info
         margin-top: grid_sz(0,3)
@@ -823,18 +840,24 @@ section.section_solution
       background-image: url("../img/homepage/Home8-1.jpg")
       background-position: 60% bottom
       background-size: 105% auto
+      background-repeat: no-repeat
+      background-color: white
       
 
     &:nth-child(2) .box_inner:before
       background-image: url("../img/homepage/Home8-2.jpg")
       background-position: 60% bottom
       background-size: 105% auto
+      background-repeat: no-repeat
+      background-color: white
 
 
     &:nth-child(3) .box_inner:before
       background-image: url("../img/homepage/Home8-3.jpg")
       background-position: 60% bottom
       background-size: 105% auto
+      background-repeat: no-repeat
+      background-color: white
 
 
   .row_else
@@ -895,9 +918,16 @@ section.section_solution
     margin-top: grid_sz(0,1)
     
   .social_icon
-    width: 30px
+    width: 20px
     margin-right: 10px
     vertical-align: middle
+    display: inline-block
+    font-size: 20px
+    cursor: pointer
+    color: $color_grey_dark
+    +trans
+    &:hover
+      color: $color_theme
     &.fb
       width: 20px
   .more

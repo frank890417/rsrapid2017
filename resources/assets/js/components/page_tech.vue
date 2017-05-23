@@ -93,6 +93,7 @@ div.page_tech
               autoplay: false,
               autoplaySpeed: 4000,
               dots: true,
+              fade: true,
               arrows: false,
               speed: 700,
               easing: 'linear'

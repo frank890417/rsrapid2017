@@ -16,7 +16,10 @@ div.section_search
                   .match
                     h5(v-html="d.title")
                     p(v-html="d.content")
-          li 總共有 {{has_match}} 項結果
+          li.search_count
+            span 總共有 
+            span.color_theme {{has_match}} 
+            span 項結果
 
     
 </template>
@@ -43,7 +46,7 @@ div.section_search
           var vobj=this;
           return obj.map(
                     (obj)=>{
-                      obj.content=obj.content.replace(new RegExp("<.*?>","g"),"");
+                      obj.content=obj.content.replace(new RegExp("<.*?>","g"),"").replace(new RegExp("\&mdash;"),"");
                       
                       return obj;
                     }
@@ -143,6 +146,23 @@ div.section_search
 </script>
 
 <style scoped lang="sass">
+// color variables
+$color_theme: #3FBFBB;
+$color_white: #fff;
+$color_grey: #555;
+$color_grey_light: #777;
+$color_grey_dark: #333;
+$color_grey_bg: #f4f5f5;
+  
+  input{
+    outline: none;
+    background-color: lighten($color_theme,43);
+    border-radius: 3px;
+    padding: 10px
+  }
+  .color_theme{
+    color: $color_theme;
+  }
   .navbar-search{
     display: flex;
     flex-direction: column;
@@ -154,15 +174,19 @@ div.section_search
     }
   }
   .search_list{
-    width: 120%;
-    padding: 24px;
+    width: 100%;
+    padding: 24px 0px 0px 0px;
     background-color: #FFF;
+    box-shadow: 0px 0px 12px rgba(black,0.1);
+    max-height: 70vh;
+    overflow-y: scroll;
   }
-  .search_list li{
+  .search_list > li{
     display: flex;
-    flex-direction: row;
-    padding: 10px 0px;
+    flex-direction: column;
+    padding: 10px 0px 0px 0px;
     transition: 0.5s;
+
 
     h5{
       margin-bottom: 10px
@@ -172,12 +196,23 @@ div.section_search
       opacity: 0.8;
     }
     .cata{
-      width: 30%;
+      padding-left: 20px;
+      color: $color_theme;
+      margin-bottom: 15px;
     }
-    border-bottom: solid 1px #ddd;
+    
 
     &:last{
       border: none
+    }
+
+   
+    
+    &.search_count{
+      display: block;
+      padding-left: 15px;
+      flex-direction: row;
+      border:none
     }
   }
   .match_list{
@@ -185,16 +220,23 @@ div.section_search
     flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
+
     li{
-      padding: 5px 10px;
+      padding: 5px 20px;
+      transition: 0.5s;
+      border-bottom: solid 1px #ddd;
+
       &:hover{
-        background-color: rgba(#eee,0.5);
+        background-color: rgba($color_theme,0.1);
+
       }
     }
+
     li,.match{
       width: 100%;
       display: block;
 
     }
   }
+
 </style>

@@ -16,7 +16,7 @@ div.page_about
       .logs_area.top_out
         transition(name="fade" mode="out-in")
           div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
-            router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
+            router-link.row.log_box(v-for="log in sort_year(about_logs[sel])" v-bind:key="log" v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
               .col_cover
                 .cover_image(:style="'background-image:url('+log.cover+')'")
               .col_info
@@ -44,6 +44,11 @@ div.page_about
           if (obj.news_id!=1){
             this$route.router.go("/news/"+obj.news_id);
           }
+        },
+        sort_year(ar) {
+          return JSON.parse(JSON.stringify(ar)).sort((a,b)=>(
+            parseInt(b.date.substr(0,2)) - parseInt(a.date.substr(0,2)) 
+          ));
         }
       },
       computed: Vuex.mapState(['about_logs'])

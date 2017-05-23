@@ -270,7 +270,10 @@ scroll
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  $(".bg_parallax").css("background-position","center "+top_val/1.50+"px");
+  $(".bg_parallax").each((index,obj)=>{
+    // if ($(obj).offset())
+      $(obj).css("background-position","center "+(top_val-$(obj).offset().top)/1.50+"px");
+  });
   if ($(".mountain").length>0){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
   }
