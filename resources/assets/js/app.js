@@ -396,7 +396,7 @@ $( window ).ready(function(){
 
   update_bullet(0);
   //snap locker by Rxjs
-  if (lock_scroll && window_height>850){
+  if (lock_scroll && window_height>900 && window_width>1200){
     //filter delta which bigger than thereshold and filter out twice down/up condition
     var source_page_nav=mousewheel.filter(
       delta=>((delta>50 && (direction=='down' || !scrolling))
