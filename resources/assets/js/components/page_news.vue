@@ -21,7 +21,7 @@ div.page_news
         
     transition-group(name="fade-delay")
       .container.flex(  v-for='cata in catas' v-bind:key="cata" v-if="cata==filter" tag="div")
-        .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''")
+        .news_box.section_para(v-for='(a_news,id) in filtered_news' v-bind:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''" onclick="void(0)")
           .cover(:style="bg_css(a_news.cover)") 
           .info
             h5.date {{a_news.date}}

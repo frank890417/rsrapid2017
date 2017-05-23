@@ -8,7 +8,7 @@ div.page_job
   section.section_job
 
     .container.flex.row.wrap.top_out
-      .job_box
+      .job_box.flex_lg_12
         .job_box_inner
           h4.title 工程師-1
             i.fa.fa-link
@@ -16,7 +16,7 @@ div.page_job
           .cover.flex.column 
             p 1. 熟悉LC / MS /MS儀器操作 (分析方法確效及分析方法開發)<br>2. 有儀器分析或食品檢測領域工作經驗
             a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
-      .job_box
+      .job_box.flex_lg_12
         .job_box_inner
           h4.title 工程師-2
             i.fa.fa-link
