@@ -195,7 +195,7 @@ div.page_index
 
 
 
-            if (Ts) Ts.reload();
+            // if (Ts) Ts.reload();
 
 
         },

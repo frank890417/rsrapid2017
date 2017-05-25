@@ -13,6 +13,13 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 
 
+
+//-------------------------
+
+
+
+
+
 //components
 
 Vue.component('slick', Slick);
@@ -553,6 +560,4 @@ if (window.require_js.dropzone){
 
 }
 
-
-//-------------------------
 

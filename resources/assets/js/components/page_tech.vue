@@ -51,7 +51,7 @@ div.page_tech
 
         p.section_para.text-left 獨家開發的採樣探針可利用高溫處理被重複使用，不需分析耗材，單次單件分析費用只需傳統檢測的 1/6。可針對有疑慮的物件進行快速分析的檢測作業。
         a.btn.btn-primary.section_para 了解更多
-      .col_right
+      //.col_right
 
   section.section_tech(data-img=3)
 
