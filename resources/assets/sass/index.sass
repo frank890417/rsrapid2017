@@ -282,7 +282,8 @@
       flex-direction: column
       z-index: 100
       
-
+      +rwd_md
+        height: grid_sz(0,14)
       .row
         display: flex
         +size(grid_sz(8,8),50%)
@@ -293,7 +294,8 @@
 
         +rwd_md
           flex-direction: row
-          height: grid_sz(0,28)
+          height: grid_sz(0,7)
+          // height: 50%
           width: 100%
 
           &:nth-child(1)
