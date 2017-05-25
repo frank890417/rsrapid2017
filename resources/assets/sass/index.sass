@@ -174,7 +174,7 @@
     background-image: url("../img/homepage/Home3.jpg")
     background-size: cover
 
-    +rwd_md
+    +rwd_sm
       &:before
         +pseudo_ab_full
         background-color: rgba(white,0.8)
@@ -303,7 +303,7 @@
           &:nth-child(2)
             left: 0
     
-    +rwd_md
+    +rwd_sm
       &:before
         +pseudo_ab_full
         background-color: rgba($color_theme,0.8)
@@ -334,7 +334,7 @@
 
       mix-blend-mode: darken
 
-  +range_width(0px, $break_sm)
+  +rwd_sm
 
     section
       min-height: 100vh
