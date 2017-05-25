@@ -282,7 +282,19 @@ window.update_scroll=function update_scroll(top_val){
       $(obj).css("background-position","center "+(top_val-$(obj).offset().top)/1.50+"px");
   });
   if ($(".mountain").length>0){
-    $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
+    var of_t=$("#section_about_log").offset().top;
+    var mobile_fix=(window_width<800)?100:0;
+    var mul=(window_width<800)?3:3;
+    var vv=(+(-((top_val)+window_height*0.9-of_t)/mul))+mobile_fix;
+    console.log(vv);
+    if (vv>50) {
+      vv=50
+    };
+    $(".mountain").css("bottom",vv+"px");
+    if (window_width<800){
+      $(".mountain").css("background-size","150% auto");
+      $(".mountain").css("height","800px");
+    }
   }
 
   //percet nt init
