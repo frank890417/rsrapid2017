@@ -423,6 +423,7 @@ nav
 
   .nav-leftpart
     position: relative
+    vertical-align: middle
     > *
       display: inline-block
       vertical-align: top
@@ -584,13 +585,20 @@ nav
       justify-content: flex-end
 
 
-  +range_width(0px,970px)
+  +range_width(0px,1100px)
     .navbar-nav.navbar-left
       display: none
         
+
   +range_width(0px,800px)
     width: 100%
     max-width: 100%
+
+
+  +range_width(0px,400px)
+    .navbar-nav
+      .func_lang,.func_size
+        display: none
 
   //---- when at top of the page
   +range_width(800px,3000px)
@@ -600,7 +608,7 @@ nav
       padding: grid_sz(0,1)
 
       .navbar-search-input
-        top: grid_sz(0,1)
+        top: grid_sz(0,0.5)
 
       .navbar-header
         width: grid_sz(3,2)
@@ -624,14 +632,16 @@ nav
 
 
 
-.func_size
-  padding-top: 3px
-  filter: saturate(100%) brightness(1) contrast(1)
-  +trans
-  &:hover
-    filter: saturate(0%) brightness(0.7) contrast(5)
-  .icon_big,.icon_small
-    cursor: pointer
+  .func_size
+    padding-top: 3px
+    filter: saturate(100%) brightness(1) contrast(1)
+    +trans
+    &:hover
+      filter: saturate(0%) brightness(0.7) contrast(5)
+    .icon_big,.icon_small
+      cursor: pointer
+
+  
 
 
 .slide_bullet

@@ -110,9 +110,13 @@
       &.size_2
         width: percent_grid(8,7,12,12)
 
-      +range_width(0px,800px)
+      +rwd_md
         &,&.size_2
-          width: calc( 100% - #{grid_sz(0,2)} )
+          width: calc( 50% - #{grid_sz(0,1.5)} )
+          min-height: 500px
+      +rwd_sm
+        &,&.size_2
+          width: calc( 100% - #{grid_sz(0,2.1)} )
 
 
       a
