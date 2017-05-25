@@ -291,10 +291,8 @@ window.update_scroll=function update_scroll(top_val){
       vv=50
     };
     $(".mountain").css("bottom",vv+"px");
-    if (window_width<800){
-      $(".mountain").css("background-size","150% auto");
-      $(".mountain").css("height","800px");
-    }
+
+
   }
 
   //percet nt init
