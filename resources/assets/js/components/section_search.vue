@@ -35,9 +35,14 @@ div.section_search
       },
       mounted() {
           console.log('section_search mounted.');
+          this.filter="";
           if (Ts) Ts.reload();
       },
-      methods: {
+      watch:{
+        search(){
+           this.filter="";
+        }
+      },methods: {
         ...mapMutations(['toggle_search']),
         hide_search(){
           this.toggle_search();
@@ -140,7 +145,7 @@ div.section_search
         has_match(){
           return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
-        ...Vuex.mapState(['solutions','news','techs','questions'])
+        ...Vuex.mapState(['solutions','news','techs','questions','search'])
       }
   }
 </script>
