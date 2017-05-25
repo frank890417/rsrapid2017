@@ -31,6 +31,10 @@ div.footer
             img.company_icon(src="/img/cor_logo/cor_logo-01.png")
           .item
             img.company_icon(src="/img/cor_logo/cor_logo-02.png")
+          .item
+            img.company_icon(src="/img/cor_logo/cor_logo-01.png")
+          .item
+            img.company_icon(src="/img/cor_logo/cor_logo-02.png")
          
   footer
     .container.flex
