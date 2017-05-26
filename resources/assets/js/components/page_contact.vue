@@ -21,10 +21,10 @@ div.page_contact
             input(required name='email' pattern=".*\@.*\..*")
           .form-group
             label 諮詢
-            select#select_contact(required name='ask_item')
-              option(value="1") 　　　校園環境健檢檢測計畫
-              option(value="2") 　　　校園食材健檢檢測計畫
-              option(value="3") 　　　農場作物自主管理檢測計畫
+            select#select_contact(required name='ask_item', v-model="selected_option")
+              option(value="0") 校園環境健檢檢測計畫
+              option(value="1") 校園食材健檢檢測計畫
+              option(value="2") 農場作物自主管理檢測計畫
 
           .form-group
             textarea.form-control(rows=14 placeholder="訊息..." required name='ask_content')
@@ -41,10 +41,15 @@ div.page_contact
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
         props: ["selected"],
+        data(){
+          return {
+            selected_option: 0
+          }
+        },
         mounted() {
             console.log('contact mounted.');
-            // if (Ts) Ts.reload();
-            
+            if (this.selected)
+              this.selected_option=this.selected;
         },
     }
 </script>

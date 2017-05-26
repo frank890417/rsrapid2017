@@ -37,6 +37,6 @@ Route::get('/solution', 'HomeController@index');
 Route::get('/job', 'HomeController@index');
 
 Route::get('/contact', 'HomeController@index');
-
+Route::get('/contact/{id}', 'HomeController@index');
 Route::get('/search', 'HomeController@index');
 Route::get('/tern', 'HomeController@index');

@@ -124,15 +124,22 @@
       min-height: grid_sz(0,13)
       margin-bottom: grid_sz(0,2)
 
-      +range_width(0px ,800px)
+      +rwd_sm
         min-height: initial
 
     .area_type
       min-height: grid_sz(0,10)
       margin-bottom: 0
 
-      +range_width(0px ,800px)
+      +rwd_sm
         min-height: initial
+    
+    +rwd_sm
+      .btn
+        margin-top: 50px
+        display: block
+        text-align: center
+        
 
 
   .envtext
@@ -145,7 +152,7 @@
     background-image: url("../img/homepage/Solution3.jpg")
     background-size: 100% auto
 
-
+    
     *
       color: white
     +flex_center

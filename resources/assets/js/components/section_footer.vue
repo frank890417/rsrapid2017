@@ -66,7 +66,6 @@ div.footer
               dots: true,
               easing: 'ease-in'
             });
-            if (Ts) Ts.reload();
         },data(){
           return {
             qa_state: [{open:true},{open:false},{open:false}]
