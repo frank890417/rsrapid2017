@@ -54,6 +54,7 @@ const routes = [
   { path: '/news/cata/:cataname', component: page_news , props: true},
   { path: '/job', component: page_job },
   { path: '/contact', component: page_contact },
+  { path: '/contact/:selected', component: page_contact , props: true},
   { path: '/tern', component: page_tern },
   { path: '/search', component: section_search }
 ];

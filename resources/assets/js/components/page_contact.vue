@@ -40,9 +40,10 @@ div.page_contact
 <script>
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
+        props: ["selected"],
         mounted() {
             console.log('contact mounted.');
-            if (Ts) Ts.reload();
+            // if (Ts) Ts.reload();
             
         },
     }

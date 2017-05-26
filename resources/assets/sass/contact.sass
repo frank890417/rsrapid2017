@@ -10,9 +10,11 @@
       // padding-top: $gutter_width*4
       opacity: 0.8
     .col_left,.col_right 
-      +range_width(0px,800px)
+      +rwd_sm
         padding-left: 0
         padding-right: 0
+    .col_left
+      padding-left: grid_sz(0,1)
 
   .section_hero
     min-height: 70vh
@@ -26,7 +28,7 @@
     background-size: cover
     background-position: center center
 
-    +range_width(0px,800px)
+    +rwd_sm
       padding-top: grid_sz(0,7)
       height: auto
       min-height: 60vh
@@ -49,7 +51,7 @@
 
     .container
       align-items: flex-start
-
+      
 
     &:before
       +cover_opacity(rgba(white,0.1))
@@ -75,6 +77,9 @@
       margin: 0
     .container
       align-items: flex-start
+    .col_left
+      +rwd_sm
+        padding-left: 0px
 
   .form-group
     position: relative
@@ -102,10 +107,21 @@
     min-height: 40px 
     letter-spacing: 2px 
     color: $color_grey_light
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    outline: none
+    +trans(0.3s)
+
+
+    &:focus
+      border: solid 1px rgba($color_theme,1)
+    // outline-style: solid
 
   #select_contact
     min-height: 40px
     height: 40px
+    // font-weight: 00
     font-family: 微軟正黑體
   textarea
     padding: 10px 18px !important

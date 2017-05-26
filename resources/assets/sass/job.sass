@@ -16,14 +16,19 @@
     padding-bottom: $column_width*2
 
     display: flex
-    align-items: center
-    justify-content: center
+    // align-items: center
+    // justify-content: center
     background: url("../img/homepage/Job1.jpg")
     background-size: cover
     background-position: center center
     .container  
       padding-left: grid_sz(1,2)
       padding-right: grid_sz(1,2)
+      text-align: left
+      align-items: flex-start
+      +rwd_sm
+        padding-left: grid_sz(0,1)
+        padding-right: grid_sz(0,1)
     &:before
       +cover_opacity(rgba(white,0.1))
     &,.date,h1
@@ -34,6 +39,7 @@
       display: inline-block
       background-color: rgba($color_white,0.8)
     h1
+      text-align: left
       letter-spacing: 14px
       margin-top: $gutter_width*2
       margin-bottom: $gutter_width*2
@@ -48,8 +54,11 @@
       margin: $gutter_width/2
       // +range_width(0px,800px)
         // width: percent_grid(6,5)
-      +range_width(0px,800px)
-        width: percent_grid(12,11)
+      +rwd_sm
+        margin-left: 0
+        margin-right: 0
+        width: 100%
+        margin-bottom: grid_sz(0,1)
 
 
 
