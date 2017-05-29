@@ -68,7 +68,7 @@ div.footer
             });
         },data(){
           return {
-            qa_state: [{open:true},{open:false},{open:false}]
+            qa_state: new Array(5).fill({}).map((d,i)=>({open: i==1}))
           };
         },
         methods: {
