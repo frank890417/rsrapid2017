@@ -18,7 +18,8 @@ div.page_post
         p(v-html='newsset.content')
         h5.share 分享文章
           .logos
-            img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
+            a(:href="get_share_url",target="_blank")
+              img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
             img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
             img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
       .container.flex.row.nav_end(v-if="preset || postset")
@@ -85,6 +86,10 @@ export default {
         var vobj=this;
         return this.news.filter((n)=>(n.id==(parseInt(vobj.id)+1)))[0];
         
+      },
+      get_share_url(){
+        
+        return 'https://www.facebook.com/sharer/sharer.php?u='+window.location.href;
       }
     }
 }
