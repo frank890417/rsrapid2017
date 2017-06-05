@@ -4,203 +4,23 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import VueRouter from 'vue-router';
-import Vuex from 'vuex';
-import Slick from 'vue-slick';
+
+import Vue from 'vue';
 
 require('./bootstrap');
-Vue.use(VueRouter);
-Vue.use(Vuex);
-
-
-
-//-------------------------
-
-//components
-
-Vue.component('slick', Slick);
-
-Vue.component('example', require('./components/Example.vue'));
-Vue.component('Navbar', require('./components/Navbar.vue'));
-
-var page_index = Vue.component('page_index', require('./components/page_index.vue'));
-var page_about = Vue.component('page_about', require('./components/page_about.vue'));
-var page_news = Vue.component('page_news', require('./components/page_news.vue'));
-var page_solution = Vue.component('page_solution', require('./components/page_solution.vue'));
-var page_tech = Vue.component('page_tech', require('./components/page_tech.vue'));
-var page_post = Vue.component('page_post', require('./components/page_post.vue'));
-var page_job = Vue.component('page_job', require('./components/page_job.vue'));
-var page_contact = Vue.component('page_contact', require('./components/page_contact.vue'));
-var page_tern = Vue.component('page_tern', require('./components/page_tern.vue'));
-
-var section_footer = Vue.component('section_footer', require('./components/section_footer.vue'));
-var section_solutions = Vue.component('section_solutions', require('./components/section_solutions.vue'));
-var section_search = Vue.component('section_search', require('./components/section_search.vue'));
-
-//routes
-
-const routes = [
-  { path: '/', component: page_index },
-  { path: '/about', component: page_about },
-  { path: '/tech', component: page_tech },
-  { path: '/solution/:id', component: page_solution , props: true},
-  { path: '/solution/0', alias: '/solution'},
-  { path: '/news', component: page_news },
-  { path: '/news/:id', component: page_post , props: true},
-  { path: '/news/cata/:cataname', component: page_news , props: true},
-  { path: '/job', component: page_job },
-  { path: '/contact', component: page_contact },
-  { path: '/contact/:selected', component: page_contact , props: true},
-  { path: '/tern', component: page_tern },
-  { path: '/search', component: section_search }
-];
-
-const router = new VueRouter({
-  routes,
-  mode: "history"
-})
-
-router.beforeEach((to, from, next) => {
-  console.log(to);
-  var waittime=600;
-  if (to.path==from.path){
-    waittime=50;
-  }
-  if (to.path=="/about" && to.hash=="#section_about_log"){
-
-    setTimeout(function(){
-      $("html, body").animate({ scrollTop: $(".section_log").offset().top-100  }, "slow");
-    },waittime);
-  }else{
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-  }
-  next();
-});
-
-
-const store = new Vuex.Store({
-  state: {
-    news: [],
-    questions: [],
-    big_font: false,
-    search: false,
-    about_logs: {
-      year_2015: [
-        {
-          date: "03/01",
-          title: "成立睿軒檢驗",
-          news_id: 2,
-          cover: "/img/homepage/Post2.jpg",
-          content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 3,
-          cover: "/img/homepage/Post3.jpg",
-          content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
-        },
-        {
-          date: "12/01",
-          title: "全台幼兒環境大義診",
-          news_id: 1,
-          cover: "/img/homepage/Home-news-2.jpg",
-          content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
-        }
-      ],
-      year_2016: [
-        {
-          date: "03/01",
-          title: "鴻海和中山合資技轉記者會",
-          news_id: 4,
-          cover: "/img/homepage/Post1.jpg",
-          content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 5,
-          cover: "/img/homepage/Post4.jpg",
-          content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
-        }
-      ],
-
-    },
-    solutions: [],
-    techs: [
-      { id: 0,
-        title: "睿軒快篩平台",
-        description: "與國立中山大學共同開發「快速檢驗平台」專利技術為基礎，以建構食的安心、用的放心，便利顧客享有快速與安全的保障為出發點，守護民眾的健康期許，營造安心的生活環境。同時創造獨特的檢驗效率，與無可取代的時間效益。",
-        sections: [
-          {
-            title: "五秒高效快篩",
-            content: "不需任何前處理，也不需破壞待測物件。 快速採樣、即時檢測，立即與資料庫進行比對作業，完成一次分析的時間只需5秒。"
-          },
-          {
-            title: "獨家探針，多樣檢測",
-            content: "獨家開發的採樣探針可利用高溫處理被重複使用，不需分析耗材，單次單件分析費用只需傳統檢測的 1/6。可針對有疑慮的物件進行快速分析的檢測作業。"
-          },
-          {
-            title: "雲端即時報告",
-            content: "同時搭配手機App與網頁檢測報告系統，檢測前掃描探針上的QR code並上傳，在完成檢測後便可即時看到檢測報告。在接觸日用品或食用蔬果之前，就為您的安全環境、安心食材層層把關。"
-          }
-        ]
-      }
-    ]
-  },
-  mutations: {
-    increment (state) {
-      state.count++;
-    },
-    setNews(state, news){
-      state.news=news;
-    },
-    setQuestion(state,questions){
-      state.questions=questions;
-    },
-    setSolution(state,solutions){
-      state.solutions = solutions;
-    },
-    toggle_size(state){
-      state.big_font=!state.big_font;
-      console.log("toggle size");
-    },
-    toggle_search(state){
-      state.search=!state.search;
-      console.log("toggle search");
-    }
-  },
-  actions: {
-    loadWebsite(context){
-      $.get("/api/news").then((res)=>{
-        console.log("news loaded (action)");
-        context.commit("setNews",res);
-      });
-      $.get("/api/questions").then((res)=>{
-        console.log("questions loaded (action)");
-        context.commit("setQuestion",res);
-      });
-      $.get("/api/solutions").then((res)=>{
-        console.log("solutions loaded (action)");
-        console.log(res);
-        res.forEach(obj=>{ obj.talk=JSON.parse(obj.talk.trim().replace("\n","")) });
-        context.commit("setSolution",res);
-      });
-    }
-  }
-})
+import store from './store';
+import router from './router';
+import {mapState} from 'vuex';
 
 const app = new Vue({
   el: "#app",
   router,
   store,
-  components: {Slick: Slick},
-  computed: Vuex.mapState(['news','about_logs','big_font']),
+  computed: mapState(['news','about_logs','big_font']),
   mounted(){
      store.dispatch("loadWebsite");
   }
 });
-
 
 //---------------------
 

@@ -27,6 +27,7 @@ div.page_about
 
 <script>
   import { mapGetter, mapActions , mapState } from 'vuex'
+
   export default {
       data() {return {
         sel_year: "year_2016"
@@ -51,7 +52,7 @@ div.page_about
           ));
         }
       },
-      computed: Vuex.mapState(['about_logs'])
+      computed: mapState(['about_logs'])
 
   }
 </script>

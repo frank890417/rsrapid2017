@@ -86,6 +86,7 @@ div.page_index
 </template>
 
 <script>
+import {mapState} from 'vuex';
     export default {
         data () {
           return {
@@ -215,7 +216,7 @@ div.page_index
 
 
         },
-        computed: Vuex.mapState(['news']),
+        computed: mapState(['news']),
         beforeDestroy() {
           clearInterval(this.timer);
         }

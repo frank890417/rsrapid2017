@@ -58,7 +58,7 @@ div.page_tern
           console.log('about mounted.')
           // if (Ts) Ts.reload();
       },
-      computed: Vuex.mapState(['about_logs'])
+      computed: mapState(['about_logs'])
 
   }
 </script>

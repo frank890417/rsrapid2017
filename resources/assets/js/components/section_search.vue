@@ -145,7 +145,7 @@ div.section_search
         has_match(){
           return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
-        ...Vuex.mapState(['solutions','news','techs','questions','search'])
+        ...mapState(['solutions','news','techs','questions','search'])
       }
   }
 </script>
