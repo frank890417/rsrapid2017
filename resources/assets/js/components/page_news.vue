@@ -59,7 +59,7 @@ export default {
         }
       },100);
       this.filter=this.cataname;
-      if (Ts) Ts.reload();
+      // if (Ts) Ts.reload();
     },
     data() {
       return {

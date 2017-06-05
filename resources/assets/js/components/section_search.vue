@@ -36,7 +36,7 @@ div.section_search
       mounted() {
           console.log('section_search mounted.');
           this.filter="";
-          if (Ts) Ts.reload();
+          // if (Ts) Ts.reload();
       },
       watch:{
         search(){

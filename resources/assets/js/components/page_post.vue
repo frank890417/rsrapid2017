@@ -63,7 +63,7 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
-      if (Ts) Ts.reload();
+      // if (Ts) Ts.reload();
     },
     methods: {
       bg_css(url){

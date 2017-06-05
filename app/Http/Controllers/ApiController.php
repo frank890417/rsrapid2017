@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\News;
 use App\Question;
+use App\Solution;
 class ApiController extends Controller
 {
     //
@@ -15,5 +16,8 @@ class ApiController extends Controller
     }
     function questions(){
       return Question::orderBy('stick_top','desc')->limit(3)->get();
+    }
+    function solutions(){
+      return Solution::all();
     }
 }

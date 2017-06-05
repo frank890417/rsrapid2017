@@ -52,7 +52,7 @@ div.page_service
     export default {
         mounted() {
             console.log('service mounted.');
-            if (Ts) Ts.reload();
+            // if (Ts) Ts.reload();
         }
     }
 </script>

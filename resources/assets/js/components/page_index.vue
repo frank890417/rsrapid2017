@@ -117,7 +117,7 @@ div.page_index
                 });
                 clearInterval(loader);
                 vobj.news_delta();
-                Ts.reload();
+                // Ts.reload();
               }
             },100);
             

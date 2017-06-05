@@ -34,7 +34,7 @@ section.section_solution
         props: ["id","slogan"],
         mounted() {
             console.log('solutions mounted.');
-            if (Ts) Ts.reload();
+            // if (Ts) Ts.reload();
         },
 
     }
