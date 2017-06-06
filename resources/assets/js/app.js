@@ -5,12 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import Vue from 'vue';
+import Vue from 'vue'
 
-require('./bootstrap');
-import store from './store';
-import router from './router';
-import {mapState} from 'vuex';
+require('./bootstrap')
+import store from './store'
+import router from './router'
+import {mapState} from 'vuex'
+import {TweenMax} from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 
 const app = new Vue({
   el: "#app",
@@ -23,6 +25,31 @@ const app = new Vue({
 });
 
 //---------------------
+
+//smooth scroll
+
+$(function(){ 
+
+  var $window = $(window);
+  var scrollTime = 1;
+  var scrollDistance = 120;
+
+  $window.on("mousewheel DOMMouseScroll", function(event){
+
+    event.preventDefault(); 
+
+    var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
+    var scrollTop = $window.scrollTop();
+    var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+
+    TweenMax.to($window, scrollTime, {
+      scrollTo : { y: finalScroll, autoKill:true },
+        ease: Power2.easeOut,
+        overwrite: 5              
+      });
+    console.log(finalScroll);
+  });
+});
 
 //數數動畫
 var scroll_delay=1000;
@@ -48,10 +75,13 @@ scroll
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  $(".bg_parallax").each((index,obj)=>{
-    // if ($(obj).offset())
-      $(obj).css("background-position","center "+(top_val-$(obj).offset().top)/1.50+"px");
-  });
+  if ($(".bg_parallax").length>0){
+    $(".bg_parallax").each((index,obj)=>{
+      // if ($(obj).offset())
+      if ($(obj).offset().top+$(obj).outerHeight()>top_val)
+        $(obj).css("background-position","center "+(top_val-$(obj).offset().top)/1.60+"px");
+    });
+  }
   if ($(".mountain").length>0){
     var of_t=$("#section_about_log").offset().top;
     var mobile_fix=(window_width<800)?100:0;
@@ -66,26 +96,28 @@ window.update_scroll=function update_scroll(top_val){
 
   }
 
-  //percet nt init
-  $(".percent.initial").each(function(index,obj){
-    // console.log("test");
-    // update element enter animation
-    if ($(obj).offset().top<top_val+window_height*0.9){
-      $(obj).removeClass("initial");
-      
-      var ed_val=1.0*$(obj).attr("data-target");
+  if ($(".percent.initial").length>0){
+    //percet nt init
+    $(".percent.initial").each(function(index,obj){
+      // console.log("test");
+      // update element enter animation
+      if ($(obj).offset().top<top_val+window_height*0.9){
+        $(obj).removeClass("initial");
+        
+        var ed_val=1.0*$(obj).attr("data-target");
 
-      var nowval=0;
-      var timer=setInterval(function(){
-        $(obj).html(Math.round(nowval));
-        if (nowval>=ed_val-0.2){
-          clearInterval(timer);
-        }else{
-          nowval+=(ed_val-nowval)*0.05;
-        }
-      },30);
-    }
-  });
+        var nowval=0;
+        var timer=setInterval(function(){
+          $(obj).html(Math.round(nowval));
+          if (nowval>=ed_val-0.2){
+            clearInterval(timer);
+          }else{
+            nowval+=(ed_val-nowval)*0.05;
+          }
+        },30);
+      }
+    });
+  }
 
     //update section content fadeIn
     $(".section_title.initial,.section_para").each(function(index,obj){
