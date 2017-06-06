@@ -18,7 +18,7 @@ div.section_search
                     p(v-html="d.content")
           li.search_count
             span 總共有 
-            span.color_theme {{has_match}} 
+            span.color_theme {{match_count}} 
             span 項結果
 
     
@@ -143,8 +143,11 @@ div.section_search
           }];
         },
         has_match(){
-          return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b))
-                && !(this.filter.length==1 && this.filter.test(/[a-zA-Z]{1}/g));
+          var patt = new RegExp("[a-zA-Z]{1}");
+          return this.match_count && !(this.filter.length==1 && patt.test(""+this.filter));
+        },
+        match_count(){
+          return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
         ...mapState(['solutions','news','techs','questions','search'])
       }
@@ -207,18 +210,22 @@ $color_grey_bg: #f4f5f5;
       margin-bottom: 15px;
     }
     
+    p{
+      line-height: 22px;
+      letter-spacing: 2px;
+    }
 
     &:last{
       border: none
     }
 
    
-    
     &.search_count{
       display: block;
-      padding-left: 15px;
+      padding: 15px ;
+      padding-left: 20px;
       flex-direction: row;
-      border:none
+      border:none;
     }
   }
   .match_list{
@@ -228,7 +235,7 @@ $color_grey_bg: #f4f5f5;
     width: 100%;
 
     li{
-      padding: 5px 20px;
+      padding: 15px 20px;
       transition: 0.5s;
       border-bottom: solid 1px #ddd;
 

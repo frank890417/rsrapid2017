@@ -57,7 +57,7 @@ window.update_scroll=function update_scroll(top_val){
     var mobile_fix=(window_width<800)?100:0;
     var mul=(window_width<800)?3:3;
     var vv=(+(-((top_val)+window_height*0.9-of_t)/mul))+mobile_fix;
-    console.log(vv);
+    // console.log(vv);
     if (vv>50) {
       vv=50
     };
@@ -107,6 +107,7 @@ function update_bullet(st){
   next_region=null;
 
   var last=null;
+  //偵測在哪個區域
   $( ".slide_bullet li").each(function(index,obj){
     var data_link = $( this ).attr("data-link");
     var tar_h=$( data_link ).height();
@@ -118,7 +119,7 @@ function update_bullet(st){
 
         now_region=data_link;
         pre_region=last;
-        console.log(now_region,pre_region);
+        // console.log(now_region,pre_region);
 
       }else{
         
