@@ -115,8 +115,10 @@ function update_bullet(st){
       if ($( data_link ).offset().top<=st+tar_h/2 &&
         $( data_link ).offset().top>=st-window_height/2){
         $( this ).addClass("active");
+
         now_region=data_link;
         pre_region=last;
+        console.log(now_region,pre_region);
 
       }else{
         
@@ -198,6 +200,8 @@ $( window ).ready(function(){
         console.log(direct);
         direction=direct;
         var target_block=(direct=='up')?pre_region:next_region;
+        if (!target_block) target_block = ".detail_footer";
+        console.log("target:"+target_block);
         if (target_block)
           $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
       }

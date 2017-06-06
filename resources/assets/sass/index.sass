@@ -52,9 +52,14 @@
     align-content: center
     justify-content: space-between
     background-position: center 0px
+    +rwd_sm
+      height: auto
+      padding-bottom: 0
+
     
     .row
       position: relative
+
     .index_slogan_area
       height: calc(100vh - #{$news_height})
       position: absolute;
@@ -67,6 +72,10 @@
       transform: translateX(-50%)
       +flex_center
       flex-direction: column
+      +rwd_sm
+        position: relative
+        height: auto
+
     h1
       letter-spacing: 15px
       margin-bottom: 0px
@@ -114,6 +123,10 @@
       transform: translateX(-50%)
       left: 50%
       +box_shadow
+
+      +rwd_sm
+        position: relative
+        width: 100%
   
 
     .news
@@ -345,19 +358,37 @@
       &:after
         font-size: 60px  
 
+    
     .page_index_main
-      min-height: 150vh
+      // min-height: 150vh
       background-size: cover
 
+      .news .col_infos
+       padding-bottom: 0
+
+
       .index_slogan_area
-        height: 70vh
+        height: 100vh
+        h1
+          font-size: 32px
+          span
+            display: block
+        h3
+          font-size: 22px
       .news_container
         width: 100%
         height: auto
+        position: relative
 
         .news
           flex-direction: column
           height: auto
+
+          .btns
+            position: relative
+            margin-bottom: grid_sz(0,1)
+            margin-top: grid_sz(0,1)
+
           .col_img
             order: -1
             width: 100%
