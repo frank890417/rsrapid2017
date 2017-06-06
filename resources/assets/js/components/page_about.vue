@@ -11,12 +11,12 @@ div.page_about
     .container.flex.column
       h1.section_title.text-center 大事記
       ul.nav_line_split.text-center
-        li(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
-        li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
+        li(@click="sel_year='year_2016'" ,:class="sel_year=='year_2016'?'active':''") 2016
+        li(@click="sel_year='year_2015'" ,:class="sel_year=='year_2015'?'active':''") 2015
       .logs_area.top_out
         transition(name="fade" mode="out-in")
-          div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
-            router-link.row.log_box(v-for="log in sort_year(about_logs[sel])" v-bind:key="log" v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
+          div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' ,:key="sel")
+            router-link.row.log_box(v-for="log in sort_year(about_logs[sel])" ,:key="log" v-on:click='to_href(log)' to="#")
               .col_cover
                 .cover_image(:style="'background-image:url('+log.cover+')'")
               .col_info
@@ -34,7 +34,7 @@ div.page_about
       }},
       mounted() {
           console.log('about mounted.')
-          if (Ts) Ts.reload();
+          //if (Ts) Ts.reload();
           // if (document.location.hash=="#section_about_log"){
           //   $("html, body").animate({ scrollTop: $(".section_about_log") }, "slow");
           // }

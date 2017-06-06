@@ -24,6 +24,7 @@
     bottom: grid_sz(0,5)
     right: grid_sz(0,3)
     vertical-align: middle
+    white-space: nowrap
     +trans
     &.initial
       opacity: 0
@@ -31,11 +32,12 @@
       font-family: "Lato","新黑體 L" , 'Noto Sans TC','微軟正黑體'
 
       content: "人"
-      font-weight: 500
+      font-weight: 400
       font-size: grid_sz(0,2.2)
       vertical-align: middle
       margin-top: -25px
       // padding-bottom: 50px
+
 
   .page_index_live .percent
     &:after
@@ -353,10 +355,16 @@
       min-height: 100vh
       height: auto
     
-    .percent
-      font-size: 100px  
-      &:after
-        font-size: 60px  
+    .page_index_live,.page_index_grow
+      .percent
+        font-size: 100px 
+        right: 0
+        bottom: 0
+        position: absolute
+        // margin-top: grid_sz(0,2)
+        margin-bottom: grid_sz(0,0)
+        &:after
+          font-size: 60px  
 
     
     .page_index_main
@@ -400,17 +408,10 @@
 
 
     .page_index_grow
-      .percent
-        right: grid_sz(0,2)
-        
-
       .col_left
         display: none
 
     .page_index_live
-      .percent
-        bottom: 0px
-        right: grid_sz(0,2)
       .col_right
         min-height: initial
         height: 0px
@@ -421,6 +422,8 @@
       display: block
       align-items: flex-start
 
+      .acc_sm_pic
+        white-space: nowrap
       .container.flex
         align-items: flex-start
         .col_left

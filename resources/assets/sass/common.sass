@@ -383,19 +383,20 @@ a
     background-color: rgba(white,0.4)
 
 
-//nav
+//nav 導覽列 
 //--------------------------
 
 nav
   $nav_height: grid_sz(0,3)
   +size(100%,$nav_height)
-
+  //固定上方的時候
   position: fixed
   top: 0
   font-size: 17px
   +colors_bg_text(white,$color_grey_dark)
   padding-top: grid_sz(0,1)/2
   border-top: solid 3px $color_theme
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
   z-index: 200
   +trans
 
@@ -594,6 +595,7 @@ nav
     max-width: 100%
 
 
+  //最小螢幕隱藏功能語言跟字大小
   +range_width(0px,400px)
     .navbar-nav
       .func_lang,.func_size
@@ -605,6 +607,7 @@ nav
       $nav_height_at_top: grid_sz(0,5)
       height: $nav_height_at_top
       padding: grid_sz(0,1)
+      box-shadow: none
 
       .navbar-search-input
         top: grid_sz(0,0.5)
@@ -720,6 +723,9 @@ footer
 
   +rwd_md
     height: auto
+    padding:
+      top: grid_sz(0,0.8)
+      bottom: grid_sz(0,0.8)
 
   .container.flex
     +flex_split("lr")
@@ -895,6 +901,8 @@ section.section_solution
     padding-bottom: $gutter_width*2
 
 
+
+//有三個區塊的footer
 //----------------------------------------------
 .detail_footer
   min-height: initial
@@ -903,12 +911,13 @@ section.section_solution
 
   .container
     align-items: flex-start
-    +range_width(0px,768px)
-      flex-direction: column
-    +range_width(0px,800px)
+    +rwd_md
       padding-left: grid_sz(0,1)
       padding-right: grid_sz(0,1)
 
+    +rwd_sm
+      flex-direction: column
+    
 
   .col_address
     width: grid_sz(4,3)
@@ -939,7 +948,8 @@ section.section_solution
   h5
     font-size: 20px
     color: $color_grey_dark
-    height: grid_sz(0,2)
+    // height: grid_sz(0,2)
+    margin-bottom: grid_sz(0,2)
 
   //--------
 

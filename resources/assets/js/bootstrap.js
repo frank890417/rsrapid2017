@@ -21,6 +21,8 @@ window.Vue = require('vue');
 window.VueRouter = require('vue-router');
 window.Vuex = require('vuex');
 
+window.slick= require('slick-carousel');
+require('slick-carousel');
 
 window.Dropzone = require('dropzone');
 /**

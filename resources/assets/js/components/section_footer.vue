@@ -6,8 +6,8 @@ div.footer
         img(src="/img/icon_arrow_up.svg")
       .col_address
         h5 公司資訊
-        h5 台北, 台灣
-
+        p 台北, 台灣
+        br
         p 231 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
         hr
         i.social_icon.fa.fa-facebook
@@ -18,7 +18,7 @@ div.footer
         ul.question_list
           li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
             .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
-            .question {{qa.question}}
+            p.question {{qa.question}}
             p.answer {{qa.answer}}
           
           li 
@@ -43,7 +43,7 @@ div.footer
         li
           router-link(to="/job") 人才招募
         li
-          a(href="#") 會員管理
+          a(href="#") 會員登入
         li
          router-link(to="/tern") 各項聲明
         li
