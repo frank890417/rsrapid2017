@@ -95,6 +95,7 @@
   .section_news
     align-items: top
 
+
     .container
       flex-wrap: wrap
 
@@ -161,6 +162,8 @@
           color: $color_theme
           font-weight: 300
     
+
+
     .nav_line_split
       margin-bottom: grid_sz(0,3)
       margin-left: auto
@@ -197,6 +200,14 @@
               opacity: 0
 
 
+    +rwd_sm
+      .catalist.nav_line_split
+        line-height: grid_sz(0,1.5)
+        li
+          margin-top: grid_sz(0,0.5)
+        margin-top: grid_sz(0,0)
+        margin-bottom: grid_sz(0,0)
+        white-space: no-wrap
             // margin-bottom: grid_sz(0,6)
 
 

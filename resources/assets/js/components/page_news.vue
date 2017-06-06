@@ -15,7 +15,7 @@ div.page_news
 
   section.section_news
     .container.flex.top_out
-      ul.nav_line_split.text-center
+      ul.nav_line_split.text-center.catalist
 
         li(@click='filter=cata' v-for="cata in catas" v-bind:class='filter==cata?"active":""') {{cata}}
         

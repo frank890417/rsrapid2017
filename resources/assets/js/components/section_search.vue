@@ -4,7 +4,7 @@ div.section_search
     .container.flex.column
       .input_area
         i.fa.fa-search
-        input(v-model="filter",v-on:click="show_search=true" placeholder="請輸入關鍵字(例 毒、檢測、塑化劑)... ")
+        input(v-model="filter",v-on:click="show_search = true" placeholder="請輸入關鍵字(例 毒、檢測、塑化劑)... ")
         i.fa.fa-times(v-on:click="hide_search")
       transition(name="fade")
         ul.search_list(v-if="has_match && show_search")
@@ -51,7 +51,7 @@ div.section_search
           var vobj=this;
           return obj.map(
                     (obj)=>{
-                      obj.content=obj.content.replace(new RegExp("<.*?>","g"),"").replace(new RegExp("\&mdash;"),"");
+                      obj.content=obj.content.replace(new RegExp("<.*?>","g"),"").replace(new RegExp("(\&mdash;|\&nbsp;)","g"),"");
                       
                       return obj;
                     }
@@ -143,7 +143,8 @@ div.section_search
           }];
         },
         has_match(){
-          return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
+          return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b))
+                && !(this.filter.length==1 && this.filter.test(/[a-zA-Z]{1}/g));
         },
         ...mapState(['solutions','news','techs','questions','search'])
       }
