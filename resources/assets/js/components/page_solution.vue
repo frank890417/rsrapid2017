@@ -1,9 +1,9 @@
 <template lang="jade">
 div.page_solution
   div(v-for="solu in [solutions[id]]")
-    section.section_hero.default_bg.bg_parallax
+    section.section_hero.default_bg.bg_parallax(v-if="solu.title")
       .container
-        h1.section_title(v-text="solu.title") 
+        h1.section_title {{solu.title}}
     section.section_solution_1
       .ab_center.size_full.bg_color_split
         .block_50_percent.bg_theme

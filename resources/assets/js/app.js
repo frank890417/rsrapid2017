@@ -128,6 +128,8 @@ window.update_scroll=function update_scroll(top_val){
 
     //update right side bullet
     update_bullet(top_val);
+
+    if (place_sub_nav) place_sub_nav();
 }
 
 //subscribe parallax top

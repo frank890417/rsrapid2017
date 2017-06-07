@@ -169,7 +169,9 @@ div
               });
             }
             place_sub_nav();
+            window.place_sub_nav=place_sub_nav;
             $(window).resize(place_sub_nav);
+
         },
         data(){
           return {

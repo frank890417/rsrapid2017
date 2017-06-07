@@ -25,7 +25,7 @@ section.section_solution
             .box_btn  
               router-link.btn.btn-primary(to="/solution/2") 了解更多
     h4.slogan {{ slogan?slogan:"我們為您制定周全的環境健檢計畫" }}
-    router-link.btn.btn-primary(to="/contact") 聯絡我們  
+    router-link.btn.btn-primary(to="/contact/-1") 聯絡我們  
 </template>
 
 <script>
