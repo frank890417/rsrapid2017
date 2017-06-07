@@ -366,13 +366,18 @@
       height: auto
     
     .page_index_live,.page_index_grow
+      height: auto
+      .col_left,.col_right
+        height: auto
+      .section_title
+        margin-top: grid_sz(0,1)
       .percent
         font-size: 100px 
         right: 0
         bottom: 0
-        position: absolute
-        // margin-top: grid_sz(0,2)
-        margin-bottom: grid_sz(0,0)
+        position: relative
+        margin-top: grid_sz(0,4)
+        // margin-bottom: grid_sz(0,0)
         &:after
           font-size: 60px  
 
@@ -384,7 +389,6 @@
       .news .col_infos
        padding-bottom: 0
 
-
       .index_slogan_area
         height: 100vh
         h1
@@ -393,10 +397,12 @@
             display: block
         h3
           font-size: 22px
+
       .news_container
         width: 100%
         height: auto
         position: relative
+        background-color: $color_theme
 
         .news
           flex-direction: column

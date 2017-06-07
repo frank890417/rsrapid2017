@@ -170,7 +170,7 @@ import {mapState} from 'vuex';
                   for(var i=0;i<len;i++){
                     var deg1=2*Math.PI*((i-1)/freq+pan+time*speed);
                     var deg2=2*Math.PI*(i/freq+pan+time*speed);
-                    var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/0.8))*0.2;
+                    var opacity= Math.pow(Math.E,-Math.abs(i-len*1)/(len/0.8))*0.2;
                     ctx.strokeStyle="rgba(63,191,187,"+opacity+")";
                     ctx.beginPath();
                     ctx.moveTo(i-1,panY+r*Math.sin(deg1));
