@@ -26,19 +26,19 @@ var section_search = Vue.component('section_search', require('../components/sect
 //routes
 
 const routes = [
-  { path: '/', component: page_index },
-  { path: '/about', component: page_about },
-  { path: '/tech', component: page_tech },
-  { path: '/solution/:id', component: page_solution , props: true},
-  { path: '/solution/0', alias: '/solution'},
-  { path: '/news', component: page_news },
-  { path: '/news/:id', component: page_post , props: true},
-  { path: '/news/cata/:cataname', component: page_news , props: true},
-  { path: '/job', component: page_job },
-  { path: '/contact', component: page_contact },
-  { path: '/contact/:selected', component: page_contact , props: true},
-  { path: '/tern', component: page_tern },
-  { path: '/search', component: section_search }
+  { path: '/', component: page_index , meta: {title: "首頁"}},
+  { path: '/about', component: page_about , meta: {title: "關於睿軒"}},
+  { path: '/tech', component: page_tech , meta: {title: "檢驗科技"}},
+  { path: '/solution/:id', component: page_solution , props: true, meta: {title: "檢測方案"}},
+  { path: '/solution/0', alias: '/solution', meta: {title: "檢測方案"}},
+  { path: '/news', component: page_news , meta: {title: "最新消息"}},
+  { path: '/news/:id', component: page_post , props: true, meta: {title: "最新消息"}},
+  { path: '/news/cata/:cataname', component: page_news , props: true, meta: {title: "最新消息"}},
+  { path: '/job', component: page_job , meta: {title: "人才招募"}},
+  { path: '/contact', component: page_contact , meta: {title: "聯絡我們"}},
+  { path: '/contact/:selected', component: page_contact , props: true, meta: {title: "聯絡我們"}},
+  { path: '/tern', component: page_tern , meta: {title: "各項聲明"}},
+  { path: '/search', component: section_search , meta: {title: "搜尋"}}
 ];
 
 const router = new VueRouter({
@@ -60,6 +60,7 @@ router.beforeEach((to, from, next) => {
   }else{
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
+  document.title = to.meta.title+" - 睿軒檢驗科技";
   next();
 });
 

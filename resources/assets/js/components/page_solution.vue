@@ -69,6 +69,7 @@ div.page_solution
         },
         mounted() {
             console.log('solution mounted.')
+            document.title=this.solutions[0].title+" - 睿軒檢驗科技";
             var vobj=this;
             $('.slick').each(function(index,obj){
               var tl=$($(obj).attr("data-timelime") + " .value");
