@@ -2,7 +2,7 @@
 div.page_post
   .slick
     section.section_hero(v-if='newsset' v-for='id in 2')
-      .bg.bg_parallax(:style="bg_css(newsset.cover)") 
+      .bg.bg_parallax.no_attach(:style="bg_css(newsset.cover)") 
       .container.flex
   
   section.section_post

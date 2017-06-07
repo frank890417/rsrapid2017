@@ -2,7 +2,7 @@
 div.page_news
   .slick
     section.section_hero(v-for='a_news in news.slice(0,5)')
-      .bg.bg_parallax(:style="bg_css(a_news.cover)") 
+      .bg.bg_parallax.no_attach(:style="bg_css(a_news.cover)") 
       .full
         .container.flex
           h5.tag {{a_news.tag}}

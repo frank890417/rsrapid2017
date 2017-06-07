@@ -28,28 +28,28 @@ const app = new Vue({
 
 //smooth scroll
 
-$(function(){ 
+// $(function(){ 
 
-  var $window = $(window);
-  var scrollTime = 1;
-  var scrollDistance = 120;
+//   var $window = $(window);
+//   var scrollTime = 1;
+//   var scrollDistance = 120;
 
-  $window.on("mousewheel DOMMouseScroll", function(event){
+//   $window.on("mousewheel DOMMouseScroll", function(event){
 
-    event.preventDefault(); 
+//     event.preventDefault(); 
 
-    var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
-    var scrollTop = $window.scrollTop();
-    var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+//     var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
+//     var scrollTop = $window.scrollTop();
+//     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
-    TweenMax.to($window, scrollTime, {
-      scrollTo : { y: finalScroll, autoKill:true },
-        ease: Power2.easeOut,
-        overwrite: 5              
-      });
-    // console.log(finalScroll);
-  });
-});
+//     TweenMax.to($window, scrollTime, {
+//       scrollTo : { y: finalScroll, autoKill:true },
+//         ease: Power2.easeOut,
+//         overwrite: 5              
+//       });
+//     // console.log(finalScroll);
+//   });
+// });
 
 //數數動畫
 var scroll_delay=1000;
@@ -78,8 +78,15 @@ window.update_scroll=function update_scroll(top_val){
   if ($(".bg_parallax").length>0){
     $(".bg_parallax").each((index,obj)=>{
       // if ($(obj).offset())
-      if ($(obj).offset().top+$(obj).outerHeight()>top_val)
-        $(obj).css("background-position","center "+(top_val-$(obj).offset().top)/1.60+"px");
+      if ( !$(obj).hasClass("no_attach") ){
+        if ($(obj).offset().top+$(obj).outerHeight()>top_val)
+          $(obj).css("background-position","center "+ -(top_val-$(obj).offset().top)/15+"px");
+        
+      }else{
+        if ($(obj).offset().top+$(obj).outerHeight()>top_val){
+          $(obj).css("background-position","center "+ (top_val-$(obj).offset().top)/1.6+"px");
+        };   
+      }
     });
   }
   if ($(".mountain").length>0){
@@ -134,7 +141,12 @@ window.update_scroll=function update_scroll(top_val){
 
 //subscribe parallax top
 scroll.subscribe(top_val=>update_scroll(top_val));
-
+// setInterval(function(){
+//   update_scroll(window.scrollY)
+// },parseInt(1000/60) );
+// window.webkitRequestAnimationFrame(function(){
+//   update_scroll(window.scrollY)
+// });
 //upadte bullet nav points
 function update_bullet(st){
   now_region=null;
@@ -236,7 +248,7 @@ $( window ).ready(function(){
         direction=direct;
         var target_block=(direct=='up')?pre_region:next_region;
 
-        if ($(window).scrollTop()+$(window).height()>=$(document).height()-20) target_block = ".section_solution";
+        if ($(document).scrollTop()+$(window).height()>=$(document).height()-20) target_block = ".section_solution";
         // console.log("target:"+target_block);
         if (target_block)
           $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");

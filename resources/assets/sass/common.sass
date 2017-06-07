@@ -285,6 +285,12 @@ section
 
 .bg_parallax
   background-size: auto 100%
+  // -webkit-backface-visibility: hidden
+  background-attachment: fixed
+  &.no_attach
+    background-attachment: initial
+
+
 .bg_parallax_about
   background-size: 100% auto
 .cover_image
