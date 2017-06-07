@@ -47,7 +47,7 @@ $(function(){
         ease: Power2.easeOut,
         overwrite: 5              
       });
-    console.log(finalScroll);
+    // console.log(finalScroll);
   });
 });
 
@@ -233,8 +233,9 @@ $( window ).ready(function(){
         console.log(direct);
         direction=direct;
         var target_block=(direct=='up')?pre_region:next_region;
-        if (!target_block) target_block = ".detail_footer";
-        console.log("target:"+target_block);
+
+        if ($(window).scrollTop()+$(window).height()>=$(document).height()-20) target_block = ".section_solution";
+        // console.log("target:"+target_block);
         if (target_block)
           $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
       }

@@ -9,7 +9,7 @@ div.page_contact
     .container.row.top_out
       ul.nav_line_split
         li.active 台灣
-      form.container.flex.row
+      form.container.flex.row#form_contact(v-on:submit.prevent="send_form")
         .col_left
           iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.4484040096263!2d121.53777491497817!3d24.984874983995326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801fed5f7da89%3A0x7bc696c73a47d7bf!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5YyX5paw6Lev5LiJ5q61MjA36Jmf!5e0!3m2!1szh-TW!2stw!4v1490774552681" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
         .col_right
@@ -28,9 +28,15 @@ div.page_contact
 
           .form-group
             textarea.form-control(rows=14 placeholder="訊息..." required name='ask_content')
+
           .form-group.text-right
-            button.btn.btn-primary(type="submit") 送出表單
-         
+            // button.btn.btn-primary(class="g-recaptcha"
+            // data-sitekey="6LcahSQUAAAAAKLP5ArsW2a-gxQpAoKrr5zWbjsE"
+            // data-callback="send_form" type="submit") 送出表單
+            button.btn.btn-primary(type="submit") 
+              span(v-if="sending")
+                span 傳送中...
+              span(v-else) 送出表單
       hr.footer_line
 
   
@@ -38,18 +44,35 @@ div.page_contact
 </template>
 
 <script>
+
     import { mapGetter, mapActions , mapState } from 'vuex'
+    // reCAPTCHA=require('recaptcha2')
+    // recaptcha=new reCAPTCHA({
+    //   siteKey:'6LclgSQUAAAAAI1FRcbFpz6Ul8W57-DXZCmyH4xK',
+    //   secretKey:'6LclgSQUAAAAALuGf4OcN-ChCJSJEqE3wNVMdJjk'
+    // })
     export default {
         props: ["selected"],
         data(){
           return {
-            selected_option: 0
+            selected_option: 0,
+            sending: false
           }
         },
         mounted() {
             console.log('contact mounted.');
             if (this.selected)
               this.selected_option=this.selected;
+            window.send_form=this.send_form;
         },
+        methods: {
+          send_form(){
+            var send_data=$("#form_contact").serialize();
+            // var send_data=$("#form_contact").submit();
+            console.log(send_data);
+            this.sending=true;
+
+          }
+        }
     }
 </script>

@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+    <link rel="stylesheet" href="https://loading.io/css/loading.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
   <body>
@@ -37,7 +38,7 @@
     @yield('blade_pass_variables')
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
-    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}

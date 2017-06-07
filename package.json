@@ -20,5 +20,16 @@
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "dropzone": "^4.3.0",
+    "gsap": "^1.19.1",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^6.0.0-15",
+    "laravel-elixir-vue-2": "^0.3.0",
+    "slick": "^1.12.2",
+    "slick-carousel": "^1.6.0",
+    "vue-router": "^2.5.3",
+    "vuex": "^2.3.1"
   }
 }
