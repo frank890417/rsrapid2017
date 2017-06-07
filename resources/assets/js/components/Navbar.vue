@@ -153,7 +153,9 @@ div
                 // var align_obj=$(obj);
                 var align_obj=$(".navbar-nav > li:first");
                 
-                container.css("padding-left",(align_obj.offset().left-$(".navbar .container").offset().left-10)+"px");
+                container.css("padding-left",(align_obj.offset().left)+"px");
+                container.css("margin-left","0px");
+                container.css("white-space","nowrap");
                 // if (index>=2 && index<=5){
                 //   content.css("margin-left",(-content.width()/2)+"px");
 
