@@ -22,9 +22,8 @@ div.page_contact
           .form-group
             label 諮詢
             select#select_contact(required name='ask_item', v-model="selected_option")
-              option(value="0") 校園環境健檢檢測計畫
-              option(value="1") 校園食材健檢檢測計畫
-              option(value="2") 農場作物自主管理檢測計畫
+              option(v-for="solu in solutions" ,:value="solu.id") {{solu.title}}
+              option(value="-1") 其他問題或服務
 
           .form-group
             textarea.form-control(rows=14 placeholder="訊息..." required name='ask_content')
@@ -39,7 +38,18 @@ div.page_contact
               span(v-else) 送出表單
       hr.footer_line
 
-  
+  section.section_qa
+    .container
+      h1.section_title 常見問題
+      .col_full
+        ul.question_list
+          li(v-for='(qa,id) in questions' v-bind:class="qa_state[id].open ?'active':''"  @click="toggle(id)")
+            .icon_open()
+            .top
+              h2 {{ (( id+1 <10)?'0':'') + (id+1) }}
+              p.question {{qa.question}}
+            .bottom
+              p.answer {{qa.answer}}
 
 </template>
 
@@ -56,7 +66,8 @@ div.page_contact
         data(){
           return {
             selected_option: 0,
-            sending: false
+            sending: false,
+            qa_state: new Array(100).fill({}).map((d,i)=>({open: i==0}))
           }
         },
         mounted() {
@@ -72,7 +83,21 @@ div.page_contact
             console.log(send_data);
             this.sending=true;
 
+          },
+
+          toggle (id){
+            this.qa_state.forEach((op,index)=>{
+              if (index==id) {
+                op.open = !op.open;
+              }else{ 
+                op.open = false;
+              }
+            });
+
           }
+        },
+        computed: {
+          ...mapState(['solutions','questions'])
         }
     }
 </script>

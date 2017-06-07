@@ -118,6 +118,85 @@
       border: solid 1px rgba($color_theme,1)
     // outline-style: solid
 
+  .section_qa
+    .section_title
+      text-align: center
+
+      margin-top: grid_sz(0,2)
+      margin-bottom: grid_sz(0,2)
+    .question_list
+
+      li 
+        background-color: #FBFBFB
+        margin-bottom: 10px
+        position: relative
+
+        $number_width: 42px
+        .top
+          display: flex
+          align-items: center
+          padding: grid_sz(0,1)
+          h2
+            margin-right: grid_sz(0,1)
+            width: $number_width
+            +trans
+          .question
+            font-size: 32px
+            font-weight: 300
+            +trans
+            +rwd_sm
+              font-size: 20px
+              line-height: 28px
+
+        .bottom
+          overflow: hidden
+          max-height: 0
+          padding:
+            left: grid_sz(0,2) + $number_width
+            right: grid_sz(0,1)
+          +trans
+
+        .icon_open
+          position: absolute
+          right: grid_sz(0,1)
+          top: 34px
+          cursor: pointer
+          z-index: 10
+          +size(30px)
+          +rwd_sm
+            display: none
+
+          &:before,&:after
+            content: ""
+            width: 30px
+            +ab_center
+            height: 2px
+            background-color: #aaa
+            +trans
+          &:after
+            transform: translate(-50%,-50%) rotate(90deg)
+
+
+        &.active
+          .question,h2
+            color: $color_theme
+          .bottom
+            max-height: 500px
+            padding:
+              bottom: grid_sz(0,1)
+          .icon_open
+            &:before,&:after
+              background-color: $color_theme
+            &:before
+              transform: translate(-50%,-50%) rotate(45deg)
+
+            &:after
+              transform: translate(-50%,-50%) rotate(135deg)
+
+
+    
+
+  
   #select_contact
     min-height: 40px
     height: 40px

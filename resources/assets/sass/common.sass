@@ -251,13 +251,18 @@ section
 
   .col_left,.col_right
     width: 50%
-    padding: grid_sz(0,1,10px)
+    padding: grid_sz(0,1)
     text-align: center
     height: 100%
     +flex_center
     flex-direction: column
     p
       text-align: left
+
+  .col_full
+    width: 100%
+    padding: grid_sz(0,1)
+
 
   +rwd_sm
     &.flex
