@@ -15,7 +15,7 @@
     font-size: 160px
     // opacity: 0.4
 
-    color: lighten($color_theme,30)
+    color: lighten($color_theme,24)
     letter-spacing: 0px
     vertical-align: middle
     // margin-bottom: 3*$gutter_width
@@ -25,22 +25,32 @@
     right: grid_sz(0,3)
     vertical-align: middle
     white-space: nowrap
+    +flex_center
+
+    span
+      font-weight: 300
+      vertical-align: middle     
+      display: block 
+    canvas
+      width: 200%
+      +ab_center
     +trans
     &.initial
       opacity: 0
-    &:after
+    span:after
       font-family: "Lato","新黑體 L" , 'Noto Sans TC','微軟正黑體'
-
+      display: inline-block 
+      
       content: "人"
       font-weight: 400
       font-size: grid_sz(0,2.2)
       vertical-align: middle
-      margin-top: -25px
+     
       // padding-bottom: 50px
 
 
   .page_index_live .percent
-    &:after
+    span:after
       content: "萬人"
 
 

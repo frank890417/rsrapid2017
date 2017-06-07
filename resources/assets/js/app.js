@@ -108,7 +108,7 @@ window.update_scroll=function update_scroll(top_val){
 
         var nowval=0;
         var timer=setInterval(function(){
-          $(obj).html(Math.round(nowval));
+          $(obj).children("span").html(Math.round(nowval));
           if (nowval>=ed_val-0.2){
             clearInterval(timer);
           }else{

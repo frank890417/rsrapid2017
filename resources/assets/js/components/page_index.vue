@@ -33,22 +33,26 @@ div.page_index
 
 
   section.page_index_grow.bg_parallax
-    canvas.wave
+    
     .container.flex
       .col_left
       .col_right
         h3.section_title 孩子成長的生活環境
         p.section_para.text-left 我們的生活環境有許多食安風險與汙染問題直接影響健康，這些有毒的化學物質被不肖業者濫用，使得我們的飲食與環境到處充斥具有危害與累積性毒素。<br><br>全世界每天有約5,500位兒童死於污染的水、空氣與食物所導致的疾病。
-        .percent.text-right(data-target=5500) 5500
+        .percent.text-right(data-target=5500) 
+          canvas.wave
+          span 5500
 
   section.page_index_live.bg_parallax
-    canvas.wave
+    
     .container.flex
       .col_left
         h3.section_title 從居家到工作環境
         p.section_para.text-left 近年來食安問題層出不窮，引發全民對食品安全的恐慌與疑慮。有鑒於食安事件中不乏多家知名大廠，凸顯了業者自主管理的漏洞。食品安全須從源頭管理做起，以保障民眾得到安全的食物來源。<br><br>根據估計，每年全球食安事件導致的死亡人數高達200萬人。
         router-link.btn.btn-primary(to='/tech') 了解更多
-        .percent.text-right(data-target=200) 200
+        .percent.text-right(data-target=200) 
+          canvas.wave
+          span 200
       .col_right
         
 
@@ -166,7 +170,7 @@ import {mapState} from 'vuex';
                   for(var i=0;i<len;i++){
                     var deg1=2*Math.PI*((i-1)/freq+pan+time*speed);
                     var deg2=2*Math.PI*(i/freq+pan+time*speed);
-                    var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/8))*0.2;
+                    var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/0.8))*0.2;
                     ctx.strokeStyle="rgba(63,191,187,"+opacity+")";
                     ctx.beginPath();
                     ctx.moveTo(i-1,panY+r*Math.sin(deg1));
@@ -174,9 +178,9 @@ import {mapState} from 'vuex';
                     ctx.stroke();
                   }
                 }
-                draw_wave( 30 , 600 , 0 , 0.0005 );
-                draw_wave( 30 , 800 , 20 , 0.00075 );
-                draw_wave( 30 , 1000 , 40 , 0.0009 );
+                draw_wave( 50 , 600 , 0 , 0.0005 );
+                draw_wave( 50 , 800 , 20 , 0.00075 );
+                draw_wave( 50 , 1000 , 40 , 0.0009 );
 
                 time++;
 
