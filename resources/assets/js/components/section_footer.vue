@@ -2,7 +2,7 @@
 div.footer
   section.detail_footer
     .container.flex
-      .go_to_topbtn.at_top
+      .go_to_topbtn(:class="{at_top: scrollTop<=0}")
         img(src="/img/icon_arrow_up.svg")
       .col_address
         h5 公司資訊
@@ -82,7 +82,7 @@ div.footer
             });
           }
         },
-        computed: mapState(['questions'])
+        computed: mapState(['questions','scrollTop'])
     }
 
 </script>

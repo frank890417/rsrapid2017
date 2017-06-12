@@ -13,7 +13,7 @@ import router from './router'
 import {mapState} from 'vuex'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
-import Rx from 'rxjs/Rx'
+// import Rx from 'rx'
 import $ from 'jquery'
 
 const app = new Vue({
@@ -67,16 +67,6 @@ var window_height= $(window).outerHeight();
 var scroll = Rx.Observable.fromEvent(document,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
-
-//Rx捲軸位置
-scroll
-  .map(top => top<=0)
-  .subscribe((at_top)=>{
-    if (at_top) 
-      $("nav,.go_to_topbtn").addClass("at_top");
-    else 
-      $("nav,.go_to_topbtn").removeClass("at_top");
-  });
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
@@ -208,17 +198,6 @@ $( window ).ready(function(){
   //initial bg parallax
   
 
-  //調整字體大小
-  // $(".func_size").click(function(){
-  //   var el=$(this);
-  //   if (!app.big_font){
-  //     app.big_font=true;
-  //     $(".question_list").css("font-size","18px");
-  //   }else{
-  //     app.big_font=false;
-  //     $(".question_list").css("font-size");
-  //   }
-      
   // });
   //回到最上面按鈕
   $(".go_to_topbtn").click(function(){
@@ -239,6 +218,7 @@ $( window ).ready(function(){
   update_bullet(0);
   //snap locker by Rxjs
   if (lock_scroll && window_height>900 && window_width>1200){
+    console.log("enable snap")
     //filter delta which bigger than thereshold and filter out twice down/up condition
     var source_page_nav=mousewheel.filter(
       delta=>((delta>50 && (direction=='down' || !scrolling))
@@ -254,7 +234,7 @@ $( window ).ready(function(){
         var target_block=(direct=='up')?pre_region:next_region;
 
         if ($(document).scrollTop()+$(window).height()>=$(document).height()-20) target_block = ".section_solution";
-        // console.log("target:"+target_block);
+        console.log("target:"+target_block);
         if (target_block)
           $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
       }

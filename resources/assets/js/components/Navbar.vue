@@ -53,7 +53,7 @@ div
         li(@click="toggle_open") 
           h4
             router-link(to="/contact") 聯絡我們
-  nav.navbar.at_top(:class="search?'search':''")
+  nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
     .container
       .row
         div.nav-leftpart
@@ -184,6 +184,6 @@ div
           },
           ...mapMutations(['toggle_size','toggle_search'])
         },
-        computed: mapState(["solutions","big_font","search"])
+        computed: mapState(["solutions","big_font","search","scrollTop"])
     }
 </script>

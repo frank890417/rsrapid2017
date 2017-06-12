@@ -100,7 +100,7 @@ export default new Vuex.Store({
   },
   actions: {
     loadWebsite(context){
-      $.get("http://www.rapidsuretech.com/api/news").then((res)=>{
+      $.get("/api/news").then((res)=>{
         console.log("news loaded (action)");
         context.commit("setNews",res);
       });
