@@ -1,0 +1,109 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href!=" {{url('manage/solution')}} ")方案管理
+        li.active 方案編輯-{!! isset($solution)?$solution->title:"" !!}
+    @yield('content')
+  .col-lg-12
+    h1.page-header 方案管理
+
+form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post").row
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading 方案設定
+      .panel-body
+        //.form-group
+          label 首頁置頂
+          br
+          .btn-group
+            label(for='stick_top')
+              | 置頂
+              input(type='radio', name='stick_top', value='1')
+            label(for='stick_top')
+              | 否
+              input(type='radio', name='stick_top', value='0')
+        .form-group
+          label(for='title') 方案名稱
+          input(id="title", name="title" ,class='form-control' value!='{!! isset($solution)?$solution->title:"" !!}')
+        .form-group
+          label(for='sub_title') 副標題
+          input(id="sub_title", name="sub_title" ,class='form-control' value!='{!! isset($solution)?$solution->sub_title:"" !!}')
+        
+
+        .form-group
+          label(for='sub_content') 方案說明
+          textarea(id="sub_content", name="sub_content" ,class='form-control',rows=9) {!! isset($solution)?$solution->sub_content:"" !!}
+    
+        .form-group
+          label(for='solution_area_slogan') 方案區塊對應文案
+          input(id="solution_area_slogan", name="solution_area_slogan" ,class='form-control',rows=2 , value!='{!! isset($solution)?$solution->solution_area_slogan:"" !!}')
+          
+        .form-group
+          button.btn.btn-danger.btn-md(type='submit') 儲存修改
+  .col-sm-9
+    .panel.panel-primary
+      .panel-heading 編輯方案-{{ (isset($solution))?$solution->id:'' }}
+      .panel-body
+      
+        input(type='hidden', name='_method', value="{{ (isset($solution))?'put':'post' }}")
+        input(type='hidden', name='_token', value!='{{ csrf_token() }}')
+
+        .form-group
+          label(for='test_item') 檢驗項目
+          textarea(id="test_item", name="test_item" ,class='form-control' ,rows=4) {!! isset($solution)?$solution->test_item:"" !!}
+        
+
+        .form-group
+          label(for='env') 適用環境
+          textarea(id="env", name="env" ,class='form-control',rows=4) {!! isset($solution)?$solution->env:"" !!}
+        
+
+        .form-group
+          label(for='schedule') 方案類型
+          textarea(id="schedule", name="schedule" ,class='form-control',rows=4) {!! isset($solution)?$solution->schedule:"" !!}
+        
+
+        .form-group
+          label(for='talk') 口碑
+          textarea(id="talk", name="talk" ,class='form-control' 
+          ) {!! isset($solution)?$solution->talk:"" !!}
+        br
+        br
+
+
+
+  script.
+    if (!window.data_storage){
+      window.data_storage={};
+    }
+    window.require_js={};
+    window.require_js.dropzone=true;
+    window.require_js.tinymce=true;
+
+    
+
+@endsection
+
+@section('require_js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js')
+  
+@endsection
+@section('require_js_after')
+  script.
+    $("#tag").val("{{isset($solution)?($solution->tag):''}}");
+    $(window).ready(function(){
+      var value={!! isset($solution)?$solution->stick_top:0 !!};
+      $("input[name=stick_top][value="+value+"]").attr("checked","checked");
+    });
+@endsection
+

@@ -89,3 +89,15 @@
       &:last-child
         border-right: none
       h5
+  .functions
+    display: none
+    margin-bottom: grid_sz(0,1)
+    margin-top: grid_sz(0,-1)
+    +rwd_sm
+      display: flex
+      .function
+        margin: 0 grid_sz(0,0.3)
+      +flex_center
+      .options
+        display: none
+        position: absolute

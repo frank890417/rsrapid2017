@@ -71,12 +71,10 @@
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 問答管理</a></li>
-        {{--          
-          a(href='charts.html')
-            svg.glyph.stroked.line-graph
-              use(xlink:href='#stroked-line-graph')
-            |  Charts
-        --}}
+        <li><a href="{{ url('manage/solution') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 方案管理</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table

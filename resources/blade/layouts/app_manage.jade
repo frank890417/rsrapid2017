@@ -73,11 +73,11 @@ html(lang="{{ config('app.locale') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  問答管理
-        //- li
-          a(href='charts.html')
-            svg.glyph.stroked.line-graph
-              use(xlink:href='#stroked-line-graph')
-            |  Charts
+        li
+          a(href!="{{ url('manage/solution') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  方案管理
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table

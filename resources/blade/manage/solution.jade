@@ -1,0 +1,57 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 方案管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 方案管理
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading 方案管理
+      .panel-body
+        
+        table.table.table-hover
+          thead
+            th 編號
+            th 問題
+            th 描述
+            th 副標
+            th 更新時間
+            th 編輯
+            th 刪除
+          tbody 
+          //- pre
+            {{$solutions}}
+          @foreach ($solutions as $solution)
+            tr
+              td(style="width: 5%") {{$solution->id}}
+              td(style="width: 15%") {{$solution->title}}
+              td(style="width: 20%") {{$solution->sub_title}}
+              td(style="width: 50%") {{$solution->sub_content}}
+              td(style="width: 50%") {{$solution->description}}
+              td(style="width: 20%") {{$solution->updated_at}}
+              td(style="width: 5%")
+                a.btn.btn-default(href!="{{ url('manage/solution/'.($solution->id).'/edit') }}") 編輯
+              td(style="width: 5%")
+                button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_solution_{{$solution->id}}').submit();}") 刪除
+                form(id!='delete_solution_{{$solution->id}}', action!="{{url('manage/solution/'.$solution->id)}}", method='POST')
+                  input(type='hidden', name='_method', value='delete')
+                  input(type='hidden', name='_token', value='{{ csrf_token() }}')
+          @endforeach
+        br
+        a.btn.btn-primary(href!="{{ url('manage/solution/create') }}") 新增方案
+        br
+
+
+@endsection

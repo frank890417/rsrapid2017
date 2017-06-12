@@ -20,6 +20,7 @@ Route::get('manage/news','NewsController@index');
 
 Route::resource('manage/news','NewsController');
 Route::resource('manage/question','QuestionController');
+Route::resource('manage/solution','SolutionController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
