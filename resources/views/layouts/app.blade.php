@@ -18,13 +18,10 @@
       ]) !!};
     </script>
     <!--新黑體-->
-    <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/apiscript/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script>
-
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
-    <link rel="stylesheet" href="https://loading.io/css/loading.css">
+    {{-- <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/apiscript/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script> --}}
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
   </head>
   <body>
     <div id="app" :class="big_font?'big_font':''">
@@ -39,13 +36,13 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')
     <script type="text/javascript" src="/js/slick.min.js"></script>
   </body>
   <script>
+    //live reload
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
     ':35729/livereload.js?snipver=1"></' + 'script>');
   </script>

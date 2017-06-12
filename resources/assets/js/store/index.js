@@ -8,6 +8,7 @@ export default new Vuex.Store({
     questions: [],
     big_font: false,
     search: false,
+    scrollTop: 0,
     about_logs: {
       year_2015: [
         {
@@ -92,11 +93,14 @@ export default new Vuex.Store({
     toggle_search(state){
       state.search=!state.search;
       console.log("toggle search");
-    }
+    },
+    set_scrollTop(state,value){
+      state.scrollTop=value;
+    },
   },
   actions: {
     loadWebsite(context){
-      $.get("/api/news").then((res)=>{
+      $.get("http://www.rapidsuretech.com/api/news").then((res)=>{
         console.log("news loaded (action)");
         context.commit("setNews",res);
       });

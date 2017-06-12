@@ -13,6 +13,8 @@ import router from './router'
 import {mapState} from 'vuex'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
+import Rx from 'rxjs/Rx'
+import $ from 'jquery'
 
 const app = new Vue({
   el: "#app",
@@ -21,6 +23,9 @@ const app = new Vue({
   computed: mapState(['news','about_logs','big_font']),
   mounted(){
      store.dispatch("loadWebsite");
+     $(window).scroll((evt)=>{
+        store.commit("set_scrollTop",$(window).scrollTop())
+     });
   }
 });
 
