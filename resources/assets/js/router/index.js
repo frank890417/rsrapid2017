@@ -61,6 +61,9 @@ router.beforeEach((to, from, next) => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
   document.title = to.meta.title+" - 睿軒檢驗科技";
+  if (window.ga){
+    ga('send', 'pageview');
+  }
   next();
 });
 

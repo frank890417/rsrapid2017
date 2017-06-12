@@ -11,8 +11,8 @@ div.footer
         p 231 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
         hr
         i.social_icon.fa.fa-facebook
+        i.social_icon.fa.fa-weibo
         i.social_icon.fa.fa-google-plus
-
       .col_question
         h5 常見問題
         ul.question_list
