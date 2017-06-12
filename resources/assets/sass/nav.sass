@@ -1,0 +1,351 @@
+//nav 導覽列 / section_search 搜尋列css
+//--------------------------
+
+@import "_variables"
+
+nav
+  $nav_height: grid_sz(0,3)
+  +size(100%,$nav_height)
+  //固定上方的時候
+  position: fixed
+  top: 0
+  font-size: 17px
+  +colors_bg_text(white,$color_grey_dark)
+  padding-top: grid_sz(0,1)/2
+  padding-left: grid_sz(0,1)
+  border-top: solid 3px $color_theme
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
+  z-index: 200
+  +trans
+
+  *,a
+    color: $color_grey
+    text-decoration: none
+    font-weight: 400
+
+  .row
+    display: flex
+    width: 100%
+    justify-content: space-between
+
+  //---
+  .navbar-header
+    width: grid_sz(3,2)
+    +range_width(0px,800px)
+      // padding-left: grid_sz(0,0.8)
+    img
+      height: 50px
+      +trans
+    +rwd_md
+      width: grid_sz(2,2)
+
+  .nav-leftpart
+    position: relative
+    vertical-align: middle
+    > *
+      display: inline-block
+      vertical-align: top
+
+  .navbar-search
+    .highlight
+      // background-color: red
+      // color: white
+      padding: 2px 1px 4px 1px
+      border-bottom: solid 2px $color_theme
+
+  .navbar-search-input
+    position: absolute
+    top: grid_sz(0,0.5)
+    width: 100%
+    max-width: grid_sz(7,6)
+    pointer-events: none
+    opacity: 0
+    +trans
+    +rwd_sm
+      width: 100vw
+      left: 0px
+      // height: grid_sz(0,4)
+      background-color: $color_white
+      // box-shadow: 0px 0px 0px 20px white
+      top: grid_sz(0,0.25)
+      margin-bottom: grid_sz(0,0.25)
+    input
+      width: calc(100% - #{grid_sz(0,2)})
+      // box-shadow: 0px 0px 0px 5px white
+      border: none
+      // border: solid 1px #ccc
+      padding: 12px 12px
+      // border-radius: 30px
+      padding-left: 50px
+      letter-spacing: 1px
+      &::placeholder
+        opacity: 0.4
+      +rwd_sm
+        margin-left: grid_sz(0,1)
+    i.fa-search
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      z-index: 20
+      left: 15px
+      +rwd_sm
+        left: 39px
+    i.fa-times
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      z-index: 20
+      right: 15px
+      left: initial
+      cursor: pointer
+      +rwd_sm
+        right: 39px
+
+
+
+  .navbar-left
+    margin-left: grid_sz(0,1)
+    // width: grid_sz(7,6)
+    width: auto
+
+  .navbar-right
+    width: grid_sz(2,2)
+    display: flex
+    justify-content: flex-end
+    align-items: space-between
+
+  .navbar-left,.navbar-right
+    margin-top: grid_sz(0,1)/2
+    +trans
+
+  //---
+  
+  
+
+  .navbar-nav li
+    list-style: none
+    display: inline-block
+    margin-right: grid_sz(0,1)
+
+    & a.router-link-active
+      +colors_bg_text(transparent,$color_theme)
+      border-bottom: solid 1px $color_theme
+      &:hover
+        color: $color_theme
+        background-color: transparent
+
+    & > a
+      padding-bottom: 6px
+      border-bottom: solid 1px transparent
+      +trans
+
+
+    & ul.subnav
+      width: 100vw
+      position: fixed
+      +pos(0,$nav_height)
+      opacity: 0
+      overflow: hidden
+      max-height: 0px
+      height: 0px
+      transition: 0.5s 0.1s, top 0.5s 0s
+      text-align: center
+      background-color: rgba($color_theme,0.9)
+      li
+        margin: 0
+        border-bottom: none
+        cursor: pointer
+        
+        +trans
+        &:nth-child(2n)
+          margin-left: grid_sz(0,1)
+          margin-right: grid_sz(0,1)
+        a
+          text-decoration: none
+          border-bottom: transparent
+          color: rgba(white,0.8)
+          +trans
+        &:hover a
+          color: rgba(white,0.9)
+      .container
+        justify-content: flex-start
+
+    &:hover
+      a
+        border-bottom: solid 1px $color_theme
+      .subnav
+        max-height: 200px
+        height: grid_sz(0,3)
+        opacity: 1
+        z-index: 100      
+        padding: grid_sz(0,1) 0px
+        a.router-link-active
+          color: white
+
+  .func_burger,.func_search,.func_lang
+    cursor: pointer
+    &,i,span
+      +trans
+    &:hover
+      &,i,span
+        color: $color_theme
+
+  
+
+  +range_width(0px,1080px)
+    
+    // .navbar-nav
+    //   .func_lang,.func_search
+    //     display: none
+    .row
+      justify-content: space-between
+    .nav-right
+      justify-content: flex-end
+
+
+  +range_width(0px,1100px)
+    .navbar-nav.navbar-left
+      display: none
+        
+
+  +range_width(0px,800px)
+    width: 100%
+    max-width: 100%
+
+
+  //最小螢幕隱藏功能語言跟字大小
+  +range_width(0px,400px)
+    .navbar-nav
+      .func_lang,.func_size
+        display: none
+
+  //---- when at top of the page
+  +range_width(800px,3000px)
+    &.at_top
+      $nav_height_at_top: grid_sz(0,5)
+      height: $nav_height_at_top
+      padding: grid_sz(0,1)
+      box-shadow: none
+
+      .navbar-search-input
+        top: grid_sz(0,0.5)
+
+      .navbar-header
+        width: grid_sz(3,2)
+        img
+          height: 65px
+
+      .navbar-left,.navbar-right
+        margin-top: grid_sz(0,1)
+      
+
+      .navbar-nav li
+        & ul.subnav
+          +pos(0,$nav_height_at_top)
+  &.search
+    .navbar-search-input
+      pointer-events: initial
+      opacity: 1
+    .navbar-left
+      pointer-events: none
+      opacity: 0
+
+
+
+  .func_size
+    padding-top: 3px
+    filter: saturate(100%) brightness(1) contrast(1)
+    +trans
+    &:hover
+      filter: saturate(0%) brightness(0.7) contrast(5)
+    .icon_big,.icon_small
+      cursor: pointer
+
+
+.section_search
+    
+  input
+    outline: none
+    background-color: lighten($color_theme,43)
+    border-radius: 3px
+    padding: 10px
+
+  .color_theme
+    color: $color_theme
+
+  .navbar-search
+    display: flex
+    flex-direction: column
+    width: 100%
+    z-index: 500
+
+    .input_area
+      width: 100%
+    
+
+  .search_list
+    width: 100%
+    padding: 24px 0px 0px 0px
+    background-color: #FFF
+    box-shadow: 0px 0px 12px rgba(black,0.1)
+    max-height: 70vh
+    overflow-y: scroll
+
+  .search_list > li
+    display: flex
+    flex-direction: column
+    padding: 10px 0px 0px 0px
+    transition: 0.5s
+
+
+    h5
+      margin-bottom: 10px
+    
+    h5+p
+      font-size: 14px
+      opacity: 0.8
+    
+    .cata
+      padding-left: 20px
+      color: $color_theme
+      margin-bottom: 15px
+    
+    
+    p
+      line-height: 22px
+      letter-spacing: 2px
+    
+
+    &:last
+      border: none
+    
+
+   
+    &.search_count
+      display: block
+      padding: 15px 
+      padding-left: 20px
+      flex-direction: row
+      border:none
+    
+
+  .match_list
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    width: 100%
+
+    li
+      padding: 15px 20px
+      transition: 0.5s
+      border-bottom: solid 1px #ddd
+
+      &:hover
+        background-color: rgba($color_theme,0.1)
+
+      
+    
+
+    li,.match
+      width: 100%
+      display: block

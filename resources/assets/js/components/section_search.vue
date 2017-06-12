@@ -34,7 +34,7 @@ div.section_search
         }
       },
       mounted() {
-          console.log('section_search mounted.');
+          console.log('section_search mounted.')
           this.filter="";
           // if (Ts) Ts.reload();
       },
@@ -154,102 +154,6 @@ div.section_search
   }
 </script>
 
-<style scoped lang="sass">
-// color variables
-$color_theme: #3FBFBB;
-$color_white: #fff;
-$color_grey: #555;
-$color_grey_light: #777;
-$color_grey_dark: #333;
-$color_grey_bg: #f4f5f5;
-  
-  input{
-    outline: none;
-    background-color: lighten($color_theme,43);
-    border-radius: 3px;
-    padding: 10px
-  }
-  .color_theme{
-    color: $color_theme;
-  }
-  .navbar-search{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    z-index: 500;
-
-    .input_area{
-      width: 100%;
-    }
-  }
-  .search_list{
-    width: 100%;
-    padding: 24px 0px 0px 0px;
-    background-color: #FFF;
-    box-shadow: 0px 0px 12px rgba(black,0.1);
-    max-height: 70vh;
-    overflow-y: scroll;
-  }
-  .search_list > li{
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0px 0px 0px;
-    transition: 0.5s;
-
-
-    h5{
-      margin-bottom: 10px
-    }
-    h5+p{
-      font-size: 14px;
-      opacity: 0.8;
-    }
-    .cata{
-      padding-left: 20px;
-      color: $color_theme;
-      margin-bottom: 15px;
-    }
-    
-    p{
-      line-height: 22px;
-      letter-spacing: 2px;
-    }
-
-    &:last{
-      border: none
-    }
-
-   
-    &.search_count{
-      display: block;
-      padding: 15px ;
-      padding-left: 20px;
-      flex-direction: row;
-      border:none;
-    }
-  }
-  .match_list{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-
-    li{
-      padding: 15px 20px;
-      transition: 0.5s;
-      border-bottom: solid 1px #ddd;
-
-      &:hover{
-        background-color: rgba($color_theme,0.1);
-
-      }
-    }
-
-    li,.match{
-      width: 100%;
-      display: block;
-
-    }
-  }
+<style scoped lang="sass?indentedSyntax">
 
 </style>

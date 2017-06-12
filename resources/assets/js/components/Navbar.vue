@@ -5,128 +5,52 @@ div
     .container
       img.headerimg(src="/img/Rapid.png")
       ul.main_list
-        li 
-          h4 關於睿軒
-          ul.sub_list
-            li(@click="toggle_open")
-              router-link( to="/about#section_about_from") 睿軒源起
-            li(@click="toggle_open")
-              router-link( to="/about#section_about_log") 睿軒大事紀
-        li 
-          h4 檢驗科技
-          ul.sub_list
-            li(@click="toggle_open") 
-              router-link( to="/tech") 快檢平台
-            li(@click="toggle_open") 
-              router-link( to="/tech") 快檢平台
-        li 
-          h4 檢測方案
-          ul.sub_list
-            li(@click="toggle_open") 
-              router-link( to="/solution/0") 校園環境健檢
-            li(@click="toggle_open")
-              router-link( to="/solution/1") 校園食材健檢
-            li(@click="toggle_open") 
-              router-link( to="/solution/2") 農場作物自主管理
-        li 
-          h4 最新消息
-          ul.sub_list
-            // li(@click="toggle_open") 
-              router-link( to="/news/cata/全部新聞") 全部新聞
-            li(@click="toggle_open") 
-              router-link( to="/news/cata/睿軒活動") 睿軒活動
-            li(@click="toggle_open") 
-              router-link( to="/news/cata/新聞快訊") 新聞快訊
-            li(@click="toggle_open") 
-              router-link( to="/news/cata/食安新知") 食安新知
-            li(@click="toggle_open") 
-              router-link( to="/news/cata/友善連結") 友善連結
-        li(@click="toggle_open") 
+        li(v-for="main_tag in maked_nav_structure")
           h4 
-            a(href="#") 會員服務
-        li(@click="toggle_open") 
-          h4 
-            router-link(to="/job") 人才招募
-        li(@click="toggle_open") 
-          h4 
-            router-link(to="/tern") 各項聲明
-        li(@click="toggle_open") 
-          h4
-            router-link(to="/contact") 聯絡我們
+            router-link(:to="main_tag.link") {{main_tag.tag}}
+          ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
+            li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
+              router-link( :to="sub_tag.link") {{sub_tag.tag}}
+
   nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
     .container
       .row
         div.nav-leftpart
-          
+          //logo          
           .navbar-header.col-sm-3
-            // Collapsed Hamburger
-
-            // Branding Image
             router-link.navbar-brand(to="/")
               img.logo(src="/img/Rapid.png")
           .navbar-search-input
             section_search
 
-          // Left Side Of Navbar
+          // 使用 nav_structure自動產生選單
           ul.navbar-nav.navbar-left.text-left
-            // Authentication Links
-            li
-              a(href="#") 關於睿軒
-              ul.subnav
+            li(v-for="main_tag in maked_nav_structure"
+               v-if="!main_tag.hide_navbar")
+
+              //選擇性產生router-link或a(#)
+              a(v-if="main_tag.link=='#'") {{main_tag.tag}}
+
+              router-link(:to="main_tag.link" v-if="main_tag.link!='#'") {{main_tag.tag}}
+
+              //子選單
+              ul.subnav(v-if="main_tag.childs && main_tag.childs.length>0")
                 .container.flex
                   div.options
-                    li 
-                      router-link(to="/about#section_about_from") 睿軒源起
-                    li 
-                      router-link(to="/about#section_about_log") 睿軒大事紀
-            li
-              a(href="#") 檢驗科技
-              ul.subnav
-                .container.flex
-                  div.options
-                    li 
-                      router-link(to="/tech") 快檢平台
-            li
-              a(href="#") 檢測方案
-              ul.subnav
-                .container.flex
-                  div.options
-                    li(v-for='(sol,id) in solutions')
-                      router-link(:to="'/solution/'+id") {{sol.title.replace('計畫','')}}
-            li
-              a(href="#") 最新消息
-              ul.subnav
-                .container.flex
-                  div.options
-                    //li 
-                      router-link(to="/news/cata/全部新聞") 全部新聞
-                    li 
-                      router-link(to="/news/cata/睿軒活動") 睿軒活動
-                    li 
-                      router-link(to="/news/cata/新聞快訊") 新聞快訊
-                    li 
-                      router-link(to="/news/cata/食安新知") 食安新知
-                    li 
-                      router-link(to="/news/cata/友善連結") 友善連結
-                    
-            li
-              router-link(to="/contact")  聯絡我們
-            
+                    li(v-for="sub_tag in main_tag.childs")
+                      router-link(:to="sub_tag.link") {{sub_tag.tag}}
+
+        //右半部語言跟功能選單
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
             a(href="#")
               span 繁
               i.fa.fa-angle-down 
-            ul.subnav(style="display: none")
+            ul.subnav
               .container
                 div.options
-                  li 
-                    router-link(to="#") 繁
-                  li 
-                    router-link(to="#") 简
-                  li 
-                    router-link(to="#") EN
-
+                  li(v-for = "l in lang")
+                    router-link(to="#") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
@@ -135,10 +59,12 @@ div
 
           li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
+
 </template>
 
 <script>
     import {mapState,mapMutations} from 'vuex'
+    import nav_structure from '../nav_structure'
     export default {
         mounted() {
             console.log('navbar mounted.');
@@ -172,10 +98,14 @@ div
             window.place_sub_nav=place_sub_nav;
             $(window).resize(place_sub_nav);
 
+            
         },
         data(){
           return {
             open_full: false,
+            open_lang: false,
+            nav_structure,
+            lang: [{name: "繁"},{name: "简"},{name: "EN"}]
           }
         },
         methods:{
@@ -184,6 +114,26 @@ div
           },
           ...mapMutations(['toggle_size','toggle_search'])
         },
-        computed: mapState(["solutions","big_font","search","scrollTop"])
-    }
+        computed: {
+          ...mapState(["solutions","big_font","search","scrollTop"]),
+
+          maked_nav_structure(){
+            if (this.solutions.length>0){
+              var options = this.solutions.map((obj)=>({
+                tag: obj.title.replace('計畫',''), 
+                link: '/solution/'+obj.id
+              }));
+              console.log(this.solutions);
+
+              this.nav_structure
+                .filter((obj)=>obj.tag == "檢測方案")[0]
+                .childs = options;
+
+              return this.nav_structure;
+            }else{
+              return this.nav_structure
+            }
+        }
+      }
+  }
 </script>
