@@ -20,7 +20,7 @@ div.page_news
         li(@click='switch_cata(cata)' v-for="cata in catas" v-bind:class='filter==cata?"active":""') {{cata}}
         
     transition-group(name="fade",mode="out-in")
-      transition-group.container.flex(v-for='cata in catas' ,:key="cata" v-if="cata==filter" tag="div",name="fade")
+      transition-group.container.flex(v-for='cata in catas' ,:key="cata" v-if="cata==filter" tag="div",name="fade", mode="out-in")
         .news_box.section_para(v-for='(a_news,id) in filtered_news.slice(0,show_num)' ,:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''" onclick="void(0)", :key="a_news")
           .cover(:style="bg_css(a_news.cover)") 
           .info
