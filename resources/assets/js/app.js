@@ -9,6 +9,7 @@ require('es6-promise').polyfill();
 
 import Vue from 'vue'
 
+import $ from 'jquery'
 require('./bootstrap')
 import store from './store'
 import router from './router'
@@ -16,7 +17,6 @@ import {mapState} from 'vuex'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 // import Rx from 'rx'
-import $ from 'jquery'
 
 const app = new Vue({
   el: "#app",
