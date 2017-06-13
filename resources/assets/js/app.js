@@ -1,6 +1,4 @@
-require("babel-polyfill")
-var Promise = require("es6-promise").Promise;
-require('es6-promise').polyfill();
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
