@@ -1,6 +1,5 @@
 //共用模組css
 
-@import "_variables"
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
 @import url(//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css)
 @import url(//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css)
@@ -345,14 +344,27 @@ section
     color: $color_theme
     border-color: $color_white
 
-@mixin cover_opacity($color: black)
-  display: block
-  content: ""
-  position: absolute
-  +size(100%,100%)
-  left: 0
-  top: 0
-  background-color: $color
+
+@for $i from 1 through 12
+  +range_width(0px,$break_lg)
+    .flex_lg_#{$i}
+      width: calc( $i * 100% / 12)
+
+  +range_width(0px,$break_md)
+    .flex_md_#{$i}
+      width: calc( $i * 100% / 12)
+
+  +range_width(0px,$break_sm)    
+    .flex_sm_#{$i}
+      width: calc( $i * 100% / 12)
+
+  @for $o from 1 through 12
+    .flex_md_#{$i}_sm_#{$o}
+      +range_width(0px,$break_md)
+        width: calc( $i * 100% / 12)
+      +range_width(0px,$break_sm)    
+        width: calc( $o * 100% / 12)
+
 
 //----------------
 // canvas

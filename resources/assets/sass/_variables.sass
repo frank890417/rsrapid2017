@@ -22,20 +22,20 @@ $column_width: 72px
 $nav_height: 80px
 
 //mixins
-@mixin size($w,$h:$w)
+=size($w,$h:$w)
   width: $w
   height: $h
 
-@mixin pos($x,$y)
+=pos($x,$y)
   left: $x
   top: $y
 
-@mixin ab_pos($x,$y)
+=ab_pos($x,$y)
   position: absolute
   left: $x
   top: $y
 
-@mixin flex_split($mode)
+=flex_split($mode)
   display: flex
   justify-content: space-between
 
@@ -45,24 +45,24 @@ $nav_height: 80px
     flex-direction: column
 
   
-@mixin flex_center
+=flex_center
   display: flex
   justify-content: center
   align-items: center
 
-@mixin full
+=full
   +size(100%,100%)
 
 .full
   +full
 
-@mixin ab_full
+=ab_full
   position: absolute
   left: 0
   top: 0
   +size(100%,100%)
 
-@mixin pseudo_ab_full
+=pseudo_ab_full
   content: ""
   display: block
   +ab_full
@@ -76,12 +76,12 @@ $nav_height: 80px
 @function grid_sz($c,$g:0,$p:0)
   @return $c*$column_width+$g*$gutter_width+$p
 
-@mixin paragraph_size_leading($fz,$lh:$fz*1.5,$sp:0)
+=paragraph_size_leading($fz,$lh:$fz*1.5,$sp:0)
   font-size: $fz
   line-height: $lh
   letter-spacing: $sp
 
-@mixin ab_center
+=ab_center
   position: absolute
   left: 50%
   top: 50%
@@ -90,15 +90,15 @@ $nav_height: 80px
 .ab_center
   +ab_center
 
-@mixin flex_center
+=flex_center
   display: flex
   align-items: center
   justify-content: center
 
-@mixin bg_theme
+=bg_theme
   background-color: $color_theme
 
-@mixin colors_bg_text($c1,$c2: false,$c3: false)
+=colors_bg_text($c1,$c2: false,$c3: false)
   background-color: $c1
   @if ($c2)
     color: $c2
@@ -109,13 +109,13 @@ $nav_height: 80px
 .bg_theme
   +bg_theme
 
-@mixin bg_grey
+=bg_grey
   background-color: $color_grey
 
 .bg_grey
   +bg_grey
 
-@mixin bg_white
+=bg_white
   background-color: $color_white
 
 .bg_white
@@ -124,16 +124,16 @@ $nav_height: 80px
 .border_theme
   border: solid 1px $color_theme
 
-@mixin box_shadow
+=box_shadow
   box-shadow: 0px 0px 20px rgba(0,0,0,.3)
 
-@mixin pos_fixed_bottom
+=pos_fixed_bottom
   position: absolute
   bottom: 0
   left: 50%
   transform: translateX(-50%)
 
-@mixin bg_block($el:'before',$place:'left',$color: $color_theme)
+=bg_block($el:'before',$place:'left',$color: $color_theme)
   &:#{$el} 
     content: ""
     display: block
@@ -144,7 +144,7 @@ $nav_height: 80px
       left: 0px
     @else
       right: 0px
-    @endif
+    
     top: 0
     background-color: $color
     opacity: 0.8
@@ -158,37 +158,37 @@ $nav_height: 80px
       @else
         top: initial
         bottom: 0px
-      @endif
+      
 
 .size_full
   +size(100%,100%)
 
 //RWD
 
-@mixin range_width($min: 0,$max: $min)
+=range_width($min: 0,$max: $min)
   @if ($max==$min)
     @media screen and (min-width: $min)
       @content
   @else
     @media screen and (max-width: $max - 1px) and (min-width: $min) 
       @content
-  @endif
+  
 
-@mixin range_height($min: 0,$max: $min)
+=range_height($min: 0,$max: $min)
   @if ($max==$min)
     @media screen and (min-height: $min)
       @content
   @else
     @media screen and (max-height: $max - 1px) and (min-height: $min) 
       @content
-  @endif
+  
 
 
-@mixin trans($t: 0.5s,$td: 0)
+=trans($t: 0.5s,$td: 0)
   transition-duration: $t
   transition-delay: $td
 
-@mixin grid_sz_mx($i,$o)
+=grid_sz_mx($i,$o)
   max-width: grid_sz($i,$o)
   width: 100%
 
@@ -199,39 +199,29 @@ $break_xs: 500px
 
 $grid_gutter: 24px
 
-@for $i from 1 through 12
-  +range_width(0px,$break_lg)
-    .flex_lg_#{$i}
-      width: calc( $i * 100% / 12)
-
-  +range_width(0px,$break_md)
-    .flex_md_#{$i}
-      width: calc( $i * 100% / 12)
-
-  +range_width(0px,$break_sm)    
-    .flex_sm_#{$i}
-      width: calc( $i * 100% / 12)
-
-  @for $o from 1 through 12
-    .flex_md_#{$i}_sm_#{$o}
-      +range_width(0px,$break_md)
-        width: calc( $i * 100% / 12)
-      +range_width(0px,$break_sm)    
-        width: calc( $o * 100% / 12)
-
-@mixin rwd_md
+=rwd_md
   +range_width(0px,$break_md)
     @content
-@mixin rwd_lg
+=rwd_lg
   +range_width(0px,$break_lg)
     @content
-@mixin rwd_sm
+=rwd_sm
   +range_width(0px,$break_sm)
     @content
-@mixin rwd_xs
+=rwd_xs
   +range_width(0px,$break_xs)
     @content
 
+
+
+=cover_opacity($color: black)
+  display: block
+  content: ""
+  position: absolute
+  +size(100%,100%)
+  left: 0
+  top: 0
+  background-color: $color
 
 
 // @for $i from 1 through 20
