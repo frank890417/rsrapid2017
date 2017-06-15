@@ -1,6 +1,6 @@
 .page_about
   .container
-    +flex_center
+    // +flex_center
 
   *
     // border: solid 1px
@@ -12,6 +12,8 @@
       margin-bottom: $gutter_width*2
       opacity: 0.8
       letter-spacing: 10px
+
+
 
   a
     text-decoration: none 
@@ -49,6 +51,15 @@
         background-size: 350% auto
         height: 4000px
         background-position: 65% bottom  
+
+    .col_hero
+      h1,p
+        margin-left: auto
+        margin-right: auto
+    .container
+      display: flex
+      flex-direction: column
+      align-items: center
 
 
     // background-repeat: no-repeat
