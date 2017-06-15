@@ -64,6 +64,9 @@ router.beforeEach((to, from, next) => {
   if (window.ga){
     ga('send', 'pageview');
   }
+  if (window.store){
+    window.store.commit("set_scrollTop",-1);
+  }
   next();
 });
 

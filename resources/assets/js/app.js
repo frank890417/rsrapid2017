@@ -28,6 +28,7 @@ const app = new Vue({
      });
   }
 });
+window.store=store;
 
 //google analysis
 if (document.domain=="www.rapidsuretech.com"){

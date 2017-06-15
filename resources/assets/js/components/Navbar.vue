@@ -83,33 +83,10 @@ div
             console.log('navbar mounted.');
 
             //update subnav position
-            function place_sub_nav(){
-              $(".navbar-nav > li").each(function(index,obj){
-                // console.log(index);
-                var li_width=$(obj).width();
-                var container=$(obj).children(".subnav").children(".container");
-                var content=container.children(".options");
-                // var align_obj=$(obj);
-                var align_obj=$(".navbar-nav > li:first");
-                
-                container.css("padding-left",(align_obj.offset().left)+"px");
-                container.css("margin-left","0px");
-                container.css("white-space","nowrap");
-                // if (index>=2 && index<=5){
-                //   content.css("margin-left",(-content.width()/2)+"px");
-
-                // }
-
-                // if (index>2){
-                //   content.css("margin-left",(-content.width()+li_width)+"px");
-                //   content.children("li").css("margin-left","24px").css("margin-right","0px");
-                // }
-                
-              });
-            }
-            place_sub_nav();
-            window.place_sub_nav=place_sub_nav;
-            $(window).resize(place_sub_nav);
+            
+            this.place_sub_nav();
+            window.place_sub_nav=this.place_sub_nav;
+            $(window).resize(this.place_sub_nav);
 
             
         },
@@ -121,9 +98,45 @@ div
             lang: [{name: "繁"},{name: "简"},{name: "EN"}]
           }
         },
+        watch:{
+          scrollTop(){
+            this.place_sub_nav();
+            if (this.scrollTop<=0){
+              setInterval(function(){
+                
+                this.place_sub_nav();
+              },500);
+            }
+          }
+
+        },
         methods:{
           toggle_open(){
             this.open_full=!this.open_full;
+          },
+          place_sub_nav(){
+            $(".navbar-nav > li").each(function(index,obj){
+              // console.log(index);
+              var li_width=$(obj).width();
+              var container=$(obj).children(".subnav").children(".container");
+              var content=container.children(".options");
+              // var align_obj=$(obj);
+              var align_obj=$(".navbar-nav > li:first");
+              
+              container.css("padding-left",(align_obj.offset().left)+"px");
+              container.css("margin-left","0px");
+              container.css("white-space","nowrap");
+              // if (index>=2 && index<=5){
+              //   content.css("margin-left",(-content.width()/2)+"px");
+
+              // }
+
+              // if (index>2){
+              //   content.css("margin-left",(-content.width()+li_width)+"px");
+              //   content.children("li").css("margin-left","24px").css("margin-right","0px");
+              // }
+              
+            });
           },
           ...mapMutations(['toggle_size','toggle_search'])
         },
