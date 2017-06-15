@@ -19,7 +19,7 @@ div.page_solution(v-if="solu")
       .bg_theme.col_left
         h4.section_title(v-text="solu.sub_title")
         p.section_para(v-text="solu.sub_content")
-      .col-sm-6.bg_parallax
+      .col_right
   section.section_solution_2.default_bg
     .container.flex
       .col_left

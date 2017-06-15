@@ -1,7 +1,7 @@
 <template lang="jade">
 div.page_tech
   section.section_hero.default_bg
-    .container.flex.center
+    .container
       .col_hero
         h1.section_title.text-center 睿軒快篩平台
         p 與國立中山大學共同開發「快速檢驗平台」專利技術為基礎，以建構食的安心、用的放心，便利顧客享有快速與安全的保障為出發點，守護民眾的健康期許，營造安心的生活環境。同時創造獨特的檢驗效率，與無可取代的時間效益。
