@@ -44,6 +44,18 @@ if (document.domain=="www.rapidsuretech.com"){
   console.log("disable ga");
 }
 
+function is_ie(){
+  var result=(navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1));
+  if (result){
+    console.warn("IE Detected","Please dont use IE.")
+  }else{
+    console.warn("IE not Detected","Well Choice.")
+  }
+  return result?true:false;
+
+
+}
+
 
 //---------------------
 
@@ -193,11 +205,12 @@ function update_bullet(st){
 
 //頁面還原初始狀態
 function init_element(){
-
-  $(".percent , .section_title , .section_para").addClass("initial");
-  setTimeout(function(){
-    update_scroll(0);
-  },50);
+  if (!is_ie()){
+    $(".percent , .section_title , .section_para").addClass("initial");
+    setTimeout(function(){
+      update_scroll(0);
+    },50);
+  }
  
 
 }
@@ -233,7 +246,7 @@ $( window ).ready(function(){
 
   update_bullet(0);
   //snap locker by Rxjs
-  if (lock_scroll && window_height>900 && window_width>1200){
+  if (lock_scroll && window_height>900 && window_width>1200 && !is_ie() ){
     console.log("enable snap")
     //filter delta which bigger than thereshold and filter out twice down/up condition
     var source_page_nav=mousewheel.filter(
