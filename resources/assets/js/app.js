@@ -58,6 +58,18 @@ function is_ie(){
 
 store.commit("set_is_ie")
 
+if (is_ie()){
+  $('body').on("mousewheel", function (event) {
+      // remove default behavior
+      event.preventDefault(); 
+
+      //scroll without smoothing
+      var wheelDelta = event.wheelDelta;
+      var currentScrollPosition = window.pageYOffset;
+      window.scrollTo(0, currentScrollPosition - wheelDelta);
+  });
+}
+
 //---------------------
 
 //smooth scroll
@@ -93,7 +105,7 @@ var direction='up';
 var lock_scroll=true;
 var window_width= $(window).outerWidth();
 var window_height= $(window).outerHeight();
-var scroll = Rx.Observable.fromEvent(document,'scroll')
+var scroll = Rx.Observable.fromEvent(document ,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
 
