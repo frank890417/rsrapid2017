@@ -207,7 +207,7 @@ section
   .section_para
     +trans(1s,0.2s)
     width: 100%
-    
+
     &.initial
       opacity: 0
   
@@ -270,9 +270,15 @@ section
     p
       text-align: left
 
+    &>p,h1,h2,h3,h4,h5,h6
+      max-width: 100%
+
   .col_full
     width: 100%
     padding: grid_sz(0,1)
+    
+    &>p,h1,h2,h3,h4,h5,h6
+      max-width: 100%
 
 
   +rwd_sm
