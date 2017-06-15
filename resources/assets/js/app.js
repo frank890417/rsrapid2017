@@ -58,17 +58,17 @@ function is_ie(){
 
 store.commit("set_is_ie")
 
-if (is_ie()){
-  $('body').on("mousewheel", function (event) {
-      // remove default behavior
-      event.preventDefault(); 
+// if (is_ie()){
+//   $('body').on("mousewheel", function (event) {
+//       // remove default behavior
+//       event.preventDefault(); 
 
-      //scroll without smoothing
-      var wheelDelta = event.wheelDelta;
-      var currentScrollPosition = window.pageYOffset;
-      window.scrollTo(0, currentScrollPosition - wheelDelta);
-  });
-}
+//       //scroll without smoothing
+//       var wheelDelta = event.wheelDelta;
+//       var currentScrollPosition = window.pageYOffset;
+//       window.scrollTo(0, currentScrollPosition - wheelDelta);
+//   });
+// }
 
 //---------------------
 
