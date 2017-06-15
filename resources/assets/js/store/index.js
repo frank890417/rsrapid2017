@@ -9,6 +9,7 @@ export default new Vuex.Store({
     big_font: false,
     search: false,
     scrollTop: 0,
+    is_ie: false,
     about_logs: {
       year_2015: [
         {
@@ -97,6 +98,9 @@ export default new Vuex.Store({
     set_scrollTop(state,value){
       state.scrollTop=value;
     },
+    set_is_ie(state,value){
+      state.is_ie=value;
+    }
   },
   actions: {
     loadWebsite(context){

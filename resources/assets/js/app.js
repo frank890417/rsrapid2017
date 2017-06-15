@@ -51,11 +51,11 @@ function is_ie(){
   }else{
     console.warn("IE not Detected","Well Choice.")
   }
+  store.commit("set_is_ie",result?true:false);
   return result?true:false;
-
-
 }
 
+store.commit("set_is_ie")
 
 //---------------------
 

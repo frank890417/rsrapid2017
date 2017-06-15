@@ -104,10 +104,13 @@ import {mapState} from 'vuex';
         },
         mounted() {
             console.log('index mounted.');
-            $(".percent , .section_title , .section_para").addClass("initial");
-            setTimeout(function(){
-              update_scroll(0);
-            },200);
+            if (!this.is_ie){
+              $(".percent , .section_title , .section_para").addClass("initial");
+              setTimeout(function(){
+                update_scroll(0);
+              },200);
+            }
+            
             var vobj=this;
 
             this.timer=setInterval(this.news_delta,this.news_change_time);
@@ -220,7 +223,7 @@ import {mapState} from 'vuex';
 
 
         },
-        computed: mapState(['news']),
+        computed: mapState(['news','is_ie']),
         beforeDestroy() {
           clearInterval(this.timer);
         }
