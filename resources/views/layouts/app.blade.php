@@ -38,14 +38,15 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
+    <script>
+      //live reload
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+      ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')
-    <script type="text/javascript" src="/js/slick.min.js"></script>
+    {{-- <script type="text/javascript" src="/js/slick.min.js"></script> --}}
   </body>
-  <script>
-    //live reload
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-    ':35729/livereload.js?snipver=1"></' + 'script>');
-  </script>
+  
 
 </html>

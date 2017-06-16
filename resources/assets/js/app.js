@@ -23,9 +23,11 @@ const app = new Vue({
   computed: mapState(['news','about_logs','big_font']),
   mounted(){
      store.dispatch("loadWebsite");
-     $(window).scroll((evt)=>{
+     window.onscroll=(evt)=>{
         store.commit("set_scrollTop",$(window).scrollTop())
-     });
+        // window.update_scroll()
+        // alert("update scroll")
+     };
   }
 });
 window.store=store;
@@ -47,55 +49,48 @@ if (document.domain=="www.rapidsuretech.com"){
 
 function is_ie(){
   var result=(navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1));
-  if (result){
-    console.warn("IE Detected","Please dont use IE.")
-  }else{
-    console.warn("IE not Detected","Well Choice.")
-  }
-  store.commit("set_is_ie",result?true:false);
+
   return result?true:false;
 }
+if (is_ie()){
+  console.warn("IE Detected","Please dont use IE.")
+}else{
+  console.warn("IE not Detected","Well Choice.")
+}
+store.commit("set_is_ie",is_ie())
 
-store.commit("set_is_ie")
-
-// if (is_ie()){
-//   $('body').on("mousewheel", function (event) {
-//       // remove default behavior
-//       event.preventDefault(); 
-
-//       //scroll without smoothing
-//       var wheelDelta = event.wheelDelta;
-//       var currentScrollPosition = window.pageYOffset;
-//       window.scrollTo(0, currentScrollPosition - wheelDelta);
-//   });
-// }
 
 //---------------------
 
-//smooth scroll
+if (is_ie()){
+  //smooth scroll
+  $(function(){ 
 
-// $(function(){ 
+    var $window = $(window);
+    var scrollTime = 1;
+    var scrollDistance = 120;
 
-//   var $window = $(window);
-//   var scrollTime = 1;
-//   var scrollDistance = 120;
+    $window.on("mousewheel DOMMouseScroll", function(event){
 
-//   $window.on("mousewheel DOMMouseScroll", function(event){
+      event.preventDefault(); 
 
-//     event.preventDefault(); 
+      var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
+      var scrollTop = $window.scrollTop();
+      var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
-//     var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
-//     var scrollTop = $window.scrollTop();
-//     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+      TweenMax.to($window, scrollTime, {
+        scrollTo : { y: finalScroll, autoKill:true },
+          ease: Power2.easeOut,
+          overwrite: 5              
+        });
+      // console.log(finalScroll);
+    });
+  });
 
-//     TweenMax.to($window, scrollTime, {
-//       scrollTo : { y: finalScroll, autoKill:true },
-//         ease: Power2.easeOut,
-//         overwrite: 5              
-//       });
-//     // console.log(finalScroll);
-//   });
-// });
+  // bind update scroll event
+  //window.onscroll=window.update_scroll()
+}
+
 
 //數數動畫
 var scroll_delay=1000;
@@ -111,44 +106,48 @@ var scroll = Rx.Observable.fromEvent(document ,'scroll')
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  if ($(".bg_parallax").length>0){
-    $(".bg_parallax").each((index,obj)=>{
-      // if ($(obj).offset())
-      if ( !$(obj).hasClass("no_attach") ){
-        if ($(obj).offset().top+$(obj).outerHeight()>top_val)
-          $(obj).css("background-position","center "+ -(top_val-$(obj).offset().top)/15+"px");
+
+  console.time("scroll_event")
+
+  //update right side bullet
+  update_bullet(top_val);
+
+  //update parallax backgrounds
+  let bg_px = Array.from(document.getElementsByClassName("bg_parallax"))
+  if ( bg_px.length ){
+    bg_px.forEach((obj,index)=>{
+      let $obj=$(obj)
+      if ( !obj.classList.contains("no_attach") ){
+        if ($obj.offset().top+$obj.outerHeight()>top_val)
+          $obj.css("background-position","center "+ -(top_val-$obj.offset().top)/15+"px");
         
       }else{
-        if ($(obj).offset().top+$(obj).outerHeight()>top_val){
-          $(obj).css("background-position","center "+ (top_val-$(obj).offset().top)/1.6+"px");
+        if ($obj.offset().top+$obj.outerHeight()>top_val){
+          $obj.css("background-position","center "+ (top_val-$obj.offset().top)/1.6+"px");
         };   
       }
     });
   }
-  if ($(".mountain").length>0){
-    var of_t=$("#section_about_log").offset().top;
+  let mountain_el = document.getElementsByClassName("mountain")
+  if (mountain_el.length){
+    var of_t=document.getElementById("section_about_log").offsetTop;
     var mobile_fix=(window_width<800)?100:0;
     var mul=(window_width<800)?3:3;
-    var vv=(+(-((top_val)+window_height*0.9-of_t)/mul))+mobile_fix;
-    // console.log(vv);
-    if (vv>50) {
-      vv=50
-    };
-    $(".mountain").css("bottom",vv+"px");
-
-
+    var mountain_pan=(+(-((top_val)+window_height*0.9-of_t)/mul))+mobile_fix;
+    // console.log(mountain_pan);
+    mountain_pan = mountain_pan>50?50:mountain_pan
+    $(".mountain").css("bottom",mountain_pan+"px");
   }
 
-  if ($(".percent.initial").length>0){
+  var percent_el = Array.from (document.querySelectorAll(".percent.initial"))
+  if (percent_el.length){
     //percet nt init
-    $(".percent.initial").each(function(index,obj){
-      // console.log("test");
+    percent_el.forEach(function(obj,index){
       // update element enter animation
-      if ($(obj).offset().top<top_val+window_height*0.9){
-        $(obj).removeClass("initial");
+      if (obj.offsetTop<top_val+window_height*0.9){
+        obj.classList.remove("initial")
         
-        var ed_val=1.0*$(obj).attr("data-target");
-
+        var ed_val=1.0 * obj.getAttribute("data-target");
         var nowval=0;
         var timer=setInterval(function(){
           $(obj).children("span").html(Math.round(nowval));
@@ -162,58 +161,57 @@ window.update_scroll=function update_scroll(top_val){
     });
   }
 
-    //update section content fadeIn
-    $(".section_title.initial,.section_para").each(function(index,obj){
-      if ($(obj).offset().top<top_val+window_height){
-        $(obj).removeClass("initial");
-      }
-    });
+  //update section content fadeIn
+  let page_initial_el = document.querySelectorAll(".section_title.initial,.section_para.initial");
+  Array.from(page_initial_el).forEach(function(obj,index){
+    if ($(obj).offset().top<top_val+window_height){
+      $(obj).removeClass("initial");
+    }
+  });
 
-    //update right side bullet
-    update_bullet(top_val);
 
-    if (place_sub_nav) place_sub_nav();
+  if (place_sub_nav) place_sub_nav();
+  console.timeEnd("scroll_event")
 }
 
 //subscribe parallax top
 scroll.subscribe(top_val=>update_scroll(top_val));
-// setInterval(function(){
-//   update_scroll(window.scrollY)
-// },parseInt(1000/60) );
-// window.webkitRequestAnimationFrame(function(){
-//   update_scroll(window.scrollY)
-// });
+
 //upadte bullet nav points
 function update_bullet(st){
   now_region=null;
   next_region=null;
-
   var last=null;
   //偵測在哪個區域
-  $( ".slide_bullet li").each(function(index,obj){
-    var data_link = $( this ).attr("data-link");
-    var tar_h=$( data_link ).height();
+  var bullet_el = Array.from(document.querySelectorAll(".slide_bullet li")) ;
+  if (bullet_el.length){
+    bullet_el.forEach(function(bullet_obj,index){
+      var data_link = bullet_obj.getAttribute("data-link");
+      var $link_obj=  $( data_link );
+      var tar_h=$link_obj.height();
 
-    if ($( data_link ).offset()){
-      if ($( data_link ).offset().top<=st+tar_h/2 &&
-        $( data_link ).offset().top>=st-window_height/2){
-        $( this ).addClass("active");
+      if ($link_obj.offset()){
+        if ($link_obj.offset().top<=st+tar_h/2 &&
+          $link_obj.offset().top>=st-window_height/2){
+          bullet_obj.classList.add("active");
 
-        now_region=data_link;
-        pre_region=last;
-        // console.log(now_region,pre_region);
+          now_region=data_link;
+          pre_region=last;
+          // console.log(now_region,pre_region);
 
-      }else{
-        
-        $( this ).removeClass("active");
-        if (now_region && !next_region){
-          next_region=data_link;
+        }else{
+          
+          bullet_obj.classList.remove("active");
+          if (now_region && !next_region){
+            next_region=data_link;
+          }
         }
+        last=data_link;
       }
-      last=data_link;
-    }
-    
-  });
+      
+    });
+  }
+
 }
 
 //頁面還原初始狀態
@@ -224,7 +222,6 @@ function init_element(){
       update_scroll(0);
     },50);
   }
- 
 
 }
 
@@ -259,6 +256,9 @@ $( window ).ready(function(){
 
   update_bullet(0);
   //snap locker by Rxjs
+
+
+
   if (lock_scroll && window_height>900 && window_width>1200 && !is_ie() ){
     console.log("enable snap")
     //filter delta which bigger than thereshold and filter out twice down/up condition
@@ -311,19 +311,6 @@ router.afterEach((route) => {
   });
   
 });
-
-// var source = Rx.Observable.interval(100);
-// source.subscribe((t)=>{
-//   vm.news_time=(vm.news_time+100) % vm.news_change_time;
-// });
-
-// source.throttleTime(5000)
-//       .subscribe(()=>{
-//         vm.news_delta(1);
-
-// });
-
-
 
 //---------------------
 
