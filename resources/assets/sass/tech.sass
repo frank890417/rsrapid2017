@@ -98,21 +98,6 @@
       +size(56px,auto)
       // background-color: $color_theme
     
-      .st0
-        fill: #3FBFBB
-      .st1
-        fill: #3FBFBB
-        stroke: #FFFFFF
-        stroke-miterlimit: 10
-      circle
-        animation: b_fade 1.5s infinite
-        transform-origin: center center
-        &:nth-child(1)
-          animation-delay: 0s
-        &:nth-child(2)
-          animation-delay: -0.3s
-        &:nth-child(3)
-          animation-delay: -0.7s
       @keyframes b_fade
         0%
           transform: translate(-6px,6px) scale(0.8)
@@ -123,8 +108,132 @@
         100%
           transform: translate(4px,-4px) scale(1)
           opacity: 0
-          
 
+      [data-name^="tube_bubble_"]
+        opacity: 0
+        animation: b_fade 1.5s infinite
+        transform-origin: center center
+        &:nth-child(1)
+          animation-delay: 0s
+        &:nth-child(2)
+          animation-delay: -0.3s
+        &:nth-child(3)
+          animation-delay: -0.7s
+
+      @keyframes w_fade
+        0%
+          transform: translate(-2px,-2px) scale(0.8)
+          opacity: 0
+        50%
+          opacity: 1
+          
+        100%
+          transform: translate(-6px,-6px) scale(1)
+          opacity: 0
+
+      @keyframes cloud_float
+        0%
+          transform: translate(0px,0px)
+        50%
+          transform: translate(0px,-4px)
+        100%
+          transform: translate(0px,0px)
+
+      
+      [data-name^="cloud_wave"]
+        opacity: 0
+        animation: w_fade 2s infinite
+        transform-origin: right bottom
+        &:nth-child(1)
+          animation-delay: -0.5s
+        &:nth-child(2)
+          animation-delay: -1.2s
+
+      [data-name="cloud"]
+        animation: cloud_float 5s infinite
+        transform-origin: right bottom
+        
+
+      @keyframes num_fade
+        0%
+          opacity: 0
+        5%
+          opacity: 1
+        15%
+          opacity: 1
+        20%
+          opacity: 0
+          
+        100%
+          opacity: 0
+
+      @keyframes dash_fade
+        0%
+          opacity: 0
+        15%
+          opacity: 1
+        85%
+          opacity: 1
+        100%
+          opacity: 0
+
+      @keyframes ok_fade
+        0%
+          opacity: 0
+        15%
+          opacity: 0
+        75%
+          opacity: 0
+        80%
+          opacity: 1
+        95%
+          opacity: 1
+        100%
+          opacity: 0
+
+      @keyframes arrow_fade
+        0%
+          opacity: 1
+        15%
+          opacity: 1
+        75%
+          opacity: 1
+        80%
+          opacity: 0
+        95%
+          opacity: 0
+        100%
+          opacity: 1
+
+      [data-name^="ok_bg"],[data-name^="ok_mark"]
+        animation: ok_fade 7s infinite
+        transform-origin: center center
+        transform: scale(1.1)
+
+      // [data-name="ok_arrow_pointer"]
+      //   animation: arrow_fade 7s infinite
+      //   transform-origin: right bottom
+
+
+      [data-name^="ok_num"]
+        opacity: 0
+        animation: num_fade 7s infinite
+        transform-origin: right bottom
+
+      [data-name^="ok_arrow_dash"]
+        opacity: 0
+        animation: dash_fade 7s infinite
+        transform-origin: right bottom
+
+      @for $i from 1 through 5
+        [data-name="ok_num_#{$i}"]
+          animation-delay: #{5-$i}s
+
+      @for $i from 1 through 6
+        [data-name="ok_arrow_dash_#{$i}"]
+          animation-delay: #{($i)/2}s
+
+      
 
     .inner
       display: flex
@@ -147,3 +256,4 @@
     position: absolute
     bottom: 0
     height: calc( 100% + 70px)
+

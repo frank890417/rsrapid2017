@@ -36,7 +36,6 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
     <script>
       //live reload

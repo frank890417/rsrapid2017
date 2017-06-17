@@ -14,20 +14,37 @@ import router from './router'
 import {mapState} from 'vuex'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
-// import Rx from 'rx'
+import Rx from 'rxjs'
 
+//detect ie
+function is_ie(){
+  var result=(navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1));
+
+  return result?true:false;
+}
+
+
+//init vue
 const app = new Vue({
   el: "#app",
   router,
   store,
   computed: mapState(['news','about_logs','big_font']),
-  mounted(){
-     store.dispatch("loadWebsite");
-     window.onscroll=(evt)=>{
-        store.commit("set_scrollTop",$(window).scrollTop())
+  created(){
+    if (is_ie()){
+      console.warn("IE Detected","Please dont use IE.")
+    }else{
+      console.warn("IE not Detected","Well Choice.")
+    }
+    store.commit("set_is_ie",is_ie())
+    store.dispatch("loadWebsite");
+    window.onscroll=(evt)=>{
+        store.commit("set_scrollTop",window.scrollY)
+        if (window.update_scroll)
+          window.update_scroll(window.scrollY)
         // window.update_scroll()
         // alert("update scroll")
-     };
+    };
   }
 });
 window.store=store;
@@ -46,18 +63,6 @@ if (document.domain=="www.rapidsuretech.com"){
 }else{
   console.log("disable ga");
 }
-
-function is_ie(){
-  var result=(navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1));
-
-  return result?true:false;
-}
-if (is_ie()){
-  console.warn("IE Detected","Please dont use IE.")
-}else{
-  console.warn("IE not Detected","Well Choice.")
-}
-store.commit("set_is_ie",is_ie())
 
 
 //---------------------
@@ -100,8 +105,8 @@ var direction='up';
 var lock_scroll=true;
 var window_width= $(window).outerWidth();
 var window_height= $(window).outerHeight();
-var scroll = Rx.Observable.fromEvent(document ,'scroll')
-            .map(e => e.target.scrollingElement.scrollTop);
+// var scroll = Rx.Observable.fromEvent(document ,'scroll')
+//             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
 
 //使用卷軸位置更新元件
@@ -175,7 +180,7 @@ window.update_scroll=function update_scroll(top_val){
 }
 
 //subscribe parallax top
-scroll.subscribe(top_val=>update_scroll(top_val));
+// scroll.subscribe(top_val=>update_scroll(top_val));
 
 //upadte bullet nav points
 function update_bullet(st){
@@ -249,7 +254,6 @@ $( window ).ready(function(){
   });
 
   // wheelDelta
-  var scroll = Rx.Observable.fromEvent(document,'scroll')
   var mousewheel = Rx.Observable.fromEvent(document,'mousewheel')
                                 .map(e=>e.wheelDelta );   
 
@@ -297,7 +301,6 @@ $( window ).ready(function(){
   //router event
 
 router.afterEach((route) => {
-  $( window ).ready();
   if (route.path=="/about" || route.path=="/news" || route.path.indexOf("/news/")!=-1){
     $("nav").addClass("bg_white");
   }else{

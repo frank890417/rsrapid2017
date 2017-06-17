@@ -1,29 +1,30 @@
 <template lang="jade">
 div
-  div.fullnav(:class="open_full?'open':''")
-    .close_btn(@click="toggle_open")
-    .container
-      img.headerimg(src="/img/Rapid.png")
-      ul.functions
-        li.function.func_lang
-          a(href="#")
-            span 繁
-            i.fa.fa-angle-down 
-          ul.subnav
-            .container
-              div.options
-                li(v-for = "l in lang")
-                  router-link(to="#") {{l.name}}
-        li.function.func_size(@click='toggle_size')
-              img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
-              img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
-      ul.main_list
-        li(v-for="main_tag in maked_nav_structure")
-          h4 
-            router-link(:to="main_tag.link") {{main_tag.tag}}
-          ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
-            li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
-              router-link( :to="sub_tag.link") {{sub_tag.tag}}
+  transition(name="fade")
+    .fullnav(v-if="open_full")
+      .close_btn(@click="toggle_open", :class="{open: open_full}")
+      .container
+        img.headerimg(src="/img/Rapid.png")
+        ul.functions
+          li.function.func_lang
+            a(href="#")
+              span 繁
+              i.fa.fa-angle-down 
+            ul.subnav
+              .container
+                div.options
+                  li(v-for = "l in lang")
+                    router-link(to="#") {{l.name}}
+          li.function.func_size(@click='toggle_size')
+                img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
+                img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
+        ul.main_list
+          li(v-for="main_tag in maked_nav_structure")
+            h4 
+              router-link(:to="main_tag.link") {{main_tag.tag}}
+            ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
+              li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
+                router-link( :to="sub_tag.link") {{sub_tag.tag}}
 
   nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
     .container
