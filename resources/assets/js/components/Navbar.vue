@@ -60,11 +60,11 @@ div
             a(href="#")
               span 繁
               i.fa.fa-angle-down 
-            ul.subnav
+            ul.lang_subnav
               .container
                 div.options
                   li(v-for = "l in lang")
-                    router-link(to="#") {{l.name}}
+                    a(href="#") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
