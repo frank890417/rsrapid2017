@@ -82,10 +82,9 @@ router.afterEach((route) => {
   if (route.path=="/index"){
     setTimeout(()=>{init_element();},1200);
   } 
-  
-  });
-  
+
 });
+
 
 
 
