@@ -16,7 +16,7 @@
   .col-lg-12
     h1.page-header 方案管理
 
-form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post").row
+form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post").row#form_question
 
   .col-sm-3
     .panel.panel-default
@@ -60,7 +60,7 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 
         .form-group
           label(for='test_item') 檢驗項目
-          textarea#content(name="test_item" ,class='form-control' ,rows=4) {!! isset($solution)?$solution->test_item:"" !!}
+          textarea#content(name="test_item" ,class='form-control' ,rows=15) {!! isset($solution)?$solution->test_item:"" !!}
         
 
         .form-group
@@ -75,34 +75,42 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 
         .form-group
           label(for='talk') 口碑
-          textarea(id="talk", name="talk" ,class='form-control' 
-          ) {!! isset($solution)?$solution->talk:"" !!}
+          ul
+            li.form_group(v-for="(talk,tid) in solutions.talk")
+              label(v-text="(tid+1)+':'")
+              input.form-control(v-model="talk.title")
+              input.form-control(v-model="talk.name")
+              button.btn.btn-default(@click="solutions.talk.splice(tid,1)") 移除
+          button.btn.btn-default(@click="solutions.talk.push({title: '',name: ''})") 新增口碑
+
+          input(id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solutions.talk)")
+
         br
         br
 
 
 
-  script.
-    if (!window.data_storage){
-      window.data_storage={};
-    }
-    window.require_js={};
-    window.require_js.dropzone=true;
-    window.require_js.tinymce=true;
-
-    
 
 @endsection
 
 @section('require_js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js')
-  
+script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js')
+script.
+  if (!window.data_storage){
+    window.data_storage={};
+  }
+  window.require_js={};
+  window.require_js.dropzone=true;
+  window.require_js.tinymce=true;
+  window.solutions= {!! json_encode($solution)!!}
+  window.solutions.talk= JSON.parse(window.solutions.talk)
+    
 @endsection
 @section('require_js_after')
   script.
     $("#tag").val("{{isset($solution)?($solution->tag):''}}");
     $(window).ready(function(){
-      var value={!! isset($solution)?$solution->stick_top:0 !!};
+      //- var value={!! isset($solution)?$solution->stick_top:0 !!};
       $("input[name=stick_top][value="+value+"]").attr("checked","checked");
     });
 @endsection

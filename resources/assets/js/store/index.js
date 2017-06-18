@@ -10,48 +10,7 @@ export default new Vuex.Store({
     search: false,
     scrollTop: 0,
     is_ie: false,
-    about_logs: {
-      year_2015: [
-        {
-          date: "03/01",
-          title: "成立睿軒檢驗",
-          news_id: 2,
-          cover: "/img/homepage/Post2.jpg",
-          content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 3,
-          cover: "/img/homepage/Post3.jpg",
-          content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
-        },
-        {
-          date: "12/01",
-          title: "全台幼兒環境大義診",
-          news_id: 1,
-          cover: "/img/homepage/Home-news-2.jpg",
-          content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
-        }
-      ],
-      year_2016: [
-        {
-          date: "03/01",
-          title: "鴻海和中山合資技轉記者會",
-          news_id: 4,
-          cover: "/img/homepage/Post1.jpg",
-          content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 5,
-          cover: "/img/homepage/Post4.jpg",
-          content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
-        }
-      ],
-
-    },
+    about_logs: [],
     solutions: [],
     techs: [
       { id: 0,
@@ -87,6 +46,9 @@ export default new Vuex.Store({
     setSolution(state,solutions){
       state.solutions = solutions;
     },
+    setYearlogs(state,yearlogs){
+      state.about_logs = yearlogs;
+    },
     toggle_size(state){
       state.big_font=!state.big_font;
       console.log("toggle size");
@@ -104,6 +66,10 @@ export default new Vuex.Store({
   },
   actions: {
     loadWebsite(context){
+      $.get("/api/yearlogs").then((res)=>{
+        console.log("yearlogs loaded (action)");
+        context.commit("setYearlogs",res);
+      });
       $.get("/api/news").then((res)=>{
         console.log("news loaded (action)");
         context.commit("setNews",res);

@@ -52,42 +52,37 @@
         <div class="form-group">
           <label for="tag">標籤</label>
           <select id="tag" name="tag" class="form-control">
-            <option value="睿軒活動">睿軒活動</option>
-            <option value="新聞快訊">新聞快訊</option>
-            <option value="食安新知">食安新知</option>
-            <option value="友善連結">友善連結</option>
+            <option value="重要通知">重要通知</option>
+            <option value="活動快訊">活動快訊</option>
+            <option value="投資相關">投資相關</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="size">顯示大小</label>
-          <select id="size" name="size" class="form-control">
-            @if(isset($news))
-              @if(($news->size)==1)
-                <option value="1" selected="selected">1格 口</option>
+        <!--          
+          label(for='size') 顯示大小
+          select#size.form-control(name='size')
+            @if (isset($news))
+              @if (($news->size)==1)
+                option(value="1" selected) 1格 口
               @else
-                <option value="1">1格 口</option>
+                option(value="1" ) 1格 口
               @endif
-              @if(($news->size)==2)
-                <option value="2" selected="selected">2格 口口</option>
+              @if (($news->size)==2)
+                option(value="2" selected) 2格 口口
               @else
-                <option value="2">2格 口口</option>
+                option(value="2" ) 2格 口口
               @endif
             @else
-              <option value="1">1格 口</option>
-              <option value="2">2格 口口</option>
+              option(value="1" ) 1格 口
+              option(value="2" ) 2格 口口
             @endif
-          </select>
-        </div>
+        -->
         <div class="form-group">
           <label for="cover">封面圖片</label>
           <div class="row">
             <div class="col-sm-12"><img src="{!! isset($news)?$news->cover:"" !!}" width="100%" class="cover_preview"/></div>
-
             <div class="col-sm-12">
               {{-- input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}') --}}<br/>
-              <input id="cover" name="cover" value="{!! isset($news)?$news->cover:"" !!}" class="form-control"/>
               <div style=" display: inline-block" class="btn btn-default btn-md btn-dropzone-cover">上傳圖片</div>
-
             </div>
           </div>
         </div>

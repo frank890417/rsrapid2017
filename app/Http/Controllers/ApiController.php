@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\News;
 use App\Question;
 use App\Solution;
+use App\Yearlog;
 class ApiController extends Controller
 {
     //
@@ -19,5 +20,8 @@ class ApiController extends Controller
     }
     function solutions(){
       return Solution::all();
+    }
+    function yearlogs(){
+       return Yearlog::all();
     }
 }

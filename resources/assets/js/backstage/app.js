@@ -5,11 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import Vue from 'vue'
-
+// import Vue from 'vue'
+// window.Vue=Vue
 import $ from 'jquery'
 import Dropzone from 'dropzone'
-// require('./bootstrap')
+require('../bootstrap')
 // import store from './store'
 // import router from './router'
 // import {mapState} from 'vuex'
@@ -18,6 +18,14 @@ import Dropzone from 'dropzone'
 // import Rx from 'rxjs'
 
 //---------------------
+
+var vm = new Vue({
+  el: "#form_question", 
+  data: {
+    solutions: window.solutions
+  }
+})
+
 
 if (!window.require_js) window.require_js={};
 

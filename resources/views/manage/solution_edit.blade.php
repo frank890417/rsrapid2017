@@ -18,7 +18,7 @@
     <h1 class="page-header">方案管理</h1>
   </div>
 </div>
-<form action="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post" class="row">
+<form action="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post" id="form_question" class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-heading">方案設定</div>
@@ -64,7 +64,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
           <label for="test_item">檢驗項目</label>
-          <textarea id="content" name="test_item" rows="4" class="form-control">{!! isset($solution)?$solution->test_item:"" !!}</textarea>
+          <textarea id="content" name="test_item" rows="15" class="form-control">{!! isset($solution)?$solution->test_item:"" !!}</textarea>
         </div>
         <div class="form-group">
           <label for="env">適用環境</label>
@@ -76,32 +76,41 @@
         </div>
         <div class="form-group">
           <label for="talk">口碑</label>
-          <textarea id="talk" name="talk" class="form-control">{!! isset($solution)?$solution->talk:"" !!}</textarea>
+          <ul>
+            <li v-for="(talk,tid) in solutions.talk" class="form_group">
+              <label v-text="(tid+1)+':'"></label>
+              <input v-model="talk.title" class="form-control"/>
+              <input v-model="talk.name" class="form-control"/>
+              <button @click="solutions.talk.splice(tid,1)" class="btn btn-default">移除</button>
+            </li>
+          </ul>
+          <button @click="solutions.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
+          <input id="talk" name="talk" :value="JSON.stringify(solutions.talk)" class="form-control"/>
         </div><br/><br/>
       </div>
     </div>
   </div>
-  <script>
-    if (!window.data_storage){
-      window.data_storage={};
-    }
-    window.require_js={};
-    window.require_js.dropzone=true;
-    window.require_js.tinymce=true;
-    
-    
-    
-  </script>
 </form>
 @endsection
 @section('require_js')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js"></script>
+<script>
+  if (!window.data_storage){
+    window.data_storage={};
+  }
+  window.require_js={};
+  window.require_js.dropzone=true;
+  window.require_js.tinymce=true;
+  window.solutions= {!! json_encode($solution)!!}
+  window.solutions.talk= JSON.parse(window.solutions.talk)
+    
+</script>
 @endsection
 @section('require_js_after')
   <script>
     $("#tag").val("{{isset($solution)?($solution->tag):''}}");
     $(window).ready(function(){
-      var value={!! isset($solution)?$solution->stick_top:0 !!};
+      //- var value={!! isset($solution)?$solution->stick_top:0 !!};
       $("input[name=stick_top][value="+value+"]").attr("checked","checked");
     });
   </script>

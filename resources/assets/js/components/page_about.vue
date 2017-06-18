@@ -11,18 +11,24 @@ div.page_about
     .container.flex.column
       h1.section_title.text-center 大事記
       ul.nav_line_split.text-center
-        li(@click="sel_year='year_2016'" ,:class="sel_year=='year_2016'?'active':''") 2016
-        li(@click="sel_year='year_2015'" ,:class="sel_year=='year_2015'?'active':''") 2015
+        li( v-for='sel in yearlist',
+            :class="sel_year==sel?'active':''",
+            @click="sel_year=sel") {{sel}}
       .logs_area.top_out
         transition(name="fade" mode="out-in")
-          div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' ,:key="sel")
-            router-link.row.log_box(v-for="log in sort_year(about_logs[sel])" ,:key="log" v-on:click='to_href(log)' to="#")
+          div(v-if="sel_year==sel" v-for='sel in yearlist' ,:key="sel")
+            router-link.row.log_box(
+                            v-for="log in get_year(about_logs,sel)" ,
+                            :key="log" ,
+                            v-on:click='to_href(log)' ,
+                            :to=" log.news_id!=-1?('/news/'+log.news_id):'#' ")
               .col_cover
                 .cover_image(:style="'background-image:url('+log.cover+')'")
               .col_info
                 h5.date {{log.date}}
                 h4.title {{log.title}}
                 p {{log.content}}
+
 </template>
 
 <script>
@@ -30,7 +36,7 @@ div.page_about
 
   export default {
       data() {return {
-        sel_year: "year_2016"
+        sel_year: 2015
       }},
       mounted() {
           console.log('about mounted.')
@@ -46,13 +52,23 @@ div.page_about
             this$route.router.go("/news/"+obj.news_id);
           }
         },
-        sort_year(ar) {
-          return JSON.parse(JSON.stringify(ar)).sort((a,b)=>(
-            parseInt(b.date.substr(0,2)) - parseInt(a.date.substr(0,2)) 
-          ));
+        get_year(ar,y) {
+          return JSON.parse(JSON.stringify(ar))
+                  .filter((o)=>o.year==y)
+                  .sort((a,b)=>(
+                    parseInt(b.date.substr(0,2)) - parseInt(a.date.substr(0,2)) 
+                  ));
         }
       },
-      computed: mapState(['about_logs'])
+      computed: {
+        ...mapState(['about_logs']),
+        yearlist(){
+          return this.about_logs
+                     .map(o=>o.year)
+                     .filter((d,i,arr)=>arr.indexOf(d)==i)
+                     .sort((a,b)=>b-a)
+        }
+      }
 
   }
 </script>

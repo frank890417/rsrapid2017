@@ -49,7 +49,7 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
             option(value="重要通知" ) 重要通知
             option(value="活動快訊" ) 活動快訊
             option(value="投資相關" ) 投資相關
-        .form-group
+        //.form-group
           label(for='size') 顯示大小
           select#size.form-control(name='size')
             @if (isset($news))

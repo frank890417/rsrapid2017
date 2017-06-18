@@ -20,4 +20,5 @@ Route::group(['middleware'=>'cors'],function(){
   Route::get('news',"ApiController@news");
   Route::get('questions',"ApiController@questions");
   Route::get('solutions',"ApiController@solutions");
+  Route::get('yearlogs',"ApiController@yearlogs");
 });
