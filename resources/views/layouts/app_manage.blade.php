@@ -369,7 +369,7 @@
     <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
     <script src="/js/admin_js/bootstrap.min.js"></script>
     {{-- script(src='/js/admin_js/chart.min.js') --}}
-    <script src="/js/app.js"></script>
+    <script src="/js/backstage/app.js"></script>
     {{-- script(src='/js/admin_js/chart-data.js') --}}
     {{-- script(src='/js/admin_js/easypiechart.js') --}}
     {{-- script(src='/js/admin_js/easypiechart-data.js') --}}

@@ -10,7 +10,7 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href!=" {{url('manage/solution')}} ")方案管理
+          a(href!=" {{url('manage/solution')}} ") 方案管理
         li.active 方案編輯-{!! isset($solution)?$solution->title:"" !!}
     @yield('content')
   .col-lg-12
@@ -60,7 +60,7 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 
         .form-group
           label(for='test_item') 檢驗項目
-          textarea(id="test_item", name="test_item" ,class='form-control' ,rows=4) {!! isset($solution)?$solution->test_item:"" !!}
+          textarea#content(name="test_item" ,class='form-control' ,rows=4) {!! isset($solution)?$solution->test_item:"" !!}
         
 
         .form-group

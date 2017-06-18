@@ -127,16 +127,11 @@ div
               container.css("padding-left",(align_obj.offset().left)+"px");
               container.css("margin-left","0px");
               container.css("white-space","nowrap");
-              // if (index>=2 && index<=5){
-              //   content.css("margin-left",(-content.width()/2)+"px");
 
-              // }
-
-              // if (index>2){
-              //   content.css("margin-left",(-content.width()+li_width)+"px");
-              //   content.children("li").css("margin-left","24px").css("margin-right","0px");
-              // }
-              
+              if (content.width()>600){
+                container.css("padding-left","calc(50vw - "+li_width+"px)");
+                content.css("transform","translateX(-50%)")
+              }
             });
           },
           ...mapMutations(['toggle_size','toggle_search'])
@@ -147,7 +142,7 @@ div
           maked_nav_structure(){
             if (this.solutions.length>0){
               var options = this.solutions.map((obj)=>({
-                tag: obj.title.replace('計畫',''), 
+                tag: obj.title.replace('計畫','').replace('檢測',''), 
                 link: '/solution/'+obj.id
               }));
               console.log(this.solutions);

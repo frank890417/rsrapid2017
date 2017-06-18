@@ -70,4 +70,23 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
+  //router event
+
+router.afterEach((route) => {
+  if (route.path=="/about" || route.path=="/news" || route.path.indexOf("/news/")!=-1){
+    $("nav").addClass("bg_white");
+  }else{
+    $("nav").removeClass("bg_white");
+  }
+  // //加上初始化
+  if (route.path=="/index"){
+    setTimeout(()=>{init_element();},1200);
+  } 
+  
+  });
+  
+});
+
+
+
 export default router

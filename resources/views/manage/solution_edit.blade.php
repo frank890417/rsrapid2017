@@ -64,7 +64,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
           <label for="test_item">檢驗項目</label>
-          <textarea id="test_item" name="test_item" rows="4" class="form-control">{!! isset($solution)?$solution->test_item:"" !!}</textarea>
+          <textarea id="content" name="test_item" rows="4" class="form-control">{!! isset($solution)?$solution->test_item:"" !!}</textarea>
         </div>
         <div class="form-group">
           <label for="env">適用環境</label>
