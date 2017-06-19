@@ -20,8 +20,12 @@ div
                 img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
         ul.main_list
           li(v-for="main_tag in maked_nav_structure")
-            h4 
-              router-link(:to="main_tag.link") {{main_tag.tag}}
+            //沒有連結的主選單
+            h4(v-if="main_tag.link=='#'")
+              span {{main_tag.tag}}
+            h4(@click="toggle_open", v-else)
+              router-link(v-if="",:to="main_tag.link" ) {{main_tag.tag}}
+            //子項目
             ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
               li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
                 router-link( :to="sub_tag.link") {{sub_tag.tag}}
@@ -43,7 +47,7 @@ div
                v-if="!main_tag.hide_navbar")
 
               //選擇性產生router-link或a(#)
-              a(v-if="main_tag.link=='#'") {{main_tag.tag}}
+              a(v-if="main_tag.link=='#'",href="#") {{main_tag.tag}}
 
               router-link(:to="main_tag.link" v-if="main_tag.link!='#'") {{main_tag.tag}}
 

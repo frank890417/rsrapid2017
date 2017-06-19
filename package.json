@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "datatables": "^1.10.13",
     "dropzone": "^4.3.0",
     "gsap": "^1.19.1",
     "gulp": "^3.9.1",

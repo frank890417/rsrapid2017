@@ -38,7 +38,8 @@ const routes = [
   { path: '/contact', component: page_contact , meta: {title: "聯絡我們"}},
   { path: '/contact/:selected', component: page_contact , props: true, meta: {title: "聯絡我們"}},
   { path: '/tern', component: page_tern , meta: {title: "各項聲明"}},
-  { path: '/search', component: section_search , meta: {title: "搜尋"}}
+  { path: '/search', component: section_search , meta: {title: "搜尋"}},
+  { path: '*', component: page_index ,meta: {title: "首頁"}}
 ];
 
 const router = new VueRouter({

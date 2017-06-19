@@ -9,6 +9,8 @@
 // window.Vue=Vue
 import $ from 'jquery'
 import Dropzone from 'dropzone'
+// import axios from 'axios'
+// require("datatables")
 require('../bootstrap')
 // import store from './store'
 // import router from './router'
@@ -19,10 +21,27 @@ require('../bootstrap')
 
 //---------------------
 
+// $("table").dataTable()
 var vm = new Vue({
-  el: "#form_question", 
+  el: "#app", 
   data: {
-    solutions: window.solutions
+    solutions: window.solutions,
+    yearlogs: []
+  },
+  methods:{
+    delete_yearlog(yid){
+      if(confirm('你確定要刪除新聞嗎？')){
+        // document.getElementById('delete_solution_'+yid).submit();
+        axios.post('/manage/yearlog/'+yid,{"_method": "delete"}).then((res)=>{
+          this.yearlogs=res.data
+        });
+      }
+    }
+  },
+  mounted(){
+    axios.get("/api/yearlogs").then((res)=>{
+      this.yearlogs=res.data
+    })
   }
 })
 

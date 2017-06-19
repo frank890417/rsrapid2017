@@ -21,6 +21,7 @@ Route::get('manage/news','NewsController@index');
 Route::resource('manage/news','NewsController');
 Route::resource('manage/question','QuestionController');
 Route::resource('manage/solution','SolutionController');
+Route::resource('manage/yearlog','YearlogController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
@@ -41,3 +42,8 @@ Route::get('/contact', 'HomeController@index');
 Route::get('/contact/{id}', 'HomeController@index');
 Route::get('/search', 'HomeController@index');
 Route::get('/tern', 'HomeController@index');
+
+Route::get('/{any}/{anyt?}/{anyd?}', function(){
+  return redirect("/");
+});
+

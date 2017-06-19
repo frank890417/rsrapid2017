@@ -1,0 +1,55 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 方案管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 方案管理
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading 方案管理
+      .panel-body
+        
+        table.table.table-hover
+          thead
+            th 編號
+            th 年份
+            th 月份
+            th 標題
+            th 內容
+            th 連結新聞
+            th 更新時間
+            th 編輯
+            th 刪除
+          tbody 
+            tr(v-for="yearlog in yearlogs")
+              td(style="width: 5%") @{{yearlog.id}}
+              td(style="width: 7%") @{{yearlog.year}}
+              td(style="width: 7%") @{{yearlog.date}}
+              td(style="width: 20%") @{{yearlog.title}}
+              td(style="width: 50%") @{{yearlog.content}}
+              td(style="width: 10%") @{{yearlog.news_id}}
+              td(style="width: 20%") @{{yearlog.updated_at}}
+              td(style="width: 5%")
+                a.btn.btn-default(:href="'/manage/yearlog/'+(yearlog.id)") 編輯
+              td(style="width: 5%")
+                button.btn.btn-danger.btn-md(@click!="delete_yearlog(yearlog.id)") 刪除
+                //- form(:id="'delete_solution_'+yearlog.id", :action="'/manage/yearlog/'+yearlog.id", method='POST')
+                //-   input(type='hidden', name='_method', value='delete')
+                //-   input(type='hidden', name='_token', value='{{ csrf_token() }}')
+        br
+        a.btn.btn-primary(href!="{{ url('manage/yearlog/create') }}") 新增事件
+        br
+
+@endsection

@@ -19,6 +19,7 @@
       'csrfToken' => csrf_token(),
       ]) !!};
     </script>
+    <style>[v-cloak] { display: none }</style>
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
@@ -57,12 +58,10 @@
         </div>
       </form>
       <ul class="nav menu">
-        {{--          
-          a(href='index.html')
-            svg.glyph.stroked.dashboard-dial
-              use(xlink:href='#stroked-dashboard-dial')
-            |  網站資料
-        --}}
+        <li><a href="{{ url('manage/yearlog') }}">
+            <svg class="glyph stroked dashboard-dial">
+              <use xlink:href="#stroked-dashboard-dial"></use>
+            </svg> 年表管理</a></li>
         <li class="active"><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
@@ -134,7 +133,7 @@
       </ul>
     </div>
     <!-- /.sidebar -->
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div id="app" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
       @yield('content')
       <div class="clearfix"></div>
       <!-- /.row -->

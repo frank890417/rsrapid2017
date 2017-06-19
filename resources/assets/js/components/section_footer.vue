@@ -8,7 +8,7 @@ div.footer
         h5 公司資訊
         p 台北, 台灣
         br
-        p 231 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
+        p 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
         hr
         i.social_icon.fa.fa-facebook
         i.social_icon.fa.fa-weibo
@@ -22,7 +22,7 @@ div.footer
             p.answer {{qa.answer}}
           
           li 
-            a.more 更多問題...
+            router-link.more(to="/contact#section_qa") 更多問題...
 
       .col_corp
         h5.text-left 合作夥伴
@@ -43,7 +43,7 @@ div.footer
         li
           router-link(to="/job") 人才招募
         li
-          a(href="#") 會員登入
+          a(href="#") 會員服務
         li
          router-link(to="/tern") 各項聲明
         li

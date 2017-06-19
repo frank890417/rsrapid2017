@@ -1,0 +1,104 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href!=" {{url('manage/yearlog')}} ") 年表管理
+        li.active 年表編輯-{!! isset($yearlog)?$yearlog->title:"" !!}
+    @yield('content')
+  .col-lg-12
+    h1.page-header 年表管理
+
+form(action!="{{ (isset($yearlog))?(url('manage/yearlog/'.$yearlog->id)):(url('manage/yearlog/')) }}" method="post").row#form_yearlog
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading 年表設定
+      .panel-body
+        //.form-group
+          label 首頁置頂
+          br
+          .btn-group
+            label(for='stick_top')
+              | 置頂
+              input(type='radio', name='stick_top', value='1')
+            label(for='stick_top')
+              | 否
+              input(type='radio', name='stick_top', value='0')
+        .form-group
+          label(for='title') 年表名稱
+          input(id="title", name="title" ,class='form-control' value!='{!! isset($yearlog)?$yearlog->title:"" !!}')
+
+        .form-group
+          button.btn.btn-danger.btn-md(type='submit') 儲存修改
+  .col-sm-9
+    .panel.panel-primary
+      .panel-heading 編輯年表-{{ (isset($yearlog))?$yearlog->id:'' }}
+      .panel-body
+      
+        input(type='hidden', name='_method', value="{{ (isset($yearlog))?'put':'post' }}")
+        input(type='hidden', name='_token', value!='{{ csrf_token() }}')
+
+        .form-group
+          label(for='test_item') 檢驗項目
+          textarea(name="test_item" ,class='form-control' ,rows=15) {!! isset($yearlog)?$yearlog->test_item:"" !!}
+        
+
+        .form-group
+          label(for='env') 適用環境
+          textarea(id="env", name="env" ,class='form-control',rows=4) {!! isset($yearlog)?$yearlog->env:"" !!}
+        
+
+        .form-group
+          label(for='schedule') 年表類型
+          textarea(id="schedule", name="schedule" ,class='form-control',rows=4) {!! isset($yearlog)?$yearlog->schedule:"" !!}
+        
+
+        .form-group
+          label(for='talk') 口碑
+          ul
+            li.form_group(v-for="(talk,tid) in yearlogs.talk")
+              label(v-text="(tid+1)+':'")
+              input.form-control(v-model="talk.title")
+              input.form-control(v-model="talk.name")
+              button.btn.btn-default(@click="yearlogs.talk.splice(tid,1)") 移除
+          button.btn.btn-default(@click="yearlogs.talk.push({title: '',name: ''})") 新增口碑
+
+          input(id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(yearlogs.talk)")
+
+        br
+        br
+
+
+
+
+@endsection
+
+@section('require_js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js')
+script.
+  if (!window.data_storage){
+    window.data_storage={};
+  }
+  window.require_js={};
+  window.require_js.dropzone=true;
+  window.require_js.tinymce=true;
+  window.yearlogs= {!! json_encode($yearlog)!!}
+  window.yearlogs.talk= JSON.parse(window.yearlogs.talk)
+    
+@endsection
+@section('require_js_after')
+  script.
+    $("#tag").val("{{isset($yearlog)?($yearlog->tag):''}}");
+    $(window).ready(function(){
+      //- var value={!! isset($yearlog)?$yearlog->stick_top:0 !!};
+      $("input[name=stick_top][value="+value+"]").attr("checked","checked");
+    });
+@endsection
+

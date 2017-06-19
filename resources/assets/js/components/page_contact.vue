@@ -38,7 +38,7 @@ div.page_contact
               span(v-else) 送出表單
       hr.footer_line
 
-  section.section_qa
+  section.section_qa#section_qa
     .container
       h1.section_title 常見問題
       .col_full
@@ -75,6 +75,9 @@ div.page_contact
             if (this.selected)
               this.selected_option=this.selected;
             window.send_form=this.send_form;
+            if (window.location.hash=="#section_qa"){
+              $("html,body").animate({scrollTop: $("#section_qa").offset().top-100});
+            }
         },
         methods: {
           send_form(){

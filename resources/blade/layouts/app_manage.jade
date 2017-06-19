@@ -17,6 +17,8 @@ html(lang="{{ config('app.locale') }}")
       window.Laravel = {!! json_encode([
       'csrfToken' => csrf_token(),
       ]) !!};
+    style.
+      [v-cloak] { display: none }
   body
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
@@ -58,11 +60,11 @@ html(lang="{{ config('app.locale') }}")
         .form-group
           input.form-control(type='text', placeholder='Search')
       ul.nav.menu
-        //- li
-          a(href='index.html')
+        li
+          a(href="{{ url('manage/yearlog') }}")
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
-            |  網站資料
+            |  年表管理
         li.active
           a(href!="{{ url('manage/news') }}")
             svg.glyph.stroked.calendar
@@ -132,7 +134,7 @@ html(lang="{{ config('app.locale') }}")
               use(xlink:href='#stroked-male-user')
             |  Register
     // /.sidebar
-    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main#app
 
       @yield('content')
 
