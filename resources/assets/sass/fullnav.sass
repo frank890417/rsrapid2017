@@ -91,10 +91,18 @@
     margin-bottom: grid_sz(0,1)
     margin-top: grid_sz(0,-1)
     +rwd_sm
-      display: flex
+      .icon_big,.icon_small
+        width: 25px
       .function
         margin: 0 grid_sz(0,0.3)
+        display: flex
+        flex-direction: column
+        align-items: center
       +flex_center
       .options
         display: none
         position: absolute
+    .lang_options
+      li
+        display: inline-block   
+        padding: 0px 5px
