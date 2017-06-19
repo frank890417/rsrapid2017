@@ -72,8 +72,8 @@ div
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
-            img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
-            img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
+            img.icon_big(src="/img/icon_word_big.svg", v-if="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg", v-if="big_font")
 
           li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
