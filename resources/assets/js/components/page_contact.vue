@@ -15,7 +15,7 @@ div.page_contact
         .col_right
           .form-group
             label 姓名
-            input(required name='name')
+            input(required name='name' pattern="^[-'a-zA-Z\ \u4e00-\u9eff]{1,25}$")
           .form-group
             label 信箱
             input(required name='email' pattern=".*\@.*\..*")
@@ -32,7 +32,7 @@ div.page_contact
             // button.btn.btn-primary(class="g-recaptcha"
             // data-sitekey="6LcahSQUAAAAAKLP5ArsW2a-gxQpAoKrr5zWbjsE"
             // data-callback="send_form" type="submit") 送出表單
-            button.btn.btn-primary(type="submit") 
+            button.btn.btn-primary(type="submit" , onclick.prevent="send_form") 
               span(v-if="sending")
                 span 傳送中...
               span(v-else) 送出表單
