@@ -26,13 +26,14 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/tech', 'HomeController@index');
+Route::get('/tech/{id}', 'HomeController@index');
 
 Route::get('/about', 'HomeController@index');
 
 Route::get('/news', 'HomeController@index');
 Route::get('/news/{id}', 'HomeController@index');
 Route::get('/news/cata/{name}', 'HomeController@index');
+Route::get('/solution/n/{title}', 'HomeController@index');
 Route::get('/solution/{id}', 'HomeController@index');
 Route::get('/solution', 'HomeController@index');
 

@@ -1,12 +1,12 @@
 <template lang="jade">
 div.page_index
   ul.slide_bullet
-    li(data-link=".page_index_main")
-    li(data-link=".page_index_grow")
-    li(data-link=".page_index_live")
-    li(data-link=".page_index_accurate")
-    li(data-link=".section_solution")
-    li(data-link=".detail_footer" style="display: none")
+    li(data-link=".page_index_main" ,@click="jump_bullet")
+    li(data-link=".page_index_grow",@click="jump_bullet")
+    li(data-link=".page_index_live",@click="jump_bullet")
+    li(data-link=".page_index_accurate",@click="jump_bullet")
+    li(data-link=".section_solution",@click="jump_bullet")
+    li(data-link=".detail_footer" style="display: none",@click="jump_bullet")
 
   section.page_index_main.bg_parallax
     .container.index_slogan_area
@@ -219,6 +219,11 @@ import {mapState} from 'vuex';
           },
           bg_css(url){
             return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+          },
+          jump_bullet(event){
+            $("html, body").animate({ scrollTop: $($(event.target).attr("data-link")).offset().top }, "slow");
+            console.log("call vue bullet jump")
+  
           }
 
 

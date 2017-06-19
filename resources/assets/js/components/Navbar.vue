@@ -43,20 +43,20 @@ div
 
           // 使用 nav_structure自動產生選單
           ul.navbar-nav.navbar-left.text-left
-            li(v-for="main_tag in maked_nav_structure"
-               v-if="!main_tag.hide_navbar")
+            li(v-for = "main_tag in maked_nav_structure"
+               v-if = "!main_tag.hide_navbar")
 
               //選擇性產生router-link或a(#)
-              a(v-if="main_tag.link=='#'",href="#") {{main_tag.tag}}
+              a(v-if = "main_tag.link=='#'",href = "#") {{main_tag.tag}}
 
-              router-link(:to="main_tag.link" v-if="main_tag.link!='#'") {{main_tag.tag}}
+              router-link(:to = "main_tag.link" v-if = "main_tag.link!='#'") {{main_tag.tag}}
 
               //子選單
-              ul.subnav(v-if="main_tag.childs && main_tag.childs.length>0")
+              ul.subnav(v-if = "main_tag.childs && main_tag.childs.length>0")
                 .container.flex
                   div.options
-                    li(v-for="sub_tag in main_tag.childs")
-                      router-link(:to="sub_tag.link") {{sub_tag.tag}}
+                    li(v-for = "(sub_tag,sub_id) in main_tag.childs")
+                      router-link(:to = "sub_tag.link") {{sub_tag.tag}}
 
         //右半部語言跟功能選單
         ul.nav.navbar-nav.navbar-right
@@ -147,7 +147,7 @@ div
             if (this.solutions.length>0){
               var options = this.solutions.map((obj)=>({
                 tag: obj.title.replace('計畫','').replace('檢測',''), 
-                link: '/solution/'+obj.id
+                link: '/solution/n/'+obj.title
               }));
               console.log(this.solutions);
 

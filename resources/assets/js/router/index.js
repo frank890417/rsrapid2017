@@ -28,9 +28,10 @@ var section_search = Vue.component('section_search', require('../components/sect
 const routes = [
   { path: '/', component: page_index , meta: {title: "首頁"}},
   { path: '/about', component: page_about , meta: {title: "關於睿軒"}},
-  { path: '/tech', component: page_tech , meta: {title: "檢驗科技"}},
+  { path: '/tech/:id', component: page_tech , props: true, meta: {title: "檢驗科技"}},
+  { path: '/solution/n/:title', component: page_solution, props: true, meta: {title: "檢測方案"}},
   { path: '/solution/:id', component: page_solution , props: true, meta: {title: "檢測方案"}},
-  { path: '/solution/0', alias: '/solution', meta: {title: "檢測方案"}},
+  { path: '/solution/1', alias: '/solution', meta: {title: "檢測方案"}},
   { path: '/news', component: page_news , meta: {title: "最新消息"}},
   { path: '/news/:id', component: page_post , props: true, meta: {title: "最新消息"}},
   { path: '/news/cata/:cataname', component: page_news , props: true, meta: {title: "最新消息"}},

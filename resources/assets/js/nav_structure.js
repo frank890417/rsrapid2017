@@ -20,7 +20,10 @@ export default [
     childs: [
       {
         tag: "快檢平台", 
-        link: "/tech"
+        link: "/tech/0"
+      },{
+        tag: "技術研發", 
+        link: "/tech/1"
       }
     ]
   },{

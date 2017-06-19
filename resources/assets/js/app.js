@@ -248,11 +248,6 @@ $( window ).ready(function(){
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
 
-  //bullet
-  $(".slide_bullet li").click(function(){
-    $("html, body").animate({ scrollTop: $($(this).attr("data-link")).offset().top }, "slow");
-  });
-
   // wheelDelta
   var mousewheel = Rx.Observable.fromEvent(document,'mousewheel')
                                 .map(e=>e.wheelDelta );   
