@@ -103,7 +103,6 @@ div.page_solution(v-if="solu")
           ...mapState(['solutions']),
           solu(){
             var target=this.solutions.filter((o)=>(o.id==this.id))[0];
-            console.log(this.title)
             if (this.title)
               target=this.solutions.filter((o)=>(o.title==this.title))[0];
             return target?target:null
