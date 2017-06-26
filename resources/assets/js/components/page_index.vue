@@ -37,9 +37,9 @@ div.page_index
     .container.flex
       .col_left
       .col_right
-        h3.section_title 孩子成長的生活環境
-        p.section_para.text-left 我們的生活環境有許多食安風險與汙染問題直接影響健康，這些有毒的化學物質被不肖業者濫用，使得我們的飲食與環境到處充斥具有危害與累積性毒素。<br><br>全世界每天有約5,500位兒童死於污染的水、空氣與食物所導致的疾病。
-        .percent.text-right(data-target=5500) 
+        h3.section_title(v-text="$t('page_index.section_1.title')")
+        p.section_para.text-left(v-html="$t('page_index.section_1.content')")
+        .percent.text-right(data-target="5500") 
           canvas.wave
           span 5500
 
@@ -47,10 +47,10 @@ div.page_index
     
     .container.flex
       .col_left
-        h3.section_title 從居家到工作環境
-        p.section_para.text-left 近年來食安問題層出不窮，引發全民對食品安全的恐慌與疑慮。有鑒於食安事件中不乏多家知名大廠，凸顯了業者自主管理的漏洞。食品安全須從源頭管理做起，以保障民眾得到安全的食物來源。<br><br>根據估計，每年全球食安事件導致的死亡人數高達200萬人。
+        h3.section_title(v-text="$t('page_index.section_2.title')")
+        p.section_para.text-left(v-html="$t('page_index.section_2.content')")
         router-link.btn.btn-primary(to='/tech') 了解更多
-        .percent.text-right(data-target=200) 
+        .percent.text-right(:data-target="200") 
           canvas.wave
           span 200
       .col_right
@@ -60,20 +60,20 @@ div.page_index
     .container.flex
       .col_left
       .col_right
-        h3.section_title 睿軒專注精準檢驗
-        p.section_para.text-left 在關懷台灣食品與環境安全問題的基礎上，我們與國立中山大學共同開發「快速檢驗平台」專利技術，只須5秒即可分析出有害化學物質，是你我守護居家生活安全的最佳快速幫手。
-        router-link.btn.btn-transparent(to='tech') 了解更多
+        h3.section_title(v-text="$t('page_index.section_3.title')")
+        p.section_para.text-left(v-html="$t('page_index.section_3.content')")
+        router-link.btn.btn-transparent(to='/tech') 了解更多
     .container.flex.type_container
       .row
         .acc_sm_pic(data-type=1).flex_sm_6
-          h4 採集樣品
+          h4(v-text="$t('page_index.section_3.squares[0].title')")
         .acc_sm_pic(data-type=2).flex_sm_6
-          h4 &nbsp;
+          h4(v-text="$t('page_index.section_3.squares[1].title')")
       .row
         .acc_sm_pic(data-type=3).flex_sm_6 
-          h4 進樣分析
+          h4(v-text="$t('page_index.section_3.squares[2].title')")
         .acc_sm_pic(data-type=4).flex_sm_6 
-          h4 資料庫比對
+          h4(v-text="$t('page_index.section_3.squares[3].title')")
 
   section_solutions
 

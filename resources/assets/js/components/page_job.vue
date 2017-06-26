@@ -2,8 +2,8 @@
 div.page_job
   section.section_hero.bg_theme.bg_parallax
     .container.flex.column
-      h1 人才招募
-      p.description 為我們的下一代共同打造安全環境、無毒食材的安心成長環境，歡迎擁有相同理念的您，一起加入我們!
+      h1(v-text="$t('page_job.section_1.title')")
+      p.description(v-html="$t('page_job.section_1.content')")
 
   section.section_job
 

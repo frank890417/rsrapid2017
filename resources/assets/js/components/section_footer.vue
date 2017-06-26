@@ -5,16 +5,17 @@ div.footer
       .go_to_topbtn(:class="{at_top: scrollTop<=0}")
         img(src="/img/icon_arrow_up.svg")
       .col_address
-        h5 公司資訊
-        p 台北, 台灣
-        br
-        p 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
-        hr
+        h5(v-text="$t('footer.section_company.title')")
+        div(v-for="loc in $t('footer.section_company.locations')")
+          p {{loc.county}}, {{loc.location}}
+          br
+          p {{loc.address}}<br>{{loc.phone}}
+          hr
         i.social_icon.fa.fa-facebook
         i.social_icon.fa.fa-weibo
         i.social_icon.fa.fa-google-plus
       .col_question
-        h5 常見問題
+        h5(v-text="$t('footer.section_question.title')")
         ul.question_list
           li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
             .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
@@ -22,20 +23,14 @@ div.footer
             p.answer {{qa.answer}}
           
           li 
-            router-link.more(to="/contact#section_qa") 更多問題...
+            router-link.more(to="/contact#section_qa") {{$t('footer.section_question.more')}}
 
       .col_corp
-        h5.text-left 合作夥伴
+        h5.text-left(v-text="$t('footer.section_partner.title')")
         .slicklogo2
-          .item
-            img.company_icon(src="/img/cor_logo/cor_logo-01.png")
-          .item
-            img.company_icon(src="/img/cor_logo/cor_logo-02.png")
-          .item
-            img.company_icon(src="/img/cor_logo/cor_logo-01.png")
-          .item
-            img.company_icon(src="/img/cor_logo/cor_logo-02.png")
-         
+          .item(v-for="partner in $t('footer.section_partner.partners')")
+            img.company_icon(:src="partner.icon", :title="partner.name")
+
   footer
     .container.flex
       .info Copyright 2017 © 睿軒檢驗科技 Rapidsure Tech, All right reserved.

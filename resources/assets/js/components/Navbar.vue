@@ -12,8 +12,8 @@ div
               li(v-for = "l in lang")
                 router-link(to="#") {{l.name}}
           li.function.func_size(@click='toggle_size')
-            img.icon_big(src="/img/icon_word_big.svg", v-if="!big_font")
-            img.icon_small(src="/img/icon_word_small.svg", v-if="big_font")
+            img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
         ul.main_list
           li(v-for="main_tag in maked_nav_structure")
             //沒有連結的主選單
@@ -68,8 +68,8 @@ div
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
-            img.icon_big(src="/img/icon_word_big.svg", v-if="!big_font")
-            img.icon_small(src="/img/icon_word_small.svg", v-if="big_font")
+            img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
 
           li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
