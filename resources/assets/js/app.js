@@ -8,7 +8,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
-import i18n from './i18n'
+import custom_i18n from './i18n'
 
 import $ from 'jquery'
 require('./bootstrap')
@@ -32,7 +32,7 @@ const app = new Vue({
   el: "#app",
   router,
   store,
-  i18n,
+  i18n: custom_i18n.i18n,
   computed: mapState(['news','about_logs','big_font']),
   created(){
     if (is_ie()){

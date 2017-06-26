@@ -1,0 +1,86 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 首頁與網站資訊
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 首頁與網站資訊
+      .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
+
+.row(v-if="lang.zh")
+  .col-lg-6
+    .panel.panel-primary
+      .panel-heading 首頁管理
+
+      .panel-body
+        .form-group
+          label 區塊一標題
+          input.form-control(v-model="lang.zh.page_index.section_1.title")
+          label 區塊一內文
+          textarea.form-control(v-model="lang.zh.page_index.section_1.content",
+          rows="4")
+          hr
+        .form-group
+          label 區塊二標題
+          input.form-control(v-model="lang.zh.page_index.section_2.title")
+          label 區塊二內文
+          textarea.form-control(v-model="lang.zh.page_index.section_2.content",
+          rows="4")
+          hr
+        .form-group
+          label 區塊三標題
+          input.form-control(v-model="lang.zh.page_index.section_3.title")
+          label 區塊三內文
+          textarea.form-control(v-model="lang.zh.page_index.section_3.content",
+          rows="4")
+          hr
+        br
+        
+        br
+  .col-lg-6
+    .panel.panel-primary
+      .panel-heading 網站資訊
+      .panel-body
+        .form-group
+          label 公司地址與資料
+          div(v-for="(loc,id) in lang.zh.footer.section_company.locations")
+            h4 @{{id+1}}-@{{loc.location}}
+            .form-inline
+              label 位置
+              input.form-control(v-model="loc.location")
+              label 縣市
+              input.form-control(v-model="loc.county")
+              label 電話
+              input.form-control(v-model="loc.phone")
+            .form-inline
+              label 地址
+              input.form-control(v-model="loc.address",style="width: 80%")
+            button.btn.btn-secondary(@click="lang.zh.footer.section_company.locations.splice(id,1)") - 刪除位置(@{{loc.location}})
+        button.btn.btn-default(@click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})") + 新增位置
+  .col-lg-6
+    .panel.panel-primary
+      .panel-heading 合作夥伴
+      .panel-body
+        .form-group
+          label 公司地址與資料
+          div(v-for="(partner,id) in lang.zh.footer.section_partner.partners")
+            .form-inline
+              label 名稱
+              input.form-control(v-model="partner.name")
+              label icon
+              input.form-control(v-model="partner.icon", style="width: 40%")
+              button.btn.btn-secondary(@click="lang.zh.footer.section_partner.partners.splice(id,1)") -
+          button.btn.btn-default(@click="lang.zh.footer.section_partner.partners.push({name: '',icon: ''})") + 新增夥伴
+
+    
+
+@endsection

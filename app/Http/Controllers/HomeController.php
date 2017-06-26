@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 
 use App\News;
-
+use App\Websiteinfo;
 class HomeController extends Controller
 {
     /**
@@ -27,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $lang_zh = Websiteinfo::where("key","zh")->first()->data;
+        return view('home')
+               ->with("lang_zh",$lang_zh);
     }
 }

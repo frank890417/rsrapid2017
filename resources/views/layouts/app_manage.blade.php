@@ -58,14 +58,18 @@
         </div>
       </form>
       <ul class="nav menu">
+        <li><a href="{{ url('manage/content') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 首頁與資訊管理</a></li>
         <li><a href="{{ url('manage/yearlog') }}">
             <svg class="glyph stroked dashboard-dial">
               <use xlink:href="#stroked-dashboard-dial"></use>
             </svg> 年表管理</a></li>
-        <li class="active"><a href="{{ url('manage/news') }}">
+        <li><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
-            </svg> 新聞管理</a></li>
+            </svg> 新聞管理 {{ $route }}</a></li>
         <li><a href="{{ url('manage/question') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>

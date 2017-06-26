@@ -26,7 +26,8 @@ var vm = new Vue({
   el: "#app", 
   data: {
     solutions: window.solutions,
-    yearlogs: []
+    yearlogs: [],
+    lang: {}
   },
   methods:{
     delete_yearlog(yid){
@@ -36,11 +37,21 @@ var vm = new Vue({
           this.yearlogs=res.data
         });
       }
+    },save_website_info(){
+      axios.post("/api/websiteinfo/key/zh",this.lang.zh).then(
+        (res)=>{location.reload();}
+      )
     }
   },
   mounted(){
     axios.get("/api/yearlogs").then((res)=>{
       this.yearlogs=res.data
+    })
+    axios.get("/api/websiteinfo/key/zh").then((res)=>{
+      this.lang={
+        zh: res.data
+      }
+      console.log(this.lang)
     })
   }
 })

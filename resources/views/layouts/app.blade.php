@@ -29,6 +29,10 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.min.js"></script>
+    <script>
+      window.lang={};
+      window.lang.zh={!! $lang_zh !!};
+    </script>
     <script src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')

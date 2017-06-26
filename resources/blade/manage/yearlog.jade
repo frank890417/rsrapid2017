@@ -9,16 +9,16 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href="#") 方案管理
+          a(href="#") 年表管理
         
     @yield('content')
   .col-lg-12
-    h1.page-header 方案管理
+    h1.page-header 年表管理
 
 .row
   .col-lg-12
-    .panel.panel-default
-      .panel-heading 方案管理
+    .panel.panel-primary
+      .panel-heading 年表管理
       .panel-body
         
         table.table.table-hover
@@ -38,9 +38,9 @@
               td(style="width: 7%") @{{yearlog.year}}
               td(style="width: 7%") @{{yearlog.date}}
               td(style="width: 20%") @{{yearlog.title}}
-              td(style="width: 50%") @{{yearlog.content}}
+              td(style="width: 40%") @{{yearlog.content}}
               td(style="width: 10%") @{{yearlog.news_id}}
-              td(style="width: 20%") @{{yearlog.updated_at}}
+              td(style="width: 10%") @{{yearlog.updated_at}}
               td(style="width: 5%")
                 a.btn.btn-default(:href="'/manage/yearlog/'+(yearlog.id)") 編輯
               td(style="width: 5%")

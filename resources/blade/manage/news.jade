@@ -17,7 +17,7 @@
 
 .row
   .col-lg-12
-    .panel.panel-default
+    .panel.panel-primary
       .panel-heading 新聞管理
       .panel-body
         
@@ -25,9 +25,9 @@
           thead
             th 標題
             th 日期
-            th 標籤
+            th 類別
             th 更新時間
-            th 顯示大小
+            //th 顯示大小
             th 編輯
             th 刪除
           tbody
@@ -35,7 +35,7 @@
               tr
                 td(style="width: 30%") {{$a_news->title}}
                 td(style="width: 10%") {{$a_news->date}}
-                td(style="width: 9%") {{$a_news->size==1?'1格 口':'2格 口口'}}
+                //td(style="width: 9%") {{$a_news->size==1?'1格 口':'2格 口口'}}
                 td(style="width: 10%") {{$a_news->tag}}
                 td {{$a_news->updated_at}}
                 td(style="width: 5%")
