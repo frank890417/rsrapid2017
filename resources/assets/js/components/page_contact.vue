@@ -21,12 +21,12 @@ div.page_contact
             input(required name='email' pattern=".*\@.*\..*")
           .form-group
             label {{$t("page_contact.section_2.label_ask")}}
-            select#select_contact(required name='ask_item', v-model="selected_option")
+            select#select_contact(required name='ask_item_id', v-model="selected_option")
               option(v-for="solu in solutions" ,:value="solu.id") {{solu.title}}
               option(value="-1") {{$t("page_contact.section_2.option_else")}}
 
           .form-group
-            textarea.form-control(rows=14 ,:placeholder="$t('page_contact.section_2.label_message')" required name='ask_content')
+            textarea.form-control(rows=14 ,:placeholder="$t('page_contact.section_2.label_message')" required name='content')
 
           .form-group.text-right
             // button.btn.btn-primary(class="g-recaptcha"
@@ -56,6 +56,7 @@ div.page_contact
 <script>
 
     import { mapGetter, mapActions , mapState } from 'vuex'
+    import axios from 'axios'
     // reCAPTCHA=require('recaptcha2')
     // recaptcha=new reCAPTCHA({
     //   siteKey:'6LclgSQUAAAAAI1FRcbFpz6Ul8W57-DXZCmyH4xK',
@@ -81,10 +82,28 @@ div.page_contact
         },
         methods: {
           send_form(){
-            var send_data=$("#form_contact").serialize();
+            var vobj=this;
+            var send_data_array=$("#form_contact").serializeArray();
+            var send_data = {};
+            send_data_array.forEach((obj)=>{
+              send_data[obj.name]=obj.value
+            })
             // var send_data=$("#form_contact").submit();
             console.log(send_data);
+
             this.sending=true;
+            axios.post("/contact_record",send_data).then((res)=>{
+              if (res.data.status=="success"){
+                alert("傳送成功！")
+                setTimeout(()=>{
+                  vobj.sending=false;
+                },1000)
+
+              }else{
+
+                alert("傳送失敗")
+              }
+            });
 
           },
 

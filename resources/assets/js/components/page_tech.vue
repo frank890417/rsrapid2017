@@ -6,12 +6,11 @@ div.page_tech(v-if="now_tech")
         h1.section_title.text-center {{now_tech.title}}
         p {{now_tech.description}}
         hr
-        .conpany_logos
+        .conpany_logos(v-if="id==0")
           img.company_logo(alt="永齡logo" src="/img/Rapid.png")
           img.company_logo(alt="中山大學logo" src="/img/homepage/tech_company_logo2.png")
 
-  section.section_tech
-
+  section.section_tech(v-if="id==0")
     .ab_center.size_full.bg_color_split
       .block_50_percent
         
@@ -31,7 +30,7 @@ div.page_tech(v-if="now_tech")
         p.section_para.text-left 不需任何前處理，也不需破壞待測物件。 快速採樣、即時檢測，立即與資料庫進行比對作業，完成一次分析的時間只需5秒。
         a.btn.btn-primary 了解更多
 
-  section.section_tech.section_manhead
+  section.section_tech.section_manhead(v-if="id==0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
@@ -46,7 +45,7 @@ div.page_tech(v-if="now_tech")
       .col_right
       //.col_right
 
-  section.section_tech
+  section.section_tech(v-if="id==0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
@@ -64,6 +63,67 @@ div.page_tech(v-if="now_tech")
           h3.section_title 雲端即時報告
           svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
           p.section_para.text-left 同時搭配手機App與網頁檢測報告系統，檢測前掃描探針上的QR code並上傳，在完成檢測後便可即時看到檢測報告。在接觸日用品或食用蔬果之前，就為您的安全環境、安心食材層層把關。
+          a.btn.btn-primary 了解更多
+
+
+  //else not not default tech
+  section.section_tech(v-if="id!=0")
+    .ab_center.size_full.bg_color_split
+      .block_50_percent
+        
+        .slick(data-timelime=".tl1")
+          .item(style='height: 100%' v-for='cover in techs[id].sections[0].slides')
+            .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
+        .timeline.tl1
+            .value
+      .block_50_percent
+    .container.flex
+      .col_left
+      .col_right.col_content
+        h3.section_title {{techs[id].sections[0].title}}
+        svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
+        p.section_para.text-left {{techs[id].sections[0].content}}
+        a.btn.btn-primary 了解更多
+
+  section.section_tech(v-if="id!=0")
+
+    .ab_center.size_full.bg_color_split
+      .block_50_percent
+      .block_50_percent
+        
+        .slick(data-timelime=".tl1")
+          .item(style='height: 100%' v-for='cover in techs[id].sections[1].slides')
+            .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
+        .timeline.tl1
+            .value
+
+    .container.flex
+      .col_left.col_content
+        h3.section_title {{techs[id].sections[1].title}}
+        svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
+        p.section_para.text-left {{techs[id].sections[1].content}}
+        a.btn.btn-primary 了解更多
+      .col_right
+      //.col_right
+
+  section.section_tech(v-if="id!=0")
+
+    .ab_center.size_full.bg_color_split
+      .block_50_percent
+        
+        .slick(data-timelime=".tl2")
+          .item(style='height: 100%' v-for='cover in techs[id].sections[2].slides')
+            .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
+        .timeline.tl2
+          .value
+      .block_50_percent
+    .container
+      .container.flex
+        .col_left
+        .col_right.col_content
+          h3.section_title {{techs[id].sections[2].title}}
+          //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
+          p.section_para.text-left {{techs[id].sections[2].content}}
           a.btn.btn-primary 了解更多
   section_solutions
 

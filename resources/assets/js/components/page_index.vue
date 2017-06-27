@@ -49,7 +49,7 @@ div.page_index
       .col_left
         h3.section_title(v-text="$t('page_index.section_2.title')")
         p.section_para.text-left(v-html="$t('page_index.section_2.content')")
-        router-link.btn.btn-primary(to='/tech') 了解更多
+        //router-link.btn.btn-primary(to='/tech') 了解更多
         .percent.text-right(:data-target="200") 
           canvas.wave
           span 200
@@ -62,13 +62,14 @@ div.page_index
       .col_right
         h3.section_title(v-text="$t('page_index.section_3.title')")
         p.section_para.text-left(v-html="$t('page_index.section_3.content')")
-        router-link.btn.btn-transparent(to='/tech') 了解更多
+        //router-link.btn.btn-transparent(to='/tech') 了解更多
     .container.flex.type_container
       .row
         .acc_sm_pic(data-type=1).flex_sm_6
           h4(v-text="$t('page_index.section_3.squares[0].title')")
         .acc_sm_pic(data-type=2).flex_sm_6
-          h4(v-text="$t('page_index.section_3.squares[1].title')")
+          h4 &nbsp;
+          //h4(v-text="$t('page_index.section_3.squares[1].title')")
       .row
         .acc_sm_pic(data-type=3).flex_sm_6 
           h4(v-text="$t('page_index.section_3.squares[2].title')")

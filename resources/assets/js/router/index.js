@@ -47,6 +47,7 @@ const router = new VueRouter({
   routes,
   mode: "history"
 })
+window.router=router
 
 router.beforeEach((to, from, next) => {
   console.log(to);

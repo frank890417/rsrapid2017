@@ -25,7 +25,7 @@ import 'tinymce/plugins/lists/plugin'
 import TinyMCE from 'tinymce-vue-2'
 
 Vue.component('tiny-mce', TinyMCE)
-
+// Vue.component('vue_lazy_table',vue_lazy_table)
 
 // import VueTinymce from 'vue-tinymce'
 // Vue.use(VueTinymce)
