@@ -130,6 +130,11 @@ function process(key,value,parent) {
       parent[key]=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
       console.log(value)
     }
+    var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
+    if (res){
+      parent[key]=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      console.log(value)
+    }
   }
 }
 function traverse(o,func) {
