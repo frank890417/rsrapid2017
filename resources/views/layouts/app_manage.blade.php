@@ -69,7 +69,7 @@
         <li><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
-            </svg> 新聞管理 {{ $route }}</a></li>
+            </svg> 新聞管理</a></li>
         <li><a href="{{ url('manage/question') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
