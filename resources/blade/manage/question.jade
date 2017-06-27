@@ -16,7 +16,16 @@
     h1.page-header 問題管理
 
 .row
-  .col-lg-12
+  .col-lg-3
+    .panel.panel-primary
+      .panel-heading 頁面敘述
+      .panel-body
+        tiny-mce(id = "tern_content" , v-model="lang.zh.page_contact.section_1.content",
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
+        br
+        .btn.btn-danger(@click="save_website_info") 儲存更新
+
+  .col-lg-9
     .panel.panel-primary
       .panel-heading 問題管理
       .panel-body
@@ -36,7 +45,7 @@
               td(style="width: 5%") {{$question->id}}
               td(style="width: 15%") {{$question->question}}
               td(style="width: 50%") {{$question->answer}}
-              td(style="width: 5%") {{$question->stick_top}}
+              td(style="width: 5%") {{$question->stick_top?'是':'否'}}
               td {{$question->updated_at}}
               td(style="width: 5%")
                 a.btn.btn-default(href!="{{ url('manage/question/'.($question->id).'/edit') }}") 編輯

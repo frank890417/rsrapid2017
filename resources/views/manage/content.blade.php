@@ -29,7 +29,7 @@
           <label>標題</label>
           <input v-model="lang.zh.page_index.section_1.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section1_content" v-model="lang.zh.page_index.section_1.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
+          <tiny-mce id="index_section1_content" v-model="lang.zh.page_index.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div>
         <div class="form-group">
@@ -37,7 +37,7 @@
           <label>標題</label>
           <input v-model="lang.zh.page_index.section_2.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section2_content" v-model="lang.zh.page_index.section_2.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
+          <tiny-mce id="index_section2_content" v-model="lang.zh.page_index.section_2.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div>
         <div class="form-group">         
@@ -45,7 +45,7 @@
           <label>標題</label>
           <input v-model="lang.zh.page_index.section_3.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section3_content" v-model="lang.zh.page_index.section_3.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
+          <tiny-mce id="index_section3_content" v-model="lang.zh.page_index.section_3.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div><br/><br/>
       </div>

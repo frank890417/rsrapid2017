@@ -18,7 +18,16 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">頁面敘述</div>
+      <div class="panel-body">
+        <tiny-mce id="tern_content" v-model="lang.zh.page_contact.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce><br/>
+        <div @click="save_website_info" class="btn btn-danger">儲存更新</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
     <div class="panel panel-primary">
       <div class="panel-heading">問題管理</div>
       <div class="panel-body">
@@ -38,7 +47,7 @@
               <td style="width: 5%">{{$question->id}}</td>
               <td style="width: 15%">{{$question->question}}</td>
               <td style="width: 50%">{{$question->answer}}</td>
-              <td style="width: 5%">{{$question->stick_top}}</td>
+              <td style="width: 5%">{{$question->stick_top?'是':'否'}}</td>
               <td>{{$question->updated_at}}</td>
               <td style="width: 5%"><a href="{{ url('manage/question/'.($question->id).'/edit') }}" class="btn btn-default">編輯</a></td>
               <td style="width: 5%">

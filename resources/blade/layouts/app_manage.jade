@@ -79,18 +79,23 @@ html(lang="{{ config('app.locale') }}")
         li
           a(href!="{{ url('manage/solution') }}")
             svg.glyph.stroked.calendar
-              use(xlink:href='#stroked-calendar')
+              use(xlink:href='#stroked-table')
             |  檢測方案
         li
           a(href!="{{ url('manage/news') }}")
             svg.glyph.stroked.calendar
-              use(xlink:href='#stroked-calendar')
+              use(xlink:href='#stroked-pencil')
             |  最新消息
         li
           a(href!="{{ url('manage/question') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  聯絡與問答
+        li
+          a(href!="{{ url('manage/tern') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  各項聲明
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table

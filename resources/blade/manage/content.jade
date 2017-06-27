@@ -28,7 +28,7 @@
           input.form-control(v-model="lang.zh.page_index.section_1.title")
           label 內文
           tiny-mce(id = "index_section1_content" , v-model="lang.zh.page_index.section_1.content",
-          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         .form-group
           h4 區塊二
@@ -36,7 +36,7 @@
           input.form-control(v-model="lang.zh.page_index.section_2.title")
           label 內文
           tiny-mce(id = "index_section2_content" , v-model="lang.zh.page_index.section_2.content",
-          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         .form-group          
           h4 區塊三
@@ -44,7 +44,7 @@
           input.form-control(v-model="lang.zh.page_index.section_3.title")
           label 內文
           tiny-mce(id = "index_section3_content" , v-model="lang.zh.page_index.section_3.content",
-          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         br
         

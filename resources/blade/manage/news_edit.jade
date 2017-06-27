@@ -46,9 +46,10 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
         .form-group
           label(for='tag') 標籤
           select#tag.form-control(name='tag')
-            option(value="重要通知" ) 重要通知
-            option(value="活動快訊" ) 活動快訊
-            option(value="投資相關" ) 投資相關
+            option(value="睿軒活動") 睿軒活動
+            option(value="新聞快訊") 新聞快訊
+            option(value="食安新知") 食安新知
+            option(value="友善連結") 友善連結
         //.form-group
           label(for='size') 顯示大小
           select#size.form-control(name='size')

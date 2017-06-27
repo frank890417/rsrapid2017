@@ -73,16 +73,20 @@
             </svg> 檢驗科技</a></li>
         <li><a href="{{ url('manage/solution') }}">
             <svg class="glyph stroked calendar">
-              <use xlink:href="#stroked-calendar"></use>
+              <use xlink:href="#stroked-table"></use>
             </svg> 檢測方案</a></li>
         <li><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
-              <use xlink:href="#stroked-calendar"></use>
+              <use xlink:href="#stroked-pencil"></use>
             </svg> 最新消息</a></li>
         <li><a href="{{ url('manage/question') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 聯絡與問答</a></li>
+        <li><a href="{{ url('manage/tern') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 各項聲明</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table

@@ -25,6 +25,9 @@ Route::resource('manage/about','YearlogController');
 Route::get('manage/content',function(){
   return view("manage.content");
 });
+Route::get('manage/tern',function(){
+  return view("manage.tern");
+});
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
