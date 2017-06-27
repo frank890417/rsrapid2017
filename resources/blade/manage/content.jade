@@ -23,25 +23,28 @@
 
       .panel-body
         .form-group
-          label 區塊一標題
+          h4 區塊一
+          label 標題
           input.form-control(v-model="lang.zh.page_index.section_1.title")
-          label 區塊一內文
-          textarea.form-control(v-model="lang.zh.page_index.section_1.content",
-          rows="4")
+          label 內文
+          tiny-mce(id = "index_section1_content" , v-model="lang.zh.page_index.section_1.content",
+          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
           hr
         .form-group
-          label 區塊二標題
+          h4 區塊二
+          label 標題
           input.form-control(v-model="lang.zh.page_index.section_2.title")
-          label 區塊二內文
-          textarea.form-control(v-model="lang.zh.page_index.section_2.content",
-          rows="4")
+          label 內文
+          tiny-mce(id = "index_section2_content" , v-model="lang.zh.page_index.section_2.content",
+          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
           hr
-        .form-group
-          label 區塊三標題
+        .form-group          
+          h4 區塊三
+          label 標題
           input.form-control(v-model="lang.zh.page_index.section_3.title")
-          label 區塊三內文
-          textarea.form-control(v-model="lang.zh.page_index.section_3.content",
-          rows="4")
+          label 內文
+          tiny-mce(id = "index_section3_content" , v-model="lang.zh.page_index.section_3.content",
+          :other-props="{plugins: ['paste', 'link', 'autoresize']}")
           hr
         br
         
@@ -53,17 +56,21 @@
         .form-group
           label 公司地址與資料
           div(v-for="(loc,id) in lang.zh.footer.section_company.locations")
-            h4 @{{id+1}}-@{{loc.location}}
-            .form-inline
-              label 位置
-              input.form-control(v-model="loc.location")
-              label 縣市
-              input.form-control(v-model="loc.county")
-              label 電話
-              input.form-control(v-model="loc.phone")
-            .form-inline
-              label 地址
-              input.form-control(v-model="loc.address",style="width: 80%")
+            .col-sm-2
+              h4 @{{id+1}}-@{{loc.location}}
+            .col-sm-10
+              .form-inline
+                label 位置
+                input.form-control(v-model="loc.location")
+              .form-inline
+                label 縣市
+                input.form-control(v-model="loc.county")
+              .form-inline
+                label 電話
+                input.form-control(v-model="loc.phone")
+              .form-inline
+                label 地址
+                input.form-control(v-model="loc.address",style="width: 80%")
             button.btn.btn-secondary(@click="lang.zh.footer.section_company.locations.splice(id,1)") - 刪除位置(@{{loc.location}})
         button.btn.btn-default(@click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})") + 新增位置
   .col-lg-6

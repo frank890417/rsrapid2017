@@ -44,15 +44,11 @@ div.page_solution(v-if="solu")
   section.section_talk.bg_theme
     .container.flex.center
       .slick
-        .talk_box(v-if="solu.talk[0]" style='height: 100%')
+        .talk_box(v-for="talk in solu.talk" style='height: 100%')
           .item(style='height: 100%')
-            h2(v-text="solu.talk[0].title")
-            h4.text-right(v-text="solu.talk[0].name")
+            h2(v-text="talk.title")
+            h4.text-right(v-text="talk.name")
 
-        .talk_box(v-if="solu.talk[0]" style='height: 100%')
-          .item(style='height: 100%')
-            h2(v-text="solu.talk[0].title")
-            h4.text-right(v-text="solu.talk[0].name")
 
   section_solutions(:slogan="solu.solution_area_slogan")
 

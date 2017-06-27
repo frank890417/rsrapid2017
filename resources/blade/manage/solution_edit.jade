@@ -60,6 +60,7 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 
         .form-group
           label(for='test_item') 檢驗項目
+
           textarea#content(name="test_item" ,class='form-control' ,rows=15) {!! isset($solution)?$solution->test_item:"" !!}
         
 
@@ -94,7 +95,6 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 @endsection
 
 @section('require_js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js')
 script.
   if (!window.data_storage){
     window.data_storage={};

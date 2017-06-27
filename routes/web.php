@@ -21,7 +21,7 @@ Route::get('manage/news','NewsController@index');
 Route::resource('manage/news','NewsController');
 Route::resource('manage/question','QuestionController');
 Route::resource('manage/solution','SolutionController');
-Route::resource('manage/yearlog','YearlogController');
+Route::resource('manage/about','YearlogController');
 Route::get('manage/content',function(){
   return view("manage.content");
 });

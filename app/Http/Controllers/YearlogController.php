@@ -15,12 +15,12 @@ class YearlogController extends Controller
     //
     public function index(){
       $yearlogs = Yearlog::all();
-      return view('manage.yearlog')
+      return view('manage.about')
               ->with("yearlogs",$yearlogs);
     }
     public function edit($id){
       $yearlog = Yearlog::find($id);
-      return view('manage.yearlog_edit')
+      return view('manage.about_edit')
               ->with("yearlog",$yearlog);
     }
     public function update($id){
@@ -28,18 +28,18 @@ class YearlogController extends Controller
       $yearlog = Yearlog::find($id);
       // $inputs['updated_at']=date("Y-m-d H:i:s");
       $yearlog->update($inputs);
-      return Redirect::to("manage/yearlog");
+      return Redirect::to("manage/about");
     }
 
     public function create(){
-      return view('manage.yearlog_edit');
+      return view('manage.about_edit');
     }
     public function store(){
       $inputs= Input::all();
       // $inputs['updated_at']=date("Y-m-d H:i:s");
       // $inputs['created_at']=date("Y-m-d H:i:s");
       $yearlog = Yearlog::Create($inputs);
-      return Redirect::to("manage/yearlog");
+      return Redirect::to("manage/about");
     }
     public function destroy($id){
       Yearlog::destroy($id);

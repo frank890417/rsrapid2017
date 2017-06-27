@@ -7,6 +7,8 @@
     <link href="/css/admin_css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/admin_css/datepicker3.css" rel="stylesheet">
     <link href="/css/admin_css/styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/skin.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/content.min.css" rel="stylesheet">
     <!-- Icons -->
     <script src="/js/admin_js/lumino.glyphs.js"></script>
     <script src="/js/Rx.min.js"></script>
@@ -59,25 +61,28 @@
       </form>
       <ul class="nav menu">
         <li><a href="{{ url('manage/content') }}">
-            <svg class="glyph stroked calendar">
-              <use xlink:href="#stroked-calendar"></use>
-            </svg> 首頁與資訊管理</a></li>
-        <li><a href="{{ url('manage/yearlog') }}">
             <svg class="glyph stroked dashboard-dial">
               <use xlink:href="#stroked-dashboard-dial"></use>
-            </svg> 年表管理</a></li>
+            </svg> 首頁與資訊</a><a href="{{ url('manage/about') }}">
+            <svg class="glyph stroked dashboard-dial">
+              <use xlink:href="#stroked-dashboard-dial"></use>
+            </svg> 關於睿宣</a></li>
         <li><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
-            </svg> 新聞管理</a></li>
-        <li><a href="{{ url('manage/question') }}">
-            <svg class="glyph stroked calendar">
-              <use xlink:href="#stroked-calendar"></use>
-            </svg> 問答管理</a></li>
+            </svg> 檢驗科技</a></li>
         <li><a href="{{ url('manage/solution') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
-            </svg> 方案管理</a></li>
+            </svg> 檢測方案</a></li>
+        <li><a href="{{ url('manage/news') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 最新消息</a></li>
+        <li><a href="{{ url('manage/question') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 聯絡與問答</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table

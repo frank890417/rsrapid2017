@@ -12,6 +12,23 @@ import Dropzone from 'dropzone'
 // import axios from 'axios'
 // require("datatables")
 require('../bootstrap')
+require('tinymce/themes/modern/theme')
+
+
+import tinymce from 'tinymce'
+import 'tinymce/plugins/paste/plugin'
+import 'tinymce/plugins/link/plugin'
+import 'tinymce/plugins/autoresize/plugin'
+import 'tinymce/plugins/advlist/plugin'
+import 'tinymce/plugins/lists/plugin'
+
+import TinyMCE from 'tinymce-vue-2'
+
+Vue.component('tiny-mce', TinyMCE)
+
+
+// import VueTinymce from 'vue-tinymce'
+// Vue.use(VueTinymce)
 // import store from './store'
 // import router from './router'
 // import {mapState} from 'vuex'
@@ -27,7 +44,11 @@ var vm = new Vue({
   data: {
     solutions: window.solutions,
     yearlogs: [],
-    lang: {}
+    lang: {},
+    mce_toolbar: [ 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword'],
+    mce_plugin: {plugins: ['paste', 'link', 'autoresize','lists', 'advlist'],
+    advlist_bullet_styles: "circle"},
+    now_editing_yearlog_id: -1
   },
   methods:{
     delete_yearlog(yid){
@@ -88,8 +109,8 @@ if (window.require_js.tinymce){
           }
         });
       },
-      toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | uploadpic | uploadpic_url',
-      plugins : "paste,link",
+      toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic | uploadpic_url',
+      plugins : vm.mce_plugin.plugins,
       theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
       paste_auto_cleanup_on_paste : true,
       paste_preprocess : function(pl, o) {

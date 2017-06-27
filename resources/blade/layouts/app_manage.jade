@@ -7,6 +7,8 @@ html(lang="{{ config('app.locale') }}")
     link(href='/css/admin_css/bootstrap.min.css', rel='stylesheet')
     link(href='/css/admin_css/datepicker3.css', rel='stylesheet')
     link(href='/css/admin_css/styles.css', rel='stylesheet')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/skin.min.css', rel='stylesheet')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/content.min.css', rel='stylesheet')
     // Icons
     script(src='/js/admin_js/lumino.glyphs.js')
     script(src='/js/Rx.min.js')
@@ -61,25 +63,34 @@ html(lang="{{ config('app.locale') }}")
           input.form-control(type='text', placeholder='Search')
       ul.nav.menu
         li
-          a(href="{{ url('manage/yearlog') }}")
+          a(href="{{ url('manage/content') }}")
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
-            |  年表管理
-        li.active
+            |  首頁與資訊
+          a(href="{{ url('manage/about') }}")
+            svg.glyph.stroked.dashboard-dial
+              use(xlink:href='#stroked-dashboard-dial')
+            |  關於睿宣
+        li
           a(href!="{{ url('manage/news') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
-            |  新聞管理
-        li
-          a(href!="{{ url('manage/question') }}")
-            svg.glyph.stroked.calendar
-              use(xlink:href='#stroked-calendar')
-            |  問答管理
+            |  檢驗科技
         li
           a(href!="{{ url('manage/solution') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
-            |  方案管理
+            |  檢測方案
+        li
+          a(href!="{{ url('manage/news') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  最新消息
+        li
+          a(href!="{{ url('manage/question') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  聯絡與問答
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table

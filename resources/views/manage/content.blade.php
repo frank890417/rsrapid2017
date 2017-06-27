@@ -25,24 +25,27 @@
       <div class="panel-heading">首頁管理</div>
       <div class="panel-body">
         <div class="form-group">
-          <label>區塊一標題</label>
+          <h4>區塊一</h4>
+          <label>標題</label>
           <input v-model="lang.zh.page_index.section_1.title" class="form-control"/>
-          <label>區塊一內文</label>
-          <textarea v-model="lang.zh.page_index.section_1.content" rows="4" class="form-control"></textarea>
+          <label>內文</label>
+          <tiny-mce id="index_section1_content" v-model="lang.zh.page_index.section_1.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
           <hr/>
         </div>
         <div class="form-group">
-          <label>區塊二標題</label>
+          <h4>區塊二</h4>
+          <label>標題</label>
           <input v-model="lang.zh.page_index.section_2.title" class="form-control"/>
-          <label>區塊二內文</label>
-          <textarea v-model="lang.zh.page_index.section_2.content" rows="4" class="form-control"></textarea>
+          <label>內文</label>
+          <tiny-mce id="index_section2_content" v-model="lang.zh.page_index.section_2.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
           <hr/>
         </div>
-        <div class="form-group">
-          <label>區塊三標題</label>
+        <div class="form-group">         
+          <h4>區塊三</h4>
+          <label>標題</label>
           <input v-model="lang.zh.page_index.section_3.title" class="form-control"/>
-          <label>區塊三內文</label>
-          <textarea v-model="lang.zh.page_index.section_3.content" rows="4" class="form-control"></textarea>
+          <label>內文</label>
+          <tiny-mce id="index_section3_content" v-model="lang.zh.page_index.section_3.content" :other-props="{plugins: ['paste', 'link', 'autoresize']}"></tiny-mce>
           <hr/>
         </div><br/><br/>
       </div>
@@ -55,18 +58,26 @@
         <div class="form-group">
           <label>公司地址與資料</label>
           <div v-for="(loc,id) in lang.zh.footer.section_company.locations">
-            <h4>@{{id+1}}-@{{loc.location}}</h4>
-            <div class="form-inline">
-              <label>位置</label>
-              <input v-model="loc.location" class="form-control"/>
-              <label>縣市</label>
-              <input v-model="loc.county" class="form-control"/>
-              <label>電話</label>
-              <input v-model="loc.phone" class="form-control"/>
+            <div class="col-sm-2">
+              <h4>@{{id+1}}-@{{loc.location}}</h4>
             </div>
-            <div class="form-inline">
-              <label>地址</label>
-              <input v-model="loc.address" style="width: 80%" class="form-control"/>
+            <div class="col-sm-10">
+              <div class="form-inline">
+                <label>位置</label>
+                <input v-model="loc.location" class="form-control"/>
+              </div>
+              <div class="form-inline">
+                <label>縣市</label>
+                <input v-model="loc.county" class="form-control"/>
+              </div>
+              <div class="form-inline">
+                <label>電話</label>
+                <input v-model="loc.phone" class="form-control"/>
+              </div>
+              <div class="form-inline">
+                <label>地址</label>
+                <input v-model="loc.address" style="width: 80%" class="form-control"/>
+              </div>
             </div>
             <button @click="lang.zh.footer.section_company.locations.splice(id,1)" class="btn btn-secondary">- 刪除位置(@{{loc.location}})</button>
           </div>

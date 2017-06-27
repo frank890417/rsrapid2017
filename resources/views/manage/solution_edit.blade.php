@@ -93,7 +93,6 @@
 </form>
 @endsection
 @section('require_js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js"></script>
 <script>
   if (!window.data_storage){
     window.data_storage={};
