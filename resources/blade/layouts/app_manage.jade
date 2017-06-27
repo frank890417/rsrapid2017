@@ -42,7 +42,7 @@ html(lang="{{ config('app.locale') }}")
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='#')
+                  a(href='#' )
                     svg.glyph.stroked.male-user
                       use(xlink:href='#stroked-male-user')
                     |  Profile
@@ -62,40 +62,46 @@ html(lang="{{ config('app.locale') }}")
         .form-group
           input.form-control(type='text', placeholder='Search')
       ul.nav.menu
-        li
-          a(href="{{ url('manage/content') }}")
+        li(data-link="content")
+          a(href="{{ url('manage/content') }}" )
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
             |  首頁與資訊
+        li(data-link="about")
           a(href="{{ url('manage/about') }}")
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
             |  關於睿宣
-        li
-          a(href!="{{ url('manage/news') }}")
+        li(data-link="tech")
+          a(href!="{{ url('manage/news') }}" )
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  檢驗科技
-        li
+        li(data-link="solution")
           a(href!="{{ url('manage/solution') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-table')
             |  檢測方案
-        li
+        li(data-link="news")
           a(href!="{{ url('manage/news') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-pencil')
             |  最新消息
-        li
+        li(data-link="question")
           a(href!="{{ url('manage/question') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  聯絡與問答
-        li
+        li(data-link="tern")
           a(href!="{{ url('manage/tern') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  各項聲明
+        li(data-link="job")
+          a(href!="{{ url('manage/job') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  人才招募
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table
@@ -150,7 +156,7 @@ html(lang="{{ config('app.locale') }}")
               use(xlink:href='#stroked-male-user')
             |  Register
     // /.sidebar
-    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main#app
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main#app(v-cloak)
 
       @yield('content')
 
@@ -384,6 +390,13 @@ html(lang="{{ config('app.locale') }}")
     @yield('require_js')
     script(src='/js/admin_js/jquery-1.11.1.min.js')
     script(src='/js/admin_js/bootstrap.min.js')
+    script.
+      $("[data-link]").each(function(id,obj){
+        if ($(obj).attr("data-link")==document.URL.split("/").slice(-1)[0]){ 
+
+          $(obj).addClass("active")
+        }
+      });
     //- script(src='/js/admin_js/chart.min.js')
     script(src="/js/backstage/app.js")
     //- script(src='/js/admin_js/chart-data.js')

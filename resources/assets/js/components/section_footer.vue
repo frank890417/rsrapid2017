@@ -11,9 +11,10 @@ div.footer
           br
           p {{loc.address}}<br>{{loc.phone}}
           hr
-        i.social_icon.fa.fa-facebook
-        i.social_icon.fa.fa-weibo
-        i.social_icon.fa.fa-google-plus
+
+         a(v-for="social in $t('footer.section_company.social')" ,:href="social.url?social.url:'#'", target="_blank")
+          i.social_icon(v-if="social.icon.indexOf('fa.')==0" ,:class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]")
+          img.social_icon(v-else, :src="social.icon")
       .col_question
         h5(v-text="$t('footer.section_question.title')")
         ul.question_list

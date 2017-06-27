@@ -8,22 +8,15 @@ div.page_job
   section.section_job
 
     .container.flex.row.wrap.top_out
-      .job_box.flex_lg_12
+      .job_box.flex_lg_12(v-for="job in $t('page_job.section_1.jobs')")
         .job_box_inner
-          h4.title 工程師-1
+          h4.title {{job.name}}
             i.fa.fa-link
-          p 需求人數: 2 人 | 3~5 年以上經驗
+          p(v-html="job.short_description")
           .cover.flex.column 
-            p 1. 熟悉LC / MS /MS儀器操作 (分析方法確效及分析方法開發)<br>2. 有儀器分析或食品檢測領域工作經驗
-            a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
-      .job_box.flex_lg_12
-        .job_box_inner
-          h4.title 工程師-2
-            i.fa.fa-link
-          p 需求人數: 2 人 | 3~5 年以上經驗
-          .cover.flex.column 
-            p 1. 熟悉LC / MS /MS儀器操作 <br>2. 有儀器分析或食品檢測領域工作經驗
-            a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08g&jobsource=n104bank1") 更多資訊
+            p(v-html="job.content")
+            a.btn.btn-transparent(v-if="job.link",:href="job.link") 更多資訊
+      
       .row
         .col-sm-12
          

@@ -48,7 +48,11 @@ var vm = new Vue({
     mce_toolbar: [ 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword'],
     mce_plugin: {plugins: ['paste', 'link', 'autoresize','lists', 'advlist'],
     advlist_bullet_styles: "circle"},
-    now_editing_yearlog_id: -1
+    now_editing_yearlog_id: -1,
+    now_social_id: 0,
+    now_job_id: 0,
+    now_yearlog: 0,
+    news: []
   },
   methods:{
     delete_yearlog(yid){
@@ -68,6 +72,9 @@ var vm = new Vue({
     axios.get("/api/yearlogs").then((res)=>{
       this.yearlogs=res.data
     })
+    axios.get("/api/news").then((res)=>{
+      this.news=res.data
+    })
     axios.get("/api/websiteinfo/key/zh").then((res)=>{
       this.lang={
         zh: res.data
@@ -76,7 +83,21 @@ var vm = new Vue({
     })
   }
 })
+window.vm=vm
 
+//nav
+
+// $("[data-link]").each((id,obj)=>{
+//   console.log($(obj).attr("data-link"))
+//   console.log(document.URL.split("/").slice(-1)[0])
+//   if ($(obj).attr("data-link")==document.URL.split("/").slice(-1)[0]){ 
+
+//     $(obj).addClass("active")
+//   }
+// });
+
+
+//tinymce
 
 if (!window.require_js) window.require_js={};
 

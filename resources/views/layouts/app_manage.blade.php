@@ -60,33 +60,38 @@
         </div>
       </form>
       <ul class="nav menu">
-        <li><a href="{{ url('manage/content') }}">
+        <li data-link="content"><a href="{{ url('manage/content') }}">
             <svg class="glyph stroked dashboard-dial">
               <use xlink:href="#stroked-dashboard-dial"></use>
-            </svg> 首頁與資訊</a><a href="{{ url('manage/about') }}">
+            </svg> 首頁與資訊</a></li>
+        <li data-link="about"><a href="{{ url('manage/about') }}">
             <svg class="glyph stroked dashboard-dial">
               <use xlink:href="#stroked-dashboard-dial"></use>
             </svg> 關於睿宣</a></li>
-        <li><a href="{{ url('manage/news') }}">
+        <li data-link="tech"><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 檢驗科技</a></li>
-        <li><a href="{{ url('manage/solution') }}">
+        <li data-link="solution"><a href="{{ url('manage/solution') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-table"></use>
             </svg> 檢測方案</a></li>
-        <li><a href="{{ url('manage/news') }}">
+        <li data-link="news"><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-pencil"></use>
             </svg> 最新消息</a></li>
-        <li><a href="{{ url('manage/question') }}">
+        <li data-link="question"><a href="{{ url('manage/question') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 聯絡與問答</a></li>
-        <li><a href="{{ url('manage/tern') }}">
+        <li data-link="tern"><a href="{{ url('manage/tern') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 各項聲明</a></li>
+        <li data-link="job"><a href="{{ url('manage/job') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 人才招募</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table
@@ -146,7 +151,7 @@
       </ul>
     </div>
     <!-- /.sidebar -->
-    <div id="app" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div id="app" v-cloak class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
       @yield('content')
       <div class="clearfix"></div>
       <!-- /.row -->
@@ -380,6 +385,14 @@
     @yield('require_js')
     <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
     <script src="/js/admin_js/bootstrap.min.js"></script>
+    <script>
+      $("[data-link]").each(function(id,obj){
+        if ($(obj).attr("data-link")==document.URL.split("/").slice(-1)[0]){ 
+      
+          $(obj).addClass("active")
+        }
+      });
+    </script>
     {{-- script(src='/js/admin_js/chart.min.js') --}}
     <script src="/js/backstage/app.js"></script>
     {{-- script(src='/js/admin_js/chart-data.js') --}}

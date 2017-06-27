@@ -81,7 +81,7 @@
             </div>
             <button @click="lang.zh.footer.section_company.locations.splice(id,1)" class="btn btn-secondary">- 刪除位置(@{{loc.location}})</button>
           </div>
-        </div>
+        </div><br/>
         <button @click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})" class="btn btn-default">+ 新增位置</button>
       </div>
     </div>
@@ -91,7 +91,7 @@
       <div class="panel-heading">合作夥伴</div>
       <div class="panel-body">
         <div class="form-group">
-          <label>公司地址與資料</label>
+          <label>合作夥伴資料</label>
           <div v-for="(partner,id) in lang.zh.footer.section_partner.partners">
             <div class="form-inline">
               <label>名稱</label>
@@ -100,8 +100,47 @@
               <input v-model="partner.icon" style="width: 40%" class="form-control"/>
               <button @click="lang.zh.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">-</button>
             </div>
-          </div>
+          </div><br/>
           <button @click="lang.zh.footer.section_partner.partners.push({name: '',icon: ''})" class="btn btn-default">+ 新增夥伴</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">社群連結</div>
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label>平台編輯</label>
+            <select v-model="now_social_id">
+              <option v-for="(s,id) in lang.zh.footer.section_company.social" :value="id">@{{s.name}}</option>
+            </select><br/>
+          </div>
+          <div v-for="(social,id) in [lang.zh.footer.section_company.social[now_social_id]]">
+            <div class="col-sm-2">
+              <h4>@{{social.name}}</h4>
+              <button @click="lang.zh.footer.section_company.social.splice(id,1)" class="btn btn-secondary">-</button>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-group">
+                <label>名稱</label>
+                <input v-model="social.name" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label>icon</label>
+                <input v-model="social.icon" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label>連結</label>
+                <input v-model="social.url" class="form-control"/>
+              </div>
+              <hr/>
+            </div>
+          </div>
+          <!-- button.btn.btn-default(@click="lang.zh.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群 -->
+          
+          
         </div>
       </div>
     </div>

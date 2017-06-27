@@ -28,6 +28,9 @@ Route::get('manage/content',function(){
 Route::get('manage/tern',function(){
   return view("manage.tern");
 });
+Route::get('manage/job',function(){
+  return view("manage.job");
+});
 Auth::routes();
 
 Route::get('/', 'HomeController@index');

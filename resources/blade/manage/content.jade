@@ -72,13 +72,14 @@
                 label 地址
                 input.form-control(v-model="loc.address",style="width: 80%")
             button.btn.btn-secondary(@click="lang.zh.footer.section_company.locations.splice(id,1)") - 刪除位置(@{{loc.location}})
+        br
         button.btn.btn-default(@click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})") + 新增位置
   .col-lg-6
     .panel.panel-primary
       .panel-heading 合作夥伴
       .panel-body
         .form-group
-          label 公司地址與資料
+          label 合作夥伴資料
           div(v-for="(partner,id) in lang.zh.footer.section_partner.partners")
             .form-inline
               label 名稱
@@ -86,7 +87,37 @@
               label icon
               input.form-control(v-model="partner.icon", style="width: 40%")
               button.btn.btn-secondary(@click="lang.zh.footer.section_partner.partners.splice(id,1)") -
+          br
           button.btn.btn-default(@click="lang.zh.footer.section_partner.partners.push({name: '',icon: ''})") + 新增夥伴
+  .col-lg-6
+    .panel.panel-primary
+      .panel-heading 社群連結
+      .panel-body
+        .form-group
+          .col-sm-12
+            label 平台編輯
+            select(v-model="now_social_id")
+              option(v-for="(s,id) in lang.zh.footer.section_company.social" , :value = "id") @{{s.name}}
+            br
+          div(v-for="(social,id) in [lang.zh.footer.section_company.social[now_social_id]]")
+            .col-sm-2
+              h4 @{{social.name}}
+              button.btn.btn-secondary(@click="lang.zh.footer.section_company.social.splice(id,1)") -
+            .col-sm-10
+              .form-group
+                label 名稱
+                input.form-control(v-model="social.name")
+              .form-group
+                
+                label icon
+                input.form-control(v-model="social.icon")
+
+              .form-group
+                label 連結
+                input.form-control(v-model="social.url")
+              hr
+                
+          //button.btn.btn-default(@click="lang.zh.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群
 
     
 

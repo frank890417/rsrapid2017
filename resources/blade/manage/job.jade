@@ -1,0 +1,56 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 人才招募
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 人才招募
+      .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
+
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading 人才招募
+      .panel-body
+        table.table.table-hover
+          thead
+            th 職位名
+            th 操作
+          tbody
+            tr(v-for="(job,id) in lang.zh.page_job.section_1.jobs")
+              td @{{job.name}}
+              td
+                .btn.btn-default(@click="now_job_id=id") 編輯
+                .btn.btn-danger(@click="lang.zh.page_job.section_1.jobs.splice(id,1)") 刪除
+        button.btn.btn-default(@click="lang.zh.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})") + 新增職缺
+        .btn.btn-danger(@click="save_website_info") 儲存更新
+  .col-lg-8
+    .panel.panel-default
+      .panel-heading 編輯職位中-@{{lang.zh.page_job.section_1.jobs[now_job_id].name}}
+      .panel-body(v-for="(job,id) in lang.zh.page_job.section_1.jobs",
+      v-if="id==now_job_id")
+        .form-group
+          label 職位名
+          input.form-control(v-model="job.name" )
+        .form-group
+          label 簡介
+          tiny-mce(:id = "'job_short_description'+id" , v-model="job.short_description",
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
+        .form-group
+          label 長內容
+          tiny-mce(:id = "'job_content'+id", v-model="job.content",
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")       
+        br
+        a.btn.btn-primary() 新增職缺
+        br
+
+@endsection

@@ -33,7 +33,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-6">
     <div class="panel panel-primary">
       <div class="panel-heading">年表管理</div>
       <div class="panel-body">
@@ -43,22 +43,24 @@
             <th>年份</th>
             <th>月份</th>
             <th>標題</th>
-            <th>內容</th>
+            {{-- th 內容 --}}
             <th>連結新聞</th>
-            <th>更新時間</th>
-            <th>編輯</th>
-            <th>刪除</th>
+            {{-- th 更新時間 --}}
+            {{-- th 編輯 --}}
+            <th>操作</th>
           </thead>
           <tbody> 
-            <tr v-for="yearlog in yearlogs">
+            <tr v-for="(yearlog,id) in yearlogs">
               <td style="width: 5%">@{{yearlog.id}}</td>
               <td style="width: 7%">@{{yearlog.year}}</td>
               <td style="width: 7%">@{{yearlog.date}}</td>
               <td style="width: 20%">@{{yearlog.title}}</td>
-              <td style="width: 40%">@{{yearlog.content}}</td>
-              <td style="width: 10%">@{{yearlog.news_id}}</td>
-              <td style="width: 10%">@{{yearlog.updated_at}}</td>
-              <td style="width: 5%"><a :href="'/manage/yearlog/'+(yearlog.id)" class="btn btn-default">編輯</a></td>
+              {{-- td(style="width: 40%") @{{yearlog.content}} --}}
+              <td style="width: 10%">@{{yearlog.news_id==-1?'無':yearlog.news_id}}</td>
+              {{-- td(style="width: 10%") @{{yearlog.updated_at}} --}}
+              <td style="width: 5%">
+                <div @click="now_yearlog=id" class="btn btn-default">編輯</div>
+              </td>
               <td style="width: 5%">
                 <button @click="delete_yearlog(yearlog.id)" class="btn btn-danger btn-md">刪除</button>
                 {{-- form(:id="'delete_solution_'+yearlog.id", :action="'/manage/yearlog/'+yearlog.id", method='POST') --}}
@@ -67,6 +69,67 @@
               </td>
             </tr>
           </tbody>
+        </table><br/><a href="{{ url('manage/yearlog/create') }}" class="btn btn-primary">新增事件</a><br/>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div v-for="(yearlog,id) in [yearlogs[now_yearlog]]" class="panel panel-default">
+      <div class="panel-heading">編輯中-@{{yearlog.id}}@{{yearlog.title}}</div>
+      <div class="panel-body">
+        <label>編號@{{yearlog.id}}</label>
+        <table class="table">
+          <tr>
+            <td>
+              <label>年份</label>
+            </td>
+            <td>
+              <input v-model="yearlog.year" class="form-control"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>月份</label>
+            </td>
+            <td>
+              <input v-model="yearlog.date" class="form-control"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>標題</label>
+            </td>
+            <td>
+              <input v-model="yearlog.title" class="form-control"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>內容</label>
+            </td>
+            <td>
+              <textarea v-model="yearlog.content" rows="4" class="form-control"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>連結新聞</label>
+            </td>
+            <td>
+              <select v-model="yearlog.news_id" class="form-control">
+                <option value="-1">未連結</option>
+                <option v-for="a_news in news" :value="a_news.id">@{{a_news.title}}</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>更新時間</label>
+            </td>
+            <td>
+              <input v-model="yearlog.updated_at" class="form-control"/>
+            </td>
+          </tr>
         </table><br/><a href="{{ url('manage/yearlog/create') }}" class="btn btn-primary">新增事件</a><br/>
       </div>
     </div>
