@@ -8,7 +8,8 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href=" {{url('manage/yearlog')}} ">年表管理</a></li>
+        <li> <a href=" {{url('manage/about')}} ">關於睿軒</a></li>
+        <li>年表管理</li>
         <li class="active">年表編輯-{!! isset($yearlog)?$yearlog->title:"" !!}</li>
       </ol>
     </div>
@@ -18,7 +19,7 @@
     <h1 class="page-header">年表管理</h1>
   </div>
 </div>
-<form action="{{ (isset($yearlog))?(url('manage/yearlog/'.$yearlog->id)):(url('manage/yearlog/')) }}" method="post" id="form_yearlog" class="row">
+<form action="{{ (isset($yearlog))?(url('manage/about/'.$yearlog->id)):(url('manage/about/')) }}" method="post" id="form_yearlog" class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-heading">年表設定</div>
@@ -35,8 +36,35 @@
               input(type='radio', name='stick_top', value='0')
         -->
         <div class="form-group">
-          <label for="title">年表名稱</label>
+          <label for="title">名稱</label>
           <input id="title" name="title" value="{!! isset($yearlog)?$yearlog->title:"" !!}" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="year">年份</label>
+          <input id="year" name="year" value="{!! isset($yearlog)?$yearlog->year:"" !!}" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="date">月份</label>
+          <input id="date" name="date" value="{!! isset($yearlog)?$yearlog->date:"" !!}" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="news_id">連結新聞</label>
+          <select id="news_id" name="news_id" rows="4" value="{{ isset($yearlog)?($yearlog->news_id):-1 }}" class="form-control"> 
+            <option value="-1">無連結</option>
+            @foreach($news as $a_news)
+              <option value="{{$a_news->id}}">{{$a_news->title}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cover">封面圖片</label>
+          <div class="row">
+            <div class="col-sm-12"><img src="{!! isset($yearlog)?$yearlog->cover:"" !!}" width="100%" class="cover_preview"/></div>
+            <div class="col-sm-12">
+              <input id="cover" name="cover" style="width: 80%; display: inline-block" value="{!! isset($yearlog)?$yearlog->cover:"" !!}" class="form-control"/><br/>
+              <div style=" display: inline-block" class="btn btn-default btn-md btn-dropzone-cover">上傳圖片</div>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-danger btn-md">儲存修改</button>
@@ -51,30 +79,9 @@
         <input type="hidden" name="_method" value="{{ (isset($yearlog))?'put':'post' }}"/>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
-          <label for="test_item">檢驗項目</label>
-          <textarea name="test_item" rows="15" class="form-control">{!! isset($yearlog)?$yearlog->test_item:"" !!}</textarea>
+          <label for="content">內容</label>
+          <textarea id="content" name="content" rows="5" class="form-control">{!! isset($yearlog)?$yearlog->content:"" !!}</textarea>
         </div>
-        <div class="form-group">
-          <label for="env">適用環境</label>
-          <textarea id="env" name="env" rows="4" class="form-control">{!! isset($yearlog)?$yearlog->env:"" !!}</textarea>
-        </div>
-        <div class="form-group">
-          <label for="schedule">年表類型</label>
-          <textarea id="schedule" name="schedule" rows="4" class="form-control">{!! isset($yearlog)?$yearlog->schedule:"" !!}</textarea>
-        </div>
-        <div class="form-group">
-          <label for="talk">口碑</label>
-          <ul>
-            <li v-for="(talk,tid) in yearlogs.talk" class="form_group">
-              <label v-text="(tid+1)+':'"></label>
-              <input v-model="talk.title" class="form-control"/>
-              <input v-model="talk.name" class="form-control"/>
-              <button @click="yearlogs.talk.splice(tid,1)" class="btn btn-default">移除</button>
-            </li>
-          </ul>
-          <button @click="yearlogs.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
-          <input id="talk" name="talk" :value="JSON.stringify(yearlogs.talk)" class="form-control"/>
-        </div><br/><br/>
       </div>
     </div>
   </div>
@@ -89,7 +96,6 @@
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.yearlogs= {!! json_encode($yearlog)!!}
   window.yearlogs.talk= JSON.parse(window.yearlogs.talk)
     
 </script>

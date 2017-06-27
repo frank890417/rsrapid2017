@@ -31,11 +31,12 @@
               td
                 .btn.btn-default(@click="now_job_id=id") 編輯
                 .btn.btn-danger(@click="lang.zh.page_job.section_1.jobs.splice(id,1)") 刪除
-        button.btn.btn-default(@click="lang.zh.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})") + 新增職缺
-        .btn.btn-danger(@click="save_website_info") 儲存更新
+            tr
+              td(@click="lang.zh.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})",style="cursor: pointer;" colspan=2) + 新增職缺
   .col-lg-8
     .panel.panel-default
       .panel-heading 編輯職位中-@{{lang.zh.page_job.section_1.jobs[now_job_id].name}}
+        .btn.btn-danger(@click="save_website_info") 儲存更新
       .panel-body(v-for="(job,id) in lang.zh.page_job.section_1.jobs",
       v-if="id==now_job_id")
         .form-group
@@ -49,8 +50,6 @@
           label 長內容
           tiny-mce(:id = "'job_content'+id", v-model="job.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")       
-        br
-        a.btn.btn-primary() 新增職缺
         br
 
 @endsection

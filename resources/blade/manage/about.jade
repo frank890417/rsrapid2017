@@ -26,7 +26,7 @@
           tiny-mce(id = "about_section1_content" , v-model="lang.zh.page_about.section_1.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
 .row
-  .col-lg-6
+  .col-lg-12
     .panel.panel-primary
       .panel-heading 年表管理
       .panel-body
@@ -37,72 +37,30 @@
             th 年份
             th 月份
             th 標題
-            //- th 內容
+            th 內容
             th 連結新聞
-            //- th 更新時間
-            //- th 編輯
-            th 操作
+            th 更新時間
+            th 編輯
+            th 刪除
           tbody 
-            tr(v-for="(yearlog,id) in yearlogs")
-              td(style="width: 5%") @{{yearlog.id}}
-              td(style="width: 7%") @{{yearlog.year}}
-              td(style="width: 7%") @{{yearlog.date}}
-              td(style="width: 20%") @{{yearlog.title}}
-              //- td(style="width: 40%") @{{yearlog.content}}
-              td(style="width: 10%") @{{yearlog.news_id==-1?'無':yearlog.news_id}}
-              //- td(style="width: 10%") @{{yearlog.updated_at}}
+            @foreach ($yearlogs as $yearlog)
+            tr
+              td(style="width: 5%") {{$yearlog->id}}
+              td(style="width: 7%") {{$yearlog->year}}
+              td(style="width: 7%") {{$yearlog->date}}
+              td(style="width: 20%") {{$yearlog->title}}
+              td(style="width: 40%") {{$yearlog->content}}
+              td(style="width: 10%") {{$yearlog->news_id}}
+              td(style="width: 10%") {{$yearlog->updated_at}}
               td(style="width: 5%")
-                .btn.btn-default(@click="now_yearlog=id") 編輯
+                a.btn.btn-default(href!="{{ url('manage/about/'.($yearlog->id).'/edit') }}") 編輯
               td(style="width: 5%")
-                button.btn.btn-danger.btn-md(@click!="delete_yearlog(yearlog.id)") 刪除
-                //- form(:id="'delete_solution_'+yearlog.id", :action="'/manage/yearlog/'+yearlog.id", method='POST')
-                //-   input(type='hidden', name='_method', value='delete')
-                //-   input(type='hidden', name='_token', value='{{ csrf_token() }}')
+                button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除此筆年表嗎？')){document.getElementById('delete_yearlog_{{$yearlog->id}}').submit();}") 刪除
+                form(id!="delete_yearlog_{{$yearlog->id}}", action!="/manage/about/{{$yearlog->id}}", method='POST')
+                  input(type='hidden', name='_method', value='delete')
+                  input(type='hidden', name='_token', value='{{ csrf_token() }}')
+            @endforeach
+        a.btn.btn-primary(href="{{ url('manage/about/create') }}") 新增年表
         br
-        a.btn.btn-primary(href!="{{ url('manage/yearlog/create') }}") 新增事件
-        br
-  .col-lg-6
-    .panel.panel-default(v-for="(yearlog,id) in [yearlogs[now_yearlog]]")
-      .panel-heading 編輯中-@{{yearlog.id}}@{{yearlog.title}}
-      .panel-body
-        label 編號@{{yearlog.id}}
-        table.table
-          tr
-            td
-              label 年份
-            td
-              input.form-control(v-model="yearlog.year")
-          tr
-            td
-              label 月份
-            td
-              input.form-control(v-model="yearlog.date")
-          tr
-            td
-              label 標題
-            td
-              input.form-control(v-model="yearlog.title")
-          tr
-            td
-              label 內容
-            td
-              textarea.form-control(v-model="yearlog.content",rows=4)
-          tr
-            td
-              label 連結新聞
-            td
-              select.form-control(v-model="yearlog.news_id")
-                option(value="-1") 未連結
-                option(v-for="a_news in news",:value="a_news.id") @{{a_news.title}}
-          tr
-            td
-              label 更新時間
-            td
-              input.form-control(v-model="yearlog.updated_at")
-
-        br
-        a.btn.btn-primary(href!="{{ url('manage/yearlog/create') }}") 新增事件
-        br
-
 
 @endsection

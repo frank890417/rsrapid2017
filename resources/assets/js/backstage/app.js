@@ -66,6 +66,10 @@ var vm = new Vue({
       axios.post("/api/websiteinfo/key/zh",this.lang.zh).then(
         (res)=>{location.reload();}
       )
+    },save_yearlog(){
+      axios.post('/manage/yearlog/saveall',this.yearlogs).then(
+        (res)=>{location.reload();}
+      )
     }
   },
   mounted(){

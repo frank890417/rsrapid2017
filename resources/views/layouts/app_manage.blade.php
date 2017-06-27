@@ -67,7 +67,7 @@
         <li data-link="about"><a href="{{ url('manage/about') }}">
             <svg class="glyph stroked dashboard-dial">
               <use xlink:href="#stroked-dashboard-dial"></use>
-            </svg> 關於睿宣</a></li>
+            </svg> 關於睿軒</a></li>
         <li data-link="tech"><a href="{{ url('manage/news') }}">
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>

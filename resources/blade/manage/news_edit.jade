@@ -74,7 +74,7 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
             .col-sm-12
               img.cover_preview(src!='{!! isset($news)?$news->cover:"" !!}', width='100%')
             .col-sm-12
-              //- input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}')
+              input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}')
               br
               .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
                 | 上傳圖片
