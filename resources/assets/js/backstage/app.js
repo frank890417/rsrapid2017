@@ -52,6 +52,7 @@ var vm = new Vue({
     now_social_id: 0,
     now_job_id: 0,
     now_yearlog: 0,
+    now_tech_id: 0,
     news: []
   },
   methods:{

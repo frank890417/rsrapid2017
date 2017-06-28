@@ -15,19 +15,18 @@ div.page_tech(v-if="now_tech")
       .block_50_percent
         
         .slick(data-timelime=".tl1")
-          .item(style='height: 100%')
-            .img(style="background-image:url(/img/homepage/Tech2.jpg);background-size: cover; height: 100%;")
-          .item(style='height: 100%')
-            .img(style="background-image:url(/img/homepage/Home1.jpg);background-size: cover; height: 100%;")
+          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[0].slides')
+            .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
+        
         .timeline.tl1
             .value
       .block_50_percent
     .container.flex
       .col_left
       .col_right.col_content
-        h3.section_title 五秒高效快篩
+        h3.section_title {{$t("page_tech.techs")[0].sections[0].title}}
         svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
-        p.section_para.text-left 不需任何前處理，也不需破壞待測物件。 快速採樣、即時檢測，立即與資料庫進行比對作業，完成一次分析的時間只需5秒。
+        p.section_para.text-left {{$t("page_tech.techs")[0].sections[0].content}}
         a.btn.btn-primary 了解更多
 
   section.section_tech.section_manhead(v-if="id==0")
@@ -38,9 +37,9 @@ div.page_tech(v-if="now_tech")
         img.man_head_ab(src="/img/homepage/Tech3.png" alt="")
     .container.flex
       .col_left.col_content
-        h3.section_title 獨家探針，多樣檢測
+        h3.section_title {{$t("page_tech.techs")[0].sections[1].title}}
         svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
-        p.section_para.text-left 獨家開發的採樣探針可利用高溫處理被重複使用，不需分析耗材，單次單件分析費用只需傳統檢測的 1/6。可針對有疑慮的物件進行快速分析的檢測作業。
+        p.section_para.text-left {{$t("page_tech.techs")[0].sections[1].content}}
         a.btn.btn-primary 了解更多
       .col_right
       //.col_right
@@ -60,9 +59,9 @@ div.page_tech(v-if="now_tech")
       .container.flex
         .col_left
         .col_right.col_content
-          h3.section_title 雲端即時報告
+          h3.section_title {{$t("page_tech.techs")[0].sections[2].title}}
           svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
-          p.section_para.text-left 同時搭配手機App與網頁檢測報告系統，檢測前掃描探針上的QR code並上傳，在完成檢測後便可即時看到檢測報告。在接觸日用品或食用蔬果之前，就為您的安全環境、安心食材層層把關。
+          p.section_para.text-left {{$t("page_tech.techs")[0].sections[2].content}}
           a.btn.btn-primary 了解更多
 
 
@@ -72,7 +71,7 @@ div.page_tech(v-if="now_tech")
       .block_50_percent
         
         .slick(data-timelime=".tl1")
-          .item(style='height: 100%' v-for='cover in techs[id].sections[0].slides')
+          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[0].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl1
             .value
@@ -80,9 +79,9 @@ div.page_tech(v-if="now_tech")
     .container.flex
       .col_left
       .col_right.col_content
-        h3.section_title {{techs[id].sections[0].title}}
-        svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
-        p.section_para.text-left {{techs[id].sections[0].content}}
+        h3.section_title {{$t("page_tech.techs")[id].sections[0].title}}
+        //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
+        p.section_para.text-left {{$t("page_tech.techs")[id].sections[0].content}}
         a.btn.btn-primary 了解更多
 
   section.section_tech(v-if="id!=0")
@@ -92,16 +91,16 @@ div.page_tech(v-if="now_tech")
       .block_50_percent
         
         .slick(data-timelime=".tl1")
-          .item(style='height: 100%' v-for='cover in techs[id].sections[1].slides')
+          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[1].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl1
             .value
 
     .container.flex
       .col_left.col_content
-        h3.section_title {{techs[id].sections[1].title}}
-        svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
-        p.section_para.text-left {{techs[id].sections[1].content}}
+        h3.section_title {{$t("page_tech.techs")[id].sections[1].title}}
+        //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
+        p.section_para.text-left {{$t("page_tech.techs")[id].sections[1].content}}
         a.btn.btn-primary 了解更多
       .col_right
       //.col_right
@@ -112,7 +111,7 @@ div.page_tech(v-if="now_tech")
       .block_50_percent
         
         .slick(data-timelime=".tl2")
-          .item(style='height: 100%' v-for='cover in techs[id].sections[2].slides')
+          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[2].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl2
           .value
@@ -121,9 +120,9 @@ div.page_tech(v-if="now_tech")
       .container.flex
         .col_left
         .col_right.col_content
-          h3.section_title {{techs[id].sections[2].title}}
+          h3.section_title {{$t("page_tech.techs")[id].sections[2].title}}
           //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
-          p.section_para.text-left {{techs[id].sections[2].content}}
+          p.section_para.text-left {{$t("page_tech.techs")[id].sections[2].content}}
           a.btn.btn-primary 了解更多
   section_solutions
 
@@ -176,8 +175,8 @@ export default {
     computed: {
       ...mapState(['techs']),
       now_tech(){
-        if (this.techs[this.id]){
-          return this.techs[this.id]
+        if (this.$t("page_tech.techs")[this.id]){
+          return this.$t("page_tech.techs")[this.id]
         }else{
           return null
         }

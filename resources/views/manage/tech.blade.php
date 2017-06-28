@@ -8,56 +8,50 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href="#">新聞管理</a></li>
+        <li> <a href="#">檢驗科技管理</a></li>
       </ol>
     </div>
     @yield('content')
   </div>
   <div class="col-lg-12">
-    <h1 class="page-header">新聞管理</h1>
+    <h1 class="page-header">檢驗科技管理
+      <div @click="save_website_info" class="btn btn-danger pull-right">儲存更新</div>
+    </h1>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">新聞管理</div>
+      <div class="panel-heading">檢驗科技管理</div>
       <div class="panel-body">
-        <table class="table table-hover">
-          <thead>
-            <th>標題</th>
-            <th>日期</th>
-            <th>類別</th>
-            <th>更新時間</th>
-            <!-- th 顯示大小 -->
-            <th>編輯</th>
-            <th>刪除</th>
-          </thead>
-          <tbody>
-            @foreach($news as $a_news)
-              <tr>
-                <td style="width: 30%">{{$a_news->title}}</td>
-                <td style="width: 10%">{{$a_news->date}}</td>
-                <!-- td(style="width: 9%") {{$a_news->size==1?'1格 口':'2格 口口'}} -->
-                <td style="width: 10%">{{$a_news->tag}}</td>
-                <td>{{$a_news->updated_at}}</td>
-                <td style="width: 5%"><a href="{{ url('manage/news/'.($a_news->id).'/edit') }}" class="btn btn-default">編輯</a></td>
-                <td style="width: 5%">
-                  <button onclick="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_news_{{$a_news->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
-                  <form id="delete_news_{{$a_news->id}}" action="{{url('manage/news/'.$a_news->id)}}" method="POST">
-                    <input type="hidden" name="_method" value="delete"/>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                  </form>
-                </td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table><br/><a href="{{ url('manage/news/create') }}" class="btn btn-primary">新增新聞</a><br/>
+        <div v-for="(tech_item,id) in lang.zh.page_tech.techs">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <h4>標題</h4>
+              <input v-model="tech_item.title" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <h4>描述</h4>
+              <tiny-mce :id="'tech_'+id+'_content'" v-model="tech_item.description" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <div v-for="(section,section_id) in tech_item.sections" class="form-group">
+                <h4>@{{section_id+1}}.區塊標題</h4>
+                <input v-model="section.title" class="form-control"/>
+                <h4>區塊內容</h4>
+                <tiny-mce :id="'tech_'+id+'_section_'+section_id+'_content'" v-model="section.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+                <h4>區塊圖片</h4>
+                <div v-for="(slide,slide_id) in section.slides">
+                  <input v-model="section.slides[slide_id]" class="form-control"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br/><a href="{{ url('manage/news/create') }}" class="btn btn-primary">新增科技</a><br/>
       </div>
     </div>
   </div>
 </div>
-<script>
-  window.posts={!! $news !!};
-  
-</script>
 @endsection

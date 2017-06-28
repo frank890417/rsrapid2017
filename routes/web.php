@@ -33,6 +33,9 @@ Route::get('manage/tern',function(){
 Route::get('manage/job',function(){
   return view("manage.job");
 });
+Route::get('manage/tech',function(){
+  return view("manage.tech");
+});
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
