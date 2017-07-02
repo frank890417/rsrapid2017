@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$metas["meta_title"]}}</title>
 
-     <meta property="og:url" content="{{$metas["meta_title"]}}" />
+     <meta property="og:url" content="http://www.rapidsuretech.com/" />
      <meta property="og:title" content="{{$metas["meta_title"]}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://www.rapidsuretech.com/" />
+    <meta property="og:image" content="{{$metas["meta_cover"]}}" />
     <meta property="og:description" content="{{$metas["meta_description"]}}" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
