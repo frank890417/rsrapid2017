@@ -34,7 +34,7 @@ div.footer
 
   footer
     .container.flex
-      .info Copyright 2017 © 睿軒檢驗科技 Rapidsure Tech, All right reserved.
+      .info {{$t('footer.bottom.copyright')}}
       ul.footer_nav
         li
           router-link(to="/job") 人才招募

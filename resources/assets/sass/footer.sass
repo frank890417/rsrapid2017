@@ -1,0 +1,269 @@
+
+//----------------------------------------------
+footer
+  background-color: $color_theme
+  color: $color_white
+  height: 61px
+  font-weight: 300
+
+
+  .info
+    display: inline-block
+    margin: 0
+    font-size: 14px
+    opacity: 0.9
+    letter-spacing: 2px
+    width: grid_sz(6,5)
+
+  ul.footer_nav
+    display: block
+    li
+      display: inline-block
+      letter-spacing: 3px
+      
+      padding: 0px 15px
+      border-right: solid 1px $color_white
+      a
+        +trans
+      &:hover a
+        color: $color_white
+      &:last-child
+        border-right: none
+
+    a
+      color: rgba($color_white,0.7)
+      text-decoration: none
+      font-size: 17px
+
+
+  +rwd_md
+    height: auto
+    padding:
+      top: grid_sz(0,0.8)
+      bottom: grid_sz(0,0.8)
+
+  .container.flex
+    +flex_split("lr")
+    align-items: center
+
+
+    
+
+    +range_width(0px,930px)
+      flex-direction: column
+      // padding: grid_sz(0,1) 0px
+      .info
+        // margin-bottom: grid_sz(0,1)
+
+    +range_width(0px,600px)
+      .info
+        margin-bottom: 0px
+
+    +rwd_md
+      ul.footer_nav
+        display: none
+      .info
+        width: 100%
+        text-align: center
+
+
+  
+
+
+//有三個區塊的footer
+//----------------------------------------------
+.detail_footer
+  min-height: initial
+  padding: $gutter_width*3 0px
+  padding-bottom: $gutter_width*2
+
+  .container
+    align-items: flex-start
+    +rwd_md
+      padding-left: grid_sz(0,1)
+      padding-right: grid_sz(0,1)
+
+    +rwd_sm
+      flex-direction: column
+    
+
+  .col_address
+    width: grid_sz(4,3)
+    padding-left: grid_sz(0,1)
+    p
+      letter-spacing: 2px
+
+  .col_question
+    width: grid_sz(5,4)
+    margin-left: grid_sz(0,1)
+    margin-right: grid_sz(0,1)
+  .col_corp
+    width: grid_sz(3,2)
+
+    .item
+    .company_icon
+      width: grid_sz(1,1)
+      margin: grid_sz(0.1)
+      margin-left: auto
+      margin-right: auto
+
+
+  .col_address,.col_question,.col_corp
+    color: $color_grey_light
+    
+
+
+  h5
+    font-size: 20px
+    color: $color_grey_dark
+    // height: grid_sz(0,2)
+    margin-bottom: grid_sz(0,2)
+
+  //--------
+
+  hr
+    border: none
+    border: solid 1px #ddd
+    margin-top: grid_sz(0,1)
+    margin-bottom: grid_sz(0,1)
+    
+  .social_icon
+    width: 20px
+    margin-right: 10px
+    vertical-align: middle
+    display: inline-block
+    font-size: 20px
+    cursor: pointer
+    color: $color_grey_dark
+    +trans
+    &:hover
+      color: $color_theme
+    &.fb
+      width: 20px
+  .more
+    border-bottom: solid 2px $color_theme
+    padding-bottom: 3px
+    cursor: pointer
+    &:hover
+      color: $color_theme
+      text-decoration: none
+
+
+  .icon
+    +size(18px)
+    // background-color: darken($color_white,15)
+    border-radius: 2px
+    position: relative
+    display: inline-block
+    position: absolute
+    left: -26px
+    top: 5px
+    opacity: 0.7
+    cursor: pointer
+    +trans
+    
+    &:hover
+      background-color: $color_theme
+      &:before,&:after
+        background-color: $color_white
+
+    &:before,&:after 
+      // transform-origin: center center
+      +trans
+      display: block
+      content: ""
+      width: 10px
+      height: 2px
+      background-color: $color_theme
+
+      +ab_center
+    &.icon_plus
+
+      &:before
+        transform: translate(-50%,-50%) rotate(-90deg) 
+      &:after
+        transform: translate(-50%,-50%) rotate(180deg) 
+
+  .col_address
+    p
+      font-size: 16px
+    hr
+      border-bottom: solid 1px #aaa
+  .question_list
+    position: relative
+
+    &
+      list-style: none
+      padding-left: $gutter_width*1.5
+
+    li
+      margin-bottom: $gutter_width
+      position: relative
+      
+      &.open
+        .answer
+          max-height: 250px
+          margin-top: $gutter_width/2
+    
+    .question
+      color: $color_grey_light
+      // font-size: 16px
+      font-weight: 400
+      letter-spacing: 1px
+      cursor: pointer
+    .answer
+      color: $color_theme
+      font-weight: 400
+      margin-top: 0
+      max-height: 0px
+      overflow: hidden
+      +trans
+
+      // max-height: 0px
+      // overflow: hidden
+    
+    input[type=checkbox]:checked+.answer
+      .answer
+        display: block
+        max-height: 50px
+
+  .company_icon
+    width: 33%
+    display: block
+    margin-bottom: 10px
+    margin-left: auto
+    margin-right: auto
+
+    
+  .go_to_topbtn
+    position: fixed
+    background-color: $color_theme
+    +size(40px,40px)
+    cursor: pointer
+
+    border-radius: 50%
+    bottom: 65px
+    right: 65px
+    opacity: 1
+    +trans
+
+    i
+      +ab_center
+      color: $color_white
+      font-size: 25px
+
+    &.at_top 
+      opacity: 0
+
+
+  +rwd_md
+    .col_address
+      padding-left: 0px
+    .col_address,.col_question,.col_corp
+      width: 100%
+      height: auto
+      margin: 0
+      margin-bottom: grid_sz(0,2)
+    .go_to_topbtn
+      bottom: grid_sz(0,1)
+      right: grid_sz(0,1)
