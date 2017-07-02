@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Zashare 雜學校</title>
+    <title>{{$metas["meta_title"]}}</title>
 
 
      <meta property="og:title" content="{{$metas["meta_title"]}}" />
