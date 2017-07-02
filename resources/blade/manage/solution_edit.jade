@@ -16,6 +16,7 @@
   .col-lg-12
     h1.page-header 方案管理
 
+
 form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post").row#form_question
 
   .col-sm-3
@@ -50,11 +51,14 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
           
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
+
+
   .col-sm-9
     .panel.panel-primary
       .panel-heading 編輯方案-{{ (isset($solution))?$solution->id:'' }}
       .panel-body
       
+        carousel_editor(:carousel_data="solutions.carousel")
         input(type='hidden', name='_method', value="{{ (isset($solution))?'put':'post' }}")
         input(type='hidden', name='_token', value!='{{ csrf_token() }}')
 
@@ -104,6 +108,7 @@ script.
   window.require_js.tinymce=true;
   window.solutions= {!! json_encode($solution)!!}
   window.solutions.talk= JSON.parse(window.solutions.talk)
+  solutions.carousel=JSON.parse(solutions.carousel)
     
 @endsection
 @section('require_js_after')

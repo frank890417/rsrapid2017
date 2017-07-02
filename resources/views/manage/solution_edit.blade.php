@@ -60,6 +60,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">編輯方案-{{ (isset($solution))?$solution->id:'' }}</div>
       <div class="panel-body">
+        <carousel_editor :carousel_data="solutions.carousel"></carousel_editor>
         <input type="hidden" name="_method" value="{{ (isset($solution))?'put':'post' }}"/>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
@@ -102,6 +103,7 @@
   window.require_js.tinymce=true;
   window.solutions= {!! json_encode($solution)!!}
   window.solutions.talk= JSON.parse(window.solutions.talk)
+  solutions.carousel=JSON.parse(solutions.carousel)
     
 </script>
 @endsection

@@ -19,6 +19,7 @@ Route::group(['middleware'=>'seoinfo'],function(){
   Route::get('/', 'HomeController@index');
 
   Route::get('/tech/{id}', 'HomeController@index');
+  Route::get('/tech/n/{name}', 'HomeController@index');
 
   Route::get('/about', 'HomeController@index');
 

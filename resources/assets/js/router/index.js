@@ -29,6 +29,7 @@ const routes = [
   { path: '/', component: page_index , meta: {title: "首頁"}},
   { path: '/about', component: page_about , meta: {title: "關於睿軒"}},
   { path: '/tech/:id', component: page_tech , props: true, meta: {title: "檢驗科技"}},
+  { path: '/tech/n/:title', component: page_tech , props: true, meta: {title: "檢驗科技"}},
   { path: '/solution/n/:title', component: page_solution, props: true, meta: {title: "檢測方案"}},
   { path: '/solution/:id', component: page_solution , props: true, meta: {title: "檢測方案"}},
   { path: '/solution/1', alias: '/solution', meta: {title: "檢測方案"}},

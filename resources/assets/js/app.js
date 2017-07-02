@@ -7,292 +7,286 @@
 
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-
 import custom_i18n from './i18n'
-
 import $ from 'jquery'
-require('./bootstrap')
 import store from './store'
 import router from './router'
-import {mapState} from 'vuex'
-import {TweenMax} from "gsap"
-import ScrollToPlugin from "gsap/ScrollToPlugin"
-import Rx from 'rxjs'
+import { mapState } from 'vuex'
+import { TweenMax } from 'gsap'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
+import Rx from 'rxjs/Rx'
 
-//detect ie
-function is_ie(){
-  var result=(navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1));
+require('./bootstrap')
 
-  return result?true:false;
+// detect ie
+function is_ie() {
+  const result = (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== 'undefined' && $.browser.msie == 1));
+
+  return !!result;
 }
 
 
-//init vue
+// init vue
 const app = new Vue({
-  el: "#app",
+  el: '#app',
   router,
   store,
   i18n: custom_i18n.i18n,
-  computed: mapState(['news','about_logs','big_font']),
-  created(){
-    if (is_ie()){
-      console.warn("IE Detected","Please dont use IE.")
-    }else{
-      console.warn("IE not Detected","Well Choice.")
+  computed: mapState(['news', 'about_logs', 'big_font']),
+  created() {
+    if (is_ie()) {
+      console.warn('IE Detected', 'Please dont use IE.');
+    } else {
+      console.warn('IE not Detected', 'Well Choice.');
     }
-    store.commit("set_is_ie",is_ie())
-    store.dispatch("loadWebsite");
-    window.onscroll=(evt)=>{
-        store.commit("set_scrollTop",window.scrollY)
-        if (window.update_scroll)
-          window.update_scroll(window.scrollY)
+    store.commit('set_is_ie', is_ie());
+    store.dispatch('loadWebsite');
+    window.onscroll = (evt) => {
+      store.commit('set_scrollTop', window.scrollY);
+      if (window.update_scroll) { window.update_scroll(window.scrollY); }
         // window.update_scroll()
         // alert("update scroll")
     };
-  }
+  },
 });
-window.store=store;
 
-//google analysis
-if (document.domain=="www.rapidsuretech.com"){
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+// assighn store as public variables
+window.store = store;
+
+// google analysis
+if (document.domain == 'www.rapidsuretech.com') {
+  (function (i, s, o, g, r, a, m) {
+    i.GoogleAnalyticsObject = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments);
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'));
 
   ga('create', 'UA-52977512-18', 'auto');
   ga('send', 'pageview');
-  window.ga=ga;
-  console.log("enable ga");
-}else{
-  console.log("disable ga");
+  window.ga = ga;
+  console.log('enable ga');
+} else {
+  console.log('disable ga');
 }
 
 
 //---------------------
+if (is_ie()) {
+  // smooth scroll
+  $(() => {
+    const $window = $(window);
+    const scrollTime = 1;
+    const scrollDistance = 120;
 
-if (is_ie()){
-  //smooth scroll
-  $(function(){ 
+    $window.on('mousewheel DOMMouseScroll', (event) => {
+      event.preventDefault();
 
-    var $window = $(window);
-    var scrollTime = 1;
-    var scrollDistance = 120;
-
-    $window.on("mousewheel DOMMouseScroll", function(event){
-
-      event.preventDefault(); 
-
-      var delta = event.originalEvent.wheelDelta/150 || -event.originalEvent.detail/3;
-      var scrollTop = $window.scrollTop();
-      var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+      const delta = event.originalEvent.wheelDelta / 150 || -event.originalEvent.detail / 3;
+      const scrollTop = $window.scrollTop();
+      const finalScroll = scrollTop - parseInt(delta * scrollDistance);
 
       TweenMax.to($window, scrollTime, {
-        scrollTo : { y: finalScroll, autoKill:true },
-          ease: Power2.easeOut,
-          overwrite: 5              
-        });
+        scrollTo: { y: finalScroll, autoKill: true },
+        ease: Power2.easeOut,
+        overwrite: 5,
+      });
       // console.log(finalScroll);
     });
   });
 
   // bind update scroll event
-  //window.onscroll=window.update_scroll()
+  // window.onscroll=window.update_scroll()
 }
 
 
-//數數動畫
-var scroll_delay=1000;
-var scrolling=false;
-var pre_region=null, now_region=null, next_region=null;
-var direction='up';
-var lock_scroll=true;
-var window_width= $(window).outerWidth();
-var window_height= $(window).outerHeight();
+// 數數動畫
+const scroll_delay = 1000;
+let scrolling = false;
+let preRegion = null,
+  nowRegion = null,
+  nextRegion = null;
+let direction = 'up';
+const lockScroll = true;
+const windowWidth = $(window).outerWidth();
+const windowHeight = $(window).outerHeight();
 // var scroll = Rx.Observable.fromEvent(document ,'scroll')
 //             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
 
-//使用卷軸位置更新元件
-window.update_scroll=function update_scroll(top_val){
+// 使用卷軸位置更新元件
+window.update_scroll = function update_scroll(topVal) {
+  console.time('scroll_event');
 
-  console.time("scroll_event")
+  // update right side bullet
+  updateBullet(topVal);
 
-  //update right side bullet
-  update_bullet(top_val);
-
-  //update parallax backgrounds
-  let bg_px = Array.from(document.getElementsByClassName("bg_parallax"))
-  if ( bg_px.length ){
-    bg_px.forEach((obj,index)=>{
-      let $obj=$(obj)
-      if ( !obj.classList.contains("no_attach") ){
-        if ($obj.offset().top+$obj.outerHeight()>top_val)
-          $obj.css("background-position","center "+ -(top_val-$obj.offset().top)/15+"px");
-        
-      }else{
-        if ($obj.offset().top+$obj.outerHeight()>top_val){
-          $obj.css("background-position","center "+ (top_val-$obj.offset().top)/1.6+"px");
-        };   
+  // update parallax backgrounds
+  const bg_px = Array.from(document.getElementsByClassName('bg_parallax'));
+  if (bg_px.length) {
+    bg_px.forEach((obj, index) => {
+      const $obj = $(obj);
+      if (!obj.classList.contains('no_attach')) {
+        if ($obj.offset().top + $obj.outerHeight() > topVal) { $obj.css('background-position', `center ${-(topVal - $obj.offset().top) / 15}px`); }
+      } else if ($obj.offset().top + $obj.outerHeight() > topVal) {
+        $obj.css('background-position', `center ${(topVal - $obj.offset().top) / 1.6}px`);
       }
     });
   }
-  let mountain_el = document.getElementsByClassName("mountain")
-  if (mountain_el.length){
-    var of_t=document.getElementById("section_about_log").offsetTop;
-    var mobile_fix=(window_width<800)?100:0;
-    var mul=(window_width<800)?3:3;
-    var mountain_pan=(+(-((top_val)+window_height*0.9-of_t)/mul))+mobile_fix;
+
+  // Parallax of mountain
+  const mountain_el = document.getElementsByClassName('mountain');
+  if (mountain_el.length) {
+    const of_t = document.getElementById('section_about_log').offsetTop;
+    const mobile_fix = (windowWidth < 800) ? 100 : 0;
+    const mul = (windowWidth < 800) ? 3 : 3;
+    let mountain_pan = (+(-((topVal) + windowHeight * 0.9 - of_t) / mul)) + mobile_fix;
     // console.log(mountain_pan);
-    mountain_pan = mountain_pan>50?50:mountain_pan
-    $(".mountain").css("bottom",mountain_pan+"px");
+    mountain_pan = mountain_pan > 50 ? 50 : mountain_pan;
+    $('.mountain').css('bottom', `${mountain_pan}px`);
   }
 
-  var percent_el = Array.from (document.querySelectorAll(".percent.initial"))
-  if (percent_el.length){
-    //percet nt init
-    percent_el.forEach(function(obj,index){
+  // Parallax of precentage
+  const percentEl = Array.from(document.querySelectorAll('.percent.initial'));
+  if (percentEl.length) {
+    // percet nt init
+    percentEl.forEach((obj, index) => {
       // update element enter animation
-      if (obj.offsetTop<top_val+window_height*0.9){
-        obj.classList.remove("initial")
-        
-        var ed_val=1.0 * obj.getAttribute("data-target");
-        var nowval=0;
-        var timer=setInterval(function(){
-          $(obj).children("span").html(Math.round(nowval));
-          if (nowval>=ed_val-0.2){
+      if (obj.offsetTop < topVal + windowHeight * 0.9) {
+        obj.classList.remove('initial');
+
+        const ed_val = 1.0 * obj.getAttribute('data-target');
+        let nowval = 0;
+        let timer = setInterval(() => {
+          $(obj).children('span').html(Math.round(nowval));
+          if (nowval >= ed_val - 0.2) {
             clearInterval(timer);
-          }else{
-            nowval+=(ed_val-nowval)*0.05;
+          } else {
+            nowval += (ed_val - nowval) * 0.05;
           }
-        },30);
+        }, 30);
       }
     });
   }
 
-  //update section content fadeIn
-  let page_initial_el = document.querySelectorAll(".section_title.initial,.section_para.initial");
-  Array.from(page_initial_el).forEach(function(obj,index){
-    if ($(obj).offset().top<top_val+window_height){
-      $(obj).removeClass("initial");
+  // update section content fadeIn
+  const page_initial_el = document.querySelectorAll('.section_title.initial,.section_para.initial');
+  Array.from(page_initial_el).forEach((obj, index) => {
+    if ($(obj).offset().top < topVal + windowHeight) {
+      $(obj).removeClass('initial');
     }
   });
 
 
   if (place_sub_nav) place_sub_nav();
-  console.timeEnd("scroll_event")
-}
+  console.timeEnd('scroll_event');
+};
 
-//subscribe parallax top
-// scroll.subscribe(top_val=>update_scroll(top_val));
+// subscribe parallax top
+// scroll.subscribe(topVal=>update_scroll(topVal));
 
-//upadte bullet nav points
-function update_bullet(st){
-  now_region=null;
-  next_region=null;
-  var last=null;
-  //偵測在哪個區域
-  var bullet_el = Array.from(document.querySelectorAll(".slide_bullet li")) ;
-  if (bullet_el.length){
-    bullet_el.forEach(function(bullet_obj,index){
-      var data_link = bullet_obj.getAttribute("data-link");
-      var $link_obj=  $( data_link );
-      var tar_h=$link_obj.height();
+// upadte bullet nav points
+function updateBullet(st) {
+  nowRegion = null;
+  nextRegion = null;
+  let last = null;
+  // 偵測在哪個區域
+  const bulletEl = Array.from(document.querySelectorAll('.slide_bullet li'));
+  if (bulletEl.length) {
+    bulletEl.forEach((bullet_obj, index) => {
+      const dataLink = bullet_obj.getAttribute('data-link');
+      const $link_obj = $(dataLink);
+      const tar_h = $link_obj.height();
 
-      if ($link_obj.offset()){
-        if ($link_obj.offset().top<=st+tar_h/2 &&
-          $link_obj.offset().top>=st-window_height/2){
-          bullet_obj.classList.add("active");
+      if ($link_obj.offset()) {
+        if ($link_obj.offset().top <= st + tar_h / 2 &&
+          $link_obj.offset().top >= st - windowHeight / 2) {
+          bullet_obj.classList.add('active');
 
-          now_region=data_link;
-          pre_region=last;
-          // console.log(now_region,pre_region);
-
-        }else{
-          
-          bullet_obj.classList.remove("active");
-          if (now_region && !next_region){
-            next_region=data_link;
+          nowRegion = dataLink;
+          preRegion = last;
+          // console.log(nowRegion,preRegion);
+        } else {
+          bullet_obj.classList.remove('active');
+          if (nowRegion && !nextRegion) {
+            nextRegion = dataLink;
           }
         }
-        last=data_link;
+        last = dataLink;
       }
-      
     });
   }
-
 }
 
-//頁面還原初始狀態
-function init_element(){
-  if (!is_ie()){
-    $(".percent , .section_title , .section_para").addClass("initial");
-    setTimeout(function(){
+// 頁面還原初始狀態
+function init_element() {
+  if (!is_ie()) {
+    $('.percent , .section_title , .section_para').addClass('initial');
+    setTimeout(() => {
       update_scroll(0);
-    },50);
+    }, 50);
   }
-
 }
 
 
-//載入執行
-$( window ).ready(function(){
+// 載入執行
+$(window).ready(() => {
   //
-  if (location.href.indexOf("#")!=-1){
-    $("#select_contact").val(location.href.split("#")[1]);
+  if (location.href.indexOf('#') != -1) {
+    $('#select_contact').val(location.href.split('#')[1]);
   }
   // //加上初始化
-  init_element()
-  //initial bg parallax
-  
+  init_element();
+  // initial bg parallax
+
 
   // });
-  //回到最上面按鈕
-  $(".go_to_topbtn").click(function(){
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+  // 回到最上面按鈕
+  $('.go_to_topbtn').click(() => {
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
   });
 
   // wheelDelta
-  var mousewheel = Rx.Observable.fromEvent(document,'mousewheel')
-                                .map(e=>e.wheelDelta );   
+  const mousewheel = Rx.Observable.fromEvent(document, 'mousewheel')
+                                .map(e => e.wheelDelta);
+
+// console.log(mousewheel)
+
+  updateBullet(0);
+  // snap locker by Rxjs
 
 
-  update_bullet(0);
-  //snap locker by Rxjs
+  if (lockScroll && windowHeight > 900 && windowWidth > 1200 && !is_ie()) {
+    console.log('enable snap');
+    // filter delta which bigger than thereshold and filter out twice down/up condition
+    const sourcePageNav = mousewheel.filter(
+      delta => ((delta > 50 && (direction == 'down' || !scrolling))
+           || (delta <= -50 && !scrolling && (direction == 'up' || !scrolling)))
+    )
+    .map(delta => (delta > 0 ? 'up' : 'down'))                // map delta to up or down
+    .throttleTime(500);                               // filter event by 200ms time span
 
 
-
-  if (lock_scroll && window_height>900 && window_width>1200 && !is_ie() ){
-    console.log("enable snap")
-    //filter delta which bigger than thereshold and filter out twice down/up condition
-    var source_page_nav=mousewheel.filter(
-      delta=>((delta>50 && (direction=='down' || !scrolling))
-           || (delta <= -50 && !scrolling && (direction=='up' || !scrolling)))
-      ) 
-    .map(delta=>(delta>0?'up':'down'))                //map delta to up or down
-    .throttleTime(500);                               //filter event by 200ms time span
-
-    source_page_nav.subscribe((direct)=>{             //subscribe the event
-      if (router.history.current.fullPath=="/"){
+    sourcePageNav.subscribe((direct) => {             // subscribe the event
+      if (router.history.current.fullPath === '/') {
         console.log(direct);
-        direction=direct;
-        var target_block=(direct=='up')?pre_region:next_region;
+        direction = direct;
+        let targetBlock = (direct == 'up') ? preRegion : nextRegion;
 
-        if ($(document).scrollTop()+$(window).height()>=$(document).height()-20) target_block = ".section_solution";
-        console.log("target:"+target_block);
-        if (target_block)
-          $("html, body").animate({ scrollTop: $(target_block).offset().top }, "slow");
+        if ($(document).scrollTop() + $(window).height() >= $(document).height() - 20) targetBlock = '.section_solution';
+        console.log(`target:${targetBlock}`);
+        if (targetBlock) { $('html, body').animate({ scrollTop: $(targetBlock).offset().top }, 'slow'); }
       }
-    }); 
-    //cancel the scrolling boolean after scroll
-    source_page_nav.delay(500).subscribe(()=>{
-      scrolling=false;
+    });
+    // cancel the scrolling boolean after scroll
+    sourcePageNav.delay(500).subscribe(() => {
+      scrolling = false;
     });
 
-    $(window).bind('mousewheel', function(event) {
-      if (router.history.current.fullPath=="/" && window_height>850 ){
+    $(window).bind('mousewheel', (event) => {
+      if (router.history.current.fullPath == '/' && windowHeight > 850) {
         event.preventDefault();
       }
     });
   }
-})
+});

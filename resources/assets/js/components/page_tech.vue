@@ -132,7 +132,7 @@ div.page_tech(v-if="now_tech")
 import {mapState} from 'vuex'
 import svg_inline from './svg_inline'
 export default {
-    props: ['id'],
+    props: ['id','title'],
     data(){
       return {
         timer_list: []
@@ -175,11 +175,8 @@ export default {
     computed: {
       ...mapState(['techs']),
       now_tech(){
-        if (this.$t("page_tech.techs")[this.id]){
-          return this.$t("page_tech.techs")[this.id]
-        }else{
-          return null
-        }
+        return this.$t("page_tech.techs")[this.id] || this.$t("page_tech.techs").find(o=>o.title==this.title)
+
       }
     }
 }

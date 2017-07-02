@@ -7,12 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$metas["meta_title"]}}</title>
-
-     <meta property="og:url" content="http://www.rapidsuretech.com/" />
-     <meta property="og:title" content="{{$metas["meta_title"]}}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{$metas["meta_cover"]}}" />
-    <meta property="og:description" content="{{$metas["meta_description"]}}" />
+    <meta property="og:title" content="{{$metas['meta_title']}}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{$metas['meta_cover']}}">
+    <meta property="og:description" content="{{$metas['meta_description']}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
@@ -23,23 +21,23 @@
     </script>
   </head>
   <body>
-    <div id="app" :class="big_font?'big_font':''">
+    <div id="app">
       <navbar></navbar>
       <transition name="fade" mode="out-in">
-        <router-view  :key="$route.path"></router-view>
+        <router-view :key="$route.path"></router-view>
       </transition>
       <section_footer></section_footer>
     </div>
-    <!-- @yield('content') -->
     @yield('blade_pass_variables')
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.min.js"></script>
     <script>
       window.lang={};
       window.lang.zh={!! $lang_zh !!};
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+      
     </script>
-    <script src="/js/app.js"></script>
+    <script async src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')
   </body>

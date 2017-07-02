@@ -1,19 +1,9 @@
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// import Vue from 'vue'
-// window.Vue=Vue
 import $ from 'jquery'
 import Dropzone from 'dropzone'
-// import axios from 'axios'
-// require("datatables")
+
 require('../bootstrap')
 require('tinymce/themes/modern/theme')
-
 
 import tinymce from 'tinymce'
 import 'tinymce/plugins/paste/plugin'
@@ -24,17 +14,23 @@ import 'tinymce/plugins/lists/plugin'
 
 import TinyMCE from 'tinymce-vue-2'
 
-Vue.component('tiny-mce', TinyMCE)
-// Vue.component('vue_lazy_table',vue_lazy_table)
+import carousel_editor from '../components/carousel_editor'
+import default_pic_selector from '../components/default_pic_selector'
 
-// import VueTinymce from 'vue-tinymce'
-// Vue.use(VueTinymce)
-// import store from './store'
-// import router from './router'
-// import {mapState} from 'vuex'
-// import {TweenMax} from "gsap"
-// import ScrollToPlugin from "gsap/ScrollToPlugin"
-// import Rx from 'rxjs'
+Vue.component('tiny-mce', TinyMCE)
+Vue.component('carousel_editor', carousel_editor)
+Vue.component('df_pic_selector', default_pic_selector)
+//---------------------
+// 編輯器設定
+const mce_settings = {
+  toolbar: [ 'undo redo | bullist numlist | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword'],
+  toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic | uploadpic_url',
+  other: {
+    plugins: ['paste', 'link', 'autoresize','lists', 'advlist'],
+    advlist_bullet_styles: "circle"
+  }
+}
+
 
 //---------------------
 
@@ -45,9 +41,8 @@ var vm = new Vue({
     solutions: window.solutions,
     yearlogs: [],
     lang: {},
-    mce_toolbar: [ 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword'],
-    mce_plugin: {plugins: ['paste', 'link', 'autoresize','lists', 'advlist'],
-    advlist_bullet_styles: "circle"},
+    mce_toolbar: mce_settings.toolbar,
+    mce_plugin: mce_settings.other,
     now_editing_yearlog_id: -1,
     now_social_id: 0,
     now_job_id: 0,
@@ -115,6 +110,7 @@ if (window.require_js.tinymce){
       images_upload_url: 'postAcceptor.php',
       images_upload_base_path: '/some/basepath',
       images_upload_credentials: true,
+      menubar: false,
       setup: function (editor) {
         editor.addButton('uploadpic', {
           text: '上傳圖片',
@@ -135,7 +131,7 @@ if (window.require_js.tinymce){
           }
         });
       },
-      toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic | uploadpic_url',
+      toolbar1: mce_settings.toolbar_news,
       plugins : vm.mce_plugin.plugins,
       theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
       paste_auto_cleanup_on_paste : true,

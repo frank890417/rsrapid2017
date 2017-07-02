@@ -7,11 +7,9 @@ div.page_solution(v-if="solu")
     .ab_center.size_full.bg_color_split
       .block_50_percent.bg_theme
       .block_50_percent(style="position: relative")
-        .slick(data-timelime=".tl_s1")
-          .item(style='height: 100%')
-            .img(style="background-image:url(/img/homepage/Solution2.jpg);background-size: cover; height: 100%;")
-          .item(style='height: 100%')
-            .img(style="background-image:url(/img/homepage/Post2.jpg);background-size: cover; height: 100%;")
+        .slick(data-timelime=".tl_s1",style="height: 100%")
+          .item(style='height: 100%' v-for="item in JSON.parse(solu.carousel)")
+            .img(:style="css_carousel(item)")
         .timeline.tl_s1
             .value
 
@@ -103,6 +101,15 @@ div.page_solution(v-if="solu")
               target=this.solutions.filter((o)=>(o.title==this.title))[0];
             return target?target:null
 
+          }
+        },
+        methods: {
+          css_carousel(url){
+            return {
+              "background-image" : `url(${url})`,
+              "background-size" : "cover",
+              "height" : "100%"
+            }
           }
         }
     }

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        
         $metas = Request::get('metas');
         // dd($metas);
         $lang_zh = Websiteinfo::where("key","zh")->first()->data;

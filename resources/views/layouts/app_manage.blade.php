@@ -54,11 +54,10 @@
       <!-- /.container-fluid -->
     </nav>
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-      <form role="search">
-        <div class="form-group">
-          <input type="text" placeholder="Search" class="form-control">
-        </div>
-      </form>
+      <!--        
+        .form-group
+          input.form-control(type='text', placeholder='Search')
+      -->
       <ul class="nav menu">
         <li data-link="content"><a href="{{ url('manage/content') }}">
             <svg class="glyph stroked dashboard-dial">
