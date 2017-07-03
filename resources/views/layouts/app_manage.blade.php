@@ -91,6 +91,10 @@
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 人才招募</a></li>
+        <li data-link="contactrecord"><a href="{{ url('manage/contactrecord') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 詢問紀錄</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table

@@ -16,35 +16,51 @@
     h1.page-header 檢驗科技管理
       .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
 
-.row
-  .col-lg-12
+.row(v-if="lang.zh")
+  .col-lg-4
     .panel.panel-primary
       .panel-heading 檢驗科技管理
       .panel-body
-        
-        div(v-for='(tech_item,id) in lang.zh.page_tech.techs')
-          .col-sm-4
-            .form-group
-              h4 標題
-              input.form-control(v-model="tech_item.title")
-            .form-group
-              h4 描述
-              tiny-mce(:id = "'tech_'+id+'_content'" , v-model="tech_item.description",
-            :other-props="mce_plugin",  :toolbar="mce_toolbar")
-          .col-sm-8
-            .form-group
-              .form-group(v-for="(section,section_id) in tech_item.sections")
-                h4 @{{section_id+1}}.區塊標題
-                input.form-control(v-model="section.title")
-                h4 區塊內容
-                tiny-mce(:id = "'tech_'+id+'_section_'+section_id+'_content'" , v-model="section.content",
-            :other-props="mce_plugin",  :toolbar="mce_toolbar")
-                h4 區塊圖片
-                div(v-for="(slide,slide_id) in section.slides")
-                  input.form-control(v-model="section.slides[slide_id]")
+        table.table.table-primary
+          thead
+            th 編號
+            th 標題
+            th 區塊
+            th 操作
+          tbody
+            tr(v-for='(tech_item,id) in lang.zh.page_tech.techs')
+              td @{{id+1}}
+              td @{{tech_item.title}}
+              td
+                span(v-for= "sec in tech_item.sections")
+                  p @{{sec.title}} 
+              td 
+                button.btn(@click="now_tech_id=id") 編輯
+                button.btn.btn-danger(@click="lang.zh.page_tech.techs.splice(id,1)") 刪除
+
+              
         br
         a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增科技
         br
-
+  .col-lg-8
+    .panel.panel-default(v-for='(tech_item,id) in lang.zh.page_tech.techs' , v-show="id==now_tech_id")
+      .panel-heading 資料編輯-@{{tech_item.title}}
+      .panel-body
+        .form-group
+          h4 標題
+          input.form-control(v-model="tech_item.title")
+        .form-group
+          h4 描述
+          tiny-mce(:id = "'tech_'+id+'_content'" , v-model="tech_item.description",
+        :other-props="mce_plugin",  :toolbar="mce_toolbar")
+        div(v-for="(section,section_id) in tech_item.sections").form-group
+          .form-group
+            h4 @{{section_id+1}}.區塊標題
+            input.form-control(v-model="section.title")
+            h4 區塊內容
+            tiny-mce(:id = "'tech_'+id+'_section_'+section_id+'_content'" , v-model="section.content",
+        :other-props="mce_plugin",  :toolbar="mce_toolbar")
+            h4 區塊圖片
+            carousel_editor(:carousel_data.sync="section.slides")
 
 @endsection

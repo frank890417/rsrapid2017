@@ -30,6 +30,7 @@
         },
         mounted() {
             console.log('example mounted.')
+            
         },
         methods:{
           css_default_block(url){

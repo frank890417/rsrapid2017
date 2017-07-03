@@ -12,7 +12,8 @@
     .row
       .col-sm-12
         .ctn.btn.btn-default(@click="now_carousel_data.push({url:''})") 新增輪播圖
-    input(:name="'carousel' || input_name" , :value="output_json" hidden)
+    input(:name=" input_name || 'carousel'" , :value="output_json" hidden)
+
 </template>
 
 <script>
@@ -62,7 +63,9 @@
         },
         computed: {
           output_json(){
-            return JSON.stringify(this.now_carousel_data.map(o=>o.url).filter(o=>o!=""))
+            let outdata=this.now_carousel_data.map(o=>o.url).filter(o=>o!="");
+            
+            return JSON.stringify(outdata);
           }
         }
     }

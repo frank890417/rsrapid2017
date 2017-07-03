@@ -1,0 +1,42 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 詢問紀錄管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 詢問紀錄管理
+      .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
+
+.row(v-if="lang.zh")
+  .col-lg-12
+    .panel.panel-primary
+      .panel-heading 詢問紀錄
+      .panel-body
+        table.table.table-primary
+          thead
+            th 編號 
+            th 名字 
+            th 信箱
+            th 時間
+            th 事項
+            th(style="width: 50%") 內容
+          tbody
+            tr(v-for='(cr,id) in contact_records')
+              td @{{id+1}}
+              td @{{cr.name}}
+              td @{{cr.email}}
+              td @{{cr.created_at}}
+              td @{{cr.ask_item?cr.ask_item.title:"其他"}}
+              td @{{cr.content}}
+
+        
+@endsection

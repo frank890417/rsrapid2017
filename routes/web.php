@@ -46,6 +46,7 @@ Route::resource('manage/news','NewsController');
 Route::resource('manage/question','QuestionController');
 Route::resource('manage/solution','SolutionController');
 Route::resource('manage/about','YearlogController');
+
 Route::resource('contact_record','Contact_recordController');
 Route::post('manage/yearlog/saveall','YearlogController@saveall');
 Route::get('manage/content',function(){
@@ -60,6 +61,10 @@ Route::get('manage/job',function(){
 Route::get('manage/tech',function(){
   return view("manage.tech");
 });
+Route::get('manage/contactrecord',function(){
+  return view("manage.contactrecord");
+});
+
 Auth::routes();
 
 

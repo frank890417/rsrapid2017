@@ -1,0 +1,49 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 檢驗科技管理
+        
+    @yield('content')
+  .col-lg-12
+    h1.page-header 檢驗科技管理
+      .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
+
+.row
+  .col-lg-12
+    .panel.panel-primary
+      .panel-heading 檢驗科技管理
+      .panel-body
+        
+        div(v-for='(tech_item,id) in lang.zh.page_tech.techs')
+          .col-sm-4
+            .form-group
+              h4 標題
+              input.form-control(v-model="tech_item.title")
+            .form-group
+              h4 描述
+              tiny-mce(:id = "'tech_'+id+'_content'" , v-model="tech_item.description",
+            :other-props="mce_plugin",  :toolbar="mce_toolbar")
+          .col-sm-8
+            .form-group
+              .form-group(v-for="(section,section_id) in tech_item.sections")
+                h4 @{{section_id+1}}.區塊標題
+                input.form-control(v-model="section.title")
+                h4 區塊內容
+                tiny-mce(:id = "'tech_'+id+'_section_'+section_id+'_content'" , v-model="section.content",
+            :other-props="mce_plugin",  :toolbar="mce_toolbar")
+                h4 區塊圖片
+                carousel_editor(:carousel_data="section.slides")
+        br
+        a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增科技
+        br
+
+
+@endsection

@@ -8,10 +8,10 @@ div.page_contact
   section.section_form
     .container.row.top_out
       ul.nav_line_split
-        li.active 台灣
+        li.active(v-for="loc in $t('footer.section_company.locations')") {{loc.county}}, {{loc.location}}
       form.container.flex.row#form_contact(v-on:submit.prevent="send_form")
         .col_left
-          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.4484040096263!2d121.53777491497817!3d24.984874983995326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801fed5f7da89%3A0x7bc696c73a47d7bf!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5YyX5paw6Lev5LiJ5q61MjA36Jmf!5e0!3m2!1szh-TW!2stw!4v1490774552681" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
+          iframe(src="https://www.google.com.tw/maps/embed?place=231%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E5%BA%97%E5%8D%80%E5%8C%97%E6%96%B0%E8%B7%AF%E4%B8%89%E6%AE%B5207%E8%99%9F/@24.9848767,121.5377702,17z/data=!3m1!4b1!4m5!3m4!1s0x346801fed5f7da89:0x5e4842058d13d98c!8m2!3d24.9848767!4d121.5399642?hl=zh-TW" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
         .col_right
           .form-group
             label {{$t("page_contact.section_2.label_name")}}

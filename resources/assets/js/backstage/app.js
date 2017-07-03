@@ -41,6 +41,7 @@ var vm = new Vue({
     solutions: window.solutions,
     yearlogs: [],
     lang: {},
+    contact_records: [],
     mce_toolbar: mce_settings.toolbar,
     mce_plugin: mce_settings.other,
     now_editing_yearlog_id: -1,
@@ -81,6 +82,10 @@ var vm = new Vue({
       }
       console.log(this.lang)
     })
+    axios.get("/contact_record").then((res)=>{
+      this.contact_records=res.data
+    })
+    
   }
 })
 window.vm=vm

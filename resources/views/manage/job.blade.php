@@ -60,6 +60,10 @@
           <tiny-mce :id="'job_short_description'+id" v-model="job.short_description" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
         <div class="form-group">
+          <label>連結</label>
+          <input v-model="job.link" class="form-control"/>
+        </div>
+        <div class="form-group">
           <label>長內容</label>
           <tiny-mce :id="'job_content'+id" v-model="job.content" :other-props="mce_plugin" :toolbar="mce_toolbar">      </tiny-mce>
         </div><br/>

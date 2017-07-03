@@ -47,6 +47,9 @@
           tiny-mce(:id = "'job_short_description'+id" , v-model="job.short_description",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
         .form-group
+          label 連結
+          input.form-control(v-model="job.link")
+        .form-group
           label 長內容
           tiny-mce(:id = "'job_content'+id", v-model="job.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")       

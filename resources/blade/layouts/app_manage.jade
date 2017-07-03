@@ -102,6 +102,11 @@ html(lang="{{ config('app.locale') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  人才招募
+        li(data-link="contactrecord")
+          a(href!="{{ url('manage/contactrecord') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  詢問紀錄
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 
 use App\Contact_record;
+use App\Solution;
 class Contact_recordController extends Controller
 {
     // public function __construct()
@@ -14,9 +15,12 @@ class Contact_recordController extends Controller
     // }
     //
     public function index(){
-      $contact_record = Contact_record::orderBy('date','desc')->get();
-      return view('manage.contact_record')
-              ->with("contact_record",$contact_record);
+      $contact_record = Contact_record::orderBy('created_at','desc')->get();
+      foreach ($contact_record as $key => $value) {
+        $value->ask_item = Solution::find($value->ask_item_id);
+      }
+      
+      return $contact_record;
     }
     public function edit($id){
       $contact_record = Contact_record::find($id);
