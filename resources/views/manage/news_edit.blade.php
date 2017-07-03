@@ -79,12 +79,18 @@
         -->
         <div class="form-group">
           <label for="cover">封面圖片</label>
-          <div class="row">
-            <div class="col-sm-12"><img src="{!! isset($news)?$news->cover:"" !!}" width="100%" class="cover_preview"/></div>
-            <div class="col-sm-12">
-              <input id="cover" name="cover" style="width: 80%; display: inline-block" value="{!! isset($news)?$news->cover:"" !!}" class="form-control"/><br/>
-              <div style=" display: inline-block" class="btn btn-default btn-md btn-dropzone-cover">上傳圖片</div>
-            </div>
+          <div v-if="now_news.cover" class="row">
+            <carousel_editor :carousel_data="[now_news.cover]" :input_name="'cover'" :allow_multi="false"></carousel_editor>
+            <!--              
+              img.cover_preview(src!='{!! isset($news)?$news->cover:"" !!}', width='100%')
+              
+            -->
+            <!--              
+              input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}')
+              br
+              .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
+                | 上傳圖片
+            -->
           </div>
         </div>
         <div class="form-group">

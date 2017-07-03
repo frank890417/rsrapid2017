@@ -10,20 +10,23 @@
         df_pic_selector(:output.sync="c.url")
         input.form-control(v-model="c.url" @value="set_pic(c,value)")
     .row
-      .col-sm-12
-        .ctn.btn.btn-default(@click="now_carousel_data.push({url:''})") 新增輪播圖
+      .col-sm-12(v-if="options.allow_multi || now_carousel_data.length<1")
+        .ctn.btn.btn-default(@click="now_carousel_data.push({url:''})") 新增圖片
     input(:name=" input_name || 'carousel'" , :value="output_json" hidden)
 
 </template>
 
 <script>
     export default {
-        props: ['input_name','carousel_data'],
+        props: ['input_name','carousel_data','allow_multi'],
         name: "carousel_editor",
         data(){
           return {
             // carousel_data: ["/img/homepage/Solution2.jpg","/img/homepage/Post2.jpg"]
-            now_carousel_data: []
+            now_carousel_data: [],
+            options: {
+              allow_multi: true
+            }
           }
         },
         watch: {
@@ -35,8 +38,15 @@
         mounted() {
             console.log('example mounted.')
             console.log(this.carousel_data)
-            this.now_carousel_data
-              =this.carousel_data.map( (t)=>({url: t}) )
+            this.options.allow_multi=(typeof this.allow_multi!="undefined")?this.allow_multi:this.options.allow_multi;  
+            console.log(this.options.allow_multi)
+
+            if (typeof this.carousel_data == "string"){
+              this.now_carousel_data   =[this.carousel_data]
+            }else{
+              this.now_carousel_data
+                =this.carousel_data.map( (t)=>({url: t}) )
+            }           
         },
         methods:{
           css_cover(url) {
@@ -65,6 +75,11 @@
         computed: {
           output_json(){
             let outdata=this.now_carousel_data.map(o=>o.url).filter(o=>o!="");
+            if (!this.options.allow_multi){
+              var outdata_single=this.now_carousel_data.map(o=>o.url).filter(o=>o!="")[0];
+              this.$emit("update:carousel_data",outdata_single);
+              return outdata_single
+            }
             this.$emit("update:carousel_data",outdata);
             return JSON.stringify(outdata);
           }
