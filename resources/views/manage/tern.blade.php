@@ -19,12 +19,12 @@
     </h1>
   </div>
 </div>
-<div v-if="lang.zh" class="row">
+<div v-if="lang" class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">內容編輯</div>
       <div class="panel-body">
-        <tiny-mce id="tern_content" v-model="lang.zh.page_tern.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+        <tiny-mce id="tern_content" v-model="lang.page_tern.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
       </div>
     </div>
   </div>

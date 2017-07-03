@@ -24,7 +24,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">檢驗科技管理</div>
       <div class="panel-body">
-        <div v-for="(tech_item,id) in lang.zh.page_tech.techs">
+        <div v-for="(tech_item,id) in lang.page_tech.techs">
           <div class="col-sm-4">
             <div class="form-group">
               <h4>標題</h4>

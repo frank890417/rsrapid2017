@@ -1,10 +1,10 @@
 <template lang='jade'>
-  .container-fluid
+  .container-fluid.carousel_editor
     .row(v-for="(c,cid) in now_carousel_data")
       .col-sm-5
-        div(:style="css_cover(c.url)")
+        div.preview(:style="css_cover(c.url)")
       .col-sm-7
-        h4 圖片{{cid+1}} 
+        h4 {{c.url==""?"請選擇"}}圖片{{cid+1}} 
           .btn.btn-default(@click="now_carousel_data.splice(cid,1)") x
         hr
         df_pic_selector(:output.sync="c.url")
@@ -29,12 +29,12 @@
             }
           }
         },
-        watch: {
-          carousel_data(){
-            this.now_carousel_data
-              =this.carousel_data.map( (t)=>({url: t}) )
-          }
-        },
+        // watch: {
+        //   carousel_data(){
+        //     this.now_carousel_data
+        //       =this.carousel_data.map( (t)=>({url: t}) )
+        //   }
+        // },
         mounted() {
             console.log('example mounted.')
             console.log(this.carousel_data)
@@ -86,3 +86,9 @@
         }
     }
 </script>
+
+<style scoped lang="sass?indentedSyntax">
+  .carousel_editor
+    .preview
+      background-color: #eee
+</style>

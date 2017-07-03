@@ -1,6 +1,8 @@
 
 const messages = {
-  zh: window.lang.zh
+  zh: window.lang.zh,
+  en: window.lang.en,
+  cn: window.lang.cn,
   // zh: {
   //   footer: {
   //     section_company: {
@@ -153,8 +155,8 @@ import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 // Create VueI18n instance with options
 const i18n = new VueI18n({
-  locale: 'zh', // set locale
+  locale: window.locale, // set locale
   messages, // set locale messages
 })
-
+window.i18n=i18n;
 export default {messages,i18n}

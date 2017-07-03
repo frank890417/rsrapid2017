@@ -19,7 +19,7 @@
     </h1>
   </div>
 </div>
-<div v-if="lang.zh" class="row">
+<div v-if="lang" class="row">
   <div class="col-lg-4">
     <div class="panel panel-primary">
       <div class="panel-heading">檢驗科技管理</div>
@@ -32,14 +32,14 @@
             <th>操作</th>
           </thead>
           <tbody>
-            <tr v-for="(tech_item,id) in lang.zh.page_tech.techs">
+            <tr v-for="(tech_item,id) in lang.page_tech.techs">
               <td>@{{id+1}}</td>
               <td>@{{tech_item.title}}</td>
-              <td><span v-for="sec in tech_item.sections">
-                  <p>@{{sec.title}} </p></span></td>
+              <td><span v-for="(sec,sid) in tech_item.sections">
+                  <p>@{{sid+1}} @{{sec.title}} </p></span></td>
               <td> 
                 <button @click="now_tech_id=id" class="btn">編輯</button>
-                <button @click="lang.zh.page_tech.techs.splice(id,1)" class="btn btn-danger">刪除</button>
+                <button @click="lang.page_tech.techs.splice(id,1)" class="btn btn-danger">刪除</button>
               </td>
             </tr>
           </tbody>
@@ -48,7 +48,7 @@
     </div>
   </div>
   <div class="col-lg-8">
-    <div v-for="(tech_item,id) in lang.zh.page_tech.techs" v-show="id==now_tech_id" class="panel panel-default">
+    <div v-for="(tech_item,id) in lang.page_tech.techs" v-show="id==now_tech_id" class="panel panel-default">
       <div class="panel-heading">資料編輯-@{{tech_item.title}}</div>
       <div class="panel-body">
         <div class="form-group">
@@ -59,18 +59,24 @@
           <h4>描述</h4>
           <tiny-mce :id="'tech_'+id+'_content'" v-model="tech_item.description" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
-        <div v-for="(section,section_id) in tech_item.sections" class="form-group">
+        <ul class="nav nav-tabs">
+          <li v-for="(section,section_id) in tech_item.sections" @click="now_tech_section_id = section_id" :class="{active: now_tech_section_id == section_id}" class="nav-item"> <a :class="{active: now_tech_section_id == section_id}" style="cursor: pointer" class="nav-link">@{{section_id+1}} @{{section.title}}</a></li>
+          <li><a @click="tech_item.sections.push({});now_tech_section_id=tech_item.sections.length-1"> +新增區塊</a></li>
+        </ul>
+        <div v-for="(section,section_id) in tech_item.sections" v-show="section_id==now_tech_section_id" class="form-group">
           <div class="form-group">
-            <h4>@{{section_id+1}}.區塊標題</h4>
+            <hr/>
+            <h4>標題</h4>
             <input v-model="section.title" class="form-control"/>
-            <h4>區塊內容</h4>
+            <h4>內容</h4>
             <tiny-mce :id="'tech_'+id+'_section_'+section_id+'_content'" v-model="section.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
-            <h4>區塊圖片</h4>
+            <h4>圖片</h4>
             <carousel_editor :carousel_data.sync="section.slides"></carousel_editor>
           </div>
         </div>
       </div>
     </div>
+    <div @click="save_website_info" class="btn btn-danger">儲存更新</div>
   </div>
 </div>
 @endsection

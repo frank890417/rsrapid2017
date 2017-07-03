@@ -79,7 +79,7 @@
         -->
         <div v-if="now_news.cover" class="form-group row">
           <label for="cover">封面圖片</label>
-          <carousel_editor :carousel_data="[now_news.cover]" :input_name="'cover'" :allow_multi="false"></carousel_editor>
+          <carousel_editor :carousel_data="[now_news.cover]" :input_name="'cover'" :allow_multi="false">   </carousel_editor>
         </div>
         <div class="form-group">
           <label for="cover">輪播圖</label>

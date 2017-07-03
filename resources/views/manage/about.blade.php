@@ -19,14 +19,14 @@
     </h1>
   </div>
 </div>
-<div v-if="lang.zh" class="row">
+<div v-if="lang" class="row">
   <div class="col-lg-12">
     <div class="panel panel-primary">
       <div class="panel-heading">頁面內容管理</div>
       <div class="panel-body">
         <div class="form-group">
           <label>內容</label>
-          <tiny-mce id="about_section1_content" v-model="lang.zh.page_about.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <tiny-mce id="about_section1_content" v-model="lang.page_about.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">頁面敘述</div>
       <div class="panel-body">
-        <tiny-mce id="tern_content" v-model="lang.zh.page_contact.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce><br/>
+        <tiny-mce id="tern_content" v-model="lang.page_contact.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce><br/>
         <div @click="save_website_info" class="btn btn-danger">儲存更新</div>
       </div>
     </div>

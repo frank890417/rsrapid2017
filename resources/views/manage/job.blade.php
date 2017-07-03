@@ -30,15 +30,15 @@
             <th>操作</th>
           </thead>
           <tbody>
-            <tr v-for="(job,id) in lang.zh.page_job.section_1.jobs">
+            <tr v-for="(job,id) in lang.page_job.section_1.jobs">
               <td>@{{job.name}}</td>
               <td>
                 <div @click="now_job_id=id" class="btn btn-default">編輯</div>
-                <div @click="lang.zh.page_job.section_1.jobs.splice(id,1)" class="btn btn-danger">刪除</div>
+                <div @click="lang.page_job.section_1.jobs.splice(id,1)" class="btn btn-danger">刪除</div>
               </td>
             </tr>
             <tr>
-              <td @click="lang.zh.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})" style="cursor: pointer;" colspan="2">+ 新增職缺</td>
+              <td @click="lang.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})" style="cursor: pointer;" colspan="2">+ 新增職缺</td>
             </tr>
           </tbody>
         </table>
@@ -47,10 +47,10 @@
   </div>
   <div class="col-lg-8">
     <div class="panel panel-default">
-      <div class="panel-heading">編輯職位中-@{{lang.zh.page_job.section_1.jobs[now_job_id].name}}
+      <div class="panel-heading">編輯職位中-@{{lang.page_job.section_1.jobs[now_job_id].name}}
         <div @click="save_website_info" class="btn btn-danger">儲存更新</div>
       </div>
-      <div v-for="(job,id) in lang.zh.page_job.section_1.jobs" v-if="id==now_job_id" class="panel-body">
+      <div v-for="(job,id) in lang.page_job.section_1.jobs" v-if="id==now_job_id" class="panel-body">
         <div class="form-group">
           <label>職位名</label>
           <input v-model="job.name" class="form-control"/>

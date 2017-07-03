@@ -16,12 +16,12 @@
     h1.page-header 各項聲明
       .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
 
-.row(v-if="lang.zh")
+.row(v-if="lang")
   .col-lg-12
     .panel.panel-default
       .panel-heading 內容編輯
       .panel-body
-        tiny-mce(id = "tern_content" , v-model="lang.zh.page_tern.section_1.content",
+        tiny-mce(id = "tern_content" , v-model="lang.page_tern.section_1.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
     
 

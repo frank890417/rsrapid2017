@@ -29,11 +29,20 @@ class HomeController extends Controller
     {
         
         $metas = Request::get('metas');
+        $lang = Request::get('lang');
+        if (!in_array($lang , ["zh","cn","en"])){
+          $lang="zh";
+        }
+
+        // dd($lang);
+        // dd($lang);
+        // if ()
         // dd($metas);
-        $lang_zh = Websiteinfo::where("key","zh")->first()->data;
+        $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
         return view('home')
-               ->with("lang_zh",$lang_zh)
+               ->with("lang_pack",$lang_pack)
                ->with("metas",$metas)
+               ->with("lang",$lang)
             ;
     }
 }

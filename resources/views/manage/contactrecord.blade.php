@@ -19,7 +19,7 @@
     </h1>
   </div>
 </div>
-<div v-if="lang.zh" class="row">
+<div v-if="lang" class="row">
   <div class="col-lg-12">
     <div class="panel panel-primary">
       <div class="panel-heading">詢問紀錄</div>

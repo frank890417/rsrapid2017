@@ -20,7 +20,7 @@
       ]) !!};
     </script>
   </head>
-  <body>
+  <body class="lang_{{$lang}}">
     <div id="app">
       <navbar></navbar>
       <transition name="fade" mode="out-in">
@@ -32,8 +32,9 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script>
+      window.locale="{{ $lang }}";
       window.lang={};
-      window.lang.zh={!! $lang_zh !!};
+      window.lang.{{$lang}}={!! $lang_pack !!};
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
       
     </script>

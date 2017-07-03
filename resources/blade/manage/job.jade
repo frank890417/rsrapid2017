@@ -26,18 +26,18 @@
             th 職位名
             th 操作
           tbody
-            tr(v-for="(job,id) in lang.zh.page_job.section_1.jobs")
+            tr(v-for="(job,id) in lang.page_job.section_1.jobs")
               td @{{job.name}}
               td
                 .btn.btn-default(@click="now_job_id=id") 編輯
-                .btn.btn-danger(@click="lang.zh.page_job.section_1.jobs.splice(id,1)") 刪除
+                .btn.btn-danger(@click="lang.page_job.section_1.jobs.splice(id,1)") 刪除
             tr
-              td(@click="lang.zh.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})",style="cursor: pointer;" colspan=2) + 新增職缺
+              td(@click="lang.page_job.section_1.jobs.push({name:'新職缺',short_description:'',content: ''})",style="cursor: pointer;" colspan=2) + 新增職缺
   .col-lg-8
     .panel.panel-default
-      .panel-heading 編輯職位中-@{{lang.zh.page_job.section_1.jobs[now_job_id].name}}
+      .panel-heading 編輯職位中-@{{lang.page_job.section_1.jobs[now_job_id].name}}
         .btn.btn-danger(@click="save_website_info") 儲存更新
-      .panel-body(v-for="(job,id) in lang.zh.page_job.section_1.jobs",
+      .panel-body(v-for="(job,id) in lang.page_job.section_1.jobs",
       v-if="id==now_job_id")
         .form-group
           label 職位名

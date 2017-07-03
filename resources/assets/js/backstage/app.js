@@ -34,6 +34,10 @@ const mce_settings = {
 
 
 //---------------------
+var locale= document.location.host.split(".")[0];
+if (["zh","cn","en"].indexOf(locale)==-1){
+  locale="zh";
+}
 
 // $("table").dataTable()
 var vm = new Vue({
@@ -44,6 +48,7 @@ var vm = new Vue({
     yearlogs: [],
     questions: [],
     lang: {},
+    locale: locale,
     contact_records: [],
     mce_toolbar: mce_settings.toolbar,
     mce_plugin: mce_settings.other,
@@ -52,6 +57,7 @@ var vm = new Vue({
     now_job_id: 0,
     now_yearlog: 0,
     now_tech_id: 0,
+    now_tech_section_id: 0,
     news: [],
     dragging_id: -1,
     dragging: false
@@ -65,7 +71,7 @@ var vm = new Vue({
         });
       }
     },save_website_info(){
-      axios.post("/api/websiteinfo/key/zh",this.lang.zh).then(
+      axios.post("/api/websiteinfo/key/"+this.locale,this.lang).then(
         (res)=>{location.reload();}
       )
     },save_yearlog(){
@@ -102,10 +108,8 @@ var vm = new Vue({
     axios.get("/api/news").then((res)=>{
       this.news=res.data
     })
-    axios.get("/api/websiteinfo/key/zh").then((res)=>{
-      this.lang={
-        zh: res.data
-      }
+    axios.get("/api/websiteinfo/key/"+this.locale).then((res)=>{
+      this.lang=res.data
       console.log(this.lang)
     })
     axios.get("/contact_record").then((res)=>{

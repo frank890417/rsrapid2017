@@ -20,7 +20,7 @@
     .panel.panel-primary
       .panel-heading 頁面敘述
       .panel-body
-        tiny-mce(id = "tern_content" , v-model="lang.zh.page_contact.section_1.content",
+        tiny-mce(id = "tern_content" , v-model="lang.page_contact.section_1.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
         br
         .btn.btn-danger(@click="save_website_info") 儲存更新

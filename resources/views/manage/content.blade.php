@@ -19,7 +19,7 @@
     </h1>
   </div>
 </div>
-<div v-if="lang.zh" class="row">
+<div v-if="lang" class="row">
   <div class="col-lg-6">
     <div class="panel panel-primary">
       <div class="panel-heading">首頁管理</div>
@@ -27,25 +27,25 @@
         <div class="form-group">
           <h4>區塊一</h4>
           <label>標題</label>
-          <input v-model="lang.zh.page_index.section_1.title" class="form-control"/>
+          <input v-model="lang.page_index.section_1.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section1_content" v-model="lang.zh.page_index.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <tiny-mce id="index_section1_content" v-model="lang.page_index.section_1.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div>
         <div class="form-group">
           <h4>區塊二</h4>
           <label>標題</label>
-          <input v-model="lang.zh.page_index.section_2.title" class="form-control"/>
+          <input v-model="lang.page_index.section_2.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section2_content" v-model="lang.zh.page_index.section_2.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <tiny-mce id="index_section2_content" v-model="lang.page_index.section_2.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div>
         <div class="form-group">         
           <h4>區塊三</h4>
           <label>標題</label>
-          <input v-model="lang.zh.page_index.section_3.title" class="form-control"/>
+          <input v-model="lang.page_index.section_3.title" class="form-control"/>
           <label>內文</label>
-          <tiny-mce id="index_section3_content" v-model="lang.zh.page_index.section_3.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <tiny-mce id="index_section3_content" v-model="lang.page_index.section_3.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
         </div><br/><br/>
       </div>
@@ -57,7 +57,7 @@
       <div class="panel-body">
         <div class="form-group">
           <label>公司地址與資料</label>
-          <div v-for="(loc,id) in lang.zh.footer.section_company.locations">
+          <div v-for="(loc,id) in lang.footer.section_company.locations">
             <div class="col-sm-2">
               <h4>@{{id+1}}-@{{loc.location}}</h4>
             </div>
@@ -79,10 +79,10 @@
                 <input v-model="loc.address" style="width: 80%" class="form-control"/>
               </div>
             </div>
-            <button @click="lang.zh.footer.section_company.locations.splice(id,1)" class="btn btn-secondary">- 刪除位置(@{{loc.location}})</button>
+            <button @click="lang.footer.section_company.locations.splice(id,1)" class="btn btn-secondary">- 刪除位置(@{{loc.location}})</button>
           </div>
         </div><br/>
-        <button @click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})" class="btn btn-default">+ 新增位置</button>
+        <button @click="lang.footer.section_company.locations.push({name: '',icon: ''})" class="btn btn-default">+ 新增位置</button>
       </div>
     </div>
   </div>
@@ -92,16 +92,16 @@
       <div class="panel-body">
         <div class="form-group">
           <label>合作夥伴資料</label>
-          <div v-for="(partner,id) in lang.zh.footer.section_partner.partners">
+          <div v-for="(partner,id) in lang.footer.section_partner.partners">
             <div class="form-inline">
               <label>名稱</label>
               <input v-model="partner.name" class="form-control"/>
               <label>icon</label>
               <input v-model="partner.icon" style="width: 40%" class="form-control"/>
-              <button @click="lang.zh.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">-</button>
+              <button @click="lang.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">-</button>
             </div>
           </div><br/>
-          <button @click="lang.zh.footer.section_partner.partners.push({name: '',icon: ''})" class="btn btn-default">+ 新增夥伴</button>
+          <button @click="lang.footer.section_partner.partners.push({name: '',icon: ''})" class="btn btn-default">+ 新增夥伴</button>
         </div>
       </div>
     </div>
@@ -114,13 +114,13 @@
           <div class="col-sm-12">
             <label>平台編輯</label>
             <select v-model="now_social_id">
-              <option v-for="(s,id) in lang.zh.footer.section_company.social" :value="id">@{{s.name}}</option>
+              <option v-for="(s,id) in lang.footer.section_company.social" :value="id">@{{s.name}}</option>
             </select><br/>
           </div>
-          <div v-for="(social,id) in [lang.zh.footer.section_company.social[now_social_id]]">
+          <div v-for="(social,id) in [lang.footer.section_company.social[now_social_id]]">
             <div class="col-sm-2">
               <h4>@{{social.name}}</h4>
-              <button @click="lang.zh.footer.section_company.social.splice(id,1)" class="btn btn-secondary">-</button>
+              <button @click="lang.footer.section_company.social.splice(id,1)" class="btn btn-secondary">-</button>
             </div>
             <div class="col-sm-10">
               <div class="form-group">
@@ -138,7 +138,7 @@
               <hr/>
             </div>
           </div>
-          <!-- button.btn.btn-default(@click="lang.zh.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群 -->
+          <!-- button.btn.btn-default(@click="lang.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群 -->
           
           
         </div>

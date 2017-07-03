@@ -16,7 +16,7 @@
     h1.page-header 首頁與網站資訊
       .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
 
-.row(v-if="lang.zh")
+.row(v-if="lang")
   .col-lg-6
     .panel.panel-primary
       .panel-heading 首頁管理
@@ -25,25 +25,25 @@
         .form-group
           h4 區塊一
           label 標題
-          input.form-control(v-model="lang.zh.page_index.section_1.title")
+          input.form-control(v-model="lang.page_index.section_1.title")
           label 內文
-          tiny-mce(id = "index_section1_content" , v-model="lang.zh.page_index.section_1.content",
+          tiny-mce(id = "index_section1_content" , v-model="lang.page_index.section_1.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         .form-group
           h4 區塊二
           label 標題
-          input.form-control(v-model="lang.zh.page_index.section_2.title")
+          input.form-control(v-model="lang.page_index.section_2.title")
           label 內文
-          tiny-mce(id = "index_section2_content" , v-model="lang.zh.page_index.section_2.content",
+          tiny-mce(id = "index_section2_content" , v-model="lang.page_index.section_2.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         .form-group          
           h4 區塊三
           label 標題
-          input.form-control(v-model="lang.zh.page_index.section_3.title")
+          input.form-control(v-model="lang.page_index.section_3.title")
           label 內文
-          tiny-mce(id = "index_section3_content" , v-model="lang.zh.page_index.section_3.content",
+          tiny-mce(id = "index_section3_content" , v-model="lang.page_index.section_3.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
           hr
         br
@@ -55,7 +55,7 @@
       .panel-body
         .form-group
           label 公司地址與資料
-          div(v-for="(loc,id) in lang.zh.footer.section_company.locations")
+          div(v-for="(loc,id) in lang.footer.section_company.locations")
             .col-sm-2
               h4 @{{id+1}}-@{{loc.location}}
             .col-sm-10
@@ -71,24 +71,24 @@
               .form-inline
                 label 地址
                 input.form-control(v-model="loc.address",style="width: 80%")
-            button.btn.btn-secondary(@click="lang.zh.footer.section_company.locations.splice(id,1)") - 刪除位置(@{{loc.location}})
+            button.btn.btn-secondary(@click="lang.footer.section_company.locations.splice(id,1)") - 刪除位置(@{{loc.location}})
         br
-        button.btn.btn-default(@click="lang.zh.footer.section_company.locations.push({name: '',icon: ''})") + 新增位置
+        button.btn.btn-default(@click="lang.footer.section_company.locations.push({name: '',icon: ''})") + 新增位置
   .col-lg-6
     .panel.panel-primary
       .panel-heading 合作夥伴
       .panel-body
         .form-group
           label 合作夥伴資料
-          div(v-for="(partner,id) in lang.zh.footer.section_partner.partners")
+          div(v-for="(partner,id) in lang.footer.section_partner.partners")
             .form-inline
               label 名稱
               input.form-control(v-model="partner.name")
               label icon
               input.form-control(v-model="partner.icon", style="width: 40%")
-              button.btn.btn-secondary(@click="lang.zh.footer.section_partner.partners.splice(id,1)") -
+              button.btn.btn-secondary(@click="lang.footer.section_partner.partners.splice(id,1)") -
           br
-          button.btn.btn-default(@click="lang.zh.footer.section_partner.partners.push({name: '',icon: ''})") + 新增夥伴
+          button.btn.btn-default(@click="lang.footer.section_partner.partners.push({name: '',icon: ''})") + 新增夥伴
   .col-lg-6
     .panel.panel-primary
       .panel-heading 社群連結
@@ -97,12 +97,12 @@
           .col-sm-12
             label 平台編輯
             select(v-model="now_social_id")
-              option(v-for="(s,id) in lang.zh.footer.section_company.social" , :value = "id") @{{s.name}}
+              option(v-for="(s,id) in lang.footer.section_company.social" , :value = "id") @{{s.name}}
             br
-          div(v-for="(social,id) in [lang.zh.footer.section_company.social[now_social_id]]")
+          div(v-for="(social,id) in [lang.footer.section_company.social[now_social_id]]")
             .col-sm-2
               h4 @{{social.name}}
-              button.btn.btn-secondary(@click="lang.zh.footer.section_company.social.splice(id,1)") -
+              button.btn.btn-secondary(@click="lang.footer.section_company.social.splice(id,1)") -
             .col-sm-10
               .form-group
                 label 名稱
@@ -117,7 +117,7 @@
                 input.form-control(v-model="social.url")
               hr
                 
-          //button.btn.btn-default(@click="lang.zh.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群
+          //button.btn.btn-default(@click="lang.footer.section_company.social.push({name: '',icon: '',url: ''})") + 新增社群
 
     
 

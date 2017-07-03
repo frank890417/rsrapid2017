@@ -16,14 +16,14 @@
     h1.page-header 關於睿軒
       .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
 
-.row(v-if="lang.zh")
+.row(v-if="lang")
   .col-lg-12
     .panel.panel-primary
       .panel-heading 頁面內容管理
       .panel-body
         .form-group
           label 內容
-          tiny-mce(id = "about_section1_content" , v-model="lang.zh.page_about.section_1.content",
+          tiny-mce(id = "about_section1_content" , v-model="lang.page_about.section_1.content",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
 .row
   .col-lg-12

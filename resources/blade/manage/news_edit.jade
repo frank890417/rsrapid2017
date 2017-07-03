@@ -70,7 +70,7 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
             @endif
         .form-group.row(v-if="now_news.cover")
           label(for='cover') 封面圖片
-          carousel_editor(:carousel_data="[now_news.cover]", :input_name="'cover'", :allow_multi="false")
+          carousel_editor(:carousel_data="[now_news.cover]", :input_name="'cover'", :allow_multi="false")    
         .form-group
           label(for='cover') 輪播圖
           carousel_editor(:carousel_data="now_news.carousel")

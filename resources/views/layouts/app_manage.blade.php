@@ -22,13 +22,17 @@
       'csrfToken' => csrf_token(),
       ]) !!};
     </script>
-    <style>[v-cloak] { display: none }</style>
+    <style>
+      [v-cloak] { display: none }
+      
+      
+    </style>
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin</a>
+          <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-中文版  <span>中文 | </span><span>英文 | </span><span>簡體中文</span></a>
           <ul class="user-menu">
             <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                 <svg class="glyph stroked male-user">
