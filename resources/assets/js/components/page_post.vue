@@ -99,7 +99,7 @@ export default {
             if(carousel_json.length==0){
               return [newsset.cover]
             }else{
-              return carousel_json
+              return [newsset.cover].concat(carousel_json)
             }
           }
           
