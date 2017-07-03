@@ -77,29 +77,13 @@
               option(value="2" ) 2格 口口
             @endif
         -->
-        <div class="form-group">
+        <div v-if="now_news.cover" class="form-group row">
           <label for="cover">封面圖片</label>
-          <div v-if="now_news.cover" class="row">
-            <carousel_editor :carousel_data="[now_news.cover]" :input_name="'cover'" :allow_multi="false"></carousel_editor>
-            <!--              
-              img.cover_preview(src!='{!! isset($news)?$news->cover:"" !!}', width='100%')
-              
-            -->
-            <!--              
-              input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}')
-              br
-              .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
-                | 上傳圖片
-            -->
-          </div>
+          <carousel_editor :carousel_data="[now_news.cover]" :input_name="'cover'" :allow_multi="false"></carousel_editor>
         </div>
         <div class="form-group">
           <label for="cover">輪播圖</label>
-          <div class="row">
-            <div class="col-sm-12">       
-              <carousel_editor :carousel_data="now_news.carousel"></carousel_editor>
-            </div>
-          </div>
+          <carousel_editor :carousel_data="now_news.carousel"></carousel_editor>
         </div>
         <hr/>
         <div class="form-group">

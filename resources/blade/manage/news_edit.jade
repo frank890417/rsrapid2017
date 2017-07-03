@@ -68,23 +68,12 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
               option(value="1" ) 1格 口
               option(value="2" ) 2格 口口
             @endif
-        .form-group
+        .form-group.row(v-if="now_news.cover")
           label(for='cover') 封面圖片
-          .row(v-if="now_news.cover")
-            carousel_editor(:carousel_data="[now_news.cover]", :input_name="'cover'", :allow_multi="false")
-            //.col-sm-12
-              img.cover_preview(src!='{!! isset($news)?$news->cover:"" !!}', width='100%')
-
-            //.col-sm-12
-              input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($news)?$news->cover:"" !!}')
-              br
-              .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
-                | 上傳圖片
+          carousel_editor(:carousel_data="[now_news.cover]", :input_name="'cover'", :allow_multi="false")
         .form-group
           label(for='cover') 輪播圖
-          .row
-            .col-sm-12        
-              carousel_editor(:carousel_data="now_news.carousel")
+          carousel_editor(:carousel_data="now_news.carousel")
         hr
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改

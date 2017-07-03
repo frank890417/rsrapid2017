@@ -57,8 +57,8 @@ class ApiController extends Controller
 
          $path = '/img/uploaded/';
          Storage::disk('public')->putFileAs($path,$image,$filename);
-         
-         return $path.$filename;
+
+         return '/storage'.$path.$filename;
      
              // Image::make($image->getRealPath())->resize(200, 200)->save($path);
              // $user->image = $filename;
