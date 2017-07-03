@@ -19,7 +19,7 @@
 form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/news/')) }}" method="post").row
 
 
-  .col-sm-9
+  .col-sm-8
     .panel.panel-primary
       .panel-heading 編輯新聞
       .panel-body
@@ -39,7 +39,7 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
             label(for='content') 內文
             div(class="btn btn-default btn-md btn-dropzone"  style='display:none;') 上傳圖片
             textarea#content.form-control(name='content', rows='10') {!! isset($news)?$news->content:'' !!}
-  .col-sm-3
+  .col-sm-4
     .panel.panel-default
       .panel-heading 新聞設定
       .panel-body
@@ -78,6 +78,11 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
               br
               .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
                 | 上傳圖片
+        .form-group
+          label(for='cover') 輪播圖
+          .row
+            .col-sm-12        
+              carousel_editor(:carousel_data="now_news.carousel")
         hr
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
@@ -89,8 +94,11 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
     window.require_js={};
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;
-  script.
-    
+
+    window.now_news= {!! json_encode($news)!!};
+    if (!window.now_news.carousel) window.now_news.carousel = [];
+    else
+       window.now_news.carousel = JSON.parse(window.now_news.carousel);
 @endsection
 
 @section('require_js')

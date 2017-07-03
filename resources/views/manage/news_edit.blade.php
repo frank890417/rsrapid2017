@@ -19,7 +19,7 @@
   </div>
 </div>
 <form action="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/news/')) }}" method="post" class="row">
-  <div class="col-sm-9">
+  <div class="col-sm-8">
     <div class="panel panel-primary">
       <div class="panel-heading">編輯新聞</div>
       <div class="panel-body">
@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">新聞設定</div>
       <div class="panel-body">
@@ -87,6 +87,14 @@
             </div>
           </div>
         </div>
+        <div class="form-group">
+          <label for="cover">輪播圖</label>
+          <div class="row">
+            <div class="col-sm-12">       
+              <carousel_editor :carousel_data="now_news.carousel"></carousel_editor>
+            </div>
+          </div>
+        </div>
         <hr/>
         <div class="form-group">
           <button type="submit" class="btn btn-danger btn-md">儲存修改</button>
@@ -101,8 +109,12 @@
     window.require_js={};
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;
+    
+    window.now_news= {!! json_encode($news)!!};
+    if (!window.now_news.carousel) window.now_news.carousel = [];
+    else
+       window.now_news.carousel = JSON.parse(window.now_news.carousel);
   </script>
-  <script></script>
 </form>
 @endsection
 @section('require_js')

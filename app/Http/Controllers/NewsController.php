@@ -28,6 +28,7 @@ class NewsController extends Controller
       $news = News::find($id);
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $news->update($inputs);
+      // dd($news);
       return Redirect::to("manage/news");
     }
 
@@ -39,7 +40,7 @@ class NewsController extends Controller
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
       $news = News::Create($inputs);
-      return Redirect::to("manage/news");
+      // return Redirect::to("manage/news");
     }
     public function destroy($id){
       News::destroy($id);

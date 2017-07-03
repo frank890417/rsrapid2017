@@ -1,8 +1,8 @@
 <template lang="jade">
 div.page_post
-  .slick
-    section.section_hero(v-if='newsset' v-for='id in 2')
-      .bg.bg_parallax.no_attach(:style="bg_css(newsset.cover)") 
+  .slick(v-if="newsset")
+    section.section_hero( v-for='curl in carousel_set')
+      .bg.bg_parallax.no_attach(:style="bg_css(curl)") 
       .container.flex
   
   section.section_post
@@ -90,6 +90,22 @@ export default {
       get_share_url(){
         
         return 'https://www.facebook.com/sharer/sharer.php?u='+window.location.href;
+      },
+      carousel_set(){
+        let newsset=this.newsset;
+        if (newsset){
+          if (newsset.carousel){
+            var carousel_json = JSON.parse(newsset.carousel);
+            if(carousel_json.length==0){
+              return [newsset.cover]
+            }else{
+              return carousel_json
+            }
+          }
+          
+        }
+        return [newsset.cover]
+        
       }
     }
 }

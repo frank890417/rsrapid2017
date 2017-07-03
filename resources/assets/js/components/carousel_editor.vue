@@ -34,6 +34,7 @@
         },
         mounted() {
             console.log('example mounted.')
+            console.log(this.carousel_data)
             this.now_carousel_data
               =this.carousel_data.map( (t)=>({url: t}) )
         },
@@ -64,7 +65,7 @@
         computed: {
           output_json(){
             let outdata=this.now_carousel_data.map(o=>o.url).filter(o=>o!="");
-            
+            this.$emit("update:carousel_data",outdata);
             return JSON.stringify(outdata);
           }
         }
