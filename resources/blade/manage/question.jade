@@ -27,11 +27,12 @@
 
   .col-lg-12
     .panel.panel-primary
-      .panel-heading 問題管理
+      .panel-heading 問題管理 拖曳以排序
       .panel-body
         
         table.table.table-hover
           thead
+            th
             th 編號
             th 問題
             th 回答
@@ -40,23 +41,27 @@
             th 編輯
             th 刪除
           tbody
-          @foreach ($questions as $question)
-            tr
-              td(style="width: 5%") {{$question->id}}
-              td(style="width: 15%") {{$question->question}}
-              td(style="width: 50%") {{$question->answer}}
-              td(style="width: 5%") {{$question->stick_top?'是':'否'}}
-              td {{$question->updated_at}}
+            
+            tr(v-for="(qa,id) in questions" ,draggable="true",@dragover.prevent="dragover_question", @dragstart="dragstart_question(id)",@drop="drop_question(id,questions)")
+              td 
+                i.fa.fa-bars(style="cursor: all-scroll")
+              td(style="width: 5%") @{{1+qa.ordernum}}
+              td(style="width: 15%") @{{qa.question}}
+              td(style="width: 50%") @{{qa.answer}}
+              td(style="width: 5%") @{{qa.stick_top?'是':'否'}}
+              td @{{qa.updated_at}}
               td(style="width: 5%")
-                a.btn.btn-default(href!="{{ url('manage/question/'.($question->id).'/edit') }}") 編輯
+                a.btn.btn-default(:href!="'manage/question/'+(qa.id)+'/edit'") 編輯
               td(style="width: 5%")
-                button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_question_{{$question->id}}').submit();}") 刪除
-                form(id!='delete_question_{{$question->id}}', action!="{{url('manage/question/'.$question->id)}}", method='POST')
-                  input(type='hidden', name='_method', value='delete')
-                  input(type='hidden', name='_token', value='{{ csrf_token() }}')
-          @endforeach
+
+          .btn.btn-danger(@click="save_question") 儲存更新
+                //- button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_question_{{qa.id}}').submit();}") 刪除
+                //- form(id!='delete_question_{{qa.id}}', action!="{{url('manage/question/'.qa.id)}}", method='POST')
+                //-   input(type='hidden', name='_method', value='delete')
+                //-   input(type='hidden', name='_token', value='{{ csrf_token() }}')
+         
         br
-        a.btn.btn-primary(href!="{{ url('manage/question/create') }}") 新增新聞
+        a.btn.btn-primary(href!="{{ url('manage/question/create') }}") 新增問答
         br
 
 

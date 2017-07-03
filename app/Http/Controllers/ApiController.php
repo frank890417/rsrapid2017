@@ -17,13 +17,20 @@ class ApiController extends Controller
       return News::orderBy('id','desc')->get();
     }
     public function questions(){
-      return Question::orderBy('stick_top','desc')->limit(3)->get();
+      return Question::orderBy('ordernum','asc')->get();
     }
     public function solutions(){
       return Solution::all();
     }
     public function yearlogs(){
        return Yearlog::all();
+    }
+    public function update_all_yearlogs(){
+       $input = Input::all();
+       foreach ($input as $key => $value) {
+         Question::updateOrCreate(["id"=>$value["id"]],$value);
+       }
+       return Question::orderBy("ordernum","asc")->get();
     }
 
     public function websiteinfo($key){

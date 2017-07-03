@@ -16,10 +16,11 @@ import TinyMCE from 'tinymce-vue-2'
 
 import carousel_editor from '../components/carousel_editor'
 import default_pic_selector from '../components/default_pic_selector'
-
+import draggable from 'vuedraggable'
 Vue.component('tiny-mce', TinyMCE)
 Vue.component('carousel_editor', carousel_editor)
 Vue.component('df_pic_selector', default_pic_selector)
+Vue.component('draggable', draggable)
 //---------------------
 // 編輯器設定
 const mce_settings = {
@@ -40,6 +41,7 @@ var vm = new Vue({
   data: {
     solutions: window.solutions,
     yearlogs: [],
+    questions: [],
     lang: {},
     contact_records: [],
     mce_toolbar: mce_settings.toolbar,
@@ -49,7 +51,9 @@ var vm = new Vue({
     now_job_id: 0,
     now_yearlog: 0,
     now_tech_id: 0,
-    news: []
+    news: [],
+    dragging_id: -1,
+    dragging: false
   },
   methods:{
     delete_yearlog(yid){
@@ -67,6 +71,27 @@ var vm = new Vue({
       axios.post('/manage/yearlog/saveall',this.yearlogs).then(
         (res)=>{location.reload();}
       )
+    },
+    dragstart_question(id){
+      this.dragging_id=id;
+      console.log(id)
+    },
+    drop_question(id,arr){
+      console.log(arr)
+      let temp=arr[id]
+      arr[id]=arr[this.dragging_id]
+      arr[this.dragging_id]=temp
+      this.questions.forEach((o,i)=>o.ordernum=i)
+      this.$forceUpdate()
+
+    },
+    dragover_question(evt){
+      
+      // console.log(evt)
+    },
+    save_question(){
+      axios.post("/api/questions",this.questions).then((res)=>{
+      })
     }
   },
   mounted(){
@@ -85,7 +110,10 @@ var vm = new Vue({
     axios.get("/contact_record").then((res)=>{
       this.contact_records=res.data
     })
-    
+    axios.get("/api/questions").then((res)=>{
+      this.questions=res.data
+    })
+
   }
 })
 window.vm=vm

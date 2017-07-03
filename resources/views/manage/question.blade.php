@@ -29,10 +29,11 @@
   </div>
   <div class="col-lg-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">問題管理</div>
+      <div class="panel-heading">問題管理 拖曳以排序</div>
       <div class="panel-body">
         <table class="table table-hover">
           <thead>
+            <th></th>
             <th>編號</th>
             <th>問題</th>
             <th>回答</th>
@@ -41,25 +42,25 @@
             <th>編輯</th>
             <th>刪除</th>
           </thead>
-          <tbody></tbody>
-          @foreach($questions as $question)
-            <tr>
-              <td style="width: 5%">{{$question->id}}</td>
-              <td style="width: 15%">{{$question->question}}</td>
-              <td style="width: 50%">{{$question->answer}}</td>
-              <td style="width: 5%">{{$question->stick_top?'是':'否'}}</td>
-              <td>{{$question->updated_at}}</td>
-              <td style="width: 5%"><a href="{{ url('manage/question/'.($question->id).'/edit') }}" class="btn btn-default">編輯</a></td>
-              <td style="width: 5%">
-                <button onclick="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_question_{{$question->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
-                <form id="delete_question_{{$question->id}}" action="{{url('manage/question/'.$question->id)}}" method="POST">
-                  <input type="hidden" name="_method" value="delete"/>
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                </form>
-              </td>
+          <tbody>
+            <tr v-for="(qa,id) in questions" draggable="true" @dragover.prevent="dragover_question" @dragstart="dragstart_question(id)" @drop="drop_question(id,questions)">
+              <td> <i style="cursor: all-scroll" class="fa fa-bars"></i></td>
+              <td style="width: 5%">@{{1+qa.ordernum}}</td>
+              <td style="width: 15%">@{{qa.question}}</td>
+              <td style="width: 50%">@{{qa.answer}}</td>
+              <td style="width: 5%">@{{qa.stick_top?'是':'否'}}</td>
+              <td>@{{qa.updated_at}}</td>
+              <td style="width: 5%"><a :href="'manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"></td>
             </tr>
-          @endforeach
-        </table><br/><a href="{{ url('manage/question/create') }}" class="btn btn-primary">新增新聞</a><br/>
+          </tbody>
+          <div @click="save_question" class="btn btn-danger">儲存更新
+            {{-- button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_question_{{qa.id}}').submit();}") 刪除 --}}
+            {{-- form(id!='delete_question_{{qa.id}}', action!="{{url('manage/question/'.qa.id)}}", method='POST') --}}
+            {{-- input(type='hidden', name='_method', value='delete') --}}
+            {{-- input(type='hidden', name='_token', value='{{ csrf_token() }}') --}}
+          </div>
+        </table><br/><a href="{{ url('manage/question/create') }}" class="btn btn-primary">新增問答</a><br/>
       </div>
     </div>
   </div>

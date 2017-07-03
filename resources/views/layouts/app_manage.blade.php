@@ -9,6 +9,7 @@
     <link href="/css/admin_css/styles.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/skin.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/skins/lightgray/content.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Icons -->
     <script src="/js/admin_js/lumino.glyphs.js"></script>
     <script src="/js/Rx.min.js"></script>
