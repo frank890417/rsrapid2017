@@ -36,7 +36,7 @@
             th 編號
             th 問題
             th 回答
-            th 置頂
+            //- th 置頂
             th 更新時間
             th 編輯
             th 刪除
@@ -45,10 +45,10 @@
             tr(v-for="(qa,id) in questions" ,draggable="true",@dragover.prevent="dragover_question", @dragstart="dragstart_question(id)",@drop="drop_question(id,questions)")
               td 
                 i.fa.fa-bars(style="cursor: all-scroll")
-              td(style="width: 5%") @{{1+qa.ordernum}}
+              td(style="width: 5%") @{{1+id}}
               td(style="width: 15%") @{{qa.question}}
               td(style="width: 50%") @{{qa.answer}}
-              td(style="width: 5%") @{{qa.stick_top?'是':'否'}}
+              //- td(style="width: 5%") @{{qa.stick_top?'是':'否'}}
               td @{{qa.updated_at}}
               td(style="width: 5%")
                 a.btn.btn-default(:href!="'manage/question/'+(qa.id)+'/edit'") 編輯

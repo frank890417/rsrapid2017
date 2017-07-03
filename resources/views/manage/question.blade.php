@@ -37,7 +37,7 @@
             <th>編號</th>
             <th>問題</th>
             <th>回答</th>
-            <th>置頂</th>
+            {{-- th 置頂 --}}
             <th>更新時間</th>
             <th>編輯</th>
             <th>刪除</th>
@@ -45,10 +45,10 @@
           <tbody>
             <tr v-for="(qa,id) in questions" draggable="true" @dragover.prevent="dragover_question" @dragstart="dragstart_question(id)" @drop="drop_question(id,questions)">
               <td> <i style="cursor: all-scroll" class="fa fa-bars"></i></td>
-              <td style="width: 5%">@{{1+qa.ordernum}}</td>
+              <td style="width: 5%">@{{1+id}}</td>
               <td style="width: 15%">@{{qa.question}}</td>
               <td style="width: 50%">@{{qa.answer}}</td>
-              <td style="width: 5%">@{{qa.stick_top?'是':'否'}}</td>
+              {{-- td(style="width: 5%") @{{qa.stick_top?'是':'否'}} --}}
               <td>@{{qa.updated_at}}</td>
               <td style="width: 5%"><a :href="'manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
               <td style="width: 5%"></td>

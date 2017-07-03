@@ -22,6 +22,7 @@ Route::group(['middleware'=>'cors'],function(){
   Route::get('solutions',"ApiController@solutions");
   Route::get('yearlogs',"ApiController@yearlogs");
   Route::post('questions',"ApiController@update_all_yearlogs");
+  Route::post('upload',"ApiController@upload_image");
 
   Route::get("websiteinfo/key/{key}","ApiController@websiteinfo");
   Route::post("websiteinfo/key/{key}","ApiController@websiteinfo_save");

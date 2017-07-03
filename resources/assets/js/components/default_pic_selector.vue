@@ -2,7 +2,7 @@
   div.default_pic_selector
     .btn-groups
       .btn.btn-default(@click="status.default_open=!status.default_open") 選擇預設圖庫
-      .btn.btn-default 上傳圖片
+      .btn.btn-default.btn-dropzone(:data-hash="hash") 上傳圖片
     .panel(v-show="status.default_open")
       .panel_body
         div(v-for="pic in default_set.slice(now_index*16,(now_index+1)*16)",:style="css_default_block('/img/default/icon/'+pic)", @click="output_result('/img/default/'+pic)")
@@ -24,13 +24,36 @@
             status: {
               default_open: false
             },
-            now_index: 0
-            
+            now_index: 0,
+            hash: parseInt(Math.random()*1000000)
           }
         },
         mounted() {
-            console.log('example mounted.')
-            
+          let vobj=this;
+           console.log('picture picker mounted.')
+          function gen_dz(classname,callback){  
+            console.log(classname);
+            var myDropzone = new Dropzone(classname, {
+              url: "/api/upload",maxFiles: 1
+              ,sending: function(){
+               
+              }
+              ,success: function(evt,res){
+                callback(evt,res);
+              }
+            });
+         
+            myDropzone.on("complete", function(file) {
+              myDropzone.removeFile(file);              
+            });
+          }
+
+          gen_dz(`.btn-dropzone[data-hash='${this.hash}']`,function(evt,res){
+             console.log(res);
+             var imgurl=res;
+             console.log(imgurl);
+             vobj.$emit("update:output",imgurl)
+          });
         },
         methods:{
           css_default_block(url){
