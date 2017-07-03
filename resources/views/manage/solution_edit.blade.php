@@ -69,11 +69,13 @@
         </div>
         <div class="form-group">
           <label for="env">適用環境</label>
-          <textarea id="env" name="env" rows="4" class="form-control">{!! isset($solution)?$solution->env:"" !!}</textarea>
+          <input type="hidden" style="display: hidden" id="env" name="env" rows="4" v-model="solutions.env" class="form-control"/>
+          <tiny-mce id="input_env" v-model="solutions.env" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
         <div class="form-group">
           <label for="schedule">方案類型</label>
-          <textarea id="schedule" name="schedule" rows="4" class="form-control">{!! isset($solution)?$solution->schedule:"" !!}</textarea>
+          <input type="hidden" style="display: hidden" id="schedule" name="schedule" rows="4" v-model="solutions.schedule" class="form-control"/>
+          <tiny-mce id="input_schedule" v-model="solutions.schedule" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
         <div class="form-group">
           <label for="talk">口碑</label>

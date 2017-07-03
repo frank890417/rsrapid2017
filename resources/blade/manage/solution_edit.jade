@@ -70,12 +70,17 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
 
         .form-group
           label(for='env') 適用環境
-          textarea(id="env", name="env" ,class='form-control',rows=4) {!! isset($solution)?$solution->env:"" !!}
+          input(type="hidden" style="display: hidden", id="env", name="env" ,class='form-control',rows=4 ,v-model="solutions.env")
+
+          tiny-mce(id = "input_env" , v-model="solutions.env",:other-props="mce_plugin",  :toolbar="mce_toolbar")
         
 
         .form-group
           label(for='schedule') 方案類型
-          textarea(id="schedule", name="schedule" ,class='form-control',rows=4) {!! isset($solution)?$solution->schedule:"" !!}
+          input(type="hidden" style="display: hidden" id="schedule", name="schedule" ,class='form-control',rows=4, v-model="solutions.schedule")
+
+          tiny-mce(id = "input_schedule" , v-model="solutions.schedule",
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
         
 
         .form-group
