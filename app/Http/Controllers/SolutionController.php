@@ -28,6 +28,7 @@ class SolutionController extends Controller
     public function update($id){
       $inputs= Input::all();
       $solution = Solution::find($id);
+      // dd($inputs);
       // $inputs['updated_at']=date("Y-m-d H:i:s");
       $solution->update($inputs);
       return Redirect::to("manage/solution");

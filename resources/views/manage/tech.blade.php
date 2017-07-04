@@ -59,6 +59,7 @@
           <h4>描述</h4>
           <tiny-mce :id="'tech_'+id+'_content'" v-model="tech_item.description" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
+        <solution_selector :part="tech_item"></solution_selector>
         <ul class="nav nav-tabs">
           <li v-for="(section,section_id) in tech_item.sections" @click="now_tech_section_id = section_id" :class="{active: now_tech_section_id == section_id}" class="nav-item"> <a :class="{active: now_tech_section_id == section_id}" style="cursor: pointer" class="nav-link">@{{section_id+1}} @{{section.title}}<i @click="tech_item.sections.splice(section_id,1)" style="margin-left: 10px" class="fa fa-trash"> </i></a></li>
           <li><a @click="tech_item.sections.push({});now_tech_section_id=tech_item.sections.length-1"> 新增區塊<i class="fa fa-plus"></i></a></li>

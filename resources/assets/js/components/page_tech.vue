@@ -124,7 +124,7 @@ div.page_tech(v-if="now_tech")
           //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
           p.section_para.text-left {{$t("page_tech.techs")[id].sections[2].content}}
           a.btn.btn-primary 了解更多
-  section_solutions
+  section_solutions(:shown="now_tech.section_solution?now_tech.section_solution.solutions:null", v-if="(now_tech.section_solution && now_tech.section_solution.solutions.length )")
 
 </template>
 

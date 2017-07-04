@@ -53,6 +53,7 @@
           h4 描述
           tiny-mce(:id = "'tech_'+id+'_content'" , v-model="tech_item.description",
         :other-props="mce_plugin",  :toolbar="mce_toolbar")
+        solution_selector(:part="tech_item")
         ul.nav.nav-tabs
           li.nav-item(v-for="(section,section_id) in tech_item.sections",
              @click="now_tech_section_id = section_id",

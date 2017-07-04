@@ -14,6 +14,7 @@ import 'tinymce/plugins/lists/plugin'
 
 import TinyMCE from 'tinymce-vue-2'
 
+import solution_selector from '../components/solution_selector'
 import carousel_editor from '../components/carousel_editor'
 import default_pic_selector from '../components/default_pic_selector'
 import draggable from 'vuedraggable'
@@ -22,6 +23,7 @@ import vue_json_editor_block_view from '../components/vue-json-editor-block-view
 Vue.use(vue_json_editor_block_view);
 Vue.component('tiny-mce', TinyMCE)
 Vue.component('carousel_editor', carousel_editor)
+Vue.component('solution_selector', solution_selector)
 Vue.component('df_pic_selector', default_pic_selector)
 Vue.component('draggable', draggable)
 // Vue.component('draggable', draggable)
@@ -50,7 +52,8 @@ if (["zh","cn","en"].indexOf(locale)==-1){
 var vm = new Vue({
   el: "#app", 
   data: {
-    solutions: window.solutions,
+    solutions: [],
+    solution: window.solution,
     now_news: window.now_news,
     yearlogs: [],
     questions: [],
@@ -109,6 +112,10 @@ var vm = new Vue({
     }
   },
   mounted(){
+
+    axios.get("/api/solutions").then((res)=>{
+      this.solutions=res.data
+    })
     axios.get("/api/yearlogs").then((res)=>{
       this.yearlogs=res.data
     })

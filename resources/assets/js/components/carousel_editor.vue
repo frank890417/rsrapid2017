@@ -4,7 +4,7 @@
       .col-sm-5
         div.preview(:style="css_cover(c.url)")
       .col-sm-7
-        h4 {{c.url==""?"請選擇":""}}圖片{{cid+1}} 
+        h4 {{c.url==""?"請選擇":""}}圖片{{ options.allow_multi?(cid+1):"" }} 
           .btn.btn-default(@click="now_carousel_data.splice(cid,1)") x
         hr
         df_pic_selector(:output.sync="c.url")

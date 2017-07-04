@@ -48,7 +48,7 @@ div.page_solution(v-if="solu")
             h4.text-right(v-text="talk.name")
 
 
-  section_solutions(:slogan="solu.solution_area_slogan")
+  section_solutions(:slogan="solu.solution_area_slogan",:shown="JSON.parse(solu.section_solution).solutions",:exclude="[solu.id]")
 
 </template>
 
@@ -101,7 +101,16 @@ div.page_solution(v-if="solu")
               target=this.solutions.filter((o)=>(o.title==this.title))[0];
             return target?target:null
 
-          }
+          },
+          computed_shown_solution(){
+           let original = this.$t('page_index.section_solution.solutions')
+           if (original instanceof Array){
+             return original.concat([this.solu.id])
+           }else{
+             return original
+           }
+            
+         }
         },
         methods: {
           css_carousel(url){

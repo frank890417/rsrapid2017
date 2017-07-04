@@ -47,7 +47,8 @@
           <label>內文</label>
           <tiny-mce id="index_section3_content" v-model="lang.page_index.section_3.content" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
           <hr/>
-        </div><br/><br/>
+        </div>
+        <solution_selector :part="lang.page_index"></solution_selector><br/><br/>
       </div>
     </div>
   </div>

@@ -51,6 +51,11 @@
           <input id="solution_area_slogan" name="solution_area_slogan" rows="2" value="{!! isset($solution)?$solution->solution_area_slogan:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
+          <label for="boxbg">方案區塊背景</label>
+          <carousel_editor :carousel_data="[solution.boxbg]" :input_name="'boxbg'" :allow_multi="false"> </carousel_editor>
+        </div>
+        <solution_selector :part="solution"></solution_selector>
+        <div class="form-group">
           <button type="submit" class="btn btn-danger btn-md">儲存修改</button>
         </div>
       </div>
@@ -60,7 +65,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">編輯方案-{{ (isset($solution))?$solution->id:'' }}</div>
       <div class="panel-body">
-        <carousel_editor :carousel_data="solutions.carousel"></carousel_editor>
+        <carousel_editor :carousel_data="solution.carousel"></carousel_editor>
         <input type="hidden" name="_method" value="{{ (isset($solution))?'put':'post' }}"/>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
@@ -77,8 +82,8 @@
         </div>
         <div class="form-group">
           <label for="env">適用環境</label>
-          <input type="hidden" style="display: hidden" id="env" name="env" rows="4" v-model="solutions.env" class="form-control"/>
-          <tiny-mce id="input_env" v-model="solutions.env" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <input type="hidden" style="display: hidden" id="env" name="env" rows="4" v-model="solution.env" class="form-control"/>
+          <tiny-mce id="input_env" v-model="solution.env" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
         <div class="form-group">
           <label for="schedule_title">檢驗標題</label>
@@ -86,21 +91,21 @@
         </div>
         <div class="form-group">
           <label for="schedule">方案類型</label>
-          <input type="hidden" style="display: hidden" id="schedule" name="schedule" rows="4" v-model="solutions.schedule" class="form-control"/>
-          <tiny-mce id="input_schedule" v-model="solutions.schedule" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+          <input type="hidden" style="display: hidden" id="schedule" name="schedule" rows="4" v-model="solution.schedule" class="form-control"/>
+          <tiny-mce id="input_schedule" v-model="solution.schedule" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
         </div>
         <div class="form-group">
           <label for="talk">口碑</label>
           <ul>
-            <li v-for="(talk,tid) in solutions.talk" class="form_group">
+            <li v-for="(talk,tid) in solution.talk" class="form_group">
               <label v-text="(tid+1)+':'"></label>
               <input v-model="talk.title" class="form-control"/>
               <input v-model="talk.name" class="form-control"/>
-              <button @click="solutions.talk.splice(tid,1)" class="btn btn-default">移除</button>
+              <button @click="solution.talk.splice(tid,1)" class="btn btn-default">移除</button>
             </li>
           </ul>
-          <button @click="solutions.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
-          <input type="hidden" id="talk" name="talk" :value="JSON.stringify(solutions.talk)" class="form-control"/>
+          <button @click="solution.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
+          <input type="hidden" id="talk" name="talk" :value="JSON.stringify(solution.talk)" class="form-control"/>
         </div><br/><br/>
       </div>
     </div>
@@ -115,9 +120,10 @@
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.solutions= {!! json_encode($solution)!!}
-  window.solutions.talk= JSON.parse(window.solutions.talk)
-  solutions.carousel=JSON.parse(solutions.carousel)
+  window.solution= {!! json_encode($solution)!!}
+  window.solution.talk= JSON.parse(window.solution.talk)
+  window.solution.section_solution= JSON.parse(window.solution.section_solution)
+  solution.carousel=JSON.parse(solution.carousel)
     
 </script>
 @endsection

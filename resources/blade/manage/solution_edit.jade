@@ -48,7 +48,12 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
         .form-group
           label(for='solution_area_slogan') 方案區塊對應文案
           input(id="solution_area_slogan", name="solution_area_slogan" ,class='form-control',rows=2 , value!='{!! isset($solution)?$solution->solution_area_slogan:"" !!}')
-          
+        
+        .form-group
+          label(for='boxbg') 方案區塊背景
+          carousel_editor(:carousel_data="[solution.boxbg]",:input_name="'boxbg'", :allow_multi="false") 
+        solution_selector(:part="solution")
+
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
 
@@ -58,7 +63,7 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
       .panel-heading 編輯方案-{{ (isset($solution))?$solution->id:'' }}
       .panel-body
       
-        carousel_editor(:carousel_data="solutions.carousel")
+        carousel_editor(:carousel_data="solution.carousel")
         input(type='hidden', name='_method', value="{{ (isset($solution))?'put':'post' }}")
         input(type='hidden', name='_token', value!='{{ csrf_token() }}')
 
@@ -74,32 +79,32 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
           input#env_title.form-control(name='env_title', value!='{!! isset($solution)?$solution->env_title:"" !!}')
         .form-group
           label(for='env') 適用環境
-          input(type="hidden" style="display: hidden", id="env", name="env" ,class='form-control',rows=4 ,v-model="solutions.env")
+          input(type="hidden" style="display: hidden", id="env", name="env" ,class='form-control',rows=4 ,v-model="solution.env")
 
-          tiny-mce(id = "input_env" , v-model="solutions.env",:other-props="mce_plugin",  :toolbar="mce_toolbar")
+          tiny-mce(id = "input_env" , v-model="solution.env",:other-props="mce_plugin",  :toolbar="mce_toolbar")
         
         .form-group
           label(for='schedule_title') 檢驗標題
           input#schedule_title.form-control(name='schedule_title', value!='{!! isset($solution)?$solution->schedule_title:"" !!}')
         .form-group
           label(for='schedule') 方案類型
-          input(type="hidden" style="display: hidden" id="schedule", name="schedule" ,class='form-control',rows=4, v-model="solutions.schedule")
+          input(type="hidden" style="display: hidden" id="schedule", name="schedule" ,class='form-control',rows=4, v-model="solution.schedule")
 
-          tiny-mce(id = "input_schedule" , v-model="solutions.schedule",
+          tiny-mce(id = "input_schedule" , v-model="solution.schedule",
           :other-props="mce_plugin",  :toolbar="mce_toolbar")
         
 
         .form-group
           label(for='talk') 口碑
           ul
-            li.form_group(v-for="(talk,tid) in solutions.talk")
+            li.form_group(v-for="(talk,tid) in solution.talk")
               label(v-text="(tid+1)+':'")
               input.form-control(v-model="talk.title")
               input.form-control(v-model="talk.name")
-              button.btn.btn-default(@click="solutions.talk.splice(tid,1)") 移除
-          button.btn.btn-default(@click="solutions.talk.push({title: '',name: ''})") 新增口碑
+              button.btn.btn-default(@click="solution.talk.splice(tid,1)") 移除
+          button.btn.btn-default(@click="solution.talk.push({title: '',name: ''})") 新增口碑
 
-          input(type="hidden" ,id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solutions.talk)")
+          input(type="hidden" ,id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solution.talk)")
 
         br
         br
@@ -117,9 +122,10 @@ script.
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.solutions= {!! json_encode($solution)!!}
-  window.solutions.talk= JSON.parse(window.solutions.talk)
-  solutions.carousel=JSON.parse(solutions.carousel)
+  window.solution= {!! json_encode($solution)!!}
+  window.solution.talk= JSON.parse(window.solution.talk)
+  window.solution.section_solution= JSON.parse(window.solution.section_solution)
+  solution.carousel=JSON.parse(solution.carousel)
     
 @endsection
 @section('require_js_after')

@@ -74,6 +74,7 @@ form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/new
         .form-group
           label(for='cover') 輪播圖
           carousel_editor(:carousel_data="now_news.carousel")
+
         hr
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
