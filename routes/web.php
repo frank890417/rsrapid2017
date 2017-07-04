@@ -47,12 +47,14 @@ $domains=[
   'cn.rsrapid2017.dev',
 
   'rapidsuretech.com',
+  'www.rapidsuretech.com',
   'en.rapidsuretech.com',
   'zh.rapidsuretech.com',
   'cn.rapidsuretech.com',
 
 
   'manage.rapidsuretech.com',
+  'www.rapidsuretech.com',
   'en.manage.rapidsuretech.com',
   'zh.manage.rapidsuretech.com',
   'cn.manage.rapidsuretech.com'

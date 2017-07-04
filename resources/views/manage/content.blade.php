@@ -120,7 +120,7 @@
           <div v-for="(social,id) in [lang.footer.section_company.social[now_social_id]]">
             <div class="col-sm-2">
               <h4>@{{social.name}}</h4>
-              <button @click="lang.footer.section_company.social.splice(id,1)" class="btn btn-secondary">-</button>
+              <!-- button.btn.btn-secondary(@click="lang.footer.section_company.social.splice(id,1)") - -->
             </div>
             <div class="col-sm-10">
               <div class="form-group">
