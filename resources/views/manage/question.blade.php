@@ -50,7 +50,7 @@
               <td style="width: 50%">@{{qa.answer}}</td>
               {{-- td(style="width: 5%") @{{qa.stick_top?'是':'否'}} --}}
               <td>@{{qa.updated_at}}</td>
-              <td style="width: 5%"><a :href="'manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"><a :href="'/manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
               <td style="width: 5%"></td>
             </tr>
           </tbody>

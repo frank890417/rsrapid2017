@@ -93,7 +93,7 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
               button.btn.btn-default(@click="solutions.talk.splice(tid,1)") 移除
           button.btn.btn-default(@click="solutions.talk.push({title: '',name: ''})") 新增口碑
 
-          input(id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solutions.talk)")
+          input(type="hidden" ,id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solutions.talk)")
 
         br
         br

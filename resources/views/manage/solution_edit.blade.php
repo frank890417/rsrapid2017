@@ -88,7 +88,7 @@
             </li>
           </ul>
           <button @click="solutions.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
-          <input id="talk" name="talk" :value="JSON.stringify(solutions.talk)" class="form-control"/>
+          <input type="hidden" id="talk" name="talk" :value="JSON.stringify(solutions.talk)" class="form-control"/>
         </div><br/><br/>
       </div>
     </div>
