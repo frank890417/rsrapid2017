@@ -17,10 +17,17 @@ import TinyMCE from 'tinymce-vue-2'
 import carousel_editor from '../components/carousel_editor'
 import default_pic_selector from '../components/default_pic_selector'
 import draggable from 'vuedraggable'
+import vue_json_editor_block_view from '../components/vue-json-editor-block-view'
+
+Vue.use(vue_json_editor_block_view);
 Vue.component('tiny-mce', TinyMCE)
 Vue.component('carousel_editor', carousel_editor)
 Vue.component('df_pic_selector', default_pic_selector)
 Vue.component('draggable', draggable)
+// Vue.component('draggable', draggable)
+// vue_json_editor_block_view
+console.log(vue_json_editor_block_view)
+
 //---------------------
 // 編輯器設定
 const mce_settings = {
@@ -47,7 +54,7 @@ var vm = new Vue({
     now_news: window.now_news,
     yearlogs: [],
     questions: [],
-    lang: {},
+    lang: window.lang,
     locale: locale,
     contact_records: [],
     mce_toolbar: mce_settings.toolbar,

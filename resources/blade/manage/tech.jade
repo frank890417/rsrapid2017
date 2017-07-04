@@ -44,7 +44,7 @@
         br
   .col-lg-8
     .panel.panel-default(v-for='(tech_item,id) in lang.page_tech.techs' , v-show="id==now_tech_id")
-      .panel-heading 資料編輯-@{{tech_item.title}}
+      .panel-heading 資料編輯-@{{id+1}} @{{tech_item.title}}
       .panel-body
         .form-group
           h4 標題
@@ -59,8 +59,10 @@
              :class="{active: now_tech_section_id == section_id}"
              ) 
             a.nav-link(:class="{active: now_tech_section_id == section_id}" style="cursor: pointer") @{{section_id+1}} @{{section.title}}
+              i.fa.fa-trash(@click="tech_item.sections.splice(section_id,1)" style="margin-left: 10px") 
           li
-            a(@click="tech_item.sections.push({});now_tech_section_id=tech_item.sections.length-1")  +新增區塊
+            a(@click="tech_item.sections.push({});now_tech_section_id=tech_item.sections.length-1")  新增區塊
+              i.fa.fa-plus
         div(v-for="(section,section_id) in tech_item.sections", v-show="section_id==now_tech_section_id").form-group
           .form-group
             hr

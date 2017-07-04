@@ -1,0 +1,28 @@
+@extends('layouts.app_manage')
+@section('content')
+.row
+  .col-lg-12
+    .row
+      ol.breadcrumb
+        li
+          a(href='#')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li 
+          a(href="#") 雜項管理
+
+  .col-lg-12
+    h1.page-header 雜項管理
+      .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
+
+.row(v-if="lang").detail_info_editor
+  .col-lg-12
+    .panel.panel-primary
+      .panel-heading 頁面內容管理
+      .panel-body(v-for="part in lang")
+        v-json-editor(:data="part",
+            :editable="true",
+            @change="$forceUpdate()")
+
+
+@endsection

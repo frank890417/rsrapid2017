@@ -32,7 +32,8 @@
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-中文版  <span>中文 | </span><span>英文 | </span><span>簡體中文</span></a>
+          <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.rsrapid2017.dev/manage/">中文 | </a><a href="http://en.rsrapid2017.dev/manage/">英文 | </a><a href="http://cn.rsrapid2017.dev/manage/">簡體中文</a></div>
           <ul class="user-menu">
             <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                 <svg class="glyph stroked male-user">
@@ -100,6 +101,10 @@
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 詢問紀錄</a></li>
+        <li data-link="detail_info"><a href="{{ url('manage/detail_info') }}">
+            <svg class="glyph stroked calendar">
+              <use xlink:href="#stroked-calendar"></use>
+            </svg> 語系設定與其他</a></li>
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table
@@ -400,6 +405,11 @@
           $(obj).addClass("active")
         }
       });
+      var locale= document.location.host.split(".")[0];
+      if (["zh","cn","en"].indexOf(locale)==-1){
+        locale="zh";
+      }
+      $("a[data-lang='locale']").addClass("active");
     </script>
     {{-- script(src='/js/admin_js/chart.min.js') --}}
     <script src="/js/backstage/app.js"></script>

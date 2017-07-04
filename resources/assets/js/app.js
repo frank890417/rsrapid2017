@@ -16,6 +16,7 @@ import { TweenMax } from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 import Rx from 'rxjs/Rx'
 
+
 require('./bootstrap')
 
 // detect ie
@@ -256,7 +257,7 @@ $(window).ready(() => {
   // snap locker by Rxjs
 
 
-  if (lockScroll && windowHeight > 900 && windowWidth > 1200 && !is_ie()) {
+  if (lockScroll && windowHeight > 850 && windowWidth > 1200 && !is_ie()) {
     console.log('enable snap');
     // filter delta which bigger than thereshold and filter out twice down/up condition
     const sourcePageNav = mousewheel.filter(

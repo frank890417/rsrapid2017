@@ -33,12 +33,12 @@ html(lang="{{ config('app.locale') }}")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='#')
+          .navbar-brand(href='#')
             span RapidSure 2017
-            |  Admin 編輯-中文版  
-            span 中文 | 
-            span 英文 | 
-            span 簡體中文
+            |  Admin 編輯-  
+            a(href="http://zh.rsrapid2017.dev/manage/") 中文 | 
+            a(href="http://en.rsrapid2017.dev/manage/") 英文 | 
+            a(href="http://cn.rsrapid2017.dev/manage/") 簡體中文
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -113,6 +113,11 @@ html(lang="{{ config('app.locale') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  詢問紀錄
+        li(data-link="detail_info")
+          a(href!="{{ url('manage/detail_info') }}")
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  語系設定與其他
         //- li
           a(href='tables.html')
             svg.glyph.stroked.table
@@ -408,6 +413,11 @@ html(lang="{{ config('app.locale') }}")
           $(obj).addClass("active")
         }
       });
+      var locale= document.location.host.split(".")[0];
+      if (["zh","cn","en"].indexOf(locale)==-1){
+        locale="zh";
+      }
+      $("a[data-lang='locale']").addClass("active");
     //- script(src='/js/admin_js/chart.min.js')
     script(src="/js/backstage/app.js")
     //- script(src='/js/admin_js/chart-data.js')

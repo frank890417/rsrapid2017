@@ -66,6 +66,9 @@ foreach ($domains as $key => $value) {
 // Route::prefix("zh")->middleware(['seoinfo','lang'])->group($website_routes);
 // Route::prefix("cn")->middleware(['seoinfo','lang'])->group($website_routes);
 Route::group(['middleware'=>'auth'],function(){
+  Route::get('manage/',function(){
+    return view("manage.content");
+  });
   Route::get('manage/news','NewsController@index');
 
   Route::resource('manage/news','NewsController');
@@ -90,6 +93,11 @@ Route::group(['middleware'=>'auth'],function(){
   Route::get('manage/contactrecord',function(){
     return view("manage.contactrecord");
   });
+  Route::get('manage/detail_info',function(){
+    return view("manage.detail_info");
+  });
+
+
 });
 
 

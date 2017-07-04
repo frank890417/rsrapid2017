@@ -64,7 +64,7 @@ div
               .container
                 div.options
                   li(v-for = "l in lang")
-                    a(href="#") {{l.name}}
+                    a(:href="l.link") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
@@ -96,7 +96,7 @@ div
             open_full: false,
             open_lang: false,
             nav_structure,
-            lang: [{name: "繁"},{name: "简"},{name: "EN"}]
+            lang: [{name: "繁",link: "http://zh.rapidsuretech.com/"},{name: "简",link: "http://cn.rapidsuretech.com/"},{name: "EN",link: "http://en.rapidsuretech.com/"}]
           }
         },
         watch:{
