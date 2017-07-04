@@ -13,7 +13,8 @@ div.page_post
         h1.section_title(v-text='newsset.title')
         p.date(v-text='newsset.date')
         p 文章來源 
-          a(v-html='newsset.author' href="#")
+          a(v-html='newsset.author' ,v-if="newsset.author_link" ,:href="newsset.author_link", target="_blank")
+          a(v-html='newsset.author' ,v-else)
         br
         p(v-html='newsset.content')
         h5.share 分享文章
@@ -75,16 +76,20 @@ export default {
       ...mapState(['news']),
       newsset (){
         var vobj=this;
-        return this.news.filter((n)=>(n.id==vobj.id))[0];
+        return this.news.find((n)=>(n.id==vobj.id));
       },
       preset(){
-        var vobj=this;
-        return this.news.filter((n)=>(n.id==(vobj.id-1)))[0];
+        let tempset = this.news.filter((n)=>n.tag==this.newsset.tag).sort(o=>o.date);
+        let now_set_index = tempset.indexOf(tempset.find((n)=>n.id==this.id));
+        let target_id = now_set_index-1
+        return tempset[target_id]
 
       },
       postset(){
-        var vobj=this;
-        return this.news.filter((n)=>(n.id==(parseInt(vobj.id)+1)))[0];
+        let tempset = this.news.filter((n)=>n.tag==this.newsset.tag).sort(o=>o.date);
+        let now_set_index = tempset.indexOf(tempset.find((n)=>n.id==this.id));
+        let target_id = now_set_index+1
+        return tempset[target_id]
         
       },
       get_share_url(){

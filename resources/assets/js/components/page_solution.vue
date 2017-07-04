@@ -48,7 +48,7 @@ div.page_solution(v-if="solu")
             h4.text-right(v-text="talk.name")
 
 
-  section_solutions(:slogan="solu.solution_area_slogan",:shown="JSON.parse(solu.section_solution).solutions",:exclude="[solu.id]")
+  section_solutions(:slogan="solu.solution_area_slogan",:shown="solu.section_solution?JSON.parse(solu.section_solution).solutions:null",:exclude="[solu.id]")
 
 </template>
 

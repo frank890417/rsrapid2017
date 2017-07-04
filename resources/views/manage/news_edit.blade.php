@@ -38,6 +38,10 @@
           <input id="author" name="author" value="{!! isset($news)?$news->author:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
+          <label for="author_link">轉載來源連結</label>
+          <input id="author" name="author_link" value="{!! isset($news)?$news->author_link:"" !!}" class="form-control"/>
+        </div>
+        <div class="form-group">
           <label for="content">內文</label>
           <div style="display:none;" class="btn btn-default btn-md btn-dropzone">上傳圖片</div>
           <textarea id="content" name="content" rows="10" class="form-control">{!! isset($news)?$news->content:'' !!}</textarea>
