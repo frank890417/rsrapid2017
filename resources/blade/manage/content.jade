@@ -95,6 +95,11 @@
       .panel-body
         .form-group
           .col-sm-12
+            span 預覽:
+              a(v-for="social in lang.footer.section_company.social" ,:href="social.url?social.url:'#'", v-if="social.url && social.url!=''", target="_blank")
+                i.social_icon(v-if="social.icon.indexOf('fa.')==0" ,:class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]", style="color: black;padding: 5px;")
+             img.social_icon(v-else, :src="social.icon")
+            hr
             label 平台編輯
             select(v-model="now_social_id")
               option(v-for="(s,id) in lang.footer.section_company.social" , :value = "id") @{{s.name}}

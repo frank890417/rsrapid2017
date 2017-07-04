@@ -63,18 +63,24 @@ form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url
         input(type='hidden', name='_token', value!='{{ csrf_token() }}')
 
         .form-group
+          label(for='test_item_title') 檢驗標題
+          input#test_item_title.form-control(name='test_item_title', value!='{!! isset($solution)?$solution->test_item_title:"" !!}')
+        .form-group
           label(for='test_item') 檢驗項目
-
           textarea#content(name="test_item" ,class='form-control' ,rows=15) {!! isset($solution)?$solution->test_item:"" !!}
         
-
+        .form-group
+          label(for='env_title') 檢驗標題
+          input#env_title.form-control(name='env_title', value!='{!! isset($solution)?$solution->env_title:"" !!}')
         .form-group
           label(for='env') 適用環境
           input(type="hidden" style="display: hidden", id="env", name="env" ,class='form-control',rows=4 ,v-model="solutions.env")
 
           tiny-mce(id = "input_env" , v-model="solutions.env",:other-props="mce_plugin",  :toolbar="mce_toolbar")
         
-
+        .form-group
+          label(for='schedule_title') 檢驗標題
+          input#schedule_title.form-control(name='schedule_title', value!='{!! isset($solution)?$solution->schedule_title:"" !!}')
         .form-group
           label(for='schedule') 方案類型
           input(type="hidden" style="display: hidden" id="schedule", name="schedule" ,class='form-control',rows=4, v-model="solutions.schedule")

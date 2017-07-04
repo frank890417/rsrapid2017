@@ -111,7 +111,8 @@
       <div class="panel-heading">社群連結</div>
       <div class="panel-body">
         <div class="form-group">
-          <div class="col-sm-12">
+          <div class="col-sm-12"><span>預覽:<a v-for="social in lang.footer.section_company.social" :href="social.url?social.url:'#'" v-if="social.url &amp;&amp; social.url!=''" target="_blank"><i v-if="social.icon.indexOf('fa.')==0" :class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]" style="color: black;padding: 5px;" class="social_icon"></i></a></span><img v-else="v-else" :src="social.icon" class="social_icon"/>
+            <hr/>
             <label>平台編輯</label>
             <select v-model="now_social_id">
               <option v-for="(s,id) in lang.footer.section_company.social" :value="id">@{{s.name}}</option>

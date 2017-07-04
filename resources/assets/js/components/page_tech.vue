@@ -175,7 +175,9 @@ export default {
     computed: {
       ...mapState(['techs']),
       now_tech(){
-        return this.$t("page_tech.techs")[this.id] || this.$t("page_tech.techs").find(o=>o.title==this.title)
+        console.log("TECH",this.$t("page_tech.techs"))
+
+        return this.id?this.$t("page_tech.techs")[this.id]:this.$t("page_tech.techs").find(o=>o.title==this.title)
 
       }
     }

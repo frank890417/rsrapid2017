@@ -64,13 +64,25 @@
         <input type="hidden" name="_method" value="{{ (isset($solution))?'put':'post' }}"/>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
+          <label for="test_item_title">檢驗標題</label>
+          <input id="test_item_title" name="test_item_title" value="{!! isset($solution)?$solution->test_item_title:"" !!}" class="form-control"/>
+        </div>
+        <div class="form-group">
           <label for="test_item">檢驗項目</label>
           <textarea id="content" name="test_item" rows="15" class="form-control">{!! isset($solution)?$solution->test_item:"" !!}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="env_title">檢驗標題</label>
+          <input id="env_title" name="env_title" value="{!! isset($solution)?$solution->env_title:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
           <label for="env">適用環境</label>
           <input type="hidden" style="display: hidden" id="env" name="env" rows="4" v-model="solutions.env" class="form-control"/>
           <tiny-mce id="input_env" v-model="solutions.env" :other-props="mce_plugin" :toolbar="mce_toolbar"></tiny-mce>
+        </div>
+        <div class="form-group">
+          <label for="schedule_title">檢驗標題</label>
+          <input id="schedule_title" name="schedule_title" value="{!! isset($solution)?$solution->schedule_title:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
           <label for="schedule">方案類型</label>

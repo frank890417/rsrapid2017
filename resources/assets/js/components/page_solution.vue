@@ -21,7 +21,7 @@ div.page_solution(v-if="solu")
   section.section_solution_2.default_bg
     .container.flex
       .col_left
-        h3 檢驗項目
+        h3 {{solu.test_item_title}}
         hr
         p(v-html="solu.test_item")
         div
@@ -31,12 +31,12 @@ div.page_solution(v-if="solu")
             router-link.btn.btn-primary(:to="'/contact/'+solu.id") 聯絡我們  
       .col_right
         .area_env
-          h3 適用環境
+          h3 {{solu.env_title}}
 
           hr
           h4.envtext(v-html="solu.env")
         .area_type
-          h3 方案類型
+          h3  {{solu.schedule_title}}
           hr
           p(v-html="solu.schedule")
   section.section_talk.bg_theme

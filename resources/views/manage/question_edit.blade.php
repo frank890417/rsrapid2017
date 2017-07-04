@@ -40,17 +40,18 @@
     <div class="panel panel-default">
       <div class="panel-heading">問題設定</div>
       <div class="panel-body">
-        <div class="form-group">
-          <label>首頁置頂</label><br/>
-          <div class="btn-group">
-            <label for="stick_top">置頂
-              <input type="radio" name="stick_top" value="1"/>
-            </label>
-            <label for="stick_top">否
-              <input type="radio" name="stick_top" value="0"/>
-            </label>
-          </div>
-        </div>
+        <!--          
+          label 首頁置頂
+          br
+          .btn-group
+            label(for='stick_top')
+              | 置頂
+              input(type='radio', name='stick_top', value='1')
+            label(for='stick_top')
+              | 否
+              input(type='radio', name='stick_top', value='0')
+          
+        -->
         <div class="form-group">
           <button type="submit" class="btn btn-danger btn-md">儲存修改</button>
         </div>
