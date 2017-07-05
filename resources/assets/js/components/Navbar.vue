@@ -137,24 +137,35 @@ div
           ...mapMutations(['toggle_size','toggle_search'])
         },
         computed: {
-          ...mapState(["solutions","big_font","search","scrollTop"]),
+          ...mapState(["solutions","big_font","search","scrollTop","techs"]),
 
           maked_nav_structure(){
+            let solution_options = [];
+            let tech_options = [];
+
+
             if (this.solutions.length>0){
-              var options = this.solutions.map((obj)=>({
+              solution_options = this.solutions.map((obj)=>({
                 tag: obj.title.replace('計畫','').replace('檢測',''), 
                 link: '/solution/n/'+obj.title
               }));
-              console.log(this.solutions);
-
-              this.nav_structure
-                .filter((obj)=>obj.tag == "檢測方案")[0]
-                .childs = options;
-
-              return this.nav_structure;
-            }else{
-              return this.nav_structure
             }
+            if (this.techs.length>0){
+              tech_options = this.techs.map((obj)=>({
+                tag: obj.title, 
+                link: '/tech/n/'+obj.title
+              }));
+            }
+            this.nav_structure
+                .filter((obj)=>obj.tag == "檢測方案")[0]
+                .childs = solution_options;
+
+            this.nav_structure
+                .filter((obj)=>obj.tag == "檢驗科技")[0]
+                .childs = tech_options;
+
+            return this.nav_structure;
+
         }
       }
   }

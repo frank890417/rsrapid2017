@@ -8,10 +8,12 @@ div.page_contact
   section.section_form
     .container.row.top_out
       ul.nav_line_split
-        li.active(v-for="loc in $t('footer.section_company.locations')") {{loc.county}}, {{loc.location}}
+        li(v-for="(loc,id) in $t('footer.section_company.locations')",
+        @click="sel_loc=id",
+        :class="{active: id==sel_loc}") {{loc.county}}, {{loc.location}}
       form.container.flex.row#form_contact(v-on:submit.prevent="send_form")
-        .col_left
-          iframe(src="https://www.google.com.tw/maps/embed?place=231%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E5%BA%97%E5%8D%80%E5%8C%97%E6%96%B0%E8%B7%AF%E4%B8%89%E6%AE%B5207%E8%99%9F/@24.9848767,121.5377702,17z/data=!3m1!4b1!4m5!3m4!1s0x346801fed5f7da89:0x5e4842058d13d98c!8m2!3d24.9848767!4d121.5399642?hl=zh-TW" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
+        .col_left(v-for="loc in [$t('footer.section_company.locations')[sel_loc]]")
+          iframe(:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDoo6vnTowCfRVJfl5wkfavcHosfYomCLo&q='+loc.address+','+loc.location" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
         .col_right
           .form-group
             label {{$t("page_contact.section_2.label_name")}}
@@ -68,7 +70,8 @@ div.page_contact
           return {
             selected_option: 0,
             sending: false,
-            qa_state: new Array(100).fill({}).map((d,i)=>({open: i==0}))
+            qa_state: new Array(100).fill({}).map((d,i)=>({open: i==0})),
+            sel_loc: 0
           }
         },
         mounted() {

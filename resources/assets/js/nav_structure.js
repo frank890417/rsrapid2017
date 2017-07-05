@@ -18,13 +18,13 @@ export default [
     link: "#" , 
     hide_navbar: false,
     childs: [
-      {
-        tag: "快檢平台", 
-        link: "/tech/0"
-      },{
-        tag: "技術研發", 
-        link: "/tech/1"
-      }
+      // {
+      //   tag: "快檢平台", 
+      //   link: "/tech/0"
+      // },{
+      //   tag: "技術研發", 
+      //   link: "/tech/1"
+      // }
     ]
   },{
     tag: "檢測方案" , 

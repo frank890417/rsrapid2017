@@ -6,11 +6,11 @@ div.page_tech(v-if="now_tech")
         h1.section_title.text-center {{now_tech.title}}
         p {{now_tech.description}}
         hr
-        .conpany_logos(v-if="id==0")
+        .conpany_logos(v-if="now_tech.id==0")
           img.company_logo(alt="永齡logo" src="/img/Rapid.png")
           img.company_logo(alt="中山大學logo" src="/img/homepage/tech_company_logo2.png")
 
-  section.section_tech(v-if="id==0")
+  section.section_tech(v-if="now_tech.id==0")
     .ab_center.size_full.bg_color_split
       .block_50_percent
         
@@ -29,7 +29,7 @@ div.page_tech(v-if="now_tech")
         p.section_para.text-left {{$t("page_tech.techs")[0].sections[0].content}}
         a.btn.btn-primary 了解更多
 
-  section.section_tech.section_manhead(v-if="id==0")
+  section.section_tech.section_manhead(v-if="now_tech.id==0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
@@ -44,7 +44,7 @@ div.page_tech(v-if="now_tech")
       .col_right
       //.col_right
 
-  section.section_tech(v-if="id==0")
+  section.section_tech(v-if="now_tech.id==0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
@@ -66,12 +66,12 @@ div.page_tech(v-if="now_tech")
 
 
   //else not not default tech
-  section.section_tech(v-if="id!=0")
+  section.section_tech(v-if="now_tech.id!=0")
     .ab_center.size_full.bg_color_split
       .block_50_percent
         
         .slick(data-timelime=".tl1")
-          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[0].slides')
+          .item(style='height: 100%' v-for='cover in now_tech.sections[0].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl1
             .value
@@ -79,39 +79,39 @@ div.page_tech(v-if="now_tech")
     .container.flex
       .col_left
       .col_right.col_content
-        h3.section_title {{$t("page_tech.techs")[id].sections[0].title}}
+        h3.section_title {{now_tech.sections[0].title}}
         //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
-        p.section_para.text-left {{$t("page_tech.techs")[id].sections[0].content}}
+        p.section_para.text-left {{now_tech.sections[0].content}}
         a.btn.btn-primary 了解更多
 
-  section.section_tech(v-if="id!=0")
+  section.section_tech(v-if="now_tech.id!=0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
       .block_50_percent
         
         .slick(data-timelime=".tl1")
-          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[1].slides')
+          .item(style='height: 100%' v-for='cover in now_tech.sections[1].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl1
             .value
 
     .container.flex
       .col_left.col_content
-        h3.section_title {{$t("page_tech.techs")[id].sections[1].title}}
+        h3.section_title {{now_tech.sections[1].title}}
         //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
-        p.section_para.text-left {{$t("page_tech.techs")[id].sections[1].content}}
+        p.section_para.text-left {{now_tech.sections[1].content}}
         a.btn.btn-primary 了解更多
       .col_right
       //.col_right
 
-  section.section_tech(v-if="id!=0")
+  section.section_tech(v-if="now_tech.id!=0")
 
     .ab_center.size_full.bg_color_split
       .block_50_percent
         
         .slick(data-timelime=".tl2")
-          .item(style='height: 100%' v-for='cover in $t("page_tech.techs")[id].sections[2].slides')
+          .item(style='height: 100%' v-for='cover in now_tech.sections[2].slides')
             .img(:style="`background-image:url(${cover});background-size: cover; height: 100%;`")
         .timeline.tl2
           .value
@@ -120,11 +120,11 @@ div.page_tech(v-if="now_tech")
       .container.flex
         .col_left
         .col_right.col_content
-          h3.section_title {{$t("page_tech.techs")[id].sections[2].title}}
+          h3.section_title {{now_tech.sections[2].title}}
           //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
-          p.section_para.text-left {{$t("page_tech.techs")[id].sections[2].content}}
+          p.section_para.text-left {{now_tech.sections[2].content}}
           a.btn.btn-primary 了解更多
-  section_solutions(:shown="now_tech.section_solution?now_tech.section_solution.solutions:null", v-if="(now_tech.section_solution && now_tech.section_solution.solutions.length )")
+  section_solutions(:shown="now_tech.section_solution?now_tech.section_solution.solutions:null")
 
 </template>
 
@@ -175,9 +175,12 @@ export default {
     computed: {
       ...mapState(['techs']),
       now_tech(){
-        console.log("TECH",this.$t("page_tech.techs"))
-
-        return this.id?this.$t("page_tech.techs")[this.id]:this.$t("page_tech.techs").find(o=>o.title==this.title)
+        // console.log("TECH",this.$t("page_tech.techs").find(o=>o.title==this.title))
+        
+        if (this.id)
+          return this.$t("page_tech.techs")[this.id]
+        else
+          return this.$t("page_tech.techs").find(o=>o.title==this.title)
 
       }
     }
