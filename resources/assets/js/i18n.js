@@ -126,16 +126,15 @@ console.log(messages)
 function decode_shortcode(value){
   if (typeof value=="string"){
     let result = value
-    // console.log(key + " : "+value);
-    var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
+    let regex= /\[([\s\S]*)\-\&gt\;([\s\S]*)\]/g;
+    var res = (regex).test(value) ;
     if (res){
-      result=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-      // console.log(value)
+      result=value.replace(regex,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
     }
-    var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
+    regex= /\[([\s\S]*)\-\>([\s\S]*)\]/g;
+    res = (regex).test(value) ;
     if (res){
-      result=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-      // console.log(value)
+      result=value.replace(regex,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
     }
     return result
   }
@@ -160,7 +159,7 @@ function traverse(o,func) {
 }
 
 window.decode_shortcode_all=function(obj){traverse(obj,decode_shortcode)};
-traverse(messages.zh,process);
+traverse(messages,process);
 
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'

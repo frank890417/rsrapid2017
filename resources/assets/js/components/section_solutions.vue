@@ -1,7 +1,7 @@
 <template lang='jade'>
 section.section_solution(v-if="!( (this.shown instanceof Array) && computed_solutions.length==0 )")
   .container
-    h3.section_title 專業檢驗方案
+    h3.section_title {{$t("section_solutions.title")}}
     .container.flex
 
       .solution_box(v-for="solu in computed_solutions", v-if="solu")
@@ -11,10 +11,10 @@ section.section_solution(v-if="!( (this.shown instanceof Array) && computed_solu
             .box_info
               h4.solution_title(v-html="solu.title.replace('檢測計畫','<br>檢測計畫')")
             .box_btn
-              router-link.btn.btn-primary(:to="'/solution/n/'+solu.title") 了解更多
+              router-link.btn.btn-primary(:to="'/solution/n/'+solu.title") {{$t("section_solutions.btn_know_more")}}
 
     h4.slogan {{ slogan?slogan:"我們為您制定周全的環境健檢計畫" }}
-    router-link.btn.btn-primary(to="/contact/-1") 聯絡我們  
+    router-link.btn.btn-primary(to="/contact/-1") {{$t("section_solutions.btn_contact_us")}}  
 </template>
 
 <script>
