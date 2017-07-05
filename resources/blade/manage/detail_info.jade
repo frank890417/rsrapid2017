@@ -19,7 +19,8 @@
   .col-lg-12
     .panel.panel-primary
       .panel-heading 頁面內容管理
-      .panel-body(v-for="part in lang")
+      .panel-body(v-for="(part,key) in lang")
+        h3 @{{key}}
         v-json-editor(:data="part",
             :editable="true",
             @change="$forceUpdate()")

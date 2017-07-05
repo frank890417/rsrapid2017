@@ -156,12 +156,26 @@ div
                 link: '/tech/n/'+obj.title
               }));
             }
+
+            if (this.$t("page_news.catas")){
+              this.nav_structure.find((obj)=>obj.key == "news")
+                .childs=this.$t("page_news.catas").map(cata=>{
+                  if (cata.all){
+                    return null
+                  }
+                  return {
+                    tag: cata.tag, 
+                    link: '/news/cata/'+cata.tag
+                  }
+                }).filter(o=>o)
+            }
+
             this.nav_structure
-                .filter((obj)=>obj.tag == "檢測方案")[0]
+                .find((obj)=>obj.key == "solutions")
                 .childs = solution_options;
 
             this.nav_structure
-                .filter((obj)=>obj.tag == "檢驗科技")[0]
+                .find((obj)=>obj.key == "techs")
                 .childs = tech_options;
 
             return this.nav_structure;

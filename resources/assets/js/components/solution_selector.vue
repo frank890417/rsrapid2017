@@ -26,7 +26,7 @@
 <script>
     export default {
         props: ['part'],
-        name: "solution selector",
+        name: "solution_selector",
         data(){
           return {
             solutions: []

@@ -5,18 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 use App\Solution;
+
 class SolutionController extends Controller
 {
     public function __construct()
     {
+
         $this->middleware('auth');
     }
     //
     public function index(){
-      $solutions = Solution::all();
+      $lang = Request::get("lang");
+      $solutions = Solution::where("lang",$lang)->get();
       return view('manage.solution')
               ->with("solutions",$solutions);
     }
@@ -39,6 +42,8 @@ class SolutionController extends Controller
     }
     public function store(){
       $inputs= Input::all();
+      $lang = Request::get("lang");
+      $inputs['lang']=$lang;
       // $inputs['updated_at']=date("Y-m-d H:i:s");
       // $inputs['created_at']=date("Y-m-d H:i:s");
       $solution = Solution::Create($inputs);

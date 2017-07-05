@@ -26,10 +26,12 @@ class ApiController extends Controller
       return Question::orderBy('ordernum','asc')->where("lang",$lang)->get();
     }
     public function solutions(){
-      return Solution::all();
+      $lang=Request::get("lang");
+      return Solution::where("lang",$lang)->get();
     }
     public function yearlogs(){
-       return Yearlog::all();
+      $lang=Request::get("lang");
+       return Yearlog::where("lang",$lang)->get();
     }
     public function update_all_yearlogs(){
        $input = Input::all();

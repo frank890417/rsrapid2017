@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 use App\Yearlog;
 use App\News;
+
 class YearlogController extends Controller
 {
     //
@@ -18,7 +19,8 @@ class YearlogController extends Controller
     }
     //
     public function index(){
-      $yearlogs = Yearlog::all();
+      $lang = Request::get("lang");
+      $yearlogs = Yearlog::where("lang",$lang)->get();
       return view('manage.about')
               ->with("yearlogs",$yearlogs);
     }
@@ -59,7 +61,9 @@ class YearlogController extends Controller
               ->with("news",News::all());
     }
     public function store(){
+      $lang = Request::get("lang");
       $inputs= Input::all();
+      $inputs['lang']=$lang;
       // $inputs['updated_at']=date("Y-m-d H:i:s");
       // $inputs['created_at']=date("Y-m-d H:i:s");
       $yearlog = Yearlog::Create($inputs);

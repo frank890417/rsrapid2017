@@ -40,11 +40,11 @@
           <input id="title" name="title" value="{!! isset($yearlog)?$yearlog->title:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
-          <label for="year">年份</label>
+          <label for="year" placeholder="yyyy">年份</label>
           <input id="year" name="year" value="{!! isset($yearlog)?$yearlog->year:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
-          <label for="date">月份</label>
+          <label for="date" placeholder="mm/dd">月份</label>
           <input id="date" name="date" value="{!! isset($yearlog)?$yearlog->date:"" !!}" class="form-control"/>
         </div>
         <div class="form-group">
@@ -61,8 +61,7 @@
           <div class="row">
             <div class="col-sm-12"><img src="{!! isset($yearlog)?$yearlog->cover:"" !!}" width="100%" class="cover_preview"/></div>
             <div class="col-sm-12">
-              <input id="cover" name="cover" style="width: 80%; display: inline-block" value="{!! isset($yearlog)?$yearlog->cover:"" !!}" class="form-control"/><br/>
-              <div style=" display: inline-block" class="btn btn-default btn-md btn-dropzone-cover">上傳圖片</div>
+              <carousel_editor :carousel_data="[yearlog.cover]" :input_name="'cover'" :allow_multi="false"> </carousel_editor>
             </div>
           </div>
         </div>
@@ -96,7 +95,14 @@
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.yearlogs.talk= JSON.parse(window.yearlogs.talk)
+  @if(isset($yearlog))
+    window.yearlog={!! json_encode($yearlog) !!};
+    window.yearlog.talk = JSON.parse(window.yearlog.talk);
+  @else
+    window.yearlog = {};
+    window.yearlog.talk = [];
+  @endif
+  
     
 </script>
 @endsection

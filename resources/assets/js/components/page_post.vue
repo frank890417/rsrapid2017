@@ -12,12 +12,12 @@ div.page_post
           router-link(v-text='newsset.tag' v-bind:to="'/news/cata/'+newsset.tag")
         h1.section_title(v-text='newsset.title')
         p.date(v-text='newsset.date')
-        p 文章來源 
+        p {{$t("page_post.label_source")}} 
           a(v-html='newsset.author' ,v-if="newsset.author_link" ,:href="newsset.author_link", target="_blank")
           a(v-html='newsset.author' ,v-else)
         br
         p(v-html='newsset.content')
-        h5.share 分享文章
+        h5.share {{$t("page_post.label_share")}}
           .logos
             a(:href="get_share_url",target="_blank")
               img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
@@ -27,7 +27,7 @@ div.page_post
         .wrap
           router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="bg_css(preset.cover)") 
             h3.guide_text
-              span 前一則
+              span {{$t("page_post.label_pre")}}
               i.fa.fa-angle-left 
             .cover
               h6.date {{preset.date}}
@@ -36,7 +36,7 @@ div.page_post
           router-link.post(v-if="postset",:to="'/news/'+postset.id" ,:style="bg_css(postset.cover)") 
             h3.guide_text
               i.fa.fa-angle-right
-              span 後一則
+              span {{$t("page_post.label_post")}}
             .cover
               h6.date  {{postset.date}}
               h3  {{postset.title}}
@@ -68,7 +68,7 @@ export default {
     },
     methods: {
       bg_css(url){
-        return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+        return {'background-image': 'url('+(url+"").trim().replace(' ','%20')+')'}
       }
     },
     props: ['id'],

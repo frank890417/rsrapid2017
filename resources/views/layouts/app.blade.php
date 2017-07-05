@@ -13,6 +13,7 @@
     <meta property="og:description" content="{{$metas['meta_description']}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/overwrite/master.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([
@@ -20,7 +21,7 @@
       ]) !!};
     </script>
   </head>
-  <body class="lang_{{$lang}}">
+  <body class="lang_{{$lang}} lang_all">
     <div id="app">
       <navbar></navbar>
       <transition name="fade" mode="out-in">
@@ -32,7 +33,7 @@
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script>
-      window.locale="{{ $lang }}";
+      window.locale="{{$lang}}";
       window.lang={};
       window.lang.{{$lang}}={!! $lang_pack !!};
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');

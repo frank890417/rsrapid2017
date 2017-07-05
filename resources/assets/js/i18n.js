@@ -122,7 +122,7 @@ const messages = {
   //   }
   // }
 }
-
+console.log(messages)
 function decode_shortcode(value){
   if (typeof value=="string"){
     let result = value
@@ -130,12 +130,12 @@ function decode_shortcode(value){
     var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
     if (res){
       result=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-      console.log(value)
+      // console.log(value)
     }
     var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
     if (res){
       result=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-      console.log(value)
+      // console.log(value)
     }
     return result
   }

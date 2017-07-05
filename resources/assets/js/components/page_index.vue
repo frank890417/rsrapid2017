@@ -219,7 +219,7 @@ import {mapState} from 'vuex';
             this.timer=setInterval(this.news_delta,this.news_change_time);
           },
           bg_css(url){
-            return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+            return {'background-image': 'url('+(url+"").trim().replace(' ','%20')+')'}
           },
           jump_bullet(event){
             $("html, body").animate({ scrollTop: $($(event.target).attr("data-link")).offset().top }, "slow");

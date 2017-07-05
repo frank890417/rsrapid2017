@@ -141,7 +141,13 @@ export default new Vuex.Store({
       axios.get("/api/solutions").then((res)=>{
         console.log("solutions loaded (action)");
         console.log(res.data);
-        res.data.forEach(obj=>{ obj.talk=JSON.parse(obj.talk.trim().replace("\n","")) });
+        res.data.forEach(obj=>{
+         if (obj.talk){
+           obj.talk=JSON.parse(obj.talk.trim().replace("\n",""))
+         }else{
+           obj.talk=[];
+         }
+        });
         traverse(res.data,process);
         context.commit("setSolution", res.data );
       });

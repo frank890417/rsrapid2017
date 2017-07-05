@@ -36,10 +36,10 @@ form(action!="{{ (isset($yearlog))?(url('manage/about/'.$yearlog->id)):(url('man
           label(for='title') 名稱
           input(id="title", name="title" ,class='form-control' value!='{!! isset($yearlog)?$yearlog->title:"" !!}')
         .form-group
-          label(for='year') 年份
+          label(for='year' placeholder="yyyy") 年份
           input(id="year", name="year" ,class='form-control' value!='{!! isset($yearlog)?$yearlog->year:"" !!}')
         .form-group
-          label(for='date') 月份
+          label(for='date' placeholder="mm/dd") 月份
           input(id="date", name="date" ,class='form-control' value!='{!! isset($yearlog)?$yearlog->date:"" !!}')
         .form-group
           label(for='news_id') 連結新聞
@@ -55,10 +55,7 @@ form(action!="{{ (isset($yearlog))?(url('manage/about/'.$yearlog->id)):(url('man
             .col-sm-12
               img.cover_preview(src!='{!! isset($yearlog)?$yearlog->cover:"" !!}', width='100%')
             .col-sm-12
-              input#cover.form-control(name='cover', style='width: 80%; display: inline-block', value!='{!! isset($yearlog)?$yearlog->cover:"" !!}')
-              br
-              .btn.btn-default.btn-md.btn-dropzone-cover(style=' display: inline-block')
-                | 上傳圖片
+              carousel_editor(:carousel_data="[yearlog.cover]",:input_name="'cover'", :allow_multi="false") 
         .form-group
           button.btn.btn-danger.btn-md(type='submit') 儲存修改
   .col-sm-9
@@ -86,7 +83,14 @@ script.
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.yearlogs.talk= JSON.parse(window.yearlogs.talk)
+  @if(isset($yearlog))
+    window.yearlog={!! json_encode($yearlog) !!};
+    window.yearlog.talk = JSON.parse(window.yearlog.talk);
+  @else
+    window.yearlog = {};
+    window.yearlog.talk = [];
+  @endif
+  
     
 @endsection
 @section('require_js_after')

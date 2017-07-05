@@ -22,7 +22,8 @@
   <div class="col-lg-12">
     <div class="panel panel-primary">
       <div class="panel-heading">頁面內容管理</div>
-      <div v-for="part in lang" class="panel-body">
+      <div v-for="(part,key) in lang" class="panel-body">
+        <h3>@{{key}}</h3>
         <v-json-editor :data="part" :editable="true" @change="$forceUpdate()"></v-json-editor>
       </div>
     </div>

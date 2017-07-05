@@ -15,6 +15,7 @@ export default [
     ]
   },{
     tag: "檢驗科技" , 
+    key: "techs",
     link: "#" , 
     hide_navbar: false,
     childs: [
@@ -28,12 +29,14 @@ export default [
     ]
   },{
     tag: "檢測方案" , 
+    key: "solutions",
     link: "#" , 
     hide_navbar: false,
     childs: [
     ]
   },{
     tag: "最新消息" , 
+    key: "news",
     link: "#" , 
     hide_navbar: false,
     childs: [

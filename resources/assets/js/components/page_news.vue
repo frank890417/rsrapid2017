@@ -17,17 +17,17 @@ div.page_news
     .container.flex.top_out
       ul.nav_line_split.text-center.catalist
 
-        li(@click='switch_cata(cata)' v-for="cata in catas" v-bind:class='filter==cata?"active":""') {{cata}}
+        li(@click='switch_cata(cata)' v-for="cata in catas" v-bind:class='filter==cata?"active":""') {{cata.tag}}
         
     transition-group(name="fade-delay",mode="out-in")
       transition-group.container.flex(v-for='cata in catas' ,:key="cata" v-if="cata==filter" tag="div",name="fade", mode="out-in")
-        .news_box.section_para(v-for='(a_news,id) in filtered_news.slice(0,show_num)' ,:class="(filter=='全部新聞')?(is_double(id)?'size_2':''):''" onclick="void(0)", :key="a_news")
+        .news_box.section_para(v-for='(a_news,id) in filtered_news.slice(0,show_num)' ,:class="(filter.all)?(is_double(id)?'size_2':''):''" onclick="void(0)", :key="a_news")
           .cover(:style="bg_css(a_news.cover)") 
           .info
             h5.date {{a_news.date}}
             h3.title {{a_news.title}}
-            p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,(is_double(id)&&filter=="全部新聞")?90:45)+'...'}}
-          router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center 瞭解更多
+            p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,(is_double(id)&&filter.all)?90:45)+'...'}}
+          router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center {{$t("page_news.btn_knowmore")}}
     .trigger_bar(style="text-align: center")
       transition(name="fade")
         img.load_icon(v-if="!can_load_more",src="http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif",width="60px",style="filter: saturate(0%);display: inline-block") 
@@ -50,9 +50,9 @@ export default {
       var vobj=this;
 
       //設定進來的類別跟顯示數量
-      this.filter=this.cataname;
+      this.filter=this.catas.find(o=>o.tag==this.cataname);
       
-      this.show_num=(this.filter!="全部新聞")?6:7;
+      this.show_num=(!this.filter.all)?6:7;
       
 
       var loader = setInterval(function(){
@@ -75,8 +75,8 @@ export default {
     },
     data() {
       return {
-        filter: "全部新聞",
-        catas: ["全部新聞","睿軒活動","新聞快訊","食安新知","友善連結"],
+        filter: null,
+        catas: this.$t("page_news.catas"),
         show_num: 7,
         can_load_more: true,
       }
@@ -84,12 +84,9 @@ export default {
     computed: {
       ...mapState(['news','scrollTop']),
       filtered_news(){
-        return this.news.filter(item=>( item.tag == this.filter || this.filter=="全部新聞"));
+        return this.news.filter(item=>( item.tag == this.filter.tag || this.filter.all));
       },
     },watch: {
-      cataname(){
-        this.filter=(this.cataname=="全部新聞")?"全部新聞":this.cataname;
-      },
       scrollTop(){
         var y =this.scrollTop+$(window).outerHeight();
         var trigger = $(".trigger_bar").offset().top+150;
@@ -116,7 +113,7 @@ export default {
       },
       switch_cata(cata){
         this.filter=cata;
-        this.show_num=(this.filter!="全部新聞")?6:7;
+        this.show_num=(!this.filter.all)?6:7;
       }
     },
     props: ["cataname"]

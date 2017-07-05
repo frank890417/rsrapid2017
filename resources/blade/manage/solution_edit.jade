@@ -122,9 +122,14 @@ script.
   window.require_js={};
   window.require_js.dropzone=true;
   window.require_js.tinymce=true;
-  window.solution= {!! json_encode($solution)!!}
-  window.solution.talk= JSON.parse(window.solution.talk)
-  window.solution.section_solution= JSON.parse(window.solution.section_solution)
+  @if (isset($solution))
+    window.solution= {!! json_encode($solution) !!}
+    window.solution.talk= JSON.parse(window.solution.talk)
+    window.solution.section_solution= JSON.parse(window.solution.section_solution)
+  @else
+    window.solution={}
+  @endif
+  
   solution.carousel=JSON.parse(solution.carousel)
     
 @endsection

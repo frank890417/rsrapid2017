@@ -1,0 +1,30 @@
+/* 
+** overwrite all language site css 
+
+e.g. 
+
+.lang_all h1{
+  color: #f24;
+  font-size: 50px;
+}
+
+*/
+
+
+.lang_all {
+}
+
+/* overwrite chinese site css */
+.lang_zh{
+
+}
+
+/* overwrite english site css */
+.lang_en{
+
+}
+
+/* overwrite simple chinese site css */
+.lang_cn{
+
+}
