@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 use App\Question;
 class QuestionController extends Controller
@@ -16,7 +16,9 @@ class QuestionController extends Controller
     }
     //
     public function index(){
-      $questions = Question::orderBy("stick_top","desc")->get();
+
+      $lang = Request::get("lang");
+      $questions = Question::orderBy("stick_top","desc")->where("lang",$lang)->get();
       return view('manage.question')
               ->with("questions",$questions);
     }
@@ -37,7 +39,10 @@ class QuestionController extends Controller
       return view('manage.question_edit');
     }
     public function store(){
+      $lang = Request::get("lang");
       $inputs= Input::all();
+      $inputs['lang']=$lang;
+      $inputs['ordernum']=100000;
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
       $question = Question::Create($inputs);

@@ -123,20 +123,30 @@ const messages = {
   // }
 }
 
-//called with every property and its value
-function process(key,value,parent) {
+function decode_shortcode(value){
   if (typeof value=="string"){
-    console.log(key + " : "+value);
+    let result = value
+    // console.log(key + " : "+value);
     var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
     if (res){
-      parent[key]=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      result=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
       console.log(value)
     }
     var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
     if (res){
-      parent[key]=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      result=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
       console.log(value)
     }
+    return result
+  }
+  return value
+}
+window.decode_shortcode=decode_shortcode;
+//called with every property and its value
+function process(key,value,parent) {
+  if (typeof value=="string"){
+    console.log(key + " : "+value);
+    parent[key] = decode_shortcode(value);
   }
 }
 function traverse(o,func) {
@@ -148,6 +158,8 @@ function traverse(o,func) {
         }
     }
 }
+
+window.decode_shortcode_all=function(obj){traverse(obj,decode_shortcode)};
 traverse(messages.zh,process);
 
 import Vue from 'vue'

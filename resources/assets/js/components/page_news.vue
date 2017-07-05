@@ -112,7 +112,7 @@ export default {
       is_double(id){
         return [0,6,10].indexOf(id)!=-1;
       },bg_css(url){
-        return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+        return {'background-image': 'url('+(""+url).trim().replace(' ','%20')+')'}
       },
       switch_cata(cata){
         this.filter=cata;

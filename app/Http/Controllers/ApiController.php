@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
+use Route;
 use Intervention\Image\ImageManagerStatic as Image;
 use Storage;
 use App\News;
@@ -13,12 +15,15 @@ use App\Yearlog;
 use App\Websiteinfo;
 class ApiController extends Controller
 {
-    //
+    //0
+        
     public function news(){
-      return News::orderBy('id','desc')->get();
+      $lang=Request::get("lang");
+      return News::orderBy('id','desc')->where("lang",$lang)->get();
     }
     public function questions(){
-      return Question::orderBy('ordernum','asc')->get();
+      $lang=Request::get("lang");
+      return Question::orderBy('ordernum','asc')->where("lang",$lang)->get();
     }
     public function solutions(){
       return Solution::all();

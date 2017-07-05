@@ -2,6 +2,42 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
+function decode_shortcode(value){
+  if (typeof value=="string"){
+    let result = value
+    // console.log(key + " : "+value);
+    var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
+    if (res){
+      result=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      console.warn(result);
+      console.log(value)
+    }
+    var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
+    if (res){
+      result=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      console.warn(result);
+      console.log(value)
+    }
+    return result
+  }
+  return value
+}
+function process(key,value,parent) {
+  if (typeof value=="string"){
+    console.log(key + " : "+value);
+    parent[key] = decode_shortcode(value);
+  }
+}
+function traverse(o,func) {
+    for (var i in o) {
+        func.apply(this,[i,o[i],o]);  
+        if (o[i] !== null && typeof(o[i])=="object") {
+            //going one step down in the object tree!!
+            traverse(o[i],func);
+        }
+    }
+}
+
 export default new Vuex.Store({
   state: {
     news: [],
@@ -90,23 +126,24 @@ export default new Vuex.Store({
   },
   actions: {
     loadWebsite(context){
-      $.get("/api/yearlogs").then((res)=>{
+      axios.get("/api/yearlogs").then((res)=>{
         console.log("yearlogs loaded (action)");
-        context.commit("setYearlogs",res);
+        context.commit("setYearlogs",res.data);
       });
-      $.get("/api/news").then((res)=>{
+      axios.get("/api/news").then((res)=>{
         console.log("news loaded (action)");
-        context.commit("setNews",res);
+        context.commit("setNews",res.data);
       });
-      $.get("/api/questions").then((res)=>{
+      axios.get("/api/questions").then((res)=>{
         console.log("questions loaded (action)");
-        context.commit("setQuestion",res);
+        context.commit("setQuestion",res.data);
       });
-      $.get("/api/solutions").then((res)=>{
+      axios.get("/api/solutions").then((res)=>{
         console.log("solutions loaded (action)");
-        console.log(res);
-        res.forEach(obj=>{ obj.talk=JSON.parse(obj.talk.trim().replace("\n","")) });
-        context.commit("setSolution",res);
+        console.log(res.data);
+        res.data.forEach(obj=>{ obj.talk=JSON.parse(obj.talk.trim().replace("\n","")) });
+        traverse(res.data,process);
+        context.commit("setSolution", res.data );
       });
     }
   }

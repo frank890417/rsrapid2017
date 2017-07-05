@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
+use Route;
 use App\News;
 class NewsController extends Controller
 {
@@ -14,7 +16,9 @@ class NewsController extends Controller
     }
     //
     public function index(){
-      $news = News::orderBy('date','desc')->get();
+
+      $lang = Request::get("lang");
+      $news = News::orderBy('date','desc')->where("lang",$lang)->get();
       return view('manage.news')
               ->with("news",$news);
     }
@@ -37,10 +41,13 @@ class NewsController extends Controller
     }
     public function store(){
       $inputs= Input::all();
+
+      $lang = Request::get("lang");
+      $inputs['lang']=$lang;
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
       $news = News::Create($inputs);
-      // return Redirect::to("manage/news");
+      return Redirect::to("manage/news");
     }
     public function destroy($id){
       News::destroy($id);

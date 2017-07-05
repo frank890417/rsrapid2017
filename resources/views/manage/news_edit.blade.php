@@ -9,7 +9,7 @@
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
         <li> <a href=" {{url('manage/news')}} ">新聞管理</a></li>
-        <li class="active">新聞編輯-{!! isset($news)?$news->title:"" !!}</li>
+        <li class="active">新聞編輯-{!! isset($news)? $news->title :"" !!}</li>
       </ol>
     </div>
     @yield('content')
@@ -104,7 +104,12 @@
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;
     
-    window.now_news= {!! json_encode($news)!!};
+    @if (isset($news))
+      window.now_news= {!! isset($news)?json_encode($news):'' !!} ;
+    @else
+      window.now_news= {};
+    @endif
+    
     if (!window.now_news.carousel) window.now_news.carousel = [];
     else
        window.now_news.carousel = JSON.parse(window.now_news.carousel);

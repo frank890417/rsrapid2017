@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
-Route::group(['middleware'=>'cors'],function(){
+Route::group(['middleware'=>'cors','middleware'=>'lang'],function(){
   Route::get('news',"ApiController@news");
   Route::get('questions',"ApiController@questions");
   Route::get('solutions',"ApiController@solutions");

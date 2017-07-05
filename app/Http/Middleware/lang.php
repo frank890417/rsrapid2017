@@ -15,8 +15,14 @@ class lang
      */
     public function handle($request, Closure $next)
     {
-        $domain=$request->route()->action["domain"];
+        // dd($request->route());
+        $domain = $request->getHost();
         $lang=explode(".",$domain)[0];
+
+        if (!in_array($lang , ["zh","cn","en"])){
+          $lang="zh";
+        }
+
         $request->attributes->add([
             "lang"=>$lang
         ]);

@@ -30,9 +30,6 @@ class HomeController extends Controller
         
         $metas = Request::get('metas');
         $lang = Request::get('lang');
-        if (!in_array($lang , ["zh","cn","en"])){
-          $lang="zh";
-        }
 
         // dd($lang);
         // dd($lang);

@@ -67,7 +67,7 @@ foreach ($domains as $key => $value) {
 
 // Route::prefix("zh")->middleware(['seoinfo','lang'])->group($website_routes);
 // Route::prefix("cn")->middleware(['seoinfo','lang'])->group($website_routes);
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth','middleware'=>'lang'],function(){
   Route::get('manage/',function(){
     return view("manage.content");
   });
