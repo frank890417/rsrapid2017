@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
           <label for="author_link">轉載來源連結</label>
-          <input id="author" name="author_link" value="{!! isset($news)?$news->author_link:"" !!}" class="form-control"/>
+          <input id="author" name="author_link" value="{!! isset($news)?$news->author_link:"" !!}" placeholder="http://......" class="form-control"/>
         </div>
         <div class="form-group">
           <label for="content">內文</label>

@@ -19,10 +19,12 @@ div.page_post
         p(v-html='newsset.content')
         h5.share {{$t("page_post.label_share")}}
           .logos
-            a(:href="get_share_url",target="_blank")
+            a(:href="get_share_url('fb')",target="_blank")
               img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
-            img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
-            img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
+            a(:href="get_share_url('tweeter')",target="_blank")
+              img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
+            a(:href="get_share_url('gplus')",target="_blank")
+              img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
       .container.flex.row.nav_end(v-if="preset || postset")
         .wrap
           router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="bg_css(preset.cover)") 
@@ -69,7 +71,15 @@ export default {
     methods: {
       bg_css(url){
         return {'background-image': 'url('+(url+"").trim().replace(' ','%20')+')'}
-      }
+      },
+      get_share_url(platform){
+        if (platform=="fb")
+          return 'https://www.facebook.com/sharer/sharer.php?u='+window.location.href;
+        if (platform=="gplus")
+          return 'https://plus.google.com/share?url='+window.location.href;
+        if (platform=="tweeter")
+          return "https://twitter.com/intent/tweet?url="+window.location.href;
+      },
     },
     props: ['id'],
     computed: {
@@ -91,10 +101,6 @@ export default {
         let target_id = now_set_index+1
         return tempset[target_id]
         
-      },
-      get_share_url(){
-        
-        return 'https://www.facebook.com/sharer/sharer.php?u='+window.location.href;
       },
       carousel_set(){
         let newsset=this.newsset;
