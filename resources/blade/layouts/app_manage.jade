@@ -113,9 +113,10 @@ html(lang="{{ config('app.locale') }}")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  詢問紀錄
-        li(data-link="detail_info")
+        //li(data-link="detail_info")
           a(href!="{{ url('manage/detail_info') }}")
-            svg.glyph.stroked.calendar
+            
+            //svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  語系設定與其他
         //- li
@@ -160,7 +161,7 @@ html(lang="{{ config('app.locale') }}")
                 svg.glyph.stroked.chevron-right
                   use(xlink:href='#stroked-chevron-right')
                 |  Sub Item 3
-        li.divider(role='presentation')
+        li.divider(role='presentation' onClick="location.replace('{{ url('manage/detail_info') }}')")
         li
           a(href='/login')
             svg.glyph.stroked.male-user

@@ -101,10 +101,13 @@
             <svg class="glyph stroked calendar">
               <use xlink:href="#stroked-calendar"></use>
             </svg> 詢問紀錄</a></li>
-        <li data-link="detail_info"><a href="{{ url('manage/detail_info') }}">
-            <svg class="glyph stroked calendar">
-              <use xlink:href="#stroked-calendar"></use>
-            </svg> 語系設定與其他</a></li>
+        <!--          
+          a(href!="{{ url('manage/detail_info') }}")
+            
+            //svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  語系設定與其他
+        -->
         {{--          
           a(href='tables.html')
             svg.glyph.stroked.table
@@ -152,7 +155,7 @@
                   use(xlink:href='#stroked-chevron-right')
                 |  Sub Item 3
         --}}
-        <li role="presentation" class="divider"></li>
+        <li role="presentation" onClick="location.replace('{{ url('manage/detail_info') }}')" class="divider"></li>
         <li><a href="/login">
             <svg class="glyph stroked male-user">
               <use xlink:href="#stroked-male-user"></use>
