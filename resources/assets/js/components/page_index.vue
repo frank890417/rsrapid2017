@@ -76,7 +76,7 @@ div.page_index
         .acc_sm_pic(data-type=4).flex_sm_6 
           h4(v-text="$t('page_index.section_3.squares[3].title')")
 
-  section_solutions(:shown="$t('page_index.section_solution')")
+  section_solutions(:shown="$t('page_index.section_solution.solutions')")
 
   //section.page_index_sponsor
     .container.flex.slicklogo1
