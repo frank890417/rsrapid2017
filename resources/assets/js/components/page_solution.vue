@@ -16,7 +16,7 @@ div.page_solution(v-if="solu")
     .container.flex
       .bg_theme.col_left
         h4.section_title(v-text="solu.sub_title")
-        p.section_para(v-text="solu.sub_content")
+        p.section_para(v-html="solu.sub_content")
       .col_right
   section.section_solution_2.default_bg
     .container.flex
