@@ -7,13 +7,15 @@ function decode_shortcode(value){
     let result = value
     let regex= /\[([\s\S]*)\-\&gt\;([\s\S]*)\]/g;
     var res = (regex).test(value) ;
+    const BTN_TEMPLATE = "<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.push(\"$2\");return false;'>$1</a></div>"
+    
     if (res){
-      result=value.replace(regex,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      result=value.replace(regex,BUN_TEMPLATE)
     }
     regex= /\[([\s\S]*)\-\>([\s\S]*)\]/g;
     res = (regex).test(value) ;
     if (res){
-      result=value.replace(regex,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+      result=value.replace(regex,BUN_TEMPLATE)
     }
     return result
   }
