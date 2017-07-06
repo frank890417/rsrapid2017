@@ -28,7 +28,7 @@ div.page_solution(v-if="solu")
           br
           br
           p 詳細檢驗項目歡迎與我聯絡&nbsp;&nbsp;&nbsp;&nbsp;
-            router-link.btn.btn-primary(:to="'/contact/'+solu.id") 聯絡我們  
+            router-link.btn.btn-primary(:to="'/contact/'+solu.id") {{$t("common.btn_contact_us")}}  
       .col_right
         .area_env
           h3 {{solu.env_title}}

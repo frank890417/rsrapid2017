@@ -23,7 +23,7 @@ div.page_index
               h5 {{a_news.date}}
               p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
             .btns
-              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
+              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") $t('common.btn_know_more')
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
           
           .col_img(:style="bg_css(a_news.cover)")
@@ -49,7 +49,7 @@ div.page_index
       .col_left
         h3.section_title(v-text="$t('page_index.section_2.title')")
         p.section_para.text-left(v-html="$t('page_index.section_2.content')")
-        //router-link.btn.btn-primary(to='/tech') 了解更多
+        //router-link.btn.btn-primary(to='/tech') $t('common.btn_know_more')
         .percent.text-right(:data-target="200") 
           canvas.wave
           span 200
@@ -62,7 +62,7 @@ div.page_index
       .col_right
         h3.section_title(v-text="$t('page_index.section_3.title')")
         p.section_para.text-left(v-html="$t('page_index.section_3.content')")
-        //router-link.btn.btn-transparent(to='/tech') 了解更多
+        //router-link.btn.btn-transparent(to='/tech') $t('common.btn_know_more')
     .container.flex.type_container
       .row
         .acc_sm_pic(data-type=1).flex_sm_6

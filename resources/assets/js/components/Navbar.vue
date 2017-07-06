@@ -96,7 +96,7 @@ div
             open_full: false,
             open_lang: false,
             nav_structure,
-            lang: [{name: "繁",link: "http://zh.rapidsuretech.com/"},{name: "简",link: "http://cn.rapidsuretech.com/"},{name: "EN",link: "http://en.rapidsuretech.com/"}]
+            lang: [{name: "繁",link: "http://www.rapidsuretech.com/"},{name: "简",link: "http://cn.rapidsuretech.com/"},{name: "EN",link: "http://en.rapidsuretech.com/"}]
           }
         },
         watch:{
