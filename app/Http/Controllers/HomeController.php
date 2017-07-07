@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         if ($is_default_lang){
             // dd(Request::getPathInfo());
-            return redirect('http://www.rapidsuretech.com/'.Request::getPathInfo());
+            return redirect('http://www.rapidsuretech.com'.Request::getPathInfo());
         }
 
         // dd($lang);
