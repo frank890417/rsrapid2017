@@ -21,10 +21,13 @@ class lang
         $lang = $prefix;
         $is_default_lang=false;
 
-        if (!in_array($lang , ["www","cn","en"])){
+        if (!in_array($lang , ["zh","cn","en"])){
 
           $lang="zh";
           $is_default_lang=true;
+        }
+        if ($prefix=="www"){
+            $is_default_lang=false;
         }
 
 

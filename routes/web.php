@@ -41,6 +41,7 @@ Route::get("/lang/{locale}", function ($locale) {
 //set lang route
 
 $domains=[
+  'www.rsrapid2017.dev',
   'rsrapid2017.dev',
   'en.rsrapid2017.dev',
   'zh.rsrapid2017.dev',
