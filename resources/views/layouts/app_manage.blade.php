@@ -159,11 +159,19 @@
         <li><a href="/login">
             <svg class="glyph stroked male-user">
               <use xlink:href="#stroked-male-user"></use>
-            </svg> Login</a></li>
-        <li><a href="/register">
+            </svg>Login</a></li>
+        <!--          
+          a(href='/register')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Register
+          
+        -->
+        <li><a onclick="event.preventDefault();document.getElementById('logout-form').submit();">
             <svg class="glyph stroked male-user">
               <use xlink:href="#stroked-male-user"></use>
-            </svg> Register</a></li>
+            </svg>Logout</a></li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"><span>{{ csrf_field() }}</span></form>
       </ul>
     </div>
     <!-- /.sidebar -->

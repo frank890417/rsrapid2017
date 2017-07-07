@@ -166,12 +166,23 @@ html(lang="{{ config('app.locale') }}")
           a(href='/login')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
-            |  Login
-        li
+            | Login
+        //li
           a(href='/register')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Register
+
+        li
+          a(onclick="event.preventDefault();document.getElementById('logout-form').submit();")
+            svg(class="glyph stroked male-user")
+              use(xlink:href="#stroked-male-user")
+            | Logout
+          
+        form#logout-form(action="{{ route('logout') }}" method="POST" style="display: none;")
+          span {{ csrf_field() }}
+        
+
     // /.sidebar
     .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main#app(v-cloak)
 

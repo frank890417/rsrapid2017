@@ -98,7 +98,8 @@
               <label>名稱</label>
               <input v-model="partner.name" class="form-control"/>
               <label>icon</label>
-              <input v-model="partner.icon" style="width: 40%" class="form-control"/>
+              <!-- input.form-control(v-model="partner.icon", style="width: 40%") -->
+              <carousel_editor :carousel_data="[partner.icon]" :allow_multi="false"></carousel_editor>
               <button @click="lang.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">-</button>
             </div>
           </div><br/>

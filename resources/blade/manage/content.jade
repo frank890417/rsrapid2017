@@ -87,7 +87,8 @@
               label 名稱
               input.form-control(v-model="partner.name")
               label icon
-              input.form-control(v-model="partner.icon", style="width: 40%")
+              //input.form-control(v-model="partner.icon", style="width: 40%")
+              carousel_editor(:carousel_data="[partner.icon]",:allow_multi="false")
               button.btn.btn-secondary(@click="lang.footer.section_partner.partners.splice(id,1)") -
           br
           button.btn.btn-default(@click="lang.footer.section_partner.partners.push({name: '',icon: ''})") + 新增夥伴
