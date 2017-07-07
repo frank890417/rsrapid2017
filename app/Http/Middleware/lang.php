@@ -17,7 +17,8 @@ class lang
     {
         // dd($request->route());
         $domain = $request->getHost();
-        $lang=explode(".",$domain)[0];
+        $prefix = explode(".",$domain)[0];
+        $lang = $prefix;
         $is_default_lang=false;
 
         if (!in_array($lang , ["zh","cn","en"])){
@@ -25,7 +26,7 @@ class lang
           $lang="zh";
           $is_default_lang=true;
         }
-        if ($lang=="zh" && $domain!="www"){
+        if ($lang=="zh" && $prefix!="www"){
           $is_default_lang=true;
         }
 
