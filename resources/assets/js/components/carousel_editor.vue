@@ -51,7 +51,7 @@
         methods:{
           css_cover(url) {
             return {
-              "background-image": `url(${url})`,
+              "background-image": `url(${url.replace(" ","%20")})`,
               "background-size": "cover",
               width: "100%",
               height: "200px",
@@ -60,7 +60,7 @@
           },
           css_default_block(url){
             return {
-              "background-image": `url(${url})`,
+              "background-image": `url(${url.replace(" ","%20")})`,
               "background-size": "cover",
               width: "100px",
               height: "100px",
