@@ -23,7 +23,7 @@ div.page_index
               h5 {{a_news.date}}
               p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
             .btns
-              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") $t('common.btn_know_more')
+              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") {{$t('common.btn_know_more')}}
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
           
           .col_img(:style="bg_css(a_news.cover)")

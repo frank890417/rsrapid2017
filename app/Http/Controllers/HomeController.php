@@ -30,6 +30,12 @@ class HomeController extends Controller
         
         $metas = Request::get('metas');
         $lang = Request::get('lang');
+        $is_default_lang = Request::get('is_default_lang');
+
+        if ($is_default_lang){
+            // dd(Request::getPathInfo());
+            return redirect('http://www.rapidsuretech.com'.Request::getPathInfo());
+        }
 
         // dd($lang);
         // dd($lang);
