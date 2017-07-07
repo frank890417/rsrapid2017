@@ -99,9 +99,11 @@
               <input v-model="partner.name" class="form-control"/>
               <label>icon</label>
               <!-- input.form-control(v-model="partner.icon", style="width: 40%") -->
-              <carousel_editor :carousel_data="[partner.icon]" :allow_multi="false"></carousel_editor>
-              <button @click="lang.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">-</button>
+              <input v-model="partner.icon"/>
+              <carousel_editor :carousel_data="[partner.icon]" :allow_multi="false" :update_obj="{obj: partner,tagkey: 'icon'}"></carousel_editor>
+              <button @click="lang.footer.section_partner.partners.splice(id,1)" class="btn btn-secondary">- 刪除 @{{partner.name}}</button>
             </div>
+            <hr/>
           </div><br/>
           <button @click="lang.footer.section_partner.partners.push({name: '',icon: ''})" class="btn btn-default">+ 新增夥伴</button>
         </div>

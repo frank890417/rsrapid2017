@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        props: ['input_name','carousel_data','allow_multi'],
+        props: ['input_name','carousel_data','allow_multi','update_obj'],
         name: "carousel_editor",
         data(){
           return {
@@ -78,9 +78,15 @@
             if (!this.options.allow_multi){
               var outdata_single=this.now_carousel_data.map(o=>o.url).filter(o=>o!="")[0];
               this.$emit("update:carousel_data",outdata_single);
+              if (this.update_obj){
+                this.update_obj.obj[this.update_obj.tagkey]=outdata_single
+              }
               return outdata_single
             }
             this.$emit("update:carousel_data",outdata);
+            if (this.update_obj){
+                this.update_obj.obj[this.update_obj.tagkey]=JSON.stringify(outdata)
+              }
             return JSON.stringify(outdata);
           }
         }
