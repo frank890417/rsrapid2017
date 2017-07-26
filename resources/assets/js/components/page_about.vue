@@ -63,10 +63,13 @@ div.page_about
       computed: {
         ...mapState(['about_logs']),
         yearlist(){
-          return this.about_logs
+           let result = this.about_logs
                      .map(o=>o.year)
                      .filter((d,i,arr)=>arr.indexOf(d)==i)
                      .sort((a,b)=>b-a)
+           //預設選擇設為最新的年份
+           this.sel_year=result[0]
+           return result
         }
       }
 
