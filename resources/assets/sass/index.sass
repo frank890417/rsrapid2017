@@ -2,11 +2,18 @@
   opacity: 1
   .container.flex
     height: 100vh
+  
+  
   section
-    min-height: 900px
+    min-height: 100vh
+    @media screen and (max-height: 900px)
+      min-height: 900px
     .section_title
       margin-bottom: $gutter_width*2
       letter-spacing: 3px
+    &>.container.flex
+      @media screen and (max-height: 900px)
+        min-height: 900px
 
   .percent
     font-family: 'Lato'
@@ -312,6 +319,8 @@
       bottom: 0px
       height: grid_sz(0,14)
       flex-direction: column
+      min-height: 0px !important
+
       z-index: 100
       
       +rwd_md
