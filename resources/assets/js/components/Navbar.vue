@@ -154,8 +154,8 @@ div
                 link: '/solution/n/'+obj.title
               }));
             }
-            if (this.techs.length>0){
-              tech_options = this.techs.map((obj)=>({
+            if (this.$t("page_tech.techs").length>0){
+              tech_options = this.$t("page_tech.techs").map((obj)=>({
                 tag: obj.title, 
                 link: '/tech/n/'+obj.title
               }));
