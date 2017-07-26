@@ -24,7 +24,7 @@ html(lang="{{ config('app.locale') }}")
       'csrfToken' => csrf_token(),
       ]) !!};
   body(class="lang_{{$lang}} lang_all")
-    #app
+    #app(:class="{big_font: big_font}")
       navbar
       transition(name="fade" mode="out-in")
         router-view(:key="$route.path")
