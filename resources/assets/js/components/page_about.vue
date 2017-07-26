@@ -43,6 +43,7 @@ div.page_about
           // if (document.location.hash=="#section_about_log"){
           //   $("html, body").animate({ scrollTop: $(".section_about_log") }, "slow");
           // }
+          this.sel_year=this.yearlist[0];
       },
       methods: {
         to_href: function(obj) {
