@@ -26,7 +26,7 @@ div.page_about
               .col_info
                 h5.date {{log.date}}
                 h4.title {{log.title}}
-                p {{log.content}}
+                div.content(v-html="log.content")
 
 </template>
 

@@ -13,7 +13,7 @@ div.page_contact
         :class="{active: id==sel_loc}") {{loc.county}}, {{loc.location}}
       form.container.flex.row#form_contact(v-on:submit.prevent="send_form")
         .col_left(v-for="loc in [$t('footer.section_company.locations')[sel_loc]]")
-          iframe(:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDoo6vnTowCfRVJfl5wkfavcHosfYomCLo&q='+loc.address+','+loc.location" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
+          iframe(:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDoo6vnTowCfRVJfl5wkfavcHosfYomCLo&q='+loc.address" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
         .col_right
           .form-group
             label {{$t("page_contact.section_2.label_name")}}
