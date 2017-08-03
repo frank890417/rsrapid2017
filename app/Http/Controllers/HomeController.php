@@ -42,6 +42,10 @@ class HomeController extends Controller
         // if ()
         // dd($metas);
         $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
+
+        // if ($lang=="cn"){
+        //     $lang_pack=ZhConvert::translate($lang_pack,'CN');
+        // }
         return view('home')
                ->with("lang_pack",$lang_pack)
                ->with("metas",$metas)

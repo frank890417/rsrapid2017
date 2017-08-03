@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        // Easter1021\LaravelZhconverter\LaravelZhconverterServiceProvider::class
 
     ],
 
@@ -229,6 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+
+        // 'ZhConvert' => Easter1021\LaravelZhconverter\LaravelZhconverterServiceProvider::class
 
     ],
 

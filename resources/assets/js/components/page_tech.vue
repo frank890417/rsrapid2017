@@ -4,7 +4,7 @@ div.page_tech(v-if="now_tech")
     .container
       .col_hero
         h1.section_title.text-center {{now_tech.title}}
-        p {{now_tech.description}}
+        p(v-html="now_tech.description")
         hr
         .conpany_logos(v-if="now_tech.id==1")
           img.company_logo(alt="永齡logo" src="/img/Rapid.png")
@@ -39,7 +39,7 @@ div.page_tech(v-if="now_tech")
       .col_left.col_content
         h3.section_title {{now_tech.sections[1].title}}
         svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
-        p.section_para.text-left {{now_tech.sections[1].content}}
+        p.section_para.text-left(v-html='now_tech.sections[1].content')
         a.btn.btn-primary 了解更多
       .col_right
       //.col_right
@@ -61,7 +61,7 @@ div.page_tech(v-if="now_tech")
         .col_right.col_content
           h3.section_title {{$t("page_tech.techs")[0].sections[2].title}}
           svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
-          p.section_para.text-left {{$t("page_tech.techs")[0].sections[2].content}}
+          p.section_para.text-left(v-html="$t('page_tech.techs')[0].sections[2].content")
           a.btn.btn-primary 了解更多
 
 
@@ -81,7 +81,7 @@ div.page_tech(v-if="now_tech")
       .col_right.col_content
         h3.section_title {{now_tech.sections[0].title}}
         //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_count.svg")
-        p.section_para.text-left {{now_tech.sections[0].content}}
+        p.section_para.text-left(v-html="now_tech.sections[0].content")
         a.btn.btn-primary 了解更多
 
   section.section_tech(v-if="now_tech.id!=1")
@@ -100,7 +100,7 @@ div.page_tech(v-if="now_tech")
       .col_left.col_content
         h3.section_title {{now_tech.sections[1].title}}
         //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_tube.svg")
-        p.section_para.text-left {{now_tech.sections[1].content}}
+        p.section_para.text-left(v-html="now_tech.sections[1].content")
         a.btn.btn-primary 了解更多
       .col_right
       //.col_right
@@ -122,7 +122,7 @@ div.page_tech(v-if="now_tech")
         .col_right.col_content
           h3.section_title {{now_tech.sections[2].title}}
           //svg_inline.dynamic_icon(src="/img/tech_icons/tech_icon_cloud.svg")
-          p.section_para.text-left {{now_tech.sections[2].content}}
+          p.section_para.text-left(v-html="now_tech.sections[2].content")
           a.btn.btn-primary 了解更多
   section_solutions(:shown="now_tech.section_solution?now_tech.section_solution.solutions:null")
 

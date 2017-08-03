@@ -1,11 +1,11 @@
 <template lang="jade">
 div.page_index
   ul.slide_bullet
-    li(data-link=".page_index_main" ,@click="jump_bullet")
-    li(data-link=".page_index_grow",@click="jump_bullet")
-    li(data-link=".page_index_live",@click="jump_bullet")
-    li(data-link=".page_index_accurate",@click="jump_bullet")
-    li(data-link=".section_solution",@click="jump_bullet")
+    li(data-link=".page_index_main" , @click="jump_bullet")
+    li(data-link=".page_index_grow" , @click="jump_bullet")
+    li(data-link=".page_index_live" , @click="jump_bullet")
+    li(data-link=".page_index_accurate" , @click="jump_bullet")
+    li(data-link=".section_solution" , @click="jump_bullet")
     li(data-link=".detail_footer" style="display: none",@click="jump_bullet")
 
   section.page_index_main.bg_parallax
@@ -21,7 +21,7 @@ div.page_index
             .texts
               h4 {{a_news.title}}
               h5 {{a_news.date}}
-              p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
+              p {{(a_news.content+"").replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
             .btns
               router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") {{$t('common.btn_know_more')}}
               a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 

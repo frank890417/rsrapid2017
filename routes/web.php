@@ -69,9 +69,7 @@ foreach ($domains as $key => $value) {
 // Route::prefix("zh")->middleware(['seoinfo','lang'])->group($website_routes);
 // Route::prefix("cn")->middleware(['seoinfo','lang'])->group($website_routes);
 Route::group(['middleware'=>'auth','middleware'=>'lang'],function(){
-  Route::get('manage/',function(){
-    return view("manage.content");
-  });
+  Route::get('manage/',"ManageController@content");
   Route::get('manage/news','NewsController@index');
 
   Route::resource('manage/news','NewsController');
@@ -81,24 +79,13 @@ Route::group(['middleware'=>'auth','middleware'=>'lang'],function(){
 
   Route::resource('contact_record','Contact_recordController');
   Route::post('manage/yearlog/saveall','YearlogController@saveall');
-  Route::get('manage/content',function(){
-    return view("manage.content");
-  });
-  Route::get('manage/tern',function(){
-    return view("manage.tern");
-  });
-  Route::get('manage/job',function(){
-    return view("manage.job");
-  });
-  Route::get('manage/tech',function(){
-    return view("manage.tech");
-  });
-  Route::get('manage/contactrecord',function(){
-    return view("manage.contactrecord");
-  });
-  Route::get('manage/detail_info',function(){
-    return view("manage.detail_info");
-  });
+
+  Route::get('manage/content',"ManageController@content");
+  Route::get('manage/tern',"ManageController@tern");
+  Route::get('manage/job',"ManageController@job");
+  Route::get('manage/tech',"ManageController@tech");
+  Route::get('manage/contactrecord',"ManageController@contactrecord");
+  Route::get('manage/detail_info',"ManageController@detail_info");
 
 
 });
@@ -111,3 +98,8 @@ Route::get('/{any}/{anyt?}/{anyd?}', function(){
   return redirect("/");
 });
 
+// App::missing(function($exception)
+// {
+//     return redirect("/");
+//     // return Response::view('errors.missing', array(), 404);
+// });
