@@ -422,7 +422,8 @@
       if (["zh","cn","en"].indexOf(locale)==-1){
         locale="zh";
       }
-      $("a[data-lang='"+locale+"']").css("display","none");
+      $("a[data-lang]").css("opacity","0.4");
+      $("a[data-lang='"+locale+"']").css("opacity","1");
     </script>
     {{-- script(src='/js/admin_js/chart.min.js') --}}
     <script src="/js/backstage/app.js"></script>
