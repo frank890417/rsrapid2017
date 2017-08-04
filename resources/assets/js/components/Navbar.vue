@@ -108,7 +108,8 @@ div
               // {
               //   name: "EN",
               //   link: "http://en.rapidsuretech.com"
-              // }]
+              // }
+            ]
           }
         },
         watch:{
