@@ -105,10 +105,10 @@ div
                 name: "简",
                 link: "http://cn.rapidsuretech.com"
               },
-              {
-                name: "EN",
-                link: "http://en.rapidsuretech.com"
-              }]
+              // {
+              //   name: "EN",
+              //   link: "http://en.rapidsuretech.com"
+              // }]
           }
         },
         watch:{
