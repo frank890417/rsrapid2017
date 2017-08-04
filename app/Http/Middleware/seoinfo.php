@@ -31,20 +31,23 @@ class seoinfo
         // match solution
         if ( preg_match("/solution\/n\/(.*)/",$current_path,$test) ){
             $match_solution = Solution::where("title", urldecode($test[1]))->first();
-            $meta_title=$match_solution->title. $post_fix ;
-            // $meta_title=$match_solution->title. $post_fix ;
-            $meta_description=$match_solution->sub_content;
+            if ($match_solution ){
+                $meta_title=$match_solution->title. $post_fix ;
+                // $meta_title=$match_solution->title. $post_fix ;
+                $meta_description=$match_solution->sub_content;
+            }
         }
 
 
         // match news
         if ( preg_match("/news\/([0-9]*?)$/",$current_path,$test) ){
             $match_news = News::where("id", urldecode($test[1]))->first();
-            $meta_title=$match_news->title. $post_fix ;
-            $meta_cover=$match_news->cover ;
-            // $meta_title=$match_news->title. $post_fix ;
-            $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
-
+            if ($match_news ){
+                $meta_title=$match_news->title. $post_fix ;
+                $meta_cover=$match_news->cover ;
+                // $meta_title=$match_news->title. $post_fix ;
+                $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
+            }
         }
         // switch($request->pathInfo){
         //     case '/':

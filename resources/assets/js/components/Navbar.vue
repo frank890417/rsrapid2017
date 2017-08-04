@@ -58,12 +58,12 @@ div
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
             a(href="#")
-              span 繁
+              span {{langtext}}
               i.fa.fa-angle-down 
             ul.lang_subnav
               .container
                 div.options
-                  li(v-for = "l in lang")
+                  li(v-for = "l in langs")
                     a(:href="l.link") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
@@ -96,11 +96,19 @@ div
             open_full: false,
             open_lang: false,
             nav_structure,
-            lang: [
-              {name: "繁",link: "http://www.rapidsuretech.com/"},
-              // {name: "简",link: "http://cn.rapidsuretech.com/"},
-              // {name: "EN",link: "http://en.rapidsuretech.com/"}
-            ]
+            langs: [
+              { 
+                name: "繁",
+                link: "http://www.retainsuretech.com"
+              },
+              {
+                name: "简",
+                link: "http://cn.retainsuretech.com"
+              },
+              {
+                name: "EN",
+                link: "http://en.retainsuretech.com"
+              }]
           }
         },
         watch:{
@@ -184,6 +192,16 @@ div
 
             return this.nav_structure;
 
+        },
+        langtext (){
+          switch(window.locale){
+            case "cn":
+              return "簡"
+            case "zh":
+              return "繁"
+            case "en":
+              return "EN"
+          }
         }
       }
   }

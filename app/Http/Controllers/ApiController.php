@@ -13,25 +13,49 @@ use App\Question;
 use App\Solution;
 use App\Yearlog;
 use App\Websiteinfo;
+use App\LaravelZhconverter;
+
+
+
 class ApiController extends Controller
 {
     //0
+
+    public function convert_obj_cn($obj){
+      return json_decode(LaravelZhconverter::translate(json_encode($obj, JSON_UNESCAPED_UNICODE),'CN' ));
+    }
         
     public function news(){
       $lang=Request::get("lang");
-      return News::orderBy('id','desc')->where("lang",$lang)->get();
+      $result =  News::orderBy('id','desc')->where("lang",$lang=="cn"?"zh":$lang)->get();
+      if ($lang=="cn"){
+        $result = $this->convert_obj_cn($result);
+      }
+      return $result;
     }
     public function questions(){
       $lang=Request::get("lang");
-      return Question::orderBy('ordernum','asc')->where("lang",$lang)->get();
+      $result = Question::orderBy('ordernum','asc')->where("lang",$lang=="cn"?"zh":$lang)->get();
+      if ($lang=="cn"){
+        $result = $this->convert_obj_cn($result);
+      }
+      return $result;
     }
     public function solutions(){
       $lang=Request::get("lang");
-      return Solution::where("lang",$lang)->get();
+      $result = Solution::where("lang",$lang=="cn"?"zh":$lang)->get();
+      if ($lang=="cn"){
+        $result = $this->convert_obj_cn($result);
+      }
+      return $result;
     }
     public function yearlogs(){
       $lang=Request::get("lang");
-       return Yearlog::where("lang",$lang)->get();
+      $result = Yearlog::where("lang",$lang=="cn"?"zh":$lang)->get();
+      if ($lang=="cn"){
+        $result = $this->convert_obj_cn($result);
+      }
+      return $result;
     }
     public function update_all_yearlogs(){
        $input = Input::all();
