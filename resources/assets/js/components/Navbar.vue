@@ -99,15 +99,15 @@ div
             langs: [
               { 
                 name: "繁",
-                link: "http://www.retainsuretech.com"
+                link: "http://www.rapidsuretech.com"
               },
               {
                 name: "简",
-                link: "http://cn.retainsuretech.com"
+                link: "http://cn.rapidsuretech.com"
               },
               {
                 name: "EN",
-                link: "http://en.retainsuretech.com"
+                link: "http://en.rapidsuretech.com"
               }]
           }
         },
