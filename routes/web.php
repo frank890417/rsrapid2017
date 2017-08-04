@@ -40,31 +40,32 @@ Route::get("/lang/{locale}", function ($locale) {
 });
 //set lang route
 
-$domains=[
-  'www.rsrapid2017.dev',
-  'rsrapid2017.dev',
-  'en.rsrapid2017.dev',
-  'zh.rsrapid2017.dev',
-  'cn.rsrapid2017.dev',
+// $domains=[
+//   'www.rsrapid2017.dev',
+//   'rsrapid2017.dev',
+//   'en.rsrapid2017.dev',
+//   'zh.rsrapid2017.dev',
+//   'cn.rsrapid2017.dev',
 
-  'rapidsuretech.com',
-  'www.rapidsuretech.com',
-  'en.rapidsuretech.com',
-  'zh.rapidsuretech.com',
-  'cn.rapidsuretech.com',
+//   'rapidsuretech.com',
+//   'www.rapidsuretech.com',
+//   'en.rapidsuretech.com',
+//   'zh.rapidsuretech.com',
+//   'cn.rapidsuretech.com',
 
 
-  'manage.rapidsuretech.com',
-  'www.rapidsuretech.com',
-  'en.manage.rapidsuretech.com',
-  'zh.manage.rapidsuretech.com',
-  'cn.manage.rapidsuretech.com'
+//   'manage.rapidsuretech.com',
+//   'www.rapidsuretech.com',
+//   'en.manage.rapidsuretech.com',
+//   'zh.manage.rapidsuretech.com',
+//   'cn.manage.rapidsuretech.com'
 
-];
+// ];
 
-foreach ($domains as $key => $value) {
-  Route::group(['domain'=>$value,'middleware'=>['lang','seoinfo'] ],$website_routes);
-}
+// foreach ($domains as $key => $value) {
+  
+// }
+Route::group(['middleware'=>['lang','seoinfo'] ],$website_routes);
 
 // Route::prefix("zh")->middleware(['seoinfo','lang'])->group($website_routes);
 // Route::prefix("cn")->middleware(['seoinfo','lang'])->group($website_routes);
