@@ -34,22 +34,22 @@ class HomeController extends Controller
         $lang = Request::get('lang');
         $is_default_lang = Request::get('is_default_lang');
 
-        if ($is_default_lang){
-            // dd(Request::getPathInfo());
-            return redirect('http://www.rapidsuretech.com'.Request::getPathInfo());
-        }
+        // if ($is_default_lang){
+        //     // dd(Request::getPathInfo());
+        //     return redirect('http://www.rapidsuretech.com'.Request::getPathInfo());
+        // }
 
         // dd($lang);
         // dd($lang);
         // if ()
         // dd($metas);
-        $lang_pack= Websiteinfo::where("key", $lang=="cn"?"zh":$lang)->first()->data;
+        $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
 
-        if ($lang=="cn"){
-            // require("ZhConvert/LaravelZhconverter.php");
-            $lang_pack= LaravelZhconverter::translate($lang_pack,'CN');
-            // dd(   LaravelZhconverter::translate($lang_pack,'CN') );
-        }
+        // if ($lang=="cn"){
+        //     // require("ZhConvert/LaravelZhconverter.php");
+        //     $lang_pack= LaravelZhconverter::translate($lang_pack,'CN');
+        //     // dd(   LaravelZhconverter::translate($lang_pack,'CN') );
+        // }
         return view('home')
                ->with("lang_pack",$lang_pack)
                ->with("metas",$metas)

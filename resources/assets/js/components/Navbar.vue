@@ -99,12 +99,12 @@ div
             langs: [
               { 
                 name: "繁",
-                link: "http://www.rapidsuretech.com"
+                link: "/zh"
               },
-              {
-                name: "简",
-                link: "http://cn.rapidsuretech.com"
-              },
+              // {
+              //   name: "简",
+              //   link: "/cn"
+              // },
               // {
               //   name: "EN",
               //   link: "http://en.rapidsuretech.com"

@@ -14,6 +14,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/overwrite/master.css') }}" rel="stylesheet">
+    @if($lang=="cn")
+      <link href="https://fonts.googleapis.com/earlyaccess/notosanssc.css" rel="stylesheet">
+    @endif
+    @if($lang=="zh")
+      <link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+    @endif
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([

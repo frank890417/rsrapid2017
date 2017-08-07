@@ -13,12 +13,13 @@ class lang
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next ,$routelang)
     {
         // dd($request->route());
         $domain = $request->getHost();
         $prefix = explode(".",$domain)[0];
-        $lang = $prefix;
+        // $lang = $prefix;
+        $lang = $routelang;
         $is_default_lang=false;
 
         if (!in_array($lang , ["zh","cn","en"])){

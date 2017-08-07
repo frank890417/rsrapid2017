@@ -27,34 +27,26 @@ class ApiController extends Controller
         
     public function news(){
       $lang=Request::get("lang");
-      $result =  News::orderBy('id','desc')->where("lang",$lang=="cn"?"zh":$lang)->get();
-      if ($lang=="cn"){
-        $result = $this->convert_obj_cn($result);
-      }
+      $result =  News::orderBy('id','desc')->where("lang",$lang)->get();
+      
       return $result;
     }
     public function questions(){
       $lang=Request::get("lang");
-      $result = Question::orderBy('ordernum','asc')->where("lang",$lang=="cn"?"zh":$lang)->get();
-      if ($lang=="cn"){
-        $result = $this->convert_obj_cn($result);
-      }
+      $result = Question::orderBy('ordernum','asc')->where("lang",$lang)->get();
+      
       return $result;
     }
     public function solutions(){
       $lang=Request::get("lang");
-      $result = Solution::where("lang",$lang=="cn"?"zh":$lang)->get();
-      if ($lang=="cn"){
-        $result = $this->convert_obj_cn($result);
-      }
+      $result = Solution::where("lang",$lang)->get();
+      
       return $result;
     }
     public function yearlogs(){
       $lang=Request::get("lang");
-      $result = Yearlog::where("lang",$lang=="cn"?"zh":$lang)->get();
-      if ($lang=="cn"){
-        $result = $this->convert_obj_cn($result);
-      }
+      $result = Yearlog::where("lang",$lang)->get();
+      
       return $result;
     }
     public function update_all_yearlogs(){

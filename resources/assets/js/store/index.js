@@ -88,19 +88,19 @@ export default new Vuex.Store({
   },
   actions: {
     loadWebsite(context) {
-      axios.get("/api/yearlogs").then((res) => {
+      axios.get(`/api/${window.locale}/yearlogs`).then((res) => {
         console.log("yearlogs loaded (action)");
         context.commit("setYearlogs", res.data);
       });
-      axios.get("/api/news").then((res) => {
+      axios.get(`/api/${window.locale}/news`).then((res) => {
         console.log("news loaded (action)");
         context.commit("setNews", res.data);
       });
-      axios.get("/api/questions").then((res) => {
+      axios.get(`/api/${window.locale}/questions`).then((res) => {
         console.log("questions loaded (action)");
         context.commit("setQuestion", res.data);
       });
-      axios.get("/api/solutions").then((res) => {
+      axios.get(`/api/${window.locale}/solutions`).then((res) => {
         console.log("solutions loaded (action)");
         console.log(res.data);
         res.data.forEach(obj => {

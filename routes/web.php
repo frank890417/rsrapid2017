@@ -11,6 +11,8 @@
 |
 */
 
+$langs = ["","cn","en","zh"];
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -35,9 +37,9 @@ $website_routes=function(){
 
 };
  
-Route::get("/lang/{locale}", function ($locale) {
-    App::setLocale($locale);
-});
+// Route::get("/lang/{locale}", function ($locale) {
+//     App::setLocale($locale);
+// });
 //set lang route
 
 // $domains=[
@@ -65,34 +67,41 @@ Route::get("/lang/{locale}", function ($locale) {
 // foreach ($domains as $key => $value) {
   
 // }
-Route::group(['middleware'=>['lang','seoinfo'] ],$website_routes);
+// Route::group(['middleware'=>['lang','seoinfo'] ],$website_routes);
+
+Auth::routes();
+$manage_routes=function(){
+  Route::get('/manage/',"ManageController@content");
+  Route::get('/manage/news','NewsController@index');
+
+  Route::resource('/manage/news','NewsController');
+  Route::resource('/manage/question','QuestionController');
+  Route::resource('/manage/solution','SolutionController');
+  Route::resource('/manage/about','YearlogController');
+
+  Route::resource('contact_record','Contact_recordController');
+  Route::post('/manage/yearlog/saveall','YearlogController@saveall');
+
+  Route::get('/manage/content',"ManageController@content");
+  Route::get('/manage/tern',"ManageController@tern");
+  Route::get('/manage/job',"ManageController@job");
+  Route::get('/manage/tech',"ManageController@tech");
+  Route::get('/manage/contactrecord',"ManageController@contactrecord");
+  Route::get('/manage/detail_info',"ManageController@detail_info");
+
+
+};
+
+foreach ($langs as $key => $lang) {
+  Route::group(['prefix' => $lang ,'middleware'=>['lang:'.$lang,'seoinfo:'.$lang] ],$website_routes);
+  Route::group(['prefix' => $lang ,'middleware'=>'auth','middleware'=>'lang:'.($lang==""?"zh":$lang)],$manage_routes);
+}
 
 // Route::prefix("zh")->middleware(['seoinfo','lang'])->group($website_routes);
 // Route::prefix("cn")->middleware(['seoinfo','lang'])->group($website_routes);
-Route::group(['middleware'=>'auth','middleware'=>'lang'],function(){
-  Route::get('manage/',"ManageController@content");
-  Route::get('manage/news','NewsController@index');
-
-  Route::resource('manage/news','NewsController');
-  Route::resource('manage/question','QuestionController');
-  Route::resource('manage/solution','SolutionController');
-  Route::resource('manage/about','YearlogController');
-
-  Route::resource('contact_record','Contact_recordController');
-  Route::post('manage/yearlog/saveall','YearlogController@saveall');
-
-  Route::get('manage/content',"ManageController@content");
-  Route::get('manage/tern',"ManageController@tern");
-  Route::get('manage/job',"ManageController@job");
-  Route::get('manage/tech',"ManageController@tech");
-  Route::get('manage/contactrecord',"ManageController@contactrecord");
-  Route::get('manage/detail_info',"ManageController@detail_info");
 
 
-});
 
-
-Auth::routes();
 
 
 Route::get('/{any}/{anyt?}/{anyd?}', function(){
