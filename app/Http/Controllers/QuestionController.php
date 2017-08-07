@@ -20,23 +20,30 @@ class QuestionController extends Controller
       $lang = Request::get("lang");
       $questions = Question::orderBy("stick_top","desc")->where("lang",$lang)->get();
       return view('manage.question')
-              ->with("questions",$questions);
+              ->with("questions",$questions)
+               ->with("lang",$lang);
     }
     public function edit($id){
+        $lang = Request::get('lang');
       $question = Question::find($id);
       return view('manage.question_edit')
-              ->with("question",$question);
+              ->with("question",$question)
+               ->with("lang",$lang);
     }
     public function update($id){
+
+      $lang = Request::get("lang");
       $inputs= Input::all();
       $question = Question::find($id);
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $question->update($inputs);
-      return Redirect::to("manage/question");
+      return Redirect::to("/".$lang."/manage/question");
     }
 
     public function create(){
-      return view('manage.question_edit');
+      $lang = Request::get("lang");
+      return view('manage.question_edit')
+               ->with("lang",$lang);
     }
     public function store(){
       $lang = Request::get("lang");
@@ -46,10 +53,12 @@ class QuestionController extends Controller
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
       $question = Question::Create($inputs);
-      return Redirect::to("manage/question");
+      return Redirect::to("/".$lang."/manage/question");
     }
     public function destroy($id){
+
+      $lang = Request::get("lang");
       Question::destroy($id);
-      return Redirect::to("manage/question");
+      return Redirect::to("/".$lang."/manage/question");
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class ManageController extends Controller
 {
@@ -13,26 +13,38 @@ class ManageController extends Controller
     }
     //
     public function content(){
-        return view("manage.content");
+        $lang = Request::get('lang');
+        return view("manage.content")
+               ->with("lang",$lang);
     }
     //
     public function tern(){
-        return view("manage.tern");
+        $lang = Request::get('lang');
+        return view("manage.tern")
+               ->with("lang",$lang);
     }
     //
     public function job(){
-        return view("manage.job");
+        $lang = Request::get('lang');
+        return view("manage.job")
+               ->with("lang",$lang);
     }
     //
     public function tech(){
-        return view("manage.tech");
+        $lang = Request::get('lang');
+        return view("manage.tech")
+               ->with("lang",$lang);
     }
     //
     public function contactrecord(){
-        return view("manage.contactrecord");
+        $lang = Request::get('lang');
+        return view("manage.contactrecord")
+               ->with("lang",$lang);
     }
     //
     public function detail_info(){
-        return view("manage.detail_info");
+        $lang = Request::get('lang');
+        return view("manage.detail_info")
+               ->with("lang",$lang);
     }
 }

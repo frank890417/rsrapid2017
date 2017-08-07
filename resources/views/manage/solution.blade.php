@@ -44,17 +44,17 @@
               <td style="width: 50%">{{$solution->sub_content}}</td>
               <td style="width: 50%">{{$solution->description}}</td>
               <td style="width: 20%">{{$solution->updated_at}}</td>
-              <td style="width: 5%"><a href="{{ url('manage/solution/'.($solution->id).'/edit') }}" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"><a href="{{ url('/'.$lang.'/manage/solution/'.($solution->id).'/edit') }}" class="btn btn-default">編輯</a></td>
               <td style="width: 5%">
                 <button onclick="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_solution_{{$solution->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
-                <form id="delete_solution_{{$solution->id}}" action="{{url('manage/solution/'.$solution->id)}}" method="POST">
+                <form id="delete_solution_{{$solution->id}}" action="{{url('/'.$lang.'/manage/solution/'.$solution->id)}}" method="POST">
                   <input type="hidden" name="_method" value="delete"/>
                   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 </form>
               </td>
             </tr>
           @endforeach
-        </table><br/><a href="{{ url('manage/solution/create') }}" class="btn btn-primary">新增方案</a><br/>
+        </table><br/><a href="{{ url('/'.$lang.'/manage/solution/create') }}" class="btn btn-primary">新增方案</a><br/>
       </div>
     </div>
   </div>

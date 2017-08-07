@@ -8,7 +8,7 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href=" {{url('manage/solution')}} ">方案管理</a></li>
+        <li> <a href=" {{url('/'.$lang.'/manage/solution')}} ">方案管理</a></li>
         <li class="active">方案編輯-{!! isset($solution)?$solution->title:"" !!}</li>
       </ol>
     </div>
@@ -18,7 +18,7 @@
     <h1 class="page-header">方案管理</h1>
   </div>
 </div>
-<form action="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post" id="form_question" class="row">
+<form action="{{ (isset($solution))?(url('/'.$lang.'/manage/solution/'.$solution->id)):(url('/'.$lang.'/manage/solution/')) }}" method="post" id="form_question" class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-heading">方案設定</div>

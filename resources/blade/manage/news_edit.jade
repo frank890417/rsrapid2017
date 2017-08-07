@@ -10,13 +10,13 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href!=" {{url('manage/news')}} ")新聞管理
+          a(href!=" {{url('/'.$lang.'/manage/news')}} ")新聞管理
         li.active 新聞編輯-{!! isset($news)? $news->title :"" !!}
     @yield('content')
   .col-lg-12
     h1.page-header 新聞管理
 
-form(action!="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/news/')) }}" method="post").row
+form(action!="{{ (isset($news))?(url('/'.$lang.'/manage/news/'.$news->id)):(url('/'.$lang.'/manage/news/')) }}" method="post").row
 
 
   .col-sm-8

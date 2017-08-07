@@ -8,7 +8,7 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href=" {{url('manage/news')}} ">新聞管理</a></li>
+        <li> <a href=" {{url('/'.$lang.'/manage/news')}} ">新聞管理</a></li>
         <li class="active">新聞編輯-{!! isset($news)? $news->title :"" !!}</li>
       </ol>
     </div>
@@ -18,7 +18,7 @@
     <h1 class="page-header">新聞管理</h1>
   </div>
 </div>
-<form action="{{ (isset($news))?(url('manage/news/'.$news->id)):(url('manage/news/')) }}" method="post" class="row">
+<form action="{{ (isset($news))?(url('/'.$lang.'/manage/news/'.$news->id)):(url('/'.$lang.'/manage/news/')) }}" method="post" class="row">
   <div class="col-sm-8">
     <div class="panel panel-primary">
       <div class="panel-heading">編輯新聞</div>

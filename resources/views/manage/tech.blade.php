@@ -43,7 +43,7 @@
               </td>
             </tr>
           </tbody>
-        </table><br/><a href="{{ url('manage/news/create') }}" class="btn btn-primary">新增科技</a><br/>
+        </table><br/><a href="{{ url('/'.$lang.'/manage/news/create') }}" class="btn btn-primary">新增科技</a><br/>
       </div>
     </div>
   </div>

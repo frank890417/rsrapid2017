@@ -10,13 +10,13 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href!=" {{url('manage/question')}} ")問題管理
+          a(href!=" {{url('/'.$lang.'/manage/question')}} ")問題管理
         li.active 問題編輯-{!! isset($question)?$question->title:"" !!}
     @yield('content')
   .col-lg-12
     h1.page-header 問題管理
 
-form(action!="{{ (isset($question))?(url('manage/question/'.$question->id)):(url('manage/question/')) }}" method="post").row
+form(action!="{{ (isset($question))?(url('/'.$lang.'/manage/question/'.$question->id)):(url('/'.$lang.'/manage/question/')) }}" method="post").row
 
 
   .col-sm-9

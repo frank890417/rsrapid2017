@@ -40,7 +40,7 @@
 
               
         br
-        a.btn.btn-primary(href!="{{ url('manage/news/create') }}") 新增科技
+        a.btn.btn-primary(href!="{{ url('/'.$lang.'/manage/news/create') }}") 新增科技
         br
   .col-lg-8
     .panel.panel-default(v-for='(tech_item,id) in lang.page_tech.techs' , v-show="id==now_tech_id")

@@ -72,6 +72,7 @@ $website_routes=function(){
 Auth::routes();
 $manage_routes=function(){
   Route::get('/manage/',"ManageController@content");
+  Route::get('/manage/about',"ManageController@content");
   Route::get('/manage/news','NewsController@index');
 
   Route::resource('/manage/news','NewsController');

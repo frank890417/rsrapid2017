@@ -40,10 +40,10 @@
                 <!-- td(style="width: 9%") {{$a_news->size==1?'1格 口':'2格 口口'}} -->
                 <td style="width: 10%">{{$a_news->tag}}</td>
                 <td>{{$a_news->updated_at}}</td>
-                <td style="width: 5%"><a href="{{ url('manage/news/'.($a_news->id).'/edit') }}" class="btn btn-default">編輯</a></td>
+                <td style="width: 5%"><a href="{{ '/'.$lang.'/manage/news/'.($a_news->id).'/edit' }}" class="btn btn-default">編輯</a></td>
                 <td style="width: 5%">
                   <button onclick="event.preventDefault();if(confirm('你確定要刪除新聞嗎？')){document.getElementById('delete_news_{{$a_news->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
-                  <form id="delete_news_{{$a_news->id}}" action="{{url('manage/news/'.$a_news->id)}}" method="POST">
+                  <form id="delete_news_{{$a_news->id}}" action="{{ '/'.$lang.'/manage/news/'.$a_news->id }}" method="POST">
                     <input type="hidden" name="_method" value="delete"/>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                   </form>
@@ -51,7 +51,7 @@
               </tr>
             @endforeach
           </tbody>
-        </table><br/><a href="{{ url('manage/news/create') }}" class="btn btn-primary">新增新聞</a><br/>
+        </table><br/><a href="{{ '/'.$lang.'/manage/news/create' }}" class="btn btn-primary">新增新聞</a><br/>
       </div>
     </div>
   </div>

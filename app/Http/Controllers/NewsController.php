@@ -20,26 +20,35 @@ class NewsController extends Controller
       $lang = Request::get("lang");
       $news = News::orderBy('date','desc')->where("lang",$lang)->get();
       return view('manage.news')
-              ->with("news",$news);
+              ->with("news",$news)
+               ->with("lang",$lang);
     }
     public function edit($id){
+      $lang = Request::get('lang');
       $news = News::find($id);
       return view('manage.news_edit')
-              ->with("news",$news);
+              ->with("news",$news)
+               ->with("lang",$lang);
     }
     public function update($id){
+
+      $lang = Request::get("lang");
       $inputs= Input::all();
       $news = News::find($id);
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $news->update($inputs);
       // dd($news);
-      return Redirect::to("manage/news");
+      // dd($lang);
+      return Redirect::to("/".$lang."/manage/news");
     }
 
     public function create(){
-      return view('manage.news_edit');
+      $lang = Request::get("lang");
+      return view('manage.news_edit')
+               ->with("lang",$lang);
     }
     public function store(){
+      $lang = Request::get("lang");
       $inputs= Input::all();
 
       $lang = Request::get("lang");
@@ -47,10 +56,11 @@ class NewsController extends Controller
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
       $news = News::Create($inputs);
-      return Redirect::to("manage/news");
+      return Redirect::to("/".$lang."/manage/news");
     }
     public function destroy($id){
+      $lang = Request::get("lang");
       News::destroy($id);
-      return Redirect::to("manage/news");
+      return Redirect::to("/".$lang."/manage/news");
     }
 }

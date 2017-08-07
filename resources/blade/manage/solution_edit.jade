@@ -10,14 +10,14 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href!=" {{url('manage/solution')}} ") 方案管理
+          a(href!=" {{url('/'.$lang.'/manage/solution')}} ") 方案管理
         li.active 方案編輯-{!! isset($solution)?$solution->title:"" !!}
     @yield('content')
   .col-lg-12
     h1.page-header 方案管理
 
 
-form(action!="{{ (isset($solution))?(url('manage/solution/'.$solution->id)):(url('manage/solution/')) }}" method="post").row#form_question
+form(action!="{{ (isset($solution))?(url('/'.$lang.'/manage/solution/'.$solution->id)):(url('/'.$lang.'/manage/solution/')) }}" method="post").row#form_question
 
   .col-sm-3
     .panel.panel-default

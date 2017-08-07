@@ -34,24 +34,24 @@ console.log(vue_json_editor_block_view)
 //---------------------
 // 編輯器設定
 const mce_settings = {
-  toolbar: [ 'undo redo | bullist numlist | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword | code'],
+  toolbar: ['undo redo | bullist numlist | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword | code'],
   toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic uploadpic_url | code',
   other: {
-    plugins: ['paste', 'link', 'autoresize','lists', 'advlist','code'],
+    plugins: ['paste', 'link', 'autoresize', 'lists', 'advlist', 'code'],
     advlist_bullet_styles: "circle"
   }
 }
 
 
 //---------------------
-var locale= document.location.host.split(".")[0];
-if (["zh","cn","en"].indexOf(locale)==-1){
-  locale="zh";
+var locale = document.location.host.split(".")[0];
+if (["zh", "cn", "en"].indexOf(locale) == -1) {
+  locale = "zh";
 }
 
 // $("table").dataTable()
 var vm = new Vue({
-  el: "#app", 
+  el: "#app",
   data: {
     solutions: [],
     solution: window.solution,
@@ -74,70 +74,70 @@ var vm = new Vue({
     dragging_id: -1,
     dragging: false
   },
-  methods:{
-    delete_yearlog(yid){
-      if(confirm('你確定要刪除新聞嗎？')){
+  methods: {
+    delete_yearlog(yid) {
+      if (confirm('你確定要刪除新聞嗎？')) {
         // document.getElementById('delete_solution_'+yid).submit();
-        axios.post('/manage/yearlog/'+yid,{"_method": "delete"}).then((res)=>{
-          this.yearlogs=res.data
+        axios.post('/manage/yearlog/' + yid, { "_method": "delete" }).then((res) => {
+          this.yearlogs = res.data
         });
       }
-    },save_website_info(){
-      axios.post("/api/websiteinfo/key/"+this.locale,this.lang).then(
-        (res)=>{location.reload();}
+    }, save_website_info() {
+      axios.post(`/api/${window.locale}/websiteinfo/key/` + window.locale, this.lang).then(
+        (res) => { location.reload(); }
       )
-    },save_yearlog(){
-      axios.post('/manage/yearlog/saveall',this.yearlogs).then(
-        (res)=>{location.reload();}
+    }, save_yearlog() {
+      axios.post('/manage/yearlog/saveall', this.yearlogs).then(
+        (res) => { location.reload(); }
       )
     },
-    dragstart_question(id){
-      this.dragging_id=id;
+    dragstart_question(id) {
+      this.dragging_id = id;
       console.log(id)
     },
-    drop_question(id,arr){
+    drop_question(id, arr) {
       console.log(arr)
-      let temp=arr[id]
-      arr[id]=arr[this.dragging_id]
-      arr[this.dragging_id]=temp
-      this.questions.forEach((o,i)=>o.ordernum=i)
+      let temp = arr[id]
+      arr[id] = arr[this.dragging_id]
+      arr[this.dragging_id] = temp
+      this.questions.forEach((o, i) => o.ordernum = i)
       this.$forceUpdate()
 
     },
-    dragover_question(evt){
-      
+    dragover_question(evt) {
+
       // console.log(evt)
     },
-    save_question(){
-      axios.post("/api/questions",this.questions).then((res)=>{
+    save_question() {
+      axios.post("/api/${window.locale}/questions", this.questions).then((res) => {
       })
     }
   },
-  mounted(){
+  mounted() {
 
-    axios.get("/api/solutions").then((res)=>{
-      this.solutions=res.data
+    axios.get(`/api/${window.locale}/solutions`).then((res) => {
+      this.solutions = res.data
     })
-    axios.get("/api/yearlogs").then((res)=>{
-      this.yearlogs=res.data
+    axios.get(`/api/${window.locale}/yearlogs`).then((res) => {
+      this.yearlogs = res.data
     })
-    axios.get("/api/news").then((res)=>{
-      this.news=res.data
+    axios.get(`/api/${window.locale}/news`).then((res) => {
+      this.news = res.data
     })
-    axios.get("/api/websiteinfo/key/"+this.locale).then((res)=>{
-      this.lang=res.data
+    axios.get(`/api/${window.locale}/websiteinfo/key/` + window.locale).then((res) => {
+      this.lang = res.data
       console.log(this.lang)
     })
-    axios.get("/contact_record").then((res)=>{
-      this.contact_records=res.data
+    axios.get(`/contact_record`).then((res) => {
+      this.contact_records = res.data
     })
-    axios.get("/api/questions").then((res)=>{
-      this.questions=res.data
+    axios.get(`/api/${window.locale}/questions`).then((res) => {
+      this.questions = res.data
     })
 
   }
 })
-window.vm=vm
+window.vm = vm
 
 //nav
 
@@ -153,10 +153,10 @@ window.vm=vm
 
 //tinymce
 
-if (!window.require_js) window.require_js={};
+if (!window.require_js) window.require_js = {};
 
-if (window.require_js.tinymce){
-  $(document).ready(function(){
+if (window.require_js.tinymce) {
+  $(document).ready(function () {
     console.log("Test");
     tinymce.init({
       selector: '#content',
@@ -178,28 +178,28 @@ if (window.require_js.tinymce){
           icon: false,
           onclick: function () {
             var imgurl = prompt("輸入圖片網址", "插入圖片");
-            if(imgurl!="" && imgurl ){
-              tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src=\"'+imgurl+'\" style=\"width: 100%;height: auto\"></img>');
+            if (imgurl != "" && imgurl) {
+              tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src=\"' + imgurl + '\" style=\"width: 100%;height: auto\"></img>');
 
             }
           }
         });
       },
       toolbar1: mce_settings.toolbar_news,
-      plugins : vm.mce_plugin.plugins,
-      theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
-      paste_auto_cleanup_on_paste : true,
-      paste_preprocess : function(pl, o) {
-          // Content string containing the HTML from the clipboard
-          // alert(o.content);
-          console.log(o.content);
-          
-          // o.content = $("<p></p>").html(o.content).text();
+      plugins: vm.mce_plugin.plugins,
+      theme_advanced_buttons3_add: "pastetext,pasteword,selectall",
+      paste_auto_cleanup_on_paste: true,
+      paste_preprocess: function (pl, o) {
+        // Content string containing the HTML from the clipboard
+        // alert(o.content);
+        console.log(o.content);
+
+        // o.content = $("<p></p>").html(o.content).text();
       },
-      paste_postprocess : function(pl, o) {
-          // Content DOM node containing the DOM structure of the clipboard
-          // alert(o.node.innerHTML);
-          o.node.innerHTML = o.node.innerHTML;
+      paste_postprocess: function (pl, o) {
+        // Content DOM node containing the DOM structure of the clipboard
+        // alert(o.node.innerHTML);
+        o.node.innerHTML = o.node.innerHTML;
       }
     });
   });
@@ -207,40 +207,40 @@ if (window.require_js.tinymce){
 
 
 
-if (window.require_js.dropzone){
+if (window.require_js.dropzone) {
   //初始化Dropzone上傳圖片function
-  function gen_dz(classname,callback){  
+  function gen_dz(classname, callback) {
     var myDropzone = new Dropzone(classname, {
-      url: "/dropzone/upload.php",maxFiles: 1
-      ,sending: function(){
+      url: "/dropzone/upload.php", maxFiles: 1
+      , sending: function () {
         // vm.page_status="圖片上傳中<img src='../img/loadingicon_gold.png' class=loadingspin>";
       }
-      ,success: function(evt,res){
-        callback(evt,res);
+      , success: function (evt, res) {
+        callback(evt, res);
       }
     });
     // myDropzone.createThumbnailFromUrl(file, this.ndata.img, callback, crossOrigin);
     // $("#dropfrontimg").dropzone({ url: "http://citi2016.unitedway.org.tw/dropzone/" });
-    myDropzone.on("complete", function(file) {
+    myDropzone.on("complete", function (file) {
       myDropzone.removeFile(file);
-      setTimeout(function(){
+      setTimeout(function () {
         // vm.page_status="圖片上傳完畢";
-      },300);
-      
+      }, 300);
+
     });
   }
 
-  gen_dz(".btn-dropzone",function(evt,res){
-     console.log(res);
-     
-     tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src=\"'+res+'\" style=\"width: 100%;height: auto\"></img>');
+  gen_dz(".btn-dropzone", function (evt, res) {
+    console.log(res);
+
+    tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src=\"' + res + '\" style=\"width: 100%;height: auto\"></img>');
   });
 
-  gen_dz(".btn-dropzone-cover",function(evt,res){
-     console.log(res);
-     
-     $("#cover").val(res);
-     $(".cover_preview").attr('src',res);
+  gen_dz(".btn-dropzone-cover", function (evt, res) {
+    console.log(res);
+
+    $("#cover").val(res);
+    $(".cover_preview").attr('src', res);
   });
 
 }

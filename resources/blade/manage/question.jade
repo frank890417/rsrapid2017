@@ -51,7 +51,7 @@
               //- td(style="width: 5%") @{{qa.stick_top?'是':'否'}}
               td @{{qa.updated_at}}
               td(style="width: 5%")
-                a.btn.btn-default(:href!="'/manage/question/'+(qa.id)+'/edit'") 編輯
+                a.btn.btn-default(:href!="'/{{$lang}}/manage/question/'+(qa.id)+'/edit'") 編輯
               td(style="width: 5%")
 
           .btn.btn-danger(@click="save_question") 儲存更新
@@ -61,7 +61,7 @@
                 //-   input(type='hidden', name='_token', value='{{ csrf_token() }}')
          
         br
-        a.btn.btn-primary(href!="{{ url('manage/question/create') }}") 新增問答
+        a.btn.btn-primary(href!="{{ url('/'.$lang.'/manage/question/create') }}") 新增問答
         br
 
 

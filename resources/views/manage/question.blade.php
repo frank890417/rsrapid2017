@@ -50,7 +50,7 @@
               <td style="width: 50%">@{{qa.answer}}</td>
               {{-- td(style="width: 5%") @{{qa.stick_top?'是':'否'}} --}}
               <td>@{{qa.updated_at}}</td>
-              <td style="width: 5%"><a :href="'/manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"><a :href="'/{{$lang}}/manage/question/'+(qa.id)+'/edit'" class="btn btn-default">編輯</a></td>
               <td style="width: 5%"></td>
             </tr>
           </tbody>
@@ -60,7 +60,7 @@
             {{-- input(type='hidden', name='_method', value='delete') --}}
             {{-- input(type='hidden', name='_token', value='{{ csrf_token() }}') --}}
           </div>
-        </table><br/><a href="{{ url('manage/question/create') }}" class="btn btn-primary">新增問答</a><br/>
+        </table><br/><a href="{{ url('/'.$lang.'/manage/question/create') }}" class="btn btn-primary">新增問答</a><br/>
       </div>
     </div>
   </div>

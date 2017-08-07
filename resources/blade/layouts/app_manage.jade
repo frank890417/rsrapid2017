@@ -36,9 +36,9 @@ html(lang="{{ config('app.locale') }}")
           .navbar-brand(href='#')
             span RapidSure 2017
             |  Admin 編輯-  
-            a(href="http://zh.rapidsuretech.com/manage/", data-lang="zh") 中文 | 
-            a(href="http://en.rapidsuretech.com/manage/", data-lang="en") 英文 | 
-            a(href="http://cn.rapidsuretech.com/manage/", data-lang="cn") 簡體中文
+            a(href="/zh/manage/", data-lang="zh") 中文 | 
+            a(href="/en/manage/", data-lang="en") 英文 | 
+            a(href="/cn/manage/", data-lang="cn") 簡體中文
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -69,47 +69,47 @@ html(lang="{{ config('app.locale') }}")
           input.form-control(type='text', placeholder='Search')
       ul.nav.menu
         li(data-link="content")
-          a(href="{{ url('manage/content') }}" )
+          a(href="/{{isset($lang)?$lang:'zh'}}/manage/content" )
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
             |  首頁與資訊
         li(data-link="about")
-          a(href="{{ url('manage/about') }}")
+          a(href="/{{isset($lang)?$lang:'zh'}}/manage/about")
             svg.glyph.stroked.dashboard-dial
               use(xlink:href='#stroked-dashboard-dial')
             |  關於睿軒
         li(data-link="tech")
-          a(href!="{{ url('manage/tech') }}" )
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/tech" )
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  檢驗科技
         li(data-link="solution")
-          a(href!="{{ url('manage/solution') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/solution")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-table')
             |  檢測方案
         li(data-link="news")
-          a(href!="{{ url('manage/news') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/news")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-pencil')
             |  最新消息
         li(data-link="question")
-          a(href!="{{ url('manage/question') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/question")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  聯絡與問答
         li(data-link="tern")
-          a(href!="{{ url('manage/tern') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/tern")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  各項聲明
         li(data-link="job")
-          a(href!="{{ url('manage/job') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/job")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  人才招募
         li(data-link="contactrecord")
-          a(href!="{{ url('manage/contactrecord') }}")
+          a(href!="/{{isset($lang)?$lang:'zh'}}/manage/contactrecord")
             svg.glyph.stroked.calendar
               use(xlink:href='#stroked-calendar')
             |  詢問紀錄
@@ -423,16 +423,18 @@ html(lang="{{ config('app.locale') }}")
     script(src='/js/admin_js/jquery-1.11.1.min.js')
     script(src='/js/admin_js/bootstrap.min.js')
     script.
+      window.locale="{{isset($lang)?$lang:'zh'}}";
+      window.lang={};
       $("[data-link]").each(function(id,obj){
         if ($(obj).attr("data-link")==document.URL.split("/").slice(-1)[0]){ 
 
           $(obj).addClass("active")
         }
       });
-      var locale= document.location.host.split(".")[0];
-      if (["zh","cn","en"].indexOf(locale)==-1){
-        locale="zh";
-      }
+      //- var locale= document.location.host.split(".")[0];
+      //- if (["zh","cn","en"].indexOf(locale)==-1){
+      //-   locale="zh";
+      //- }
       $("a[data-lang]").css("opacity","0.4");
       $("a[data-lang='"+locale+"']").css("opacity","1");
     //- script(src='/js/admin_js/chart.min.js')
