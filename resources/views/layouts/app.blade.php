@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$metas["meta_title"]}}</title>
+    <meta name="google-site-verification" content="rjddDPy5PhR_RofqCyriMeBqtEdESBMhbuQxFBvKi2g">
     <meta property="og:title" content="{{$metas['meta_title']}}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{$metas['meta_cover']}}">
