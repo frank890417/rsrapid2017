@@ -15,7 +15,14 @@
         text-align: left
         +range_width(0px,800px)
           height: auto
-
+  
+    +rwd_sm
+      .container.flex
+        display: block
+      .btn
+        margin-top: 50px
+        display: block
+        text-align: center
 
   .section_hero
     // min-height: 50vh
@@ -149,12 +156,7 @@
 
       +rwd_sm
         min-height: initial
-    
-    +rwd_sm
-      .btn
-        margin-top: 50px
-        display: block
-        text-align: center
+  
         
 
 
@@ -196,6 +198,13 @@
 
     .talk_box
       position: relative
+      +rwd_sm
+        margin-left: auto
+        margin-right: auto
+        h2
+          padding-left: 48px
+          font-size: 24px
+
     .slick
       height: 100%
       width: grid_sz(8,7)
@@ -207,7 +216,7 @@
       background-size: auto 100%
       // height: auto
       h2
-        margin-top: grid_sz(0,3)
+        margin-top: grid_sz(0,2)
     // +rwd_xs
     //   background-size: auto 100%
     //   // height: auto

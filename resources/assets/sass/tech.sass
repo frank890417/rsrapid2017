@@ -7,6 +7,7 @@
     min-height: 0px
     position: relative
 
+
   .section_title
     margin-top: 0px
 
@@ -73,12 +74,18 @@
     // padding: 4*$gutter_width 0px
     background-attachment: auto 100%
     color: $color_grey
+    
+    +rwd_sm
+      .container.flex
+        display: block
+        
 
     .section_title
       margin-bottom: grid_sz(0,2)
       margin-top: grid_sz(0,0)
       +rwd_md
-        margin-top: grid_sz(0,1)
+        margin-top: grid_sz(0,2)
+        margin-bottom: grid_sz(0,1)
 
     .col_content
       padding-bottom: grid_sz(0,4)
