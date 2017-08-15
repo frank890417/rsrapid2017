@@ -26,7 +26,7 @@ div.page_news
           .info
             h5.date {{a_news.date}}
             h3.title {{a_news.title}}
-            p {{(a_news.content+'').replace(/<[^>]*>/g, '').substr(0,(is_double(id)&&filter.all)?90:45)+'...'}}
+            p {{(a_news.content+'').replace(/(\&[a-zA-Z]{2,5}\;|\<[^>]*\>)/g, '').substr(0,(is_double(id)&&filter.all)?90:45)+'...'}}
           router-link(:to="'/news/'+a_news.id").btn.btn-transparent.ab_center {{$t("page_news.btn_knowmore")}}
     .trigger_bar(style="text-align: center")
       transition(name="fade")
