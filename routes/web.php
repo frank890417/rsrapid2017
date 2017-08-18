@@ -103,11 +103,9 @@ foreach ($langs as $key => $lang) {
 
 
 
-
-
-Route::get('/{any}/{anyt?}/{anyd?}', function(){
-  return redirect("/");
-});
+// Route::get('/{any}/{anyt?}/{anyd?}', function(){
+//   return redirect("/");
+// });
 
 // App::missing(function($exception)
 // {
