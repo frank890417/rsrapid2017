@@ -55,7 +55,7 @@ class Contact_recordController extends Controller
         $message
           ->from('service@rapidsuretech.com','睿軒官網服務信箱')
           ->bcc('frank890417@gmail.com', '吳哲宇')
-          ->to('rex.hong@ylhealth.org','Rex')
+          ->to('rapidsure.tw@gmail.com','睿軒網站客服')
           ->subject('睿軒官網聯繫表單通知 -'. $maildata['name']);
       });
       $contact_record = Contact_record::Create($inputs);
