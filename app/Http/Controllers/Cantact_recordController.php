@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Contact_record;
 use App\Solution;
+use Mail;
 class Contact_recordController extends Controller
 {
     // public function __construct()
