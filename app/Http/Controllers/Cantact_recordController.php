@@ -42,6 +42,21 @@ class Contact_recordController extends Controller
       $inputs= Input::all();
       $inputs['updated_at']=date("Y-m-d H:i:s");
       $inputs['created_at']=date("Y-m-d H:i:s");
+      $maildata=[
+        'name' => $inputs['name'] ,
+        // 'phone' => $inputs['phone'] ,
+        'email' => $inputs['email'] ,
+        'ask_item_name' => $inputs['ask_item_name'] ,
+        'content' => $inputs['content'] ,
+        'time' => date("Y-m-d H:i:s")
+      ];
+      Mail::send('emails.welcome', $maildata, function($message) use ($maildata){
+        $message
+          ->from('service@rapidsuretech.com','睿軒官網服務信箱')
+          ->bcc('frank890417@gmail.com', '吳哲宇')
+          ->to('rex.hong@ylhealth.org','Rex')
+          ->subject('睿軒官網聯繫表單通知 -'. $maildata['name']);
+      });
       $contact_record = Contact_record::Create($inputs);
       return ["status"=>"success","value"=>$contact_record] ;
     }
