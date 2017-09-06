@@ -46,7 +46,7 @@ class Contact_recordController extends Controller
         'name' => $inputs['name'] ,
         // 'phone' => $inputs['phone'] ,
         'email' => $inputs['email'] ,
-        'ask_item_name' => $inputs['ask_item_name'] ,
+        'ask_item_name' => Solution::find($inputs['ask_item_id'])->title ,
         'content' => $inputs['content'] ,
         'time' => date("Y-m-d H:i:s")
       ];
