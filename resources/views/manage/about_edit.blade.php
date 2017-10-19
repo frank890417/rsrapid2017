@@ -8,7 +8,7 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href=" {{url('manage/about')}} ">關於睿軒</a></li>
+        <li> <a href=" {{url('/'.$lang.'/manage/about')}} ">關於睿軒</a></li>
         <li>年表管理</li>
         <li class="active">年表編輯-{!! isset($yearlog)?$yearlog->title:"" !!}</li>
       </ol>
@@ -19,7 +19,7 @@
     <h1 class="page-header">年表管理</h1>
   </div>
 </div>
-<form action="{{ (isset($yearlog))?(url('manage/about/'.$yearlog->id)):(url('manage/about/')) }}" method="post" id="form_yearlog" class="row">
+<form action="{{ (isset($yearlog))?(url('/'.$lang.'/manage/about/'.$yearlog->id)):(url('/'.$lang.'/manage/about/')) }}" method="post" id="form_yearlog" class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-heading">年表設定</div>

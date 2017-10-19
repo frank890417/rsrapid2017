@@ -9,14 +9,14 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href!=" {{url('manage/about')}} ") 關於睿軒
+          a(href!=" {{url('/'.$lang.'/manage/about')}} ") 關於睿軒
         li 年表管理
         li.active 年表編輯-{!! isset($yearlog)?$yearlog->title:"" !!}
     @yield('content')
   .col-lg-12
     h1.page-header 年表管理
 
-form(action!="{{ (isset($yearlog))?(url('manage/about/'.$yearlog->id)):(url('manage/about/')) }}" method="post").row#form_yearlog
+form(action!="{{ (isset($yearlog))?(url('/'.$lang.'/manage/about/'.$yearlog->id)):(url('/'.$lang.'/manage/about/')) }}" method="post").row#form_yearlog
 
   .col-sm-3
     .panel.panel-default
