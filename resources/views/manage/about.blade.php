@@ -59,10 +59,10 @@
               <td style="width: 40%">{{$yearlog->content}}</td>
               <td style="width: 10%">{{$yearlog->news_id}}</td>
               <td style="width: 10%">{{$yearlog->updated_at}}</td>
-              <td style="width: 5%"><a href="{{ url('manage/about/'.($yearlog->id).'/edit') }}" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"><a href="{{ url(url('/'.$lang.'/manage/about/'.($yearlog->id).'/edit') }}" class="btn btn-default">編輯</a></td>
               <td style="width: 5%">
                 <button onclick="event.preventDefault();if(confirm('你確定要刪除此筆年表嗎？')){document.getElementById('delete_yearlog_{{$yearlog->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
-                <form id="delete_yearlog_{{$yearlog->id}}" action="/manage/about/{{$yearlog->id}}" method="POST">
+                <form id="delete_yearlog_{{$yearlog->id}}" action="url('/'.$lang.'/manage/about/{{$yearlog->id}}" method="POST">
                   <input type="hidden" name="_method" value="delete"/>
                   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 </form>
