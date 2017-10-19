@@ -53,14 +53,14 @@
               td(style="width: 10%") {{$yearlog->news_id}}
               td(style="width: 10%") {{$yearlog->updated_at}}
               td(style="width: 5%")
-                a.btn.btn-default(href!="{{ url(url('/'.$lang.'/manage/about/'.($yearlog->id).'/edit') }}") 編輯
+                a.btn.btn-default(href!="{{ url('/'.$lang.'/manage/about/'.($yearlog->id).'/edit') }}") 編輯
               td(style="width: 5%")
                 button.btn.btn-danger.btn-md(onclick!="event.preventDefault();if(confirm('你確定要刪除此筆年表嗎？')){document.getElementById('delete_yearlog_{{$yearlog->id}}').submit();}") 刪除
                 form(id!="delete_yearlog_{{$yearlog->id}}", action!="url('/'.$lang.'/manage/about/{{$yearlog->id}}", method='POST')
                   input(type='hidden', name='_method', value='delete')
                   input(type='hidden', name='_token', value='{{ csrf_token() }}')
             @endforeach
-        a.btn.btn-primary(href="{{ url('manage/about/create') }}") 新增年表
+        a.btn.btn-primary(href="{{ url('/'.$lang.'/manage/about/create') }}") 新增年表
         br
 
 @endsection

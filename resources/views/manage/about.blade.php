@@ -59,7 +59,7 @@
               <td style="width: 40%">{{$yearlog->content}}</td>
               <td style="width: 10%">{{$yearlog->news_id}}</td>
               <td style="width: 10%">{{$yearlog->updated_at}}</td>
-              <td style="width: 5%"><a href="{{ url(url('/'.$lang.'/manage/about/'.($yearlog->id).'/edit') }}" class="btn btn-default">編輯</a></td>
+              <td style="width: 5%"><a href="{{ url('/'.$lang.'/manage/about/'.($yearlog->id).'/edit') }}" class="btn btn-default">編輯</a></td>
               <td style="width: 5%">
                 <button onclick="event.preventDefault();if(confirm('你確定要刪除此筆年表嗎？')){document.getElementById('delete_yearlog_{{$yearlog->id}}').submit();}" class="btn btn-danger btn-md">刪除</button>
                 <form id="delete_yearlog_{{$yearlog->id}}" action="url('/'.$lang.'/manage/about/{{$yearlog->id}}" method="POST">
@@ -70,7 +70,7 @@
             </tr>
             @endforeach
           </tbody>
-        </table><a href="{{ url('manage/about/create') }}" class="btn btn-primary">新增年表</a><br/>
+        </table><a href="{{ url('/'.$lang.'/manage/about/create') }}" class="btn btn-primary">新增年表</a><br/>
       </div>
     </div>
   </div>
