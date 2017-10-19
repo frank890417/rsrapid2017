@@ -36,6 +36,12 @@ class ManageController extends Controller
                ->with("lang",$lang);
     }
     //
+    public function tech_create(){
+        $lang = Request::get('lang');
+        return view("manage.tech_edit")
+               ->with("lang",$lang);
+    }
+    //
     public function contactrecord(){
         $lang = Request::get('lang');
         return view("manage.contactrecord")

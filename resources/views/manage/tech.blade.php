@@ -43,7 +43,12 @@
               </td>
             </tr>
           </tbody>
-        </table><br/><a href="{{ url('/'.$lang.'/manage/news/create') }}" class="btn btn-primary">新增科技</a><br/>
+        </table>
+        <!--          
+          pre(v-html="lang.page_tech.techs[0]")
+              
+        --><br/>
+        <div @click="addNewTech" class="btn btn-primary">新增科技</div><br/>
       </div>
     </div>
   </div>

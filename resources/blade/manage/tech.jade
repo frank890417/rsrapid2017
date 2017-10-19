@@ -37,10 +37,11 @@
               td 
                 button.btn(@click="now_tech_id=id") 編輯
                 button.btn.btn-danger(@click="lang.page_tech.techs.splice(id,1)") 刪除
-
+        //div(v-if="lang.page_tech.techs")
+          pre(v-html="lang.page_tech.techs[0]")
               
         br
-        a.btn.btn-primary(href!="{{ url('/'.$lang.'/manage/news/create') }}") 新增科技
+        .btn.btn-primary(@click="addNewTech") 新增科技
         br
   .col-lg-8
     .panel.panel-default(v-for='(tech_item,id) in lang.page_tech.techs' , v-show="id==now_tech_id")

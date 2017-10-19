@@ -87,6 +87,7 @@ $manage_routes=function(){
   Route::get('/manage/tern',"ManageController@tern");
   Route::get('/manage/job',"ManageController@job");
   Route::get('/manage/tech',"ManageController@tech");
+  Route::get('/manage/tech/create',"ManageController@tech_create");
   Route::get('/manage/contactrecord',"ManageController@contactrecord");
   Route::get('/manage/detail_info',"ManageController@detail_info");
 

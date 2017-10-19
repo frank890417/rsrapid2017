@@ -111,7 +111,23 @@ var vm = new Vue({
     save_question() {
       axios.post("/api/${window.locale}/questions", this.questions).then((res) => {
       })
+    },
+    addNewTech(){
+      let ids = this.lang.page_tech.techs.reduce((total,b)=>Math.max(total,b))
+      let newTechData = {
+        "id": ids+1,
+        "title": "",
+        "description": "",
+        "sections": [
+        ],
+        "section_solution": {
+          "solutions": [ -1,-1,-1 ]
+        }
+      }
+      let new_id = this.lang.page_tech.techs.push(newTechData)
+      this.now_tech_id = new_id -1
     }
+
   },
   mounted() {
 
