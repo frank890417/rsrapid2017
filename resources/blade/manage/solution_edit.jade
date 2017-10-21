@@ -102,7 +102,7 @@ form(action!="{{ (isset($solution))?(url('/'.$lang.'/manage/solution/'.$solution
               input.form-control(v-model="talk.title")
               input.form-control(v-model="talk.name")
               button.btn.btn-default(@click="solution.talk.splice(tid,1)") 移除
-          button.btn.btn-default(@click="solution.talk.push({title: '',name: ''})") 新增口碑
+          .btn.btn-default(@click="solution.talk.push({title: '',name: ''})") 新增口碑
 
           input(type="hidden" ,id="talk", name="talk" ,class='form-control', :value!="JSON.stringify(solution.talk)")
 
@@ -124,10 +124,11 @@ script.
   window.require_js.tinymce=true;
   @if (isset($solution))
     window.solution= {!! json_encode($solution) !!}
+    if (window.solution.talk=="null"){window.solution.talk="[]"}
     window.solution.talk= JSON.parse(window.solution.talk)
     window.solution.section_solution= JSON.parse(window.solution.section_solution)
   @else
-    window.solution={}
+    
   @endif
   
   solution.carousel=JSON.parse(solution.carousel)

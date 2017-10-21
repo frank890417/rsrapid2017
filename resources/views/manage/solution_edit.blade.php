@@ -104,7 +104,7 @@
               <button @click="solution.talk.splice(tid,1)" class="btn btn-default">移除</button>
             </li>
           </ul>
-          <button @click="solution.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</button>
+          <div @click="solution.talk.push({title: '',name: ''})" class="btn btn-default">新增口碑</div>
           <input type="hidden" id="talk" name="talk" :value="JSON.stringify(solution.talk)" class="form-control"/>
         </div><br/><br/>
       </div>
@@ -122,10 +122,11 @@
   window.require_js.tinymce=true;
   @if (isset($solution))
     window.solution= {!! json_encode($solution) !!}
+    if (window.solution.talk=="null"){window.solution.talk="[]"}
     window.solution.talk= JSON.parse(window.solution.talk)
     window.solution.section_solution= JSON.parse(window.solution.section_solution)
   @else
-    window.solution={}
+    
   @endif
   
   solution.carousel=JSON.parse(solution.carousel)
