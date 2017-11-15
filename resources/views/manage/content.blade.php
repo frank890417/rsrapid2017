@@ -25,6 +25,14 @@
       <div class="panel-heading">首頁管理</div>
       <div class="panel-body">
         <div class="form-group">
+          <h4>頂區</h4>
+          <label>標題</label>
+          <input id="index_section_hero_cht_slogan" v-model="lang.page_index.section_hero.cht_slogan" :other-props="mce_plugin" :toolbar="mce_toolbar" class="form-control"/>
+          <label>內文</label>
+          <input v-model="lang.page_index.section_hero.eng_slogan" class="form-control"/>
+          <hr/>
+        </div>
+        <div class="form-group">
           <h4>區塊一</h4>
           <label>標題</label>
           <input v-model="lang.page_index.section_1.title" class="form-control"/>

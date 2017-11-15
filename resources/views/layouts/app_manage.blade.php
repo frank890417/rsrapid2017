@@ -155,7 +155,7 @@
                   use(xlink:href='#stroked-chevron-right')
                 |  Sub Item 3
         --}}
-        <li role="presentation" onClick="location.replace('{{ url('manage/detail_info') }}')" class="divider"></li>
+        <li role="presentation" onClick="location.replace('{{ url('/'.(isset($lang)?$lang:'zh').'/manage/detail_info') }}')" class="divider"></li>
         @if(!Auth::user())
         <li><a href="/login">
             <svg class="glyph stroked male-user">

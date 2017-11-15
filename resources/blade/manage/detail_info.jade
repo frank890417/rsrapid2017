@@ -9,10 +9,11 @@
             svg.glyph.stroked.home
               use(xlink:href='#stroked-home')
         li 
-          a(href="#") 雜項管理
+          a(href="#") 雜項管理{{$lang}}
+
 
   .col-lg-12
-    h1.page-header 雜項管理
+    h1.page-header 雜項管理{{$lang}}
       .btn.btn-danger.pull-right(@click="save_website_info") 儲存更新
 
 .row(v-if="lang").detail_info_editor
@@ -20,6 +21,7 @@
     .panel.panel-primary
       .panel-heading 頁面內容管理
       .panel-body(v-for="(part,key) in lang")
+
         h3 @{{key}}
         v-json-editor(:data="part",
             :editable="true",

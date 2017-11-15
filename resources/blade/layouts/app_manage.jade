@@ -161,7 +161,7 @@ html(lang="{{ config('app.locale') }}")
                 svg.glyph.stroked.chevron-right
                   use(xlink:href='#stroked-chevron-right')
                 |  Sub Item 3
-        li.divider(role='presentation' onClick="location.replace('{{ url('manage/detail_info') }}')")
+        li.divider(role='presentation' onClick="location.replace('{{ url('/'.(isset($lang)?$lang:'zh').'/manage/detail_info') }}')")
         
         @if (!Auth::user())
         li

@@ -8,12 +8,12 @@
             <svg class="glyph stroked home">
               <use xlink:href="#stroked-home"></use>
             </svg></a></li>
-        <li> <a href="#">雜項管理</a></li>
+        <li> <a href="#">雜項管理{{$lang}}</a></li>
       </ol>
     </div>
   </div>
   <div class="col-lg-12">
-    <h1 class="page-header">雜項管理
+    <h1 class="page-header">雜項管理{{$lang}}
       <div @click="save_website_info" class="btn btn-danger pull-right">儲存更新</div>
     </h1>
   </div>

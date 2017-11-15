@@ -141,7 +141,12 @@ var vm = new Vue({
       this.news = res.data
     })
     axios.get(`/api/${window.locale}/websiteinfo/key/` + window.locale).then((res) => {
+
+      if (!res.data.page_index.section_hero) {
+        res.data.page_index.section_hero = {}
+      }
       this.lang = res.data
+      
       console.log(this.lang)
     })
     axios.get(`/contact_record`).then((res) => {

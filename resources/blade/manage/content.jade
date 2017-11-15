@@ -23,6 +23,15 @@
 
       .panel-body
         .form-group
+          h4 頂區
+          label 標題
+          input.form-control(id = "index_section_hero_cht_slogan" , v-model="lang.page_index.section_hero.cht_slogan",
+          :other-props="mce_plugin",  :toolbar="mce_toolbar")
+          label 內文
+          input.form-control(v-model="lang.page_index.section_hero.eng_slogan")
+          
+          hr
+        .form-group
           h4 區塊一
           label 標題
           input.form-control(v-model="lang.page_index.section_1.title")
