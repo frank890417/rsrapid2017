@@ -10,9 +10,9 @@ div.page_index
 
   section.page_index_main.bg_parallax
     .container.index_slogan_area
-      h1 為安全出發 
+      h1(v-html="$t('page_index.section_hero.cht_slogan')") 為安全出發 
         span.color_theme 讓生活更美好
-      h3.page_header_eng Better health, better life
+      h3.page_header_eng(v-html="$t('page_index.section_hero.eng_slogan')") Better health, better life
 
     .container.news_container
       .slick
